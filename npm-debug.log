@@ -1,0 +1,143 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@1.4.9
+3 info using node@v0.12.0
+4 verbose node symlink /usr/local/bin/node
+5 verbose publish [ '.' ]
+6 verbose cache add [ '.', null ]
+7 verbose cache add name=undefined spec="." args=[".",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: '.',
+8 verbose parsed url   path: '.',
+8 verbose parsed url   href: '.' }
+9 silly lockFile 3a52ce78- .
+10 verbose lock . /Users/Marco/.npm/3a52ce78-.lock
+11 verbose tar pack [ '/var/folders/gs/gf_r444s13x_cd4qks2qzq4m0000gn/T/npm-13940-g0u6OSs0/1424710407301-0.9731867164373398/tmp.tgz',
+11 verbose tar pack   '.' ]
+12 verbose tarball /var/folders/gs/gf_r444s13x_cd4qks2qzq4m0000gn/T/npm-13940-g0u6OSs0/1424710407301-0.9731867164373398/tmp.tgz
+13 verbose folder .
+14 info prepublish epha-robot@0.2.0
+15 silly lockFile 1f1177db-tar tar://.
+16 verbose lock tar://. /Users/Marco/.npm/1f1177db-tar.lock
+17 silly lockFile 90d5b66c-07301-0-9731867164373398-tmp-tgz tar:///var/folders/gs/gf_r444s13x_cd4qks2qzq4m0000gn/T/npm-13940-g0u6OSs0/1424710407301-0.9731867164373398/tmp.tgz
+18 verbose lock tar:///var/folders/gs/gf_r444s13x_cd4qks2qzq4m0000gn/T/npm-13940-g0u6OSs0/1424710407301-0.9731867164373398/tmp.tgz /Users/Marco/.npm/90d5b66c-07301-0-9731867164373398-tmp-tgz.lock
+19 silly lockFile 1f1177db-tar tar://.
+20 silly lockFile 1f1177db-tar tar://.
+21 silly lockFile 90d5b66c-07301-0-9731867164373398-tmp-tgz tar:///var/folders/gs/gf_r444s13x_cd4qks2qzq4m0000gn/T/npm-13940-g0u6OSs0/1424710407301-0.9731867164373398/tmp.tgz
+22 silly lockFile 90d5b66c-07301-0-9731867164373398-tmp-tgz tar:///var/folders/gs/gf_r444s13x_cd4qks2qzq4m0000gn/T/npm-13940-g0u6OSs0/1424710407301-0.9731867164373398/tmp.tgz
+23 verbose tar unpack /var/folders/gs/gf_r444s13x_cd4qks2qzq4m0000gn/T/npm-13940-g0u6OSs0/1424710407301-0.9731867164373398/tmp.tgz
+24 silly lockFile 358d7ab2-rco-npm-epha-robot-0-2-0-package tar:///Users/Marco/.npm/epha-robot/0.2.0/package
+25 verbose lock tar:///Users/Marco/.npm/epha-robot/0.2.0/package /Users/Marco/.npm/358d7ab2-rco-npm-epha-robot-0-2-0-package.lock
+26 silly lockFile 90d5b66c-07301-0-9731867164373398-tmp-tgz tar:///var/folders/gs/gf_r444s13x_cd4qks2qzq4m0000gn/T/npm-13940-g0u6OSs0/1424710407301-0.9731867164373398/tmp.tgz
+27 verbose lock tar:///var/folders/gs/gf_r444s13x_cd4qks2qzq4m0000gn/T/npm-13940-g0u6OSs0/1424710407301-0.9731867164373398/tmp.tgz /Users/Marco/.npm/90d5b66c-07301-0-9731867164373398-tmp-tgz.lock
+28 silly gunzTarPerm modes [ '755', '644' ]
+29 silly gunzTarPerm extractEntry package.json
+30 silly gunzTarPerm extractEntry .npmignore
+31 silly gunzTarPerm extractEntry README.md
+32 silly gunzTarPerm extractEntry LICENSE
+33 silly gunzTarPerm extractEntry bin/cli.js
+34 silly gunzTarPerm extractEntry jobs/atc.js
+35 silly gunzTarPerm extractEntry jobs/bag.js
+36 silly gunzTarPerm extractEntry jobs/kompendium.js
+37 silly gunzTarPerm extractEntry jobs/swissmedic.js
+38 silly gunzTarPerm extractEntry lib/download.js
+39 silly gunzTarPerm extractEntry lib/emil.js
+40 silly gunzTarPerm extractEntry lib/files.js
+41 silly gunzTarPerm extractEntry lib/index.js
+42 silly gunzTarPerm extractEntry lib/util.js
+43 silly lockFile 358d7ab2-rco-npm-epha-robot-0-2-0-package tar:///Users/Marco/.npm/epha-robot/0.2.0/package
+44 silly lockFile 358d7ab2-rco-npm-epha-robot-0-2-0-package tar:///Users/Marco/.npm/epha-robot/0.2.0/package
+45 silly lockFile 90d5b66c-07301-0-9731867164373398-tmp-tgz tar:///var/folders/gs/gf_r444s13x_cd4qks2qzq4m0000gn/T/npm-13940-g0u6OSs0/1424710407301-0.9731867164373398/tmp.tgz
+46 silly lockFile 90d5b66c-07301-0-9731867164373398-tmp-tgz tar:///var/folders/gs/gf_r444s13x_cd4qks2qzq4m0000gn/T/npm-13940-g0u6OSs0/1424710407301-0.9731867164373398/tmp.tgz
+47 silly lockFile 3a52ce78- .
+48 silly lockFile 3a52ce78- .
+49 silly publish { name: 'epha-robot',
+49 silly publish   description: 'Fetching, cleaning, transforming of pharmaceutical data from public resources',
+49 silly publish   version: '0.2.0',
+49 silly publish   author: { name: 'Marco Egbring', email: 'marco.egbring@epha.ch' },
+49 silly publish   scripts: { start: 'node ./bin/cli.js' },
+49 silly publish   main: './lib/index.js',
+49 silly publish   dependencies:
+49 silly publish    { 'adm-zip': '^0.4.7',
+49 silly publish      async: '^0.9.0',
+49 silly publish      bytes: '~1.0.0',
+49 silly publish      cheerio: '^0.18.0',
+49 silly publish      csv: '~0.3.7',
+49 silly publish      'iconv-lite': '~0.2.11',
+49 silly publish      jquery: '~2.1.1',
+49 silly publish      moment: '^2.9.0',
+49 silly publish      'node-xlsx': '0.4.0',
+49 silly publish      sax: '*',
+49 silly publish      sha1: '^1.1.0',
+49 silly publish      streamifier: '^0.1.0',
+49 silly publish      tedious: '~1.2.2',
+49 silly publish      xlsjs: '*',
+49 silly publish      xlsx: '^0.5.10-b.3',
+49 silly publish      'xml-splitter': '^1.2.1' },
+49 silly publish   devDependencies: { mocha: '>=1.0.0' },
+49 silly publish   keywords:
+49 silly publish    [ 'swissmedic',
+49 silly publish      'kompendium',
+49 silly publish      'swiss-drg',
+49 silly publish      'bfs',
+49 silly publish      'bag',
+49 silly publish      'atc',
+49 silly publish      'kompendium',
+49 silly publish      'swissmedicinfo' ],
+49 silly publish   repository: { type: 'git', url: 'git://github.com/epha/bot.git' },
+49 silly publish   readme: '# bot\nFetching, cleaning, transforming of pharmaceutical data from public resources\n\n## Usage\n```bash\nnpm start\n```',
+49 silly publish   readmeFilename: 'README.md',
+49 silly publish   bugs: { url: 'https://github.com/epha/bot/issues' },
+49 silly publish   homepage: 'https://github.com/epha/bot',
+49 silly publish   _id: 'epha-robot@0.2.0',
+49 silly publish   _shasum: '6ded4b54491fc44ac6c00c9e1af72888a6e227f8',
+49 silly publish   _from: '.' }
+50 verbose url raw epha-robot
+51 verbose url resolving [ 'https://registry.npmjs.org/', './epha-robot' ]
+52 verbose url resolved https://registry.npmjs.org/epha-robot
+53 info trying registry request attempt 1 at 17:53:27
+54 http PUT https://registry.npmjs.org/epha-robot
+55 http 403 https://registry.npmjs.org/epha-robot
+56 verbose headers { date: 'Mon, 23 Feb 2015 16:53:27 GMT',
+56 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+56 verbose headers   'content-type': 'application/json',
+56 verbose headers   'cache-control': 'max-age=60',
+56 verbose headers   'content-length': '3135',
+56 verbose headers   'accept-ranges': 'bytes',
+56 verbose headers   via: '1.1 varnish',
+56 verbose headers   'x-served-by': 'cache-fra1222-FRA',
+56 verbose headers   'x-cache': 'MISS',
+56 verbose headers   'x-cache-hits': '0',
+56 verbose headers   'x-timer': 'S1424710407.502642,VS0,VE328',
+56 verbose headers   connection: 'close' }
+57 error publish Failed PUT 403
+58 error Error: forbidden cannot modify pre-existing version: 0.2.0
+58 error old={"name":"epha-robot","description":"Fetching, cleaning, transforming of pharmaceutical data from public resources","version":"0.2.0","author":{"name":"Marco Egbring","email":"marco.egbring@epha.ch"},"scripts":{"start":"node ./bin/cli.js"},"main":"./lib/index.js","dependencies":{"adm-zip":"^0.4.7","async":"^0.9.0","bytes":"~1.0.0","cheerio":"^0.18.0","csv":"~0.3.7","iconv-lite":"~0.2.11","jquery":"~2.1.1","moment":"^2.9.0","node-xlsx":"0.4.0","sax":"*","sha1":"^1.1.0","streamifier":"^0.1.0","tedious":"~1.2.2","xlsjs":"*","xlsx":"^0.5.10-b.3","xml-splitter":"^1.2.1"},"devDependencies":{"mocha":">=1.0.0"},"keywords":["swissmedic","kompendium","swiss-drg","bfs","bag","atc","kompendium","swissmedicinfo"],"repository":{"type":"git","url":"git://github.com/epha/bot.git"},"bugs":{"url":"https://github.com/epha/bot/issues"},"homepage":"https://github.com/epha/bot","_id":"epha-robot@0.2.0","_shasum":"d3bb0b79bf733cebb4470e7e0dcb3796c250db50","_from":".","_npmVersion":"1.4.9","_npmUser":{"name":"epha","email":"marco.egbring@epha.ch"},"maintainers":[{"name":"epha","email":"marco.egbring@epha.ch"}],"dist":{"shasum":"d3bb0b79bf733cebb4470e7e0dcb3796c250db50","tarball":"http://registry.npmjs.org/epha-robot/-/epha-robot-0.2.0.tgz"}}
+58 error new={"name":"epha-robot","description":"Fetching, cleaning, transforming of pharmaceutical data from public resources","version":"0.2.0","author":{"name":"Marco Egbring","email":"marco.egbring@epha.ch"},"scripts":{"start":"node ./bin/cli.js"},"main":"./lib/index.js","dependencies":{"adm-zip":"^0.4.7","async":"^0.9.0","bytes":"~1.0.0","cheerio":"^0.18.0","csv":"~0.3.7","iconv-lite":"~0.2.11","jquery":"~2.1.1","moment":"^2.9.0","node-xlsx":"0.4.0","sax":"*","sha1":"^1.1.0","streamifier":"^0.1.0","tedious":"~1.2.2","xlsjs":"*","xlsx":"^0.5.10-b.3","xml-splitter":"^1.2.1"},"devDependencies":{"mocha":">=1.0.0"},"keywords":["swissmedic","kompendium","swiss-drg","bfs","bag","atc","kompendium","swissmedicinfo"],"repository":{"type":"git","url":"git://github.com/epha/bot.git"},"readme":"# bot\u000aFetching, cleaning, transforming of pharmaceutical data from public resources\u000a\u000a## Usage\u000a```bash\u000anpm start\u000a```","readmeFilename":"README.md","bugs":{"url":"https://github.com/epha/bot/issues"},"homepage":"https://github.com/epha/bot","_id":"epha-robot@0.2.0","_shasum":"6ded4b54491fc44ac6c00c9e1af72888a6e227f8","_from":".","_npmVersion":"1.4.9","_npmUser":{"name":"epha","email":"marco.egbring@epha.ch"},"maintainers":[{"name":"epha","email":"marco.egbring@epha.ch"}],"dist":{"shasum":"6ded4b54491fc44ac6c00c9e1af72888a6e227f8","tarball":"http://registry.npmjs.org/epha-robot/-/epha-robot-0.2.0.tgz"}}: epha-robot
+58 error     at RegClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:273:14)
+58 error     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:211:65)
+58 error     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:123:22)
+58 error     at Request.emit (events.js:110:17)
+58 error     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:893:14)
+58 error     at Request.emit (events.js:129:20)
+58 error     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:844:12)
+58 error     at IncomingMessage.emit (events.js:129:20)
+58 error     at _stream_readable.js:908:16
+58 error     at process._tickCallback (node.js:355:11)
+59 error If you need help, you may report this *entire* log,
+59 error including the npm and node versions, at:
+59 error     <http://github.com/npm/npm/issues>
+60 error System Darwin 14.1.0
+61 error command "node" "/usr/local/bin/npm" "publish"
+62 error cwd /Users/Marco/Documents/Git/robot
+63 error node -v v0.12.0
+64 error npm -v 1.4.9
+65 verbose exit [ 1, true ]
