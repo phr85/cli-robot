@@ -1,0 +1,160 @@
+var download = require("../lib/download");
+
+var xlsx = require('xlsx');
+var util = require("../lib/util");
+var fs = require("fs");
+var async = require("async");
+var log = require("../lib/util").log;
+var doing = require("../lib/util").doing;
+
+var start;
+
+module.exports = function(done) {
+  async.series([ 
+    function (callback) {
+      start = new Date();
+      log( "SWISSMEDIC Querying at " + start.toISOString());
+      callback(null);
+    },
+    function(callback) {    
+      log( "SWISSMEDIC Search link in https://www.swissmedic.ch/");
+
+      var find = {
+        url: "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
+        match: /href="([\/a-zäöü0-9\?\;\,\=\.\-\_\&]*)".*Excel-Version Zugelassene Verpackungen/gi
+      };
+
+      download.link( find, function( urls ) {
+        link = urls.pop();
+        callback(null);
+      });     
+    },
+    function(callback) {
+      log( "SWISSMEDIC Download file and save to 'data/auto/swissmedic.xlsx'" );
+
+      var save = {
+        directory: "data/auto",
+        url: link
+      };
+
+      download.file( save, function( filename ) {
+        callback(null);
+      });
+    },
+    function(callback) {
+      log( "SWISSMEDIC Transform Excel to JSON and save in 'data/release'" );
+
+      var fileIn = "data/auto/swissmedic.xlsx";
+      var fileOu = "data/release/swissmedic.json";
+
+      xlsxToJSON( fileIn, function( rows )
+      {
+        fs.writeFileSync( fileOu, JSON.stringify( rows, null, 3 ) ); 
+        callback(null);
+      });
+    },
+    function() {
+      var duration = parseInt( (Date.now() - start.getTime()) / 1000);
+      log("SWISSMEDIC Finished in",duration+"s" );
+      done(null);
+    }
+  ]);
+}
+
+// ACTUAL WORKERS
+var link;
+
+// Zugelassene Packungen Swissmedic
+function xlsxToJSON( filename, callback )
+{
+  var excel = xlsx.readFile(filename);
+  var worksheet = excel.SheetNames[0];
+  var cleaned = [];
+
+  for( var i = 5; i < 20000; i++ )
+  {
+    var clean = Object.create(null);
+
+    // DONE WITH ROWS
+    if( !excel.Sheets[ worksheet ]["A"+i] ) break;
+
+      // Zulassungs-Nummer
+    clean.zulassung = ("00000" + excel.Sheets[ worksheet ]["A"+i].v ).slice( -5 );
+    // Sequenz
+    clean.sequenz = ""+excel.Sheets[ worksheet ]["B"+i].v;
+    // Sequenzname
+    if( excel.Sheets[ worksheet ]["C"+i] )clean.name = excel.Sheets[ worksheet ]["C"+i].v;
+
+    // Zulassungsinhaberin
+    clean.hersteller = excel.Sheets[ worksheet ]["D"+i].v;
+    // IT-Nummer
+    if( excel.Sheets[ worksheet ]["E"+i] ) clean.itnummer = excel.Sheets[ worksheet ]["E"+i].v;
+    
+    // ATC-Code
+    if( excel.Sheets[ worksheet ]["F"+i] ) clean.atc = excel.Sheets[ worksheet ]["F"+i].v;
+    
+    // Heilmittelcode
+    clean.heilmittelcode = excel.Sheets[ worksheet ]["G"+i].v;
+    
+    // Erstzulassung
+    var erst = new Date(1900,0,1); 
+    erst.setDate( excel.Sheets[ worksheet ]["H"+i].v - 1);
+    clean.erstzulassung = (erst.getDate()) + "." + (erst.getMonth()+1) + "." + (erst.getFullYear());
+    
+    // Zulassungsdatum
+    var zul = new Date(1900,0,1);
+    zul.setDate( excel.Sheets[ worksheet ]["I"+i].v - 1);
+    clean.zulassungsdatum = (zul.getDate()) + "." + (zul.getMonth()+1) + "." + (zul.getFullYear());
+
+    // Gueltigkeitsdatum
+    var valid = new Date(1900,0,1);
+    valid.setDate( excel.Sheets[ worksheet ]["J"+i].v -1);
+    clean.gueltigkeitsdatum = (valid.getDate()) + "." + (valid.getMonth()+1) + "." + (valid.getFullYear());
+
+    // Verpackungs-Id
+    clean.verpackung = ("000" + excel.Sheets[ worksheet ]["K"+i].v ).slice( -3 );
+    // Packungsgrösse
+    if( excel.Sheets[ worksheet ]["L"+i] ) clean.packungsgroesse = excel.Sheets[ worksheet ]["L"+i].v;
+    // Einheit
+    if( excel.Sheets[ worksheet ]["M"+i] ) clean.einheit = excel.Sheets[ worksheet ]["M"+i].v;
+    // Abgabekategorie
+    clean.abgabekategorie = excel.Sheets[ worksheet ]["N"+i].v;
+    // Wirkstoffe
+    if( excel.Sheets[ worksheet ]["O"+i]) clean.wirkstoffe = excel.Sheets[ worksheet ]["O"+i].v;
+    // Zusammensetzung
+    if( excel.Sheets[ worksheet ]["P"+i] )
+    clean.zusammensetzung = excel.Sheets[ worksheet ]["P"+i].v;
+    // Anwendungsgebiet Präparat
+    if( excel.Sheets[ worksheet ]["Q"+i] ) clean.anwendungsgebiet = excel.Sheets[ worksheet ]["Q"+i].v;
+    // Anwendungsgebeit Sequenz
+    if( excel.Sheets[ worksheet ]["R"+i] ) clean.anwendungsgebietsequenz = excel.Sheets[ worksheet ]["R"+i].v;
+
+    // QUESTION VALID
+    if( !clean.name || clean.heilmittelcode == "Tierarzneimittel" ) continue;
+
+    // NEU GTIN
+    var gtin = "7680" + clean.zulassung + clean.verpackung;
+    clean.gtin = gtin + util.eanCheckDigit( gtin );
+    
+    clean = repairATC( clean );
+
+    cleaned.push( clean );
+  }
+
+  callback( cleaned );
+};
+
+function repairATC( raw )
+{
+  var johannis = [];
+  johannis.splice(0,0,'62884','62658','58544','58102','62658','53148','57009','54729','55676','53790');
+  johannis.splice(0,0,'44553','54826','54859','56225','57605','53924');
+  
+  if( johannis.indexOf( raw.zulassung ) > -1 )
+  {
+    if( raw.atc == "N06AX" ) raw.atc = "N05CP03";
+    if( raw.atc == "N05CM" ) raw.atc = "N05CP03";
+  }
+  
+  return raw;
+};
