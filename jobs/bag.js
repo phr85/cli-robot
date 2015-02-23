@@ -11,11 +11,11 @@ module.exports = function(done) {
   async.series([
     function (callback) {
       start = new Date();
-      log( "BAG Querying at " + start.toISOString());
+      log( "BUNDESAMT Querying at " + start.toISOString());
       callback(null);
     },
     function (callback) {    
-      log( "BAG Search link in http://www.spezialitaetenliste.ch/");
+      log( "BUNDESAMT Search link in http://www.spezialitaetenliste.ch/");
       var find = {
         url: "http://www.spezialitaetenliste.ch/",
         match: /href="(.*)".*Publikation als XML-Dateien/g
@@ -26,7 +26,7 @@ module.exports = function(done) {
       });        
     },
     function (callback) {
-      log( "BAG Download file 'XMLPublications.zip' and save to 'data/auto'" );
+      log( "BUNDESAMT Download file 'XMLPublications.zip' and save to 'data/auto'" );
       var save = {
         directory: "data/auto",
         url: link
@@ -37,7 +37,7 @@ module.exports = function(done) {
       });
     },
     function toJson(callback) {
-      log( "BAG Transform XML to JSON 'data/release/bag.json'" );
+      log( "BUNDESAMT Transform XML to JSON 'data/release/bag.json'" );
 
       var bagIn = "data/auto/bag.xml";
       var bagOut = "data/release/bag.json";
@@ -52,7 +52,7 @@ module.exports = function(done) {
       var itIn = "data/auto/it.xml";
       var itOut = "data/release/it.json";
 
-      log("BAG Transform", itIn ,"to", itOut );
+      log("BUNDESAMT Transform", itIn ,"to", itOut );
       parseIt( itIn, function( rows )
       {
         fs.writeFileSync( itOut, JSON.stringify( rows, null, 3 ) ); 
@@ -61,7 +61,7 @@ module.exports = function(done) {
     },
     function() {
       var duration = parseInt( (Date.now() - start.getTime()) / 1000);
-      log("BAG Finished in",duration+"s" );
+      log("BUNDESAMT Finished in",duration+"s" );
       done(null);
     }
   ]);
@@ -304,14 +304,14 @@ function parseBag( filename, callback )
 
   xs.on('end', function(counter)
   {
-    log( "BAG REMOVED",errorGtin.length,"ELEMENTS","NO GTIN");
+    log( "BUNDESAMT REMOVED",errorGtin.length,"ELEMENTS","NO GTIN");
     //console.log( errorGtin.join(", ") );
-    log( "BAG REMOVED",error13974.length,"ELEMENTS","WEIRD BAG DOSSIER");
+    log( "BUNDESAMT REMOVED",error13974.length,"ELEMENTS","WEIRD BAG DOSSIER");
     //console.log( error13974.join(", ") );
-    log( "BAG WARNING",errorDossier.length,"ELEMENTS","NO BAG DOSSIER");
+    log( "BUNDESAMT WARNING",errorDossier.length,"ELEMENTS","NO BAG DOSSIER");
     //console.log( errorDossier.join(", ") );
     //SUMMARY
-    log( "BAG", counter,"PRODUCTS", "AND", cleaned.length, "PACKUNGEN" );
+    log( "BUNDESAMT", counter,"PRODUCTS", "AND", cleaned.length, "PACKUNGEN" );
     callback( cleaned );
   });
 
@@ -334,7 +334,7 @@ function parseIt( filename, callback )
 
   xs.on('end', function(counter)
   {
-    log( "BAG", counter, "ITCODES" );
+    log( "BUNDESAMT", counter, "ITCODES" );
     callback( cleaned );
   });
 

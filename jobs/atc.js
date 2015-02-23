@@ -10,11 +10,11 @@ module.exports = function(done) {
   async.series([ 
     function (callback) {
       start = new Date();
-      log( "ATC Querying at " + start.toISOString());
+      log( "ATCWIDO Querying at " + start.toISOString());
       callback(null);
     },
     function(callback) {
-      log("ATC Search link at http://wido.de/amtl_atc-code.html");
+      log("ATCWIDO Search link at http://wido.de/amtl_atc-code.html");
 
       var params = {
         url: "http://wido.de/amtl_atc-code.html",
@@ -28,7 +28,7 @@ module.exports = function(done) {
       });
     },
     function(callback) {
-      log( "ATC Download file and save to data/auto/atc.xlsx" );
+      log( "ATCWIDO Download file and save to data/auto/atc.xlsx" );
 
       var save = {
         directory: "data/auto",
@@ -41,7 +41,7 @@ module.exports = function(done) {
       
     },
     function(callback) {
-      log( "ATC Transform XLSX to JSON and save in data/release/atc.json" );
+      log( "ATCWIDO Transform XLSX to JSON and save in data/release/atc.json" );
 
       var fileIn = "data/auto/atc.xlsx";
       var fileOu = "data/release/atc.json";
@@ -54,7 +54,7 @@ module.exports = function(done) {
     },
     function() {
       var duration = parseInt( (Date.now() - start.getTime()) / 1000);
-      log("ATC Finished in",duration+"s" );
+      log("ATCWIDO Finished in",duration+"s" );
       done(null);    
     }
   ]);
