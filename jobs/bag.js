@@ -37,25 +37,25 @@ module.exports = function(done) {
       });
     },
     function toJson(callback) {
-      log( "BUNDESAMT Transform XML to JSON 'data/release/bag.json'" );
+      log( "BUNDESAMT Transform XML to JSON 'data/release/bag'" );
 
-      var bagIn = "data/auto/bag.xml";
-      var bagOut = "data/release/bag.json";
-
-      parseBag( bagIn, function( bag )
+      parseBag( "data/auto/bag.xml", function( bag )
       {
-        fs.writeFileSync( bagOut, JSON.stringify( bag, null, 3 ) ); 
+        if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
+        if( !fs.existsSync( "./data/release/bag" ) ) fs.mkdirSync( "./data/release/bag" );
+        
+        fs.writeFileSync( "./data/release/bag/bag.json", JSON.stringify( bag, null, 3 ) ); 
+        fs.writeFileSync( "./data/release/bag/bag.min.json", JSON.stringify( bag ) ); 
         callback(null);
       });
     },
     function toJsonIt(callback) {
-      var itIn = "data/auto/it.xml";
-      var itOut = "data/release/it.json";
 
-      log("BUNDESAMT Transform", itIn ,"to", itOut );
-      parseIt( itIn, function( rows )
+      log("BUNDESAMT Transform it.xml" );
+      parseIt( "data/auto/it.xml", function( rows )
       {
-        fs.writeFileSync( itOut, JSON.stringify( rows, null, 3 ) ); 
+        fs.writeFileSync( "data/release/bag/it.json", JSON.stringify( rows, null, 3 ) ); 
+        fs.writeFileSync( "data/release/bag/it.min.json", JSON.stringify( rows ) ); 
         callback(null);
       });
     },

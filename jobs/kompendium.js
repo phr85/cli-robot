@@ -44,8 +44,12 @@ module.exports = function(done) {
       {   
         parseKompendium( filename, function( data ) {  
           // FOR SECTIONS
+          if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
+          if( !fs.existsSync( "./data/release/kompendium" ) ) fs.mkdirSync( "./data/release/kompendium" );
+          
           //searchIndex = searchIndex.replace(/\s*("(id|label)": "[ \w\-,\/\?®"äüöè]*,?)\s*/gi, "$1");
-          fs.writeFileSync("./data/release/kompendium/kompendium.json", JSON.stringify(data) );
+          fs.writeFileSync("./data/release/kompendium/kompendium.json", JSON.stringify(data, null, 3) );
+          fs.writeFileSync("./data/release/kompendium/kompendium.min.json", JSON.stringify(data) );
           callback(null);
         });
       }

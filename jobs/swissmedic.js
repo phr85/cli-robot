@@ -42,14 +42,15 @@ module.exports = function(done) {
       });
     },
     function(callback) {
-      log( "SWISSMEDIC Transform Excel to JSON and save in 'data/release'" );
+      log( "SWISSMEDIC Transform Excel to JSON and save in 'data/release/swissmedic'" );
 
-      var fileIn = "data/auto/swissmedic.xlsx";
-      var fileOu = "data/release/swissmedic.json";
-
-      xlsxToJSON( fileIn, function( rows )
+      xlsxToJSON( "data/auto/swissmedic.xlsx", function( rows )
       {
-        fs.writeFileSync( fileOu, JSON.stringify( rows, null, 3 ) ); 
+        if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
+        if( !fs.existsSync( "./data/release/swissmedic" ) ) fs.mkdirSync( "./data/release/swissmedic" );
+        
+        fs.writeFileSync( "data/release/swissmedic/swissmedic.json", JSON.stringify( rows, null, 3 ) ); 
+        fs.writeFileSync( "data/release/swissmedic/swissmedic.min.json", JSON.stringify( rows ) ); 
         callback(null);
       });
     },

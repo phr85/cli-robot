@@ -41,14 +41,16 @@ module.exports = function(done) {
       
     },
     function(callback) {
-      log( "ATCWIDO Transform XLSX to JSON and save in data/release/atc.json" );
+      log( "ATCWIDO Transform XLSX to JSON and save in data/release/atc" );
 
-      var fileIn = "data/auto/atc.xlsx";
-      var fileOu = "data/release/atc.json";
-
-      xlsxToJson( fileIn, function( rows )
+      
+      xlsxToJson( "data/auto/atc.xlsx", function( rows )
       {
-        fs.writeFileSync( fileOu, JSON.stringify( rows, null, 3 ) ); 
+        if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
+        if( !fs.existsSync( "./data/release/atc" ) ) fs.mkdirSync( "./data/release/atc" );
+
+        fs.writeFileSync( "./data/release/atc/atc.json", JSON.stringify( rows, null, 3 ) ); 
+        fs.writeFileSync( "./data/release/atc/atc.min.json", JSON.stringify( rows ) ); 
         callback(null);
       });
     },
