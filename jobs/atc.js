@@ -6,6 +6,8 @@ var log = require("../lib/util").log;
 var doing = require("../lib/util").doing;
 
 var start;
+var list;
+
 module.exports = function(done) {
   async.series([ 
     function (callback) {
@@ -41,18 +43,45 @@ module.exports = function(done) {
       
     },
     function(callback) {
-      log( "ATCWIDO Transform XLSX to JSON and save in data/release/atc" );
-
-      
+      log( "ATCWIDO Transform and Release JSON" );
+    
       xlsxToJson( "data/auto/atc.xlsx", function( rows )
       {
+        list = rows;
+        
         if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
         if( !fs.existsSync( "./data/release/atc" ) ) fs.mkdirSync( "./data/release/atc" );
 
         fs.writeFileSync( "./data/release/atc/atc.json", JSON.stringify( rows, null, 3 ) ); 
         fs.writeFileSync( "./data/release/atc/atc.min.json", JSON.stringify( rows ) ); 
+        
         callback(null);
       });
+    },
+    function(callback) {
+      log( "ATCWIDO Release csv" );
+    
+      var csv = fs.createWriteStream("./data/release/atc/atc.csv");
+      
+      csv.on("finish", function() {
+        callback(null);
+      });
+      
+      csv.on("error", function(err) {
+        log("ATC ERROR "+err.message);
+        callback(null);
+      });
+      
+      Object.keys(list).forEach( function( item ) {
+        var atc = item;
+        var name = list[ item ].name;
+        var ddd = list[ item ].ddd || "";
+        
+        csv.write( '"'+atc+'","'+name+'","'+ddd+'"\n');
+      });
+      
+      csv.end();
+      
     },
     function() {
       var duration = parseInt( (Date.now() - start.getTime()) / 1000);
