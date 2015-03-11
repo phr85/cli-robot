@@ -3,7 +3,6 @@
 // CALL QUEUE
 var emil = require('../lib').emil;
 
-
 // AVAILABLE JOBS
 var bag = require('../jobs/bag');
 var atc = require('../jobs/atc');

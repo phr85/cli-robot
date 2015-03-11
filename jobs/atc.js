@@ -1,49 +1,49 @@
 var fs = require("fs");
 var xlsx = require('xlsx');
 var async = require("async");
+var log = require("epha-log");
 var download = require("../lib/download");
-var log = require("../lib/util").log;
-var doing = require("../lib/util").doing;
-
-var start;
 var list;
 
 module.exports = function(done) {
+  log.service = require("../config").service;
+  log.level = require("../config").level;
+  log.task = "ATC";
+  
   async.series([ 
-    function (callback) {
-      start = new Date();
-      log( "ATCWIDO Querying at " + start.toISOString());
-      callback(null);
-    },
     function(callback) {
-      log("ATCWIDO Search link at http://wido.de/amtl_atc-code.html");
-
+      log.info("Search link at http://wido.de/amtl_atc-code.html");
+      log.time("TOTAL");
       var params = {
         url: "http://wido.de/amtl_atc-code.html",
         match: /href="(.*atc.*\.zip)"/gim,
         method: "GET"
       };
+      log.time("Searched link");
       download.link( params, function( urls ) {  
         // NEWEST LINK IS LAST IN THE LIST
         link = urls.pop();
+        log.timeEnd("Searched link");
         callback(null);
       });
     },
     function(callback) {
-      log( "ATCWIDO Download file and save to data/auto/atc.xlsx" );
+      log.info("Download file and save to data/auto/atc.xlsx");
 
       var save = {
         directory: "data/auto",
         filename:"atc.zip",
         url: link
       };
+      log.time("Download");
       download.file( save, function( filename ) {
+        log.timeEnd("Download");
         callback(null);
       });
       
     },
     function(callback) {
-      log( "ATCWIDO Transform and Release JSON" );
+      log.info("Transform and Release JSON");
     
       xlsxToJson( "data/auto/atc.xlsx", function( rows )
       {
@@ -59,7 +59,7 @@ module.exports = function(done) {
       });
     },
     function(callback) {
-      log( "ATCWIDO Release csv" );
+      log.info( "Release csv" );
     
       var csv = fs.createWriteStream("./data/release/atc/atc.csv");
       
@@ -68,7 +68,7 @@ module.exports = function(done) {
       });
       
       csv.on("error", function(err) {
-        log("ATC ERROR "+err.message);
+        log.error(err.message);
         callback(null);
       });
       
@@ -84,8 +84,7 @@ module.exports = function(done) {
       
     },
     function() {
-      var duration = parseInt( (Date.now() - start.getTime()) / 1000);
-      log("ATCWIDO Finished in",duration+"s" );
+      log.timeEnd("TOTAL");
       done(null);    
     }
   ]);

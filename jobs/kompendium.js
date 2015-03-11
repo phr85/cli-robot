@@ -8,29 +8,25 @@ var streamifier = require("streamifier");
 var zlib = require("zlib");
 //XML
 var splitter = require('xml-splitter');
-var util = require("../lib/util");
-var files = require("../lib/files");
 
-var log = require("../lib/util").log;
-var doing = require("../lib/util").doing;
+var log = require("epha-log");
+var files = require("epha-files");
 
 var async = require("async");
 
-var start;
-
 module.exports = function(done) {
+  log.service = require("../config").service;
+  log.level = require("../config").level;
+  log.task = "KOMP";
+  
   async.series([ 
-    function (callback) {
-      start = new Date();
-      log( "KOMPENDIUM Querying at " + start.toISOString() );
-      callback(null);
-    },
     function(callback) {
-      log( "KOMPENDIUM Requesting file << http://download.swissmedicinfo.ch/");
+      log.info("Requesting file << http://download.swissmedicinfo.ch/");
+      log.time("TOTAL");
       zustimmen( callback );
     },
     function(callback) {
-      log("KOMPENDIUM Split xml", "data/auto/kompendium.xml" ,"to", "data/release/kompendium/*");
+      log.info( "Split xml", "data/auto/kompendium.xml" ,"to", "data/release/kompendium/*");
     
       var filename;
 
@@ -53,11 +49,10 @@ module.exports = function(done) {
           callback(null);
         });
       }
-      else log("KOMPENDIUM ERROR NOT FOUND", filename );
+      else log.error("NOT FOUND", filename );
     },
     function() {
-      var duration = parseInt( (Date.now() - start.getTime()) / 1000);
-      log("KOMPENDIUM Finished in",duration+"s" );
+      log.timeEnd("TOTAL");
       done(null);    
     }
   ]);
@@ -67,7 +62,7 @@ module.exports = function(done) {
 // ACTUAL WORKERS
 function zustimmen( callback )
 {
-  doing("Requesting zustimmung");
+  log.debug("Requesting zustimmung");
 
   var uri1 = {
     host: "download.swissmedicinfo.ch",
@@ -94,7 +89,7 @@ function zustimmen( callback )
 
       var hidden1 = "__VIEWSTATE=" + encodeURIComponent( state1 ) + "&" + "__EVENTVALIDATION=" + encodeURIComponent( event1);
 
-      doing( "Starting", res1.statusCode );
+      log.debug( "Starting", res1.statusCode );
 
       information( callback, hidden1, cookie1);
     });
@@ -129,7 +124,7 @@ function information( callback, hidden1, cookie1 )
 
       cookie2 = /([a-zA-Z0-9=_\.]*)/.exec( cookie2 )[1];
 
-      doing( "Pretending cookies", res2.statusCode );
+      log.debug( "Pretending cookies", res2.statusCode );
 
       download( callback, cookie1 + "; " + cookie2);
     });
@@ -164,7 +159,7 @@ function download( callback, cookie ){
       var state3 = /id="__VIEWSTATE" value="(.*)"/gi.exec( html3 )[1];
       var hidden3 = "__VIEWSTATE=" + encodeURIComponent( state3 ) + "&" + "__EVENTVALIDATION=" + encodeURIComponent( event3 );
 
-      doing( "Reached target", res3.statusCode );
+      log.debug( "Reached target", res3.statusCode );
 
       downloadYes( callback, hidden3, cookie );
     });
@@ -197,13 +192,13 @@ function downloadYes( callback, hidden3, cookie )
       size = Math.floor( res4.headers['content-length'] );
     }
     
-    log( "KOMPENDIUM Filesize", util.toSize( res4.headers["content-length"] ) );
-    log( "KOMPENDIUM Server", res4.headers["server"] );
+    log.info( "Filesize", files.size( res4.headers["content-length"] ) );
+    log.info( "Server", res4.headers["server"] );
     
     if(res4.headers['content-disposition']) {
       filename = /filename=["']?([a-zA-Z_0-9]*)/gi.exec(res4.headers['content-disposition'])[1];
     }
-    doing("Downloading", filename);
+    log.time("DOWNLOAD");
     filename += '.xml';
 
     var loaded = 0;
@@ -215,12 +210,12 @@ function downloadYes( callback, hidden3, cookie )
       
       if( refresh++%100 == 0 )
       {
-        doing( "Loading", ( loaded / size * 100 ).toFixed(2) + "%" );
+        log.debug( "Loading", ( loaded / size * 100 ).toFixed(2) + "%" );
       }
     });
 
     res4.on('end', function() {
-      log("KOMPENDIUM Loaded file");
+      log.timeEnd("DOWNLOAD");
       writeAndExtract(chunks, callback);
     });
   });
@@ -228,12 +223,12 @@ function downloadYes( callback, hidden3, cookie )
   request4.on("error", function( error) {});
   request4.write( options.data );
   request4.end();
-  doing("");
+  log.debug("");
 };
 
 function writeAndExtract( parts, callback ) {
 
-      doing("Finished loading");
+      log.debug("Finished loading");
 
       var payload = Buffer.concat(parts);
 
@@ -246,7 +241,7 @@ function writeAndExtract( parts, callback ) {
       for(var i=0;i<entries.length;i++)
       {
         if( /.xml$/.test( entries[i].entryName ) ) {
-
+          log.time('ZIP extracted');
           var entry = entries[i];
           var buffer = entry.getCompressedData();
 
@@ -255,7 +250,7 @@ function writeAndExtract( parts, callback ) {
 
           stream.pipe(zlib.createInflateRaw()).pipe(output);
           output.on('finish', function() {
-            log('KOMPENDIUM ZIP extracted');
+            log.timeEnd('ZIP extracted');
             callback(null);
           });
           /* SYNC
@@ -266,7 +261,7 @@ function writeAndExtract( parts, callback ) {
           */
         }
       }
-    doing("");
+    log.debug("");
 };
 
 
@@ -322,7 +317,7 @@ function parseKompendium( filename, callback )
     {
       item.authNrs = (item.authNrs) ? item.authNrs+ " "+element : element;
 
-      doing( "#", done++, "Files" ); 
+      log.debug( "#", done++, "Files" ); 
       
       // Every zulassung has document   
       fs.writeFile("data/release/kompendium/"+item.lang+"/"+item.type+"/"+element+".htm", repairHTML( data ));
@@ -338,7 +333,7 @@ function parseKompendium( filename, callback )
     items.on("finish", function()
     {
       // Memory free for grouping stuff
-      doing("");
+      log.debug("");
       
       var liste = JSON.parse( fs.readFileSync("data/release/kompendium/catalog.json" ) );
       
@@ -392,7 +387,7 @@ function parseKompendium( filename, callback )
         kompendium.documents.push( group );
       }
           
-      log("KOMPENDIUM Found", counter, "Files in weird xml");
+      log.info("Found", counter, "Files in weird xml");
 
       callback( kompendium );
     });
@@ -435,7 +430,7 @@ function repairAuthHolder( raw )
     if( raw.title.$t == "Sérocytol®" ) zulassungen.push( "00332","00328","00278","00279","00277","00282","00284","00286","00288","00294","00295","00296","00300","00306","00309","00313","60026","00314","00315","00316","00299","00330","00334","00335","00338","00339" );
   }
 
-  if( zulassungen.length == 0 ) log( "KOMPENDIUM ERROR MISSING AUTHNR", raw.authNrs, raw.title.$t );
+  if( zulassungen.length == 0 ) log.error( "MISSING AUTHNR", raw.authNrs, raw.title.$t );
 
   return zulassungen;
 };

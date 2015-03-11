@@ -3,41 +3,45 @@ var splitter = require('xml-splitter');
 var util = require("../lib/util");
 var fs = require("fs");
 var async = require("async");
-var log = require("../lib/util").log;
-var doing = require("../lib/util").doing;
+var log = require("epha-log");
 
-var start;
 module.exports = function(done) {
+  log.service = require("../config").service;
+  log.level = require("../config").level;
+  log.task = "BAG";
+  
   async.series([
-    function (callback) {
-      start = new Date();
-      log( "BUNDESAMT Querying at " + start.toISOString());
-      callback(null);
-    },
     function (callback) {    
-      log( "BUNDESAMT Search link in http://www.spezialitaetenliste.ch/");
+      log.info( "Search link in http://www.spezialitaetenliste.ch/");
+      log.time("TOTAL");
       var find = {
         url: "http://www.spezialitaetenliste.ch/",
         match: /href="(.*)".*Publikation als XML-Dateien/g
       };
+      
+      log.time( "Search" );
       download.link( find, function( urls ) {
         link = urls.pop();
+        log.timeEnd( "Search" );
         callback(null);
       });        
     },
     function (callback) {
-      log( "BUNDESAMT Download file 'XMLPublications.zip' and save to 'data/auto'" );
+      log.info("Download file 'XMLPublications.zip' and save to 'data/auto'" );
+      
       var save = {
         directory: "data/auto",
         url: link
       };
-
+      
+      log.time("Download");
       download.file( save, function( filename ) {
+        log.timeEnd("Download");
         callback(null);
       });
     },
     function toJson(callback) {
-      log( "BUNDESAMT Transform XML to JSON 'data/release/bag'" );
+      log.info( "Transform XML to JSON 'data/release/bag'" );
 
       parseBag( "data/auto/bag.xml", function( bag )
       {
@@ -51,7 +55,7 @@ module.exports = function(done) {
     },
     function toJsonIt(callback) {
 
-      log("BUNDESAMT Transform it.xml" );
+      log.info("Transform it.xml" );
       parseIt( "data/auto/it.xml", function( rows )
       {
         fs.writeFileSync( "data/release/bag/it.json", JSON.stringify( rows, null, 3 ) ); 
@@ -60,8 +64,7 @@ module.exports = function(done) {
       });
     },
     function() {
-      var duration = parseInt( (Date.now() - start.getTime()) / 1000);
-      log("BUNDESAMT Finished in",duration+"s" );
+      log.timeEnd("TOTAL");
       done(null);
     }
   ]);
@@ -304,14 +307,14 @@ function parseBag( filename, callback )
 
   xs.on('end', function(counter)
   {
-    log( "BUNDESAMT REMOVED",errorGtin.length,"ELEMENTS","NO GTIN");
+    log.warn( "REMOVED",errorGtin.length,"ELEMENTS","NO GTIN");
     //console.log( errorGtin.join(", ") );
-    log( "BUNDESAMT REMOVED",error13974.length,"ELEMENTS","WEIRD BAG DOSSIER");
+    log.warn( "REMOVED",error13974.length,"ELEMENTS","WEIRD BAG DOSSIER");
     //console.log( error13974.join(", ") );
-    log( "BUNDESAMT WARNING",errorDossier.length,"ELEMENTS","NO BAG DOSSIER");
+    log.warn( errorDossier.length,"ELEMENTS","NO BAG DOSSIER");
     //console.log( errorDossier.join(", ") );
     //SUMMARY
-    log( "BUNDESAMT", counter,"PRODUCTS", "AND", cleaned.length, "PACKUNGEN" );
+    log.info( counter,"PRODUCTS", "AND", cleaned.length, "PACKUNGEN" );
     callback( cleaned );
   });
 
@@ -326,6 +329,7 @@ function parseIt( filename, callback )
 
   var cleaned = [];
 
+  log.time("PARSE IT");
   xs.on('data', function(data)
   {
     //console.log( "VERSION", result.ItCodes.$.ReleaseDate);
@@ -334,7 +338,8 @@ function parseIt( filename, callback )
 
   xs.on('end', function(counter)
   {
-    log( "BUNDESAMT", counter, "ITCODES" );
+    log.info( counter, "ITCODES" );
+    log.timeEnd("PARSE IT");
     callback( cleaned );
   });
 

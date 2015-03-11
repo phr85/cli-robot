@@ -4,45 +4,44 @@ var xlsx = require('xlsx');
 var util = require("../lib/util");
 var fs = require("fs");
 var async = require("async");
-var log = require("../lib/util").log;
-var doing = require("../lib/util").doing;
-
-var start;
+var log = require("epha-log");
 
 module.exports = function(done) {
+  log.service = require("../config").service;
+  log.level = require("../config").level;
+  log.task = "SWISM";
+  
   async.series([ 
-    function (callback) {
-      start = new Date();
-      log( "SWISSMEDIC Querying at " + start.toISOString());
-      callback(null);
-    },
-    function(callback) {    
-      log( "SWISSMEDIC Search link in https://www.swissmedic.ch/");
+    function(callback) {  
+      log.info("Search link in https://www.swissmedic.ch/");
+      log.time("TOTAL");
 
       var find = {
         url: "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
         match: /href="([\/a-zäöü0-9\?\;\,\=\.\-\_\&]*)".*Excel-Version Zugelassene Verpackungen/gi
       };
-
+      log.time("SEARCHED");
       download.link( find, function( urls ) {
         link = urls.pop();
+        log.timeEnd("SEARCHED");
         callback(null);
       });     
     },
     function(callback) {
-      log( "SWISSMEDIC Download file and save to 'data/auto/swissmedic.xlsx'" );
+      log.info("Download file and save to 'data/auto/swissmedic.xlsx'" );
 
       var save = {
         directory: "data/auto",
         url: link
       };
-
+      log.time("DOWNLOAD");
       download.file( save, function( filename ) {
+        log.timeEnd("DOWNLOAD");
         callback(null);
       });
     },
     function(callback) {
-      log( "SWISSMEDIC Transform Excel to JSON and save in 'data/release/swissmedic'" );
+      log.info( "Transform Excel to JSON and save in 'data/release/swissmedic'" );
 
       xlsxToJSON( "data/auto/swissmedic.xlsx", function( rows )
       {
@@ -55,8 +54,7 @@ module.exports = function(done) {
       });
     },
     function() {
-      var duration = parseInt( (Date.now() - start.getTime()) / 1000);
-      log("SWISSMEDIC Finished in",duration+"s" );
+      log.timeEnd("TOTAL" );
       done(null);
     }
   ]);
