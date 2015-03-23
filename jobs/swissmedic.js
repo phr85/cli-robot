@@ -145,6 +145,9 @@ function xlsxToJSON( filename, callback )
 
 function repairATC( raw )
 {
+  if( raw.atc == "C05BA" && raw.name == "Hirudoid, Creme" ) raw.atc = "C05BA01";
+  if( raw.atc == "R05CA" && raw.name == "Mucosil Phyto Junior, sirop pectoral" ) raw.atc = "R05CA10";
+    
   var johannis = [];
   johannis.splice(0,0,'62884','62658','58544','58102','62658','53148','57009','54729','55676','53790');
   johannis.splice(0,0,'44553','54826','54859','56225','57605','53924');

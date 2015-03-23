@@ -45,6 +45,7 @@ module.exports = function(done) {
     function(callback) {
       log.info("Transform and Release JSON");
     
+      // PARSE AND CORRECT
       xlsxToJson( "data/auto/atc.xlsx", function( rows )
       {
         list = rows;
@@ -137,9 +138,34 @@ function xlsxToJson( filename, callback )
 
     cleaned[ row.atc ] = { name : row.name, ddd : row.ddd };
   }
-  // MISSING
-  if( !cleaned[ "N06DX02" ] ) cleaned[ "N06DX02" ] = { name : "Ginkgo folium", ddd : "0.12 g O" };
-  if( !cleaned[ "N04BA02" ] ) cleaned[ "N04BA02" ] = { name : "Levodopa und Decarboxylasehemmer", ddd : "0.6 g O" };
+  // MISSING ATC BUT In SWiSSMEDIC ADDING
+  if( !cleaned[ "N06DX02" ] ) cleaned[ "N06DX02" ] = { name: "Ginkgo folium", ddd : "0.12 g O" };
+  if( !cleaned[ "N04BA02" ] ) cleaned[ "N04BA02" ] = { name: "Levodopa und Decarboxylasehemmer", ddd : "0.6 g O" };
+  if( !cleaned[ "C01EB04" ] ) cleaned[ "C01EB04" ] = { name: "Weissdorn"};
+  if( !cleaned[ "N05CM09" ] ) cleaned[ "N05CM09" ] = { name: "Baldrian"}; // valerianae extractum ethanolicum siccum
+  if( !cleaned[ "B06AA11" ] ) cleaned[ "B06AA11" ] = { name: "Bromelain"};
+  if( !cleaned[ "G04CX02" ] ) cleaned[ "G04CX02" ] = { name: "Sägepalme sabal"};
+  if( !cleaned[ "A05BA03" ] ) cleaned[ "A05BA03" ] = { name: "Mariendistel"};
+  if( !cleaned[ "A10BX01" ] ) cleaned[ "A10BX01" ] = { name: "Guarmehl"}; // guari farina
+  if( !cleaned[ "G02CX04" ] ) cleaned[ "G02CX04" ] = { name: "Cimicifuga"};
+  if( !cleaned[ "G04CX01" ] ) cleaned[ "G04CX01" ] = { name: "Pygeumrindenextrakt"}; // pygei africani extractum, urticae radicis extractum siccum
+  if( !cleaned[ "S01AX11" ] ) cleaned[ "S01AX11" ] = { name: "Ofloxacin"};
+  if( !cleaned[ "R07AA02" ] ) cleaned[ "R07AA02" ] = { name: "Phospholipide"};
+  if( !cleaned[ "S01AX13" ] ) cleaned[ "S01AX13" ] = { name: "Ciprofloxacin"};
+  if( !cleaned[ "M03AX01" ] ) cleaned[ "M03AX01" ] = { name: "Botulinumtoxin"};
+  if( !cleaned[ "B02BC10" ] ) cleaned[ "B02BC10" ] = { name: "Fibrinogen human, Factor XIII, Aprotinin und Thrombinum human"};
+  if( !cleaned[ "G02CX03" ] ) cleaned[ "G02CX03" ] = { name: "Mönchspfeffer"}; // agni casti extractum ethanolicum siccum
+  if( !cleaned[ "N01AX01" ] ) cleaned[ "N01AX01" ] = { name: "Droperidol"};
+  if( !cleaned[ "S01AX22" ] ) cleaned[ "S01AX22" ] = { name: "Moxifloxacin"};
+  if( !cleaned[ "N02AA09" ] ) cleaned[ "N02AA09" ] = { name: "Diamorphin"};
+  if( !cleaned[ "D06BB12" ] ) cleaned[ "D06BB12" ] = { name: "Camellia"}; // extractum siccum raffinatum
+  if( !cleaned[ "C09DA09" ] ) cleaned[ "C09DA09" ] = { name: "Chlortalidon"};
+  if( !cleaned[ "A10BX13" ] ) cleaned[ "A10BX13" ] = { name: "Albiglutid"};
+  if( !cleaned[ "J05AR13" ] ) cleaned[ "J05AR13" ] = { name: "Dolutegravir, Abacavirum und Lamivudin"};
+  if( !cleaned[ "R03BB07" ] ) cleaned[ "R03BB07" ] = { name: "Umeclidin"};
+  if( !cleaned[ "L01XE27" ] ) cleaned[ "L01XE27" ] = { name: "Ibrutinib"};
+  if( !cleaned[ "S01EC54" ] ) cleaned[ "S01EC54" ] = { name: "Brinzolamid und Brimonidin"};
+  if( !cleaned[ "L01XX47" ] ) cleaned[ "L01XX47" ] = { name: "Idelalisib"};
 
   callback( cleaned );
 };
