@@ -480,7 +480,10 @@ function repairHTML( raw )
     // tags = iconv.decode(buf, 'utf-8');
   
     // ERROR IN XML &pound; instead &le; Candesartan Takeda
-    tags = tags.replace( /&pound;/gi, "&le;" );
+    // LESS OR EQUAL
+    tags = tags.replace( /&pound;/gi, "&#8804;" );
+    // REGISTERED TRADEMARK
+    tags = tags.replace( /&Ograve;/gi, "&#174;" );
   
     // REMOVE <?xml version="1.0" encoding="utf-8"?>
     tags = tags.replace( /<?[\s\."=\w\?-]*\?>/,"");
