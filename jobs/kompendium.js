@@ -473,6 +473,15 @@ function repairHTML( raw )
     html += pad1+"<body>\n";
 
     var tags = raw.content.$cd;
+    // --
+    // Convert encoding
+    // var iconv = require('iconv-lite');
+    // var buf = iconv.encode(tags, 'win1251');
+    // tags = iconv.decode(buf, 'utf-8');
+  
+    // ERROR IN XML &pound; instead &le; Candesartan Takeda
+    tags = tags.replace( /&pound;/gi, "&le;" );
+  
     // REMOVE <?xml version="1.0" encoding="utf-8"?>
     tags = tags.replace( /<?[\s\."=\w\?-]*\?>/,"");
     // CHANGE <div xmlns="http://www.w3.org/1999/xhtml"> <div id="monographie">
@@ -480,8 +489,8 @@ function repairHTML( raw )
 
     html += pad2+tags; 
     html += pad1+"</body>\n";
-    html += pad0+"</html>";
-                     
+    html += pad0+"</html>";                    
+  
     return html;
 };
 
