@@ -9,8 +9,8 @@ module.exports = function(done) {
   log.service = require("../config").service;
   log.level = require("../config").level;
   log.task = "ATC";
-  
-  async.series([ 
+
+  async.series([
     function(callback) {
       log.info("Search link at http://wido.de/amtl_atc-code.html");
       log.time("TOTAL");
@@ -20,7 +20,7 @@ module.exports = function(done) {
         method: "GET"
       };
       log.time("Searched link");
-      download.link( params, function( urls ) {  
+      download.link( params, function( urls ) {
         // NEWEST LINK IS LAST IN THE LIST
         link = urls.pop();
         log.timeEnd("Searched link");
@@ -40,78 +40,78 @@ module.exports = function(done) {
         log.timeEnd("Download");
         callback(null);
       });
-      
+
     },
     function(callback) {
       log.info("Transform and Release JSON");
-    
+
       // PARSE AND CORRECT
       xlsxToJson( "data/auto/atc.xlsx", function( rows )
       {
         list = rows;
-        
+
         if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
         if( !fs.existsSync( "./data/release/atc" ) ) fs.mkdirSync( "./data/release/atc" );
 
-        fs.writeFileSync( "./data/release/atc/atc.json", JSON.stringify( rows, null, 3 ) ); 
-        fs.writeFileSync( "./data/release/atc/atc.min.json", JSON.stringify( rows ) ); 
-        
+        fs.writeFileSync( "./data/release/atc/atc.json", JSON.stringify( rows, null, 3 ) );
+        fs.writeFileSync( "./data/release/atc/atc.min.json", JSON.stringify( rows ) );
+
         callback(null);
       });
     },
     function(callback) {
       log.info( "Release csv" );
-    
+
       var csv = fs.createWriteStream("./data/release/atc/atc.csv");
-      
+
       csv.on("finish", function() {
         callback(null);
       });
-      
+
       csv.on("error", function(err) {
         log.error(err.message);
         callback(null);
       });
-      
+
       Object.keys(list).forEach( function( item ) {
         var atc = item;
         var name = list[ item ].name;
         var ddd = list[ item ].ddd || "";
-        
+
         csv.write( '"'+atc+'","'+name+'","'+ddd+'"\n');
       });
-      
+
       csv.end();
-      
+
     },
     function() {
       log.timeEnd("TOTAL");
-      done(null);    
+      done(null);
     }
   ]);
 };
-    
+
 // ACTUAL WORKERS
 var link;
-      
+
 // WIDO ATC
 function xlsxToJson( filename, callback )
 {
   var excel = xlsx.readFile(filename);
 
   var worksheet;
-  
+
   excel.SheetNames.forEach(function(sheet) {
     if( sheet.toUpperCase().indexOf( "ATC-CODE MIT") > -1 )
-    worksheet = sheet;  
+    worksheet = sheet;
   });
-  
+
   if(!worksheet) throw new Error("Worksheet konnte nicht gefunden werden");
 
   // ATC-CODES UNIQUE
   var cleaned = {};
   var empty = [];
-  
+
   // KEIN HEADER
   for( var i = 2; i < 20000 && empty.length < 10; i++ )
   {
@@ -132,12 +132,38 @@ function xlsxToJson( filename, callback )
     if( ddd ) row.ddd = ddd.v.replace(/("|\n)/g,"").trim();
 
     empty = [];
-    
+
     // KORREKTUREN
     if( row.atc == "G03AA17" && row.name == "Dienogest und Ethinylestradiol") row.atc = "G03AA16";
 
     cleaned[ row.atc ] = { name : row.name, ddd : row.ddd };
   }
+
+function setCharAt(str,index,chr){
+    if (index > str.length-1) return str;
+    return str.substr(0, index) + chr + str.substr(index + 1);
+}
+  var testUpperCase = /^([ÄÖÜA-Z\s,\.]+)$/;
+  var excludeWords = /^(alle|andere[n]?|auf|bei|die|der|des|das|für|gegen|in|mit|nach|oder|ohne|und|übrigen|vom|von|zur)$/;
+
+  Object.keys(cleaned).forEach(function(atc){
+    if (testUpperCase.test(cleaned[atc].name)){
+
+      var lowered = cleaned[atc].name.toLowerCase();
+
+      var Capitalize = lowered.split(' ').map(function(word, i){
+        if (!word) return null;
+        if (i === 0 || !excludeWords.test(word)){
+          return setCharAt(word, 0, word[0].toUpperCase());
+        }
+        return word;
+      }).join(' ');
+
+      console.log(atc, ':', cleaned[atc].name, '>>>>>>>>', Capitalize, '\n');
+    }
+  });
+
+
   // MISSING ATC BUT In SWiSSMEDIC ADDING
   if( !cleaned[ "N06DX02" ] ) cleaned[ "N06DX02" ] = { name: "Ginkgo folium", ddd : "0.12 g O" };
   if( !cleaned[ "N04BA02" ] ) cleaned[ "N04BA02" ] = { name: "Levodopa und Decarboxylasehemmer", ddd : "0.6 g O" };
@@ -167,7 +193,6 @@ function xlsxToJson( filename, callback )
   if( !cleaned[ "S01EC54" ] ) cleaned[ "S01EC54" ] = { name: "Brinzolamid und Brimonidin"};
   if( !cleaned[ "L01XX47" ] ) cleaned[ "L01XX47" ] = { name: "Idelalisib"};
 
+
   callback( cleaned );
 };
-
-
