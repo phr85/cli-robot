@@ -15,8 +15,8 @@ var files = require("epha-files");
 var async = require("async");
 
 module.exports = function(done) {
-  log.service = require("../config").service;
-  log.level = require("../config").level;
+ log.service = require("../config").service;
+  log.transports = require("../config").transports;
   log.task = "KOMP";
   
   async.series([ 
@@ -62,7 +62,7 @@ module.exports = function(done) {
 // ACTUAL WORKERS
 function zustimmen( callback )
 {
-  log.debug("Requesting zustimmung");
+  log.doing("Requesting zustimmung");
 
   var uri1 = {
     host: "download.swissmedicinfo.ch",
@@ -89,7 +89,7 @@ function zustimmen( callback )
 
       var hidden1 = "__VIEWSTATE=" + encodeURIComponent( state1 ) + "&" + "__EVENTVALIDATION=" + encodeURIComponent( event1);
 
-      log.debug( "Starting", res1.statusCode );
+      log.doing( "Starting", res1.statusCode );
 
       information( callback, hidden1, cookie1);
     });
@@ -124,7 +124,7 @@ function information( callback, hidden1, cookie1 )
 
       cookie2 = /([a-zA-Z0-9=_\.]*)/.exec( cookie2 )[1];
 
-      log.debug( "Pretending cookies", res2.statusCode );
+      log.doing( "Pretending cookies", res2.statusCode );
 
       download( callback, cookie1 + "; " + cookie2);
     });
@@ -159,7 +159,7 @@ function download( callback, cookie ){
       var state3 = /id="__VIEWSTATE" value="(.*)"/gi.exec( html3 )[1];
       var hidden3 = "__VIEWSTATE=" + encodeURIComponent( state3 ) + "&" + "__EVENTVALIDATION=" + encodeURIComponent( event3 );
 
-      log.debug( "Reached target", res3.statusCode );
+      log.doing( "Reached target", res3.statusCode );
 
       downloadYes( callback, hidden3, cookie );
     });
@@ -210,7 +210,7 @@ function downloadYes( callback, hidden3, cookie )
       
       if( refresh++%100 == 0 )
       {
-        log.debug( "Loading", ( loaded / size * 100 ).toFixed(2) + "%" );
+        log.doing( "Loading", ( loaded / size * 100 ).toFixed(2) + "%" );
       }
     });
 
@@ -223,12 +223,12 @@ function downloadYes( callback, hidden3, cookie )
   request4.on("error", function( error) {});
   request4.write( options.data );
   request4.end();
-  log.debug("");
+  log.doing("");
 };
 
 function writeAndExtract( parts, callback ) {
 
-      log.debug("Finished loading");
+      log.doing("Finished loading");
 
       var payload = Buffer.concat(parts);
 
@@ -261,7 +261,7 @@ function writeAndExtract( parts, callback ) {
           */
         }
       }
-    log.debug("");
+    log.doing("");
 };
 
 
@@ -317,7 +317,7 @@ function parseKompendium( filename, callback )
     {
       item.authNrs = (item.authNrs) ? item.authNrs+ " "+element : element;
 
-      log.debug( "#", done++, "Files" ); 
+      log.doing( "#", done++, "Files" ); 
       
       // Every zulassung has document   
       fs.writeFile("data/release/kompendium/"+item.lang+"/"+item.type+"/"+element+".htm", repairHTML( data ));
@@ -333,7 +333,7 @@ function parseKompendium( filename, callback )
     items.on("finish", function()
     {
       // Memory free for grouping stuff
-      log.debug("");
+      log.doing("");
       
       var liste = JSON.parse( fs.readFileSync("data/release/kompendium/catalog.json" ) );
       
