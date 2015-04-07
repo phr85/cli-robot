@@ -139,37 +139,60 @@ function xlsxToJson( filename, callback )
     cleaned[ row.atc ] = { name : row.name, ddd : row.ddd };
   }
 
+  // https://github.com/epha/robot/issues/7
+
   function setCharAt(str,index,chr){
       if (index > str.length-1) return str;
       return str.substr(0, index) + chr + str.substr(index + 1);
   }
 
   var testUpperCase = /^([ÄÖÜA-Z\s,\.]+)$/;
-  var excludeWords = /^(alle|auf|bei|die|den|der|dere[n|r]|des|das|für|gege[n|m]+|in|mit|nach|oder|ohne|rein|und|vom|von|zur)$/;
+  var excludeWords = /^(alle|auf|bei|die|den|der|dere[n|r]|des|das|für|gege[n|m]+|etc\.|in|mit|nach|oder|ohne|rein|und|vom|von|zur)$/;
   var excludeWords2 = /^(andere[n|r]?|anthroposophische[n|r]?|antineoplastisch[e]?[n|r]?|arterielle[n|r]?|bedingte[n|r]?|blutbildende[n|r]?|dermatologische[n|r]?|direkt[e]?[n|r]?)$/;
   var excludeWords3 = /^(eingesetzte[n|r]?|exkl\.|fördernde[n|r]?|funktionelle[n|r]?|hergestellt[e]?[n|r]?|homöopathische[n]?|immunmodulierend[e]?[n|r]?|inkl\.)$/;
   var excludeWords4 = /^(lokale[n|r]?|nichttherapeutisch[e]?[n|r]?|obstruktiv[e]?[n|r]?|periphe[n|r]?|pflanzliche[n|r]?|sparende[n|r]?|stimulierende[r|n]?|systemische[n|r]?|topische[n|r]?)$/;
   var excludeWords5 = /^(übrige[n|r]?|vaskulär[e]?[n|r]?|verwandte[n|r]?|virale[n|r]?|vorwiegende[n|r]?|weibliche[n|r]?|wirkende[n|r]?|zentral[e]?[r|n]?)$/;
+  var ivanka = /^(alimentär|antiviral|beeinfluss|benign|gastroesophageal|gastrointestinal|importiert|inhalativ|kombiniert|natürlich|parenteral|peptisch|therapeutisch|wirkend)[e]?[m|n|r|s]?$/;
   var romNum = /^(I|II|III|IV|V|VI|VII|VIII|IX|X)$/i;
-  var abbr = /^(ADHD|DMPS)$/i;
+  var abbr = /^(ACTH|ADHD|DMPS)$/i;
 
   Object.keys(cleaned).forEach(function(atc){
     if (testUpperCase.test(cleaned[atc].name)){
 
       var lowered = cleaned[atc].name.toLowerCase();
 
-      var Capitalize = lowered.split(' ').map(function(word, i){
+      var Capitalized = lowered.split(' ').map(function(word, i){
         if (!word) return null;
         if (abbr.test(word) || romNum.test(word)) return word.toUpperCase();
-        if (i === 0 || (!excludeWords.test(word) && !excludeWords2.test(word) && !excludeWords3.test(word) && !excludeWords4.test(word) && !excludeWords5.test(word)) ){
+        if (i === 0 || (!excludeWords.test(word) && !excludeWords2.test(word) && !excludeWords3.test(word) &&
+          !excludeWords4.test(word) && !excludeWords5.test(word) &&
+          !ivanka.test(word))
+        ){
           return setCharAt(word, 0, word[0].toUpperCase());
         }
         return word;
       }).join(' ');
 
-      console.log(atc + ' : ' + cleaned[atc].name + ' >>>>>>>> ' + Capitalize + '');
+      // console.log(atc);
+      // console.log(cleaned[atc].name);
+      // console.log(Capitalized + '\n');
+
+      cleaned[atc].name = Capitalized;
     }
   });
+
+  /*
+  // https://github.com/epha/robot/issues/8
+
+  var testFirstChar = /^(^[ÄÖÜA-Z])/;
+
+  Object.keys(cleaned).forEach(function(atc){
+    if (!testFirstChar.test(cleaned[atc].name)){
+      console.log(cleaned[atc].name);
+    }
+  });
+  */
+
 
 
   // MISSING ATC BUT In SWiSSMEDIC ADDING
