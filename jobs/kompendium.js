@@ -317,15 +317,8 @@ function parseKompendium( filename, callback )
     {
       item.authNrs = (item.authNrs) ? item.authNrs+ " "+element : element;
 
-<<<<<<< HEAD
       log.doing( "#", done++, "Files" ); 
-      
-      // Every zulassung has document   
-=======
-      log.debug( "#", done++, "Files" );
 
-      // Every zulassung has document
->>>>>>> origin/master
       fs.writeFile("data/release/kompendium/"+item.lang+"/"+item.type+"/"+element+".htm", repairHTML( data ));
     });
 
@@ -339,13 +332,8 @@ function parseKompendium( filename, callback )
     items.on("finish", function()
     {
       // Memory free for grouping stuff
-<<<<<<< HEAD
       log.doing("");
-      
-=======
-      log.debug("");
 
->>>>>>> origin/master
       var liste = JSON.parse( fs.readFileSync("data/release/kompendium/catalog.json" ) );
 
       // GROUPING ZULASSUNG AND Filtering
