@@ -18,16 +18,16 @@ module.exports = function(done) {
  log.service = require("../config").service;
   log.transports = require("../config").transports;
   log.task = "KOMP";
-  
-  async.series([ 
+
+  async.series([
     function(callback) {
       log.info("Requesting file << http://download.swissmedicinfo.ch/");
       log.time("TOTAL");
       zustimmen( callback );
     },
     function(callback) {
-      log.info( "Split xml", "data/auto/kompendium.xml" ,"to", "data/release/kompendium/*");
-    
+      log.info( "Split xml", "data/auto/kompendium.xml", "to", "data/release/kompendium/*");
+
       var filename;
 
       fs.readdirSync("data/auto").forEach( function( element )
@@ -37,12 +37,12 @@ module.exports = function(done) {
       });
 
       if( filename )
-      {   
-        parseKompendium( filename, function( data ) {  
+      {
+        parseKompendium( filename, function( data ) {
           // FOR SECTIONS
           if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
           if( !fs.existsSync( "./data/release/kompendium" ) ) fs.mkdirSync( "./data/release/kompendium" );
-          
+
           //searchIndex = searchIndex.replace(/\s*("(id|label)": "[ \w\-,\/\?®"äüöè]*,?)\s*/gi, "$1");
           fs.writeFileSync("./data/release/kompendium/kompendium.json", JSON.stringify(data, null, 3) );
           fs.writeFileSync("./data/release/kompendium/kompendium.min.json", JSON.stringify(data) );
@@ -53,12 +53,12 @@ module.exports = function(done) {
     },
     function() {
       log.timeEnd("TOTAL");
-      done(null);    
+      done(null);
     }
   ]);
 };
 
-    
+
 // ACTUAL WORKERS
 function zustimmen( callback )
 {
@@ -186,15 +186,15 @@ function downloadYes( callback, hidden3, cookie )
   var request4 = http.request( options, function( res4 )
   {
     var filename = 'AipsDownload';
-    
+
     var size;
     if(res4.headers['content-length']) {
       size = Math.floor( res4.headers['content-length'] );
     }
-    
+
     log.info( "Filesize", files.size( res4.headers["content-length"] ) );
     log.info( "Server", res4.headers["server"] );
-    
+
     if(res4.headers['content-disposition']) {
       filename = /filename=["']?([a-zA-Z_0-9]*)/gi.exec(res4.headers['content-disposition'])[1];
     }
@@ -205,9 +205,9 @@ function downloadYes( callback, hidden3, cookie )
     var refresh = 0;
     res4.on("data", function(chunk) {
       chunks.push(chunk);
-      
+
       loaded += chunk.length;
-      
+
       if( refresh++%100 == 0 )
       {
         log.doing( "Loading", ( loaded / size * 100 ).toFixed(2) + "%" );
@@ -271,7 +271,7 @@ function parseKompendium( filename, callback )
 
   if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
   if( !fs.existsSync( "./data/release/kompendium" ) ) fs.mkdirSync( "./data/release/kompendium" );
-  
+
   var items = fs.createWriteStream( "data/release/kompendium/catalog.json");
   items.write("[");
 
@@ -286,11 +286,11 @@ function parseKompendium( filename, callback )
   if( !fs.existsSync( "./data/release/kompendium/it/pi" ) ) fs.mkdirSync( "./data/release/kompendium/it/pi" );
 
   var done = 0;
-  
+
   function writePart(data, tag, path)
   {
     if( done > 0 ) items.write(",");
-   
+
     var item =
     {
       title : data.title.$t,
@@ -317,30 +317,41 @@ function parseKompendium( filename, callback )
     {
       item.authNrs = (item.authNrs) ? item.authNrs+ " "+element : element;
 
+<<<<<<< HEAD
       log.doing( "#", done++, "Files" ); 
       
       // Every zulassung has document   
+=======
+      log.debug( "#", done++, "Files" );
+
+      // Every zulassung has document
+>>>>>>> origin/master
       fs.writeFile("data/release/kompendium/"+item.lang+"/"+item.type+"/"+element+".htm", repairHTML( data ));
     });
-    
+
     items.write( JSON.stringify( item ) );
   };
-  
+
   xs.on('data', writePart );
 
   xs.on('end', function(counter)
-  {    
+  {
     items.on("finish", function()
     {
       // Memory free for grouping stuff
+<<<<<<< HEAD
       log.doing("");
       
+=======
+      log.debug("");
+
+>>>>>>> origin/master
       var liste = JSON.parse( fs.readFileSync("data/release/kompendium/catalog.json" ) );
-      
+
       // GROUPING ZULASSUNG AND Filtering
       var zulassungen = Object.create( null );
-      
-      liste.forEach( function( item ) 
+
+      liste.forEach( function( item )
       {
         zulassungen[ item.authNrs ] = zulassungen[ item.authNrs ] || Object.create(null);
         // SPRACHE
@@ -354,13 +365,13 @@ function parseKompendium( filename, callback )
           //,"sections":item.sections
         };
       });
-      
+
       var kompendium = {
         "documents":[],
-        "_searchterms":["produkt","substanz","hersteller","zulassung","atc"],
+        "_searchterms":["produkt", "substanz", "hersteller", "zulassung", "atc"],
         "version":  new Date().getTime()
       };
-      
+
       for( var key in zulassungen )
       {
         var item = zulassungen[ key ];
@@ -386,15 +397,15 @@ function parseKompendium( filename, callback )
 
         kompendium.documents.push( group );
       }
-          
+
       log.info("Found", counter, "Files in weird xml");
 
       callback( kompendium );
     });
-    
+
     items.write("]");
-      
-    items.end();   
+
+    items.end();
   });
 
   var streamIn = fs.createReadStream("data/auto/"+filename, { start:3 } );
@@ -412,8 +423,8 @@ function repairAuthHolder( raw )
   if( raw.authNrs && raw.authNrs.$t && /\d{3,5}/.test( raw.authNrs.$t )  )
   {
     // NORMALIZE
-    raw.authNrs.$t.replace("'","").match( /\d{3,5}/g ).forEach( function( element ) 
-    {   
+    raw.authNrs.$t.replace("'", "").match( /\d{3,5}/g ).forEach( function( element )
+    {
         zulassungen.push( ( "00000" + element ).slice(-5) );
     });
   }
@@ -439,15 +450,15 @@ function repairSubstances( raw )
 {
   if( raw.substances && raw.substances.$t && /\w{3,}/g.test( raw.substances.$t ) ) return raw.substances.$t;
 
-  if( raw.type == "fi" && raw.lang == "de" && raw.title.$t == "Sérocytol®" ) return "Pferdeglobuline";  
-  if( raw.type == "fi" && raw.lang == "de" && raw.title.$t == "Addamel® N" ) return "Spurenelemente";  
-  if( raw.type == "fi" && raw.lang == "de" && raw.title.$t == "Aequifusine®" ) return "Elektrolyte";  
-  if( raw.type == "fi" && raw.lang == "de" && raw.title.$t == "ALK wässrig® SQ" ) return "Allergene";  
-  
+  if( raw.type == "fi" && raw.lang == "de" && raw.title.$t == "Sérocytol®" ) return "Pferdeglobuline";
+  if( raw.type == "fi" && raw.lang == "de" && raw.title.$t == "Addamel® N" ) return "Spurenelemente";
+  if( raw.type == "fi" && raw.lang == "de" && raw.title.$t == "Aequifusine®" ) return "Elektrolyte";
+  if( raw.type == "fi" && raw.lang == "de" && raw.title.$t == "ALK wässrig® SQ" ) return "Allergene";
+
   //TODO
   //if( raw.type == "fi" && raw.lang == "de" )
   //console.log( "ERROR MISSING SUBSTANCE", raw.substances, raw.title.$t, raw.authNrs.$t );
-  
+
   return "Keine Angaben";
 }
 
@@ -459,7 +470,7 @@ function repairHTML( raw )
     var pad1 = "  ";
     var pad2 = "    ";
     var pad3 = "      ";
-  
+
     html += pad0+"<html>\n";
     html += pad1+"<head>\n";
     html += pad2+"<meta charset='UTF-8'>\n";
@@ -478,22 +489,34 @@ function repairHTML( raw )
     // var iconv = require('iconv-lite');
     // var buf = iconv.encode(tags, 'win1251');
     // tags = iconv.decode(buf, 'utf-8');
-  
+
+
+    if (raw.title.$t == "Tomudex®"){
+      console.log("Tomudex®!!!!!");
+      tags = tags.replace(/&yen;/gi, "&infin;");
+    }
+
+    if (raw.title.$t == "Menopur®/Menopur® Multidose"){
+      console.log("Menopur®/Menopur® Multidose!!!!!");
+      tags = tags.replace(/&yen;/gi, "&infin;");
+    }
+
     // ERROR IN XML &pound; instead &le; Candesartan Takeda
     // LESS OR EQUAL
     tags = tags.replace( /&pound;/gi, "&#8804;" );
     // REGISTERED TRADEMARK
     tags = tags.replace( /&Ograve;/gi, "&#174;" );
-  
+    // Ű TO Ü
+    tags = tags.replace( /Ű/g, "Ü" );
+
     // REMOVE <?xml version="1.0" encoding="utf-8"?>
-    tags = tags.replace( /<?[\s\."=\w\?-]*\?>/,"");
+    tags = tags.replace( /<?[\s\."=\w\?-]*\?>/, "");
     // CHANGE <div xmlns="http://www.w3.org/1999/xhtml"> <div id="monographie">
     tags = tags.replace(/^(<[\w\s]*)(?: xmlns="[\w\.\/\:]*")(>)/,'$1 id="monographie"$2\n');
 
-    html += pad2+tags; 
+    html += pad2+tags;
     html += pad1+"</body>\n";
-    html += pad0+"</html>";                    
-  
+    html += pad0+"</html>";
+
     return html;
 };
-
