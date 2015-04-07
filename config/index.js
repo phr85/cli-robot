@@ -1,6 +1,6 @@
 // CONFIG LOG
 module.exports.service = "robot";
-module.exports.tranports = {
+module.exports.transports = {
   console: {
     level:["time","trace","debug","info","warn","error","doing"]
   }
