@@ -367,7 +367,7 @@ function parseKompendium( filename, callback )
 
         var group = Object.create(null);
         group.zulassung = key;
-
+if (key == '53005') console.log('53005!!!!!!!!!!!!!!!!!!');
         var lang = [];
         if( item.de ) lang.push( "de" );
         if( item.fr ) lang.push( "fr" );
@@ -479,14 +479,27 @@ function repairHTML( raw )
     // var buf = iconv.encode(tags, 'win1251');
     // tags = iconv.decode(buf, 'utf-8');
 
+    var entities = tags.match(/(&[^(kappa|harr|frasl|hellip|deg|reg|gt|lt|ge|le|nbsp|auml|ouml|uuml|rsquo|ecirc|ocirc|eacute|agrave|egrave|ccedil)][a-z]+\;)/gi);
+    if (entities) {
+        // console.log(" entitie: " + raw.title.$t + " _" + entities.join("_") + "_");
+    }
+
+    var nonascii = tags.replace(/­/g, "").replace(/­/g, "");
+    nonascii = nonascii.match(/([^(\u200B-\u200D\uFEFF §äöüβ«»≪≫˚°’‘ʼʺ·∙•●‰≙≅≤≥↓↑→±×−–‑‒ ̶œїïâàçéêëèîóôùû™®καµγΩδΔτøß½⅓⅔¼¾¹²³₁₂₃₆)\x00-\x7F]+)/gi);
+    if (nonascii){
+        // console.log(" nonascii: " + raw.title.$t + " _" +  nonascii.join("_") + "_");
+        //
+        if (nonascii.join("").indexOf("ë") > -1){
+          // console.log(tags.match(/\s(ë[^\s]+)\s/gi));
+        }
+
+    }
 
     if (raw.title.$t == "Tomudex®"){
-      console.log("Tomudex®!!!!!");
       tags = tags.replace(/&yen;/gi, "&infin;");
     }
 
     if (raw.title.$t == "Menopur®/Menopur® Multidose"){
-      console.log("Menopur®/Menopur® Multidose!!!!!");
       tags = tags.replace(/&yen;/gi, "&infin;");
     }
 
