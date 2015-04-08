@@ -8,7 +8,7 @@ var log = require("epha-log");
 module.exports = function(done) {
  log.service = require("../config").service;
   log.transports = require("../config").transports;
-  log.task = "BAG";
+  log.task = "bag";
   
   async.series([
     function (callback) {    

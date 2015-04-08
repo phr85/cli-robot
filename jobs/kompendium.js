@@ -17,7 +17,7 @@ var async = require("async");
 module.exports = function(done) {
  log.service = require("../config").service;
   log.transports = require("../config").transports;
-  log.task = "KOMP";
+  log.task = "kompendium";
 
   async.series([
     function(callback) {

@@ -8,7 +8,7 @@ var list;
 module.exports = function(done) {
   log.service = require("../config").service;
   log.transports = require("../config").transports;
-  log.task = "ATC";
+  log.task = "atc";
 
   async.series([
     function(callback) {
