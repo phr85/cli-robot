@@ -139,9 +139,10 @@ function xlsxToJson( filename, callback )
     cleaned[ row.atc ] = { name : row.name, ddd : row.ddd };
   }
 
+  // fix Capitalization of 4 digit or less ATC 
   // https://github.com/epha/robot/issues/7
 
-  function setCharAt(str,index,chr){
+  function setCharAt(str, index, chr){
       if (index > str.length-1) return str;
       return str.substr(0, index) + chr + str.substr(index + 1);
   }
@@ -181,17 +182,6 @@ function xlsxToJson( filename, callback )
     }
   });
 
-  /*
-  // https://github.com/epha/robot/issues/8
-
-  var testFirstChar = /^(^[ÄÖÜA-Z])/;
-
-  Object.keys(cleaned).forEach(function(atc){
-    if (!testFirstChar.test(cleaned[atc].name)){
-      console.log(cleaned[atc].name);
-    }
-  });
-  */
 
 
 
