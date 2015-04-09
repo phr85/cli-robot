@@ -3,45 +3,46 @@ var splitter = require('xml-splitter');
 var util = require("../lib/util");
 var fs = require("fs");
 var async = require("async");
-var log = require("epha-log");
+var log = require("../lib").log;
 
 module.exports = function(done) {
- log.service = require("../config").service;
-  log.transports = require("../config").transports;
-  log.task = "bag";
   
   async.series([
+    function(callback) {
+      log.info("BAG","Get, Load and Parse")
+      log.time("BAG","Completed in");
+      callback(null);
+    },
     function (callback) {    
-      log.info( "Search link in http://www.spezialitaetenliste.ch/");
-      log.time("TOTAL");
+      log.debug( "BAG", "Search link", {url:"http://www.spezialitaetenliste.ch/"});
+      log.time( "BAG", "Searched in");
       var find = {
         url: "http://www.spezialitaetenliste.ch/",
         match: /href="(.*)".*Publikation als XML-Dateien/g
       };
-      
-      log.time( "Search" );
+
       download.link( find, function( urls ) {
         link = urls.pop();
-        log.timeEnd( "Search" );
+        log.timeEnd( "BAG", "Searched in");
         callback(null);
       });        
     },
     function (callback) {
-      log.info("Download file 'XMLPublications.zip' and save to 'data/auto'" );
+      log.debug( "BAG", "Download file", {name:'XMLPublications.zip', dir:'data/auto'} );
       
       var save = {
         directory: "data/auto",
         url: link
       };
       
-      log.time("Download");
+      log.time("BAG", "Downloaded in");
       download.file( save, function( filename ) {
-        log.timeEnd("Download");
+        log.timeEnd("BAG", "Downloaded in");
         callback(null);
       });
     },
     function toJson(callback) {
-      log.info( "Transform XML to JSON 'data/release/bag'" );
+      log.debug("BAG", "Transform XML to JSON..", {dir:'data/release/bag'} );
 
       parseBag( "data/auto/bag.xml", function( bag )
       {
@@ -55,7 +56,7 @@ module.exports = function(done) {
     },
     function toJsonIt(callback) {
 
-      log.info("Transform it.xml" );
+      log.debug("BAG", "Transform it.xml" );
       parseIt( "data/auto/it.xml", function( rows )
       {
         fs.writeFileSync( "data/release/bag/it.json", JSON.stringify( rows, null, 3 ) ); 
@@ -64,7 +65,7 @@ module.exports = function(done) {
       });
     },
     function() {
-      log.timeEnd("TOTAL");
+      log.timeEnd("BAG","Completed in");
       done(null);
     }
   ]);
@@ -307,14 +308,14 @@ function parseBag( filename, callback )
 
   xs.on('end', function(counter)
   {
-    log.warn( "REMOVED",errorGtin.length,"ELEMENTS","NO GTIN");
+    log.warn("BAG", "Removed with no gtin", { elements:errorGtin.length });
     //console.log( errorGtin.join(", ") );
-    log.warn( "REMOVED",error13974.length,"ELEMENTS","WEIRD BAG DOSSIER");
+    log.warn( "BAG", "Removed weird dossier", { elements: error13974.length });
     //console.log( error13974.join(", ") );
-    log.warn( errorDossier.length,"ELEMENTS","NO BAG DOSSIER");
+    log.warn( "BAG", "No bag dossier", {elements: errorDossier.length });
     //console.log( errorDossier.join(", ") );
     //SUMMARY
-    log.info( counter,"PRODUCTS", "AND", cleaned.length, "PACKUNGEN" );
+    log.debug( "BAG", "Summary", { products:counter, cleaned: cleaned.length });
     callback( cleaned );
   });
 
@@ -329,7 +330,7 @@ function parseIt( filename, callback )
 
   var cleaned = [];
 
-  log.time("PARSE IT");
+  log.time("BAG","Parsed IT in");
   xs.on('data', function(data)
   {
     //console.log( "VERSION", result.ItCodes.$.ReleaseDate);
@@ -338,8 +339,8 @@ function parseIt( filename, callback )
 
   xs.on('end', function(counter)
   {
-    log.info( counter, "ITCODES" );
-    log.timeEnd("PARSE IT");
+    log.debug( "BAG", "Itcodes", {items:counter} );
+    log.time("BAG","Parsed IT in");
     callback( cleaned );
   });
 
