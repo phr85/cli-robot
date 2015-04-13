@@ -1,49 +1,50 @@
 var fs = require("fs");
 var xlsx = require('xlsx');
 var async = require("async");
-var log = require("epha-log");
+var log = require("../lib").log;
 var download = require("../lib/download");
 var list;
 
 module.exports = function(done) {
-  log.service = require("../config").service;
-  log.transports = require("../config").transports;
-  log.task = "ATC";
 
   async.series([
     function(callback) {
-      log.info("Search link at http://wido.de/amtl_atc-code.html");
-      log.time("TOTAL");
+      log.info("ATC", "Get, Load and Parse");
+      log.time("ATC", "Completed in");
+      callback(null);
+    },
+    function(callback) {
+      log.debug("ATC", "Search Link", { url:"wido.de" });
       var params = {
         url: "http://wido.de/amtl_atc-code.html",
         match: /href="(.*atc.*\.zip)"/gim,
         method: "GET"
       };
-      log.time("Searched link");
+      log.time("ATC", "Search Download");
       download.link( params, function( urls ) {
         // NEWEST LINK IS LAST IN THE LIST
         link = urls.pop();
-        log.timeEnd("Searched link");
+        log.timeEnd("ATC", "Search Download");
         callback(null);
       });
     },
     function(callback) {
-      log.info("Download file and save to data/auto/atc.xlsx");
+      log.debug("ATC", "Download File", {name:"atc.xlsx"});
 
       var save = {
         directory: "data/auto",
         filename:"atc.zip",
         url: link
       };
-      log.time("Download");
+      log.time("ATC", "Download File in");
       download.file( save, function( filename ) {
-        log.timeEnd("Download");
+        log.timeEnd("ATC", "Download File in");
         callback(null);
       });
 
     },
     function(callback) {
-      log.info("Transform and Release JSON");
+      log.debug("ATC", "Transform xlxs To JSON");
 
       // PARSE AND CORRECT
       xlsxToJson( "data/auto/atc.xlsx", function( rows )
@@ -56,11 +57,12 @@ module.exports = function(done) {
         fs.writeFileSync( "./data/release/atc/atc.json", JSON.stringify( rows, null, 3 ) );
         fs.writeFileSync( "./data/release/atc/atc.min.json", JSON.stringify( rows ) );
 
+        log.debug("ATC", "Transform Written to Files");
         callback(null);
       });
     },
     function(callback) {
-      log.info( "Release csv" );
+      log.debug("ATC", "Release csv" );
 
       var csv = fs.createWriteStream("./data/release/atc/atc.csv");
 
@@ -69,7 +71,7 @@ module.exports = function(done) {
       });
 
       csv.on("error", function(err) {
-        log.error(err.message);
+        log.error("ATC", err.message, err.stack);
         callback(null);
       });
 
@@ -85,7 +87,7 @@ module.exports = function(done) {
 
     },
     function() {
-      log.timeEnd("TOTAL");
+      log.timeEnd("ATC", "Completed in");
       done(null);
     }
   ]);
@@ -139,9 +141,10 @@ function xlsxToJson( filename, callback )
     cleaned[ row.atc ] = { name : row.name, ddd : row.ddd };
   }
 
+  // fix Capitalization of 4 digit or less ATC 
   // https://github.com/epha/robot/issues/7
 
-  function setCharAt(str,index,chr){
+  function setCharAt(str, index, chr){
       if (index > str.length-1) return str;
       return str.substr(0, index) + chr + str.substr(index + 1);
   }
@@ -181,17 +184,6 @@ function xlsxToJson( filename, callback )
     }
   });
 
-  /*
-  // https://github.com/epha/robot/issues/8
-
-  var testFirstChar = /^(^[ÄÖÜA-Z])/;
-
-  Object.keys(cleaned).forEach(function(atc){
-    if (!testFirstChar.test(cleaned[atc].name)){
-      console.log(cleaned[atc].name);
-    }
-  });
-  */
 
 
 

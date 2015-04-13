@@ -9,24 +9,26 @@ var zlib = require("zlib");
 //XML
 var splitter = require('xml-splitter');
 
-var log = require("epha-log");
+var log = require("../lib").log;
 var files = require("epha-files");
 
 var async = require("async");
 
 module.exports = function(done) {
- log.service = require("../config").service;
-  log.transports = require("../config").transports;
-  log.task = "KOMP";
 
   async.series([
     function(callback) {
-      log.info("Requesting file << http://download.swissmedicinfo.ch/");
+      log.info("Kompendium","Get, Load and Parse");
+      log.time("Kompendium","Completed in");
+      callback(null);
+    },
+    function(callback) {
+      log.debug("Kompendium", "Requesting file", {url:"http://download.swissmedicinfo.ch/"});
       log.time("TOTAL");
       zustimmen( callback );
     },
     function(callback) {
-      log.info( "Split xml", "data/auto/kompendium.xml", "to", "data/release/kompendium/*");
+      log.debug( "Kompendium", "Split xml", { dir:"data/release/kompendium/*"});
 
       var filename;
 
@@ -49,10 +51,10 @@ module.exports = function(done) {
           callback(null);
         });
       }
-      else log.error("NOT FOUND", filename );
+      else log.error("BAG", "NOT FOUND", {file:filename} );
     },
     function() {
-      log.timeEnd("TOTAL");
+      log.timeEnd("Kompendium","Completed in");
       done(null);
     }
   ]);
@@ -62,7 +64,7 @@ module.exports = function(done) {
 // ACTUAL WORKERS
 function zustimmen( callback )
 {
-  log.doing("Requesting zustimmung");
+  log.doing("Kompendium","Requesting zustimmung");
 
   var uri1 = {
     host: "download.swissmedicinfo.ch",
@@ -89,7 +91,7 @@ function zustimmen( callback )
 
       var hidden1 = "__VIEWSTATE=" + encodeURIComponent( state1 ) + "&" + "__EVENTVALIDATION=" + encodeURIComponent( event1);
 
-      log.doing( "Starting", res1.statusCode );
+      log.doing( "Kompendium", "Starting", res1.statusCode );
 
       information( callback, hidden1, cookie1);
     });
@@ -124,7 +126,7 @@ function information( callback, hidden1, cookie1 )
 
       cookie2 = /([a-zA-Z0-9=_\.]*)/.exec( cookie2 )[1];
 
-      log.doing( "Pretending cookies", res2.statusCode );
+      log.doing( "Kompendium", "Pretending cookies", res2.statusCode );
 
       download( callback, cookie1 + "; " + cookie2);
     });
@@ -192,13 +194,13 @@ function downloadYes( callback, hidden3, cookie )
       size = Math.floor( res4.headers['content-length'] );
     }
 
-    log.info( "Filesize", files.size( res4.headers["content-length"] ) );
-    log.info( "Server", res4.headers["server"] );
+    log.debug("Kompendium", "Filesize", files.size( res4.headers["content-length"] ) );
+    log.debug( "Kompendium", "Server", res4.headers["server"] );
 
     if(res4.headers['content-disposition']) {
       filename = /filename=["']?([a-zA-Z_0-9]*)/gi.exec(res4.headers['content-disposition'])[1];
     }
-    log.time("DOWNLOAD");
+    log.time("Kompendium","Downloaded in");
     filename += '.xml';
 
     var loaded = 0;
@@ -210,12 +212,12 @@ function downloadYes( callback, hidden3, cookie )
 
       if( refresh++%100 == 0 )
       {
-        log.doing( "Loading", ( loaded / size * 100 ).toFixed(2) + "%" );
+        log.doing("Kompendium", "Loading", ( loaded / size * 100 ).toFixed(2) + "%" );
       }
     });
 
     res4.on('end', function() {
-      log.timeEnd("DOWNLOAD");
+      log.timeEnd("Kompendium","Downloaded in");
       writeAndExtract(chunks, callback);
     });
   });
@@ -223,12 +225,11 @@ function downloadYes( callback, hidden3, cookie )
   request4.on("error", function( error) {});
   request4.write( options.data );
   request4.end();
-  log.doing("");
 };
 
 function writeAndExtract( parts, callback ) {
 
-      log.doing("Finished loading");
+      log.debug("Kompendium","Finished loading");
 
       var payload = Buffer.concat(parts);
 
@@ -241,7 +242,7 @@ function writeAndExtract( parts, callback ) {
       for(var i=0;i<entries.length;i++)
       {
         if( /.xml$/.test( entries[i].entryName ) ) {
-          log.time('ZIP extracted');
+          log.time("Kompendium", 'ZIP extracted in');
           var entry = entries[i];
           var buffer = entry.getCompressedData();
 
@@ -250,7 +251,7 @@ function writeAndExtract( parts, callback ) {
 
           stream.pipe(zlib.createInflateRaw()).pipe(output);
           output.on('finish', function() {
-            log.timeEnd('ZIP extracted');
+            log.timeEnd("Kompendium", 'ZIP extracted in');
             callback(null);
           });
           /* SYNC
@@ -261,7 +262,6 @@ function writeAndExtract( parts, callback ) {
           */
         }
       }
-    log.doing("");
 };
 
 
@@ -317,7 +317,7 @@ function parseKompendium( filename, callback )
     {
       item.authNrs = (item.authNrs) ? item.authNrs+ " "+element : element;
 
-      log.doing( "#", done++, "Files" ); 
+      log.doing( "Kompendium", "Files #", done++ ); 
 
       fs.writeFile("data/release/kompendium/"+item.lang+"/"+item.type+"/"+element+".htm", repairHTML( data ));
     });
@@ -332,8 +332,6 @@ function parseKompendium( filename, callback )
     items.on("finish", function()
     {
       // Memory free for grouping stuff
-      log.doing("");
-
       var liste = JSON.parse( fs.readFileSync("data/release/kompendium/catalog.json" ) );
 
       // GROUPING ZULASSUNG AND Filtering
@@ -386,7 +384,7 @@ if (key == '53005') console.log('53005!!!!!!!!!!!!!!!!!!');
         kompendium.documents.push( group );
       }
 
-      log.info("Found", counter, "Files in weird xml");
+      log.debug("Kompendium", "Files in weird xml", { count:counter});
 
       callback( kompendium );
     });

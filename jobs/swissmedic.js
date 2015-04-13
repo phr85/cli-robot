@@ -4,44 +4,47 @@ var xlsx = require('xlsx');
 var util = require("../lib/util");
 var fs = require("fs");
 var async = require("async");
-var log = require("epha-log");
+var log = require("../lib").log;
 
 module.exports = function(done) {
- log.service = require("../config").service;
-  log.transports = require("../config").transports;
-  log.task = "SWISM";
+
   
   async.series([ 
+    function(callback) {
+      log.info("Swissmedic", "Get, Load and Parse");
+      log.time("Swissmedic", "Completed in");
+      callback(null);
+    },
     function(callback) {  
-      log.info("Search link in https://www.swissmedic.ch/");
+      log.debug("Swissmedic", "Search link", {url:"https://www.swissmedic.ch/"});
       log.time("TOTAL");
 
       var find = {
         url: "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
         match: /href="([\/a-zäöü0-9\?\;\,\=\.\-\_\&]*)".*Excel-Version Zugelassene Verpackungen/gi
       };
-      log.time("SEARCHED");
+      log.time("Swissmedic", "Searched in");
       download.link( find, function( urls ) {
         link = urls.pop();
-        log.timeEnd("SEARCHED");
+        log.timeEnd("Swissmedic", "Searched in");
         callback(null);
       });     
     },
     function(callback) {
-      log.info("Download file and save to 'data/auto/swissmedic.xlsx'" );
+      log.debug("Swissmedic", "Download file", { save:'data/auto/swissmedic.xlsx'});
 
       var save = {
         directory: "data/auto",
         url: link
       };
-      log.time("DOWNLOAD");
+      log.time("Swissmedic","Downloaded in");
       download.file( save, function( filename ) {
-        log.timeEnd("DOWNLOAD");
+        log.timeEnd("Swissmedic","Downloaded in");
         callback(null);
       });
     },
     function(callback) {
-      log.info( "Transform Excel to JSON and save in 'data/release/swissmedic'" );
+      log.debug("Swissmedic","Transform Excel to JSON", {save:'data/release/swissmedic'} );
 
       xlsxToJSON( "data/auto/swissmedic.xlsx", function( rows )
       {
@@ -54,7 +57,7 @@ module.exports = function(done) {
       });
     },
     function() {
-      log.timeEnd("TOTAL" );
+      log.timeEnd("Swissmedic", "Completed in");
       done(null);
     }
   ]);
@@ -147,6 +150,7 @@ function repairATC( raw )
 {
   if( raw.atc == "C05BA" && raw.name == "Hirudoid, Creme" ) raw.atc = "C05BA01";
   if( raw.atc == "R05CA" && raw.name == "Mucosil Phyto Junior, sirop pectoral" ) raw.atc = "R05CA10";
+  if( raw.atc == "V04CL" && raw.name.indexOf("Testlösung zur Allergiediagnose Teomed") == 0 ) raw.atc = "V01AA20";
     
   var johannis = [];
   johannis.splice(0,0,'62884','62658','58544','58102','62658','53148','57009','54729','55676','53790');
