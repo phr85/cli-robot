@@ -3,7 +3,9 @@ var xlsx = require('xlsx');
 var async = require("async");
 var log = require("../lib").log;
 var download = require("../lib/download");
-var list;
+
+var list_de;
+var list_de_ch;
 
 module.exports = function(done) {
 
@@ -49,13 +51,17 @@ module.exports = function(done) {
       // PARSE AND CORRECT
       xlsxToJson( "data/auto/atc.xlsx", function( rows )
       {
-        list = rows;
+        list_de = rows.de;
+        list_de_ch = rows.de_ch;
 
         if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
         if( !fs.existsSync( "./data/release/atc" ) ) fs.mkdirSync( "./data/release/atc" );
 
-        fs.writeFileSync( "./data/release/atc/atc.json", JSON.stringify( rows, null, 3 ) );
-        fs.writeFileSync( "./data/release/atc/atc.min.json", JSON.stringify( rows ) );
+        fs.writeFileSync( "./data/release/atc/atc.json", JSON.stringify( list_de, null, 3 ) );
+        fs.writeFileSync( "./data/release/atc/atc.min.json", JSON.stringify( list_de ) );
+        
+        fs.writeFileSync( "./data/release/atc/atc_de-ch.json", JSON.stringify( list_de_ch, null, 3 ) );
+        fs.writeFileSync( "./data/release/atc/atc_de-ch.min.json", JSON.stringify( list_de_ch ) );
 
         log.debug("ATC", "Transform Written to Files");
         callback(null);
@@ -75,10 +81,10 @@ module.exports = function(done) {
         callback(null);
       });
 
-      Object.keys(list).forEach( function( item ) {
+      Object.keys(list_de).forEach( function( item ) {
         var atc = item;
-        var name = list[ item ].name;
-        var ddd = list[ item ].ddd || "";
+        var name = list_de[ item ].name;
+        var ddd = list_de[ item ].ddd || "";
 
         csv.write( '"'+atc+'","'+name+'","'+ddd+'"\n');
       });
@@ -100,7 +106,8 @@ var link;
 function xlsxToJson( filename, callback )
 {
   var excel = xlsx.readFile(filename);
-
+  var swissmedic = require("../data/release/swissmedic/swissmedic.json"); 
+      
   var worksheet;
 
   excel.SheetNames.forEach(function(sheet) {
@@ -108,11 +115,28 @@ function xlsxToJson( filename, callback )
     worksheet = sheet;
   });
 
-  if(!worksheet) throw new Error("Worksheet konnte nicht gefunden werden");
+  if(!worksheet) {
+    log.error("ATC","No Worksheet");
+    callback(null);
+  }
+  if(!swissmedic) {
+    log.error("ATC","Please load swissmedic first");
+    callback(null);
+  }
 
   // ATC-CODES UNIQUE
-  var cleaned = {};
+  var de = {};
+  var de_ch = {};
+  
+  var ch_packungen = {};
   var empty = [];
+  
+  swissmedic.forEach( function(packung) {
+    if(!packung.atc) {
+      return;
+    }
+    ch_packungen[packung.atc] = true;
+  });
 
   // KEIN HEADER
   for( var i = 2; i < 20000 && empty.length < 10; i++ )
@@ -122,8 +146,8 @@ function xlsxToJson( filename, callback )
     var ddd = excel.Sheets[ worksheet ]["E"+i];
 
     var row = {};
-
-    empty.push("Read new line");
+    
+    empty.push("Keine Einträge");
 
     if( atc && atc.v.length > 0 && atc.v.length < 13) row.atc = atc.v.replace(/"/g,"").trim();
     else continue;
@@ -134,88 +158,24 @@ function xlsxToJson( filename, callback )
     if( ddd ) row.ddd = ddd.v.replace(/("|\n)/g,"").trim();
 
     empty = [];
-
-    // KORREKTUREN
-    if( row.atc == "G03AA17" && row.name == "Dienogest und Ethinylestradiol") row.atc = "G03AA16";
-
-    cleaned[ row.atc ] = { name : row.name, ddd : row.ddd };
-  }
-
-  // fix Capitalization of 4 digit or less ATC 
-  // https://github.com/epha/robot/issues/7
-
-  function setCharAt(str, index, chr){
-      if (index > str.length-1) return str;
-      return str.substr(0, index) + chr + str.substr(index + 1);
-  }
-
-  var testUpperCase = /^([ÄÖÜA-Z\s,\.]+)$/;
-  var excludeWords = /^(alle|auf|bei|die|den|der|dere[n|r]|des|das|für|gege[n|m]+|etc\.|in|mit|nach|oder|ohne|rein|und|vom|von|zur)$/;
-  var excludeWords2 = /^(andere[n|r]?|anthroposophische[n|r]?|antineoplastisch[e]?[n|r]?|arterielle[n|r]?|bedingte[n|r]?|blutbildende[n|r]?|dermatologische[n|r]?|direkt[e]?[n|r]?)$/;
-  var excludeWords3 = /^(eingesetzte[n|r]?|exkl\.|fördernde[n|r]?|funktionelle[n|r]?|hergestellt[e]?[n|r]?|homöopathische[n]?|immunmodulierend[e]?[n|r]?|inkl\.)$/;
-  var excludeWords4 = /^(lokale[n|r]?|nichttherapeutisch[e]?[n|r]?|obstruktiv[e]?[n|r]?|periphe[n|r]?|pflanzliche[n|r]?|sparende[n|r]?|stimulierende[r|n]?|systemische[n|r]?|topische[n|r]?)$/;
-  var excludeWords5 = /^(übrige[n|r]?|vaskulär[e]?[n|r]?|verwandte[n|r]?|virale[n|r]?|vorwiegende[n|r]?|weibliche[n|r]?|wirkende[n|r]?|zentral[e]?[r|n]?)$/;
-  var ivanka = /^(alimentär|antiviral|beeinfluss|benign|gastroesophageal|gastrointestinal|importiert|inhalativ|kombiniert|natürlich|parenteral|peptisch|therapeutisch|wirkend)[e]?[m|n|r|s]?$/;
-  var romNum = /^(I|II|III|IV|V|VI|VII|VIII|IX|X)$/i;
-  var abbr = /^(ACTH|ADHD|DMPS)$/i;
-
-  Object.keys(cleaned).forEach(function(atc){
-    if (testUpperCase.test(cleaned[atc].name)){
-
-      var lowered = cleaned[atc].name.toLowerCase();
-
-      var Capitalized = lowered.split(' ').map(function(word, i){
-        if (!word) return null;
-        if (abbr.test(word) || romNum.test(word)) return word.toUpperCase();
-        if (i === 0 || (!excludeWords.test(word) && !excludeWords2.test(word) && !excludeWords3.test(word) &&
-          !excludeWords4.test(word) && !excludeWords5.test(word) &&
-          !ivanka.test(word))
-        ){
-          return setCharAt(word, 0, word[0].toUpperCase());
-        }
-        return word;
-      }).join(' ');
-
-      // console.log(atc);
-      // console.log(cleaned[atc].name);
-      // console.log(Capitalized + '\n');
-
-      cleaned[atc].name = Capitalized;
+    
+    de[ row.atc ] = { name : row.name, ddd : row.ddd };
+    
+    if( ch_packungen[row.atc] ) {
+      de_ch[row.atc] = { name : row.name, ddd : row.ddd };
     }
-  });
+  }
+  
+  
 
-
-
-
-  // MISSING ATC BUT In SWiSSMEDIC ADDING
-  if( !cleaned.N06DX02 ) cleaned.N06DX02 = { name: "Ginkgo folium", ddd : "0.12 g O" };
-  if( !cleaned.N04BA02 ) cleaned.N04BA02 = { name: "Levodopa und Decarboxylasehemmer", ddd : "0.6 g O" };
-  if( !cleaned.C01EB04 ) cleaned.C01EB04 = { name: "Weissdorn"};
-  if( !cleaned.N05CM09 ) cleaned.N05CM09 = { name: "Baldrian"}; // valerianae extractum ethanolicum siccum
-  if( !cleaned.B06AA11 ) cleaned.B06AA11 = { name: "Bromelain"};
-  if( !cleaned.G04CX02 ) cleaned.G04CX02 = { name: "Sägepalme sabal"};
-  if( !cleaned.A05BA03 ) cleaned.A05BA03 = { name: "Mariendistel"};
-  if( !cleaned.A10BX01 ) cleaned.A10BX01 = { name: "Guarmehl"}; // guari farina
-  if( !cleaned.G02CX04 ) cleaned.G02CX04 = { name: "Cimicifuga"};
-  if( !cleaned.G04CX01 ) cleaned.G04CX01 = { name: "Pygeumrindenextrakt"}; // pygei africani extractum, urticae radicis extractum siccum
-  if( !cleaned.S01AX11 ) cleaned.S01AX11 = { name: "Ofloxacin"};
-  if( !cleaned.R07AA02 ) cleaned.R07AA02 = { name: "Phospholipide"};
-  if( !cleaned.S01AX13 ) cleaned.S01AX13 = { name: "Ciprofloxacin"};
-  if( !cleaned.M03AX01 ) cleaned.M03AX01 = { name: "Botulinumtoxin"};
-  if( !cleaned.B02BC10 ) cleaned.B02BC10 = { name: "Fibrinogen human, Factor XIII, Aprotinin und Thrombinum human"};
-  if( !cleaned.G02CX03 ) cleaned.G02CX03 = { name: "Mönchspfeffer"}; // agni casti extractum ethanolicum siccum
-  if( !cleaned.N01AX01 ) cleaned.N01AX01 = { name: "Droperidol"};
-  if( !cleaned.S01AX22 ) cleaned.S01AX22 = { name: "Moxifloxacin"};
-  if( !cleaned.N02AA09 ) cleaned.N02AA09 = { name: "Diamorphin"};
-  if( !cleaned.D06BB12 ) cleaned.D06BB12 = { name: "Camellia"}; // extractum siccum raffinatum
-  if( !cleaned.C09DA09 ) cleaned.C09DA09 = { name: "Chlortalidon"};
-  if( !cleaned.A10BX13 ) cleaned.A10BX13 = { name: "Albiglutid"};
-  if( !cleaned.J05AR13 ) cleaned.J05AR13 = { name: "Dolutegravir, Abacavirum und Lamivudin"};
-  if( !cleaned.R03BB07 ) cleaned.R03BB07 = { name: "Umeclidin"};
-  if( !cleaned.L01XE27 ) cleaned.L01XE27 = { name: "Ibrutinib"};
-  if( !cleaned.S01EC54 ) cleaned.S01EC54 = { name: "Brinzolamid und Brimonidin"};
-  if( !cleaned.L01XX47 ) cleaned.L01XX47 = { name: "Idelalisib"};
-
-
-  callback( cleaned );
+  callback({ de:de, de_ch: de_ch });
 }
+
+  var parse = require("csv-parse");
+  
+  var add = fs.readFileSync("./data/manual/produkte/master.csv");
+  parse(csv, function(err,data) {
+  
+    if( err) console.log(err);
+    if(!err) transform(data, done);
+  });

@@ -84,8 +84,12 @@ function xlsxToJSON( filename, callback )
     clean.zulassung = ("00000" + excel.Sheets[ worksheet ]["A"+i].v ).slice( -5 );
     // Sequenz
     clean.sequenz = ""+excel.Sheets[ worksheet ]["B"+i].v;
+    
     // Sequenzname
-    if( excel.Sheets[ worksheet ]["C"+i] )clean.name = excel.Sheets[ worksheet ]["C"+i].v;
+    if( excel.Sheets[ worksheet ]["C"+i] ) {
+      clean.name = excel.Sheets[ worksheet ]["C"+i].v;
+      clean.name = clean.name.replace(/["\\"]/g,"");
+    }
 
     // Zulassungsinhaberin
     clean.hersteller = excel.Sheets[ worksheet ]["D"+i].v;
@@ -151,6 +155,7 @@ function repairATC( raw )
   if( raw.atc == "C05BA" && raw.name == "Hirudoid, Creme" ) raw.atc = "C05BA01";
   if( raw.atc == "R05CA" && raw.name == "Mucosil Phyto Junior, sirop pectoral" ) raw.atc = "R05CA10";
   if( raw.atc == "V04CL" && raw.name.indexOf("Testlösung zur Allergiediagnose Teomed") == 0 ) raw.atc = "V01AA20";
+  if( raw.atc == "G04BC" && raw.name.indexOf("UROCIT") == 0 ) raw.atc = "G04BC01";
     
   var johannis = [];
   johannis.splice(0,0,'62884','62658','58544','58102','62658','53148','57009','54729','55676','53790');
