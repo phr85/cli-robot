@@ -1,11 +1,17 @@
 var fs = require("fs");
 var xlsx = require('xlsx');
 var async = require("async");
+var parse = require("csv-parse");
 var log = require("../lib").log;
+var path = require("path");
 var download = require("../lib/download");
 
-var list_de;
-var list_de_ch;
+var list_de = {};
+var list_de_ch = {};
+
+var addFile = path.resolve(__dirname, "../data/manual/atc", "add.csv");
+var capitalizeFile = path.resolve(__dirname, "../data/manual/atc", "capitalize.csv");
+var changeFile = path.resolve(__dirname, "../data/manual/atc", "change.csv");
 
 module.exports = function(done) {
 
@@ -47,25 +53,67 @@ module.exports = function(done) {
     },
     function(callback) {
       log.debug("ATC", "Transform xlxs To JSON");
-
       // PARSE AND CORRECT
-      xlsxToJson( "data/auto/atc.xlsx", function( rows )
-      {
-        list_de = rows.de;
-        list_de_ch = rows.de_ch;
-
-        if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
-        if( !fs.existsSync( "./data/release/atc" ) ) fs.mkdirSync( "./data/release/atc" );
-
-        fs.writeFileSync( "./data/release/atc/atc.json", JSON.stringify( list_de, null, 3 ) );
-        fs.writeFileSync( "./data/release/atc/atc.min.json", JSON.stringify( list_de ) );
+      xlsxToJson( "data/auto/atc.xlsx", callback);
+    },
+    function(callback) {
+      log.debug("ATC", "Add Codes");
+      // PARSE AND CORRECT
+      addCodes( callback );
+    },
+    function(callback) {
+      log.debug("ATC", "Modify Codes");
+      // PARSE AND CORRECT
+      modifyCodes( callback );
+    },    
+    function(callback) {
+      log.debug("ATC", "Modify Names");
+      // PARSE AND CORRECT
+      modifyNames( callback );
+    },  
+    function(callback) {
+      log.debug("ATC","Write CH file");
+    
+      var de_ch = {};
+      var ch_packungen = {};
+      var swissmedic = JSON.parse(fs.readFileSync("./data/release/swissmedic/swissmedic.json")); 
         
-        fs.writeFileSync( "./data/release/atc/atc_de-ch.json", JSON.stringify( list_de_ch, null, 3 ) );
-        fs.writeFileSync( "./data/release/atc/atc_de-ch.min.json", JSON.stringify( list_de_ch ) );
-
-        log.debug("ATC", "Transform Written to Files");
+      if(!swissmedic) {
+        log.error("ATC","Please load swissmedic first");
         callback(null);
+      }
+      swissmedic.forEach( function(packung) {
+        if(!packung.atc) {
+          return;
+        }
+        ch_packungen[packung.atc] = true;
       });
+
+      Object.keys(list_de).forEach( function(code) {        
+        if(ch_packungen[code]){
+          // All codes above
+          for( var i = 1; i < code.length; i++) {
+            list_de_ch[code.substr(0,i)] = list_de[code.substr(0,i)];
+          }
+          list_de_ch[code] = list_de[code];
+        }
+      });      
+      
+      callback(null);
+    },
+    function(callback) {
+      log.debug("ATC", "Transform Written to Files");
+    
+      if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
+      if( !fs.existsSync( "./data/release/atc" ) ) fs.mkdirSync( "./data/release/atc" );
+
+      fs.writeFileSync( "./data/release/atc/atc.json", JSON.stringify( list_de, null, 3 ) );
+      fs.writeFileSync( "./data/release/atc/atc.min.json", JSON.stringify( list_de ) );
+
+      fs.writeFileSync( "./data/release/atc/atc_de-ch.json", JSON.stringify( list_de_ch, null, 3 ) );
+      fs.writeFileSync( "./data/release/atc/atc_de-ch.min.json", JSON.stringify( list_de_ch ) );
+
+      callback(null);
     },
     function(callback) {
       log.debug("ATC", "Release csv" );
@@ -81,12 +129,8 @@ module.exports = function(done) {
         callback(null);
       });
 
-      Object.keys(list_de).forEach( function( item ) {
-        var atc = item;
-        var name = list_de[ item ].name;
-        var ddd = list_de[ item ].ddd || "";
-
-        csv.write( '"'+atc+'","'+name+'","'+ddd+'"\n');
+      Object.keys(list_de).forEach( function( code ) {
+        csv.write( '"'+code+'","'+list_de[code].name+'","'+list_de[code].ddd+'"\n');
       });
 
       csv.end();
@@ -106,8 +150,6 @@ var link;
 function xlsxToJson( filename, callback )
 {
   var excel = xlsx.readFile(filename);
-  var swissmedic = require("../data/release/swissmedic/swissmedic.json"); 
-      
   var worksheet;
 
   excel.SheetNames.forEach(function(sheet) {
@@ -119,25 +161,10 @@ function xlsxToJson( filename, callback )
     log.error("ATC","No Worksheet");
     callback(null);
   }
-  if(!swissmedic) {
-    log.error("ATC","Please load swissmedic first");
-    callback(null);
-  }
 
   // ATC-CODES UNIQUE
-  var de = {};
-  var de_ch = {};
-  
-  var ch_packungen = {};
   var empty = [];
   
-  swissmedic.forEach( function(packung) {
-    if(!packung.atc) {
-      return;
-    }
-    ch_packungen[packung.atc] = true;
-  });
-
   // KEIN HEADER
   for( var i = 2; i < 20000 && empty.length < 10; i++ )
   {
@@ -152,30 +179,78 @@ function xlsxToJson( filename, callback )
     if( atc && atc.v.length > 0 && atc.v.length < 13) row.atc = atc.v.replace(/"/g,"").trim();
     else continue;
 
-    if( name ) row.name = name.v.replace(/("|\n)/g,"").trim();
+    if( name ) row.name = name.v.replace(/("|\r\n)/g,"").trim();
     else continue;
 
-    if( ddd ) row.ddd = ddd.v.replace(/("|\n)/g,"").trim();
+    if( ddd ) row.ddd = ddd.v.replace(/("|\r\n)/g,"").trim();
 
     empty = [];
     
-    de[ row.atc ] = { name : row.name, ddd : row.ddd };
-    
-    if( ch_packungen[row.atc] ) {
-      de_ch[row.atc] = { name : row.name, ddd : row.ddd };
-    }
+    list_de[ row.atc ] = { name : row.name, ddd : row.ddd };
   }
-  
-  
 
-  callback({ de:de, de_ch: de_ch });
+  callback(null);
 }
 
-  var parse = require("csv-parse");
+function addCodes( callback ) {
+
+  var add = fs.readFileSync(addFile);
   
-  var add = fs.readFileSync("./data/manual/produkte/master.csv");
-  parse(csv, function(err,data) {
+  parse(add, function(err, data) {
   
-    if( err) console.log(err);
-    if(!err) transform(data, done);
+    if( err) throw err;
+
+    data.forEach( function(row){  
+      if(!list_de[row[0]] ) {
+        list_de[row[0]] = { name: row[1], ddd: row[2] };
+      }
+    });
+    
+    callback(null);
+  });  
+}
+
+function modifyNames( callback ) {
+
+  var names = fs.readFileSync(capitalizeFile);
+  
+  parse(names, function(err, data) {
+  
+    if( err) throw err;
+
+    data.forEach( function(row){  
+      if(list_de[row[0]] ) {
+        list_de[row[0]].name = row[1];
+      }
+    });
+    
+    callback(null);
+  });  
+}
+
+// oldcode, oldname, olddd, newcode, newname, newddd
+function modifyCodes( callback ) {
+
+  var change = fs.readFileSync(changeFile);
+  
+  parse(change, function(err, data) {
+  
+    if( err) {
+      log.warn("ATC","Not modifying",err);
+    }
+
+    if( data ) {
+      data.forEach( function(row){    
+        if(list_de[row[0]] && liste_de[row[0]].name == row[1] && liste_de[row[0]].ddd == row[2]) {
+          delete list_de[row[0]];
+
+          if(!list_de[row[3]]) {
+            list_de[row[3]] = { name: row[5], ddd: row[5] };
+          }
+        }
+      });
+    }
+    
+    callback(null);  
   });
+}

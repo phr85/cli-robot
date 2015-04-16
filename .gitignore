@@ -1,4 +1,6 @@
-data/*
+data/auto/*
+data/release/*
+
 node_modules/
 npm-debug.log
 .DS_STORE
