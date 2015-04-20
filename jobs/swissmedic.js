@@ -6,53 +6,43 @@ var fs = require("fs");
 var async = require("async");
 var log = require("../lib").log;
 
+var config = require('../config.json');
+var downloadSrc = config.swissmedic.download.src;
+var downloadDir = config.base.download.dir;
+var downloadFilePath = downloadDir + config.swissmedic.download.filename;
+var processDir = config.base.process.dir + config.swissmedic.process.dir;
+var processFilePath = processDir + config.swissmedic.process.filename;
+var processMinFilePath = processDir + config.swissmedic.process.minFilename;
+var debugInfo = { save: downloadFilePath };
+
 module.exports = function(done) {
 
-  
   async.series([ 
     function(callback) {
       log.info("Swissmedic", "Get, Load and Parse");
       log.time("Swissmedic", "Completed in");
+
       callback(null);
     },
-    function(callback) {  
-      log.debug("Swissmedic", "Search link", {url:"https://www.swissmedic.ch/"});
-      log.time("TOTAL");
-
-      var find = {
-        url: "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
-        match: /href="([\/a-zäöü0-9\?\;\,\=\.\-\_\&]*)".*Excel-Version Zugelassene Verpackungen/gi
-      };
-      log.time("Swissmedic", "Searched in");
-      download.link( find, function( urls ) {
-        link = urls.pop();
-        log.timeEnd("Swissmedic", "Searched in");
-        callback(null);
-      });     
-    },
     function(callback) {
-      log.debug("Swissmedic", "Download file", { save:'data/auto/swissmedic.xlsx'});
-
-      var save = {
-        directory: "data/auto",
-        url: link
-      };
+      log.debug("Swissmedic", "Download file", debugInfo);
       log.time("Swissmedic","Downloaded in");
-      download.file( save, function( filename ) {
-        log.timeEnd("Swissmedic","Downloaded in");
+
+      download.file({ "url": downloadSrc, "directory": downloadDir }, function() {
+        log.timeEnd("Swissmedic", "Downloaded in");
         callback(null);
       });
     },
     function(callback) {
-      log.debug("Swissmedic","Transform Excel to JSON", {save:'data/release/swissmedic'} );
+      log.debug("Swissmedic","Transform Excel to JSON", debugInfo);
 
-      xlsxToJSON( "data/auto/swissmedic.xlsx", function( rows )
-      {
-        if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
-        if( !fs.existsSync( "./data/release/swissmedic" ) ) fs.mkdirSync( "./data/release/swissmedic" );
+      xlsxToJSON( downloadFilePath, function( rows ) {
+
+        if( !fs.existsSync( config.base.process.dir ) ) fs.mkdirSync( config.base.process.dir );
+        if( !fs.existsSync( processDir ) ) fs.mkdirSync( processDir );
         
-        fs.writeFileSync( "data/release/swissmedic/swissmedic.json", JSON.stringify( rows, null, 3 ) ); 
-        fs.writeFileSync( "data/release/swissmedic/swissmedic.min.json", JSON.stringify( rows ) ); 
+        fs.writeFileSync(processFilePath, JSON.stringify( rows, null, 3 ) );
+        fs.writeFileSync(processMinFilePath, JSON.stringify( rows ) );
         callback(null);
       });
     },

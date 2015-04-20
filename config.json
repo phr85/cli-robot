@@ -1,0 +1,22 @@
+{
+  "base": {
+    "download": {
+      "dir": "./data/auto/"
+    },
+    "process": {
+      "dir": "./data/release/"
+    }
+  },
+  "swissmedic": {
+    "download": {
+      "src": "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html?lang=de&download=NHzLpZeg7t,lnp6I0NTU042l2Z6ln1acy4Zn4Z2qZpnO2Yuq2Z6gpJCDdHx7hGym162epYbg2c_JjKbNoKSn6A--",
+      "size": "2502 KB",
+      "filename": "swissmedic.xlsx"
+    },
+    "process": {
+      "dir": "swissmedic/",
+      "filename": "swissmedic.json",
+      "minFilename": "siwssmedic.min.json"
+    }
+  }
+}
