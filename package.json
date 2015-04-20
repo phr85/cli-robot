@@ -7,23 +7,28 @@
     "email": "marco.egbring@epha.ch"
   },
   "scripts": {
-    "start": "node ./bin/cli.js"
+    "start": "node ./bin/cli.js",
+    "test": "mocha --recursive",
+    "watch-test": "mocha --watch --recursive --growl"
   },
   "main": "./lib/index.js",
   "dependencies": {
     "adm-zip": "^0.4.7",
     "async": "^0.9.0",
     "bytes": "~1.0.0",
+    "chai": "^2.2.0",
     "cheerio": "^0.18.0",
     "csv": "~0.3.7",
     "epha-files": "^0.2.4",
     "epha-log": "^0.3.23",
     "iconv-lite": "~0.2.11",
     "jquery": "~2.1.1",
+    "mocha": "^2.2.4",
     "moment": "^2.9.0",
     "node-xlsx": "0.4.0",
     "sax": "*",
     "sha1": "^1.1.0",
+    "sinon": "^1.14.1",
     "streamifier": "^0.1.0",
     "tedious": "~1.2.2",
     "xlsjs": "*",
