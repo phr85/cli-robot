@@ -2,14 +2,6 @@
   "browser": false,
   "node": true,
   "expr": true,
-  "predef": [         // Extra globals.
-    "describe",
-    "it",
-    "before",
-    "after",
-    "beforeEach",
-    "afterEach"
-  ],
   "curly": true,     // Require {} for every new block or scope.
   "eqeqeq": true,     // Require triple equals i.e. `===`.
   "forin": true,     // Tolerate `for in` loops without `hasOwnPrototype`.
@@ -43,5 +35,6 @@
   "shadow": false,    // Allows re-define variables later in code e.g. `var x=1; x=2;`.
   "sub": true,    // Tolerate all forms of subscript notation besides dot notation e.g. `dict['key']` instead of `dict.key`.
   "supernew": false,    // Tolerate `new function () { ... };` and `new Object;`.
-  "validthis": false    // Tolerate strict violations when the code is running in strict mode and you use this in a non-constructor function
+  "validthis": false,    // Tolerate strict violations when the code is running in strict mode and you use this in a non-constructor function
+  "mocha": true // Tolerate mocha globals
 }
