@@ -72,6 +72,22 @@ module.exports = function(done) {
       modifyNames( callback );
     },  
     function(callback) {
+      log.debug("ATC","Remove empty strings");
+      
+      Object.keys(list_de).forEach(function(key) {
+        list_de[key].name =list_de[key].name.trim();
+        
+        if( list_de[key].ddd ) {
+          list_de[key].ddd = list_de[key].ddd.trim();
+        }
+        if( !list_de[key].ddd ){
+          list_de[key].ddd = undefined;
+        }
+      });
+      
+      callback(null);
+    },
+    function(callback) {
       log.debug("ATC","Write CH file");
     
       var de_ch = {};
@@ -232,16 +248,16 @@ function modifyNames( callback ) {
 function modifyCodes( callback ) {
 
   var change = fs.readFileSync(changeFile);
-  
+
   parse(change, function(err, data) {
   
-    if( err) {
+    if(err) {
       log.warn("ATC","Not modifying",err);
     }
 
     if( data ) {
       data.forEach( function(row){    
-        if(list_de[row[0]] && liste_de[row[0]].name == row[1] && liste_de[row[0]].ddd == row[2]) {
+        if(list_de[row[0]] && list_de[row[0]].name == row[1] && list_de[row[0]].ddd == row[2]) {
           delete list_de[row[0]];
 
           if(!list_de[row[3]]) {
