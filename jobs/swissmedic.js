@@ -6,8 +6,10 @@ var fs = require("fs");
 var async = require("async");
 var log = require("../lib").log;
 
-module.exports = function(done) {
+var diskWriter = require("../lib/diskWriter");
 
+module.exports = function(done) {
+  var link;
 
   async.series([
     function(callback) {
@@ -21,11 +23,11 @@ module.exports = function(done) {
 
       var find = {
         url: "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
-        match: /href="([\/a-zäöü0-9\?\;\,\=\.\-\_\&]*)".*Excel-Version Zugelassene Verpackungen/gi
+        match: /href="([\/a-zäöü0-9\?\;\,\=\.\-\_\&]*)".*Excel-Version Zugelassene Verpackungen/i
       };
       log.time("Swissmedic", "Searched in");
-      download.link( find, function( urls ) {
-        link = urls.pop();
+      download.link( find, function( parsedLink ) {
+        link = parsedLink
         log.timeEnd("Swissmedic", "Searched in");
         callback(null);
       });
@@ -38,7 +40,7 @@ module.exports = function(done) {
         url: link
       };
       log.time("Swissmedic","Downloaded in");
-      download.file( save, function( filename ) {
+      download.file( save, function( ) {
         log.timeEnd("Swissmedic","Downloaded in");
         callback(null);
       });
@@ -48,8 +50,7 @@ module.exports = function(done) {
 
       xlsxToJSON( "data/auto/swissmedic.xlsx", function( rows )
       {
-        if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
-        if( !fs.existsSync( "./data/release/swissmedic" ) ) fs.mkdirSync( "./data/release/swissmedic" );
+        diskWriter.ensureDir("./data/release/swissmedic");
 
         fs.writeFileSync( "data/release/swissmedic/swissmedic.json", JSON.stringify( rows, null, 3 ) );
         fs.writeFileSync( "data/release/swissmedic/swissmedic.min.json", JSON.stringify( rows ) );
