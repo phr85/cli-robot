@@ -6,6 +6,8 @@ var fs = require("fs");
 var async = require("async");
 var log = require("../lib").log;
 var parse = require("csv-parse");
+var path = require("path");
+
 var atcKorrekturen;
 
 module.exports = function(done) {
@@ -47,7 +49,8 @@ module.exports = function(done) {
     function(callback) {
       log.debug("Swissmedic", "Load korrekturen for atc", { file:'data/manual/swissmedic/atc.csv'});
     
-      var csv = fs.readFileSync("./data/manual/swissmedic/atc.csv");
+      var file = path.resolve(__dirname, "../data/manual/swissmedic", "atc.csv");
+      var csv = fs.readFileSync(file);
       parse(csv, function(err,data) {
       if( err) throw err;
       if(!err) {

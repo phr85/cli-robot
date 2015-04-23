@@ -1,7 +1,7 @@
 {
   "name": "epha-robot",
   "description": "Fetching, cleaning, transforming of pharmaceutical data from public resources",
-  "version": "0.2.35",
+  "version": "0.2.37",
   "author": {
     "name": "Marco Egbring",
     "email": "marco.egbring@epha.ch"
