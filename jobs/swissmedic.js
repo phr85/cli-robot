@@ -5,10 +5,11 @@ var util = require("../lib/util");
 var fs = require("fs");
 var async = require("async");
 var log = require("../lib").log;
+var parse = require("csv-parse");
+var atcKorrekturen;
 
 module.exports = function(done) {
 
-  
   async.series([ 
     function(callback) {
       log.info("Swissmedic", "Get, Load and Parse");
@@ -42,6 +43,27 @@ module.exports = function(done) {
         log.timeEnd("Swissmedic","Downloaded in");
         callback(null);
       });
+    },
+    function(callback) {
+      log.debug("Swissmedic", "Load korrekturen for atc", { file:'data/manual/swissmedic/atc.csv'});
+    
+      var csv = fs.readFileSync("./data/manual/swissmedic/atc.csv");
+      parse(csv, function(err,data) {
+      if( err) throw err;
+      if(!err) {
+        var atcKorrekturenKnown = {};
+        data.forEach( function(cells) {  
+          atcKorrekturenKnown[cells[0]] = {
+            approval: cells[0],
+            atcOriginal: cells[1],
+            atcKorrektur: cells[2],
+            name: cells[3]
+          };
+        });
+        atcKorrekturen = atcKorrekturenKnown;
+        callback(null);
+      }
+    });
     },
     function(callback) {
       log.debug("Swissmedic","Transform Excel to JSON", {save:'data/release/swissmedic'} );
@@ -150,22 +172,17 @@ function xlsxToJSON( filename, callback )
   callback( cleaned );
 };
 
+//---
+// atc
+// zulassung
+//--
 function repairATC( raw )
 {
-  if( raw.atc == "C05BA" && raw.name == "Hirudoid, Creme" ) raw.atc = "C05BA01";
-  if( raw.atc == "R05CA" && raw.name == "Mucosil Phyto Junior, sirop pectoral" ) raw.atc = "R05CA10";
-  if( raw.atc == "V04CL" && raw.name.indexOf("Testlösung zur Allergiediagnose Teomed") == 0 ) raw.atc = "V01AA20";
-  if( raw.atc == "G04BC" && raw.name.indexOf("UROCIT") == 0 ) raw.atc = "G04BC01";
-    
-  var johannis = [];
-  johannis.splice(0,0,'62884','62658','58544','58102','62658','53148','57009','54729','55676','53790');
-  johannis.splice(0,0,'44553','54826','54859','56225','57605','53924');
-  
-  if( johannis.indexOf( raw.zulassung ) > -1 )
-  {
-    if( raw.atc == "N06AX" ) raw.atc = "N05CP03";
-    if( raw.atc == "N05CM" ) raw.atc = "N05CP03";
-  }
-  
-  return raw;
+ if( atcKorrekturen[raw.zulassung] ) {
+    if(atcKorrekturen[raw.zulassung].atcOriginal == raw.atc) {
+      raw.atc = atcKorrekturen[raw.zulassung].atcKorrektur;
+    }
+ }
+ return raw;
 };
+
