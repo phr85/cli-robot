@@ -28,6 +28,7 @@
     "sax": "*",
     "sha1": "^1.1.0",
     "streamifier": "^0.1.0",
+    "superagent": "^1.2.0",
     "tedious": "~1.2.2",
     "xlsjs": "*",
     "xlsx": "^0.5.17",
@@ -35,9 +36,11 @@
   },
   "devDependencies": {
     "chai": "^2.2.0",
+    "express": "^4.12.3",
     "mocha": "^2.2.4",
     "rewire": "^2.3.1",
-    "sinon": "^1.14.1"
+    "sinon": "^1.14.1",
+    "superagent-mock": "^1.0.0"
   },
   "keywords": [
     "swissmedic",
