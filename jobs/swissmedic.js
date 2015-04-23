@@ -1,74 +1,43 @@
-var download = require("../lib/download");
-
 var xlsx = require('xlsx');
 var util = require("../lib/util");
-var fs = require("fs");
-var async = require("async");
 var log = require("../lib").log;
 
+var config = require("../config.json");
+
 var diskWriter = require("../lib/diskWriter");
+var fetchHTML = require("../lib/fetchHTML");
+var parseLink = require("../lib/parseLink");
+var downloadFile = require("../lib/downloadFile");
 
 module.exports = function(done) {
-  var link;
+  fetchHTML(url)
+    .then(function (html) {
+      return parseLink(config.swissmedic.download.url, html, new RegExp(config.swissmedic.download.link));
+    })
+    .then(function (link) {
+      diskWriter.ensureDir(config.base.download.dir);
 
-  async.series([
-    function(callback) {
-      log.info("Swissmedic", "Get, Load and Parse");
-      log.time("Swissmedic", "Completed in");
-      callback(null);
-    },
-    function(callback) {
-      log.debug("Swissmedic", "Search link", {url:"https://www.swissmedic.ch/"});
-      log.time("TOTAL");
+      return downloadFile(link, config.swissmedic.download.file);
+    })
+    .then(function () {
+      return processXLSX(config.swissmedic.download.file);
+    })
+    .then(function (processedXLSX) {
+      diskWriter
+        .ensureDir(config.swissmedic.process.dir)
+        .json(processedXLSX, config.swissmedic.process.file)
+        .jsonMin(processedXLSX, config.swissmedic.process.minFile);
+    })
+    .then(done);
 
-      var find = {
-        url: "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
-        match: /href="([\/a-zäöü0-9\?\;\,\=\.\-\_\&]*)".*Excel-Version Zugelassene Verpackungen/i
-      };
-      log.time("Swissmedic", "Searched in");
-      download.link( find, function( parsedLink ) {
-        link = parsedLink
-        log.timeEnd("Swissmedic", "Searched in");
-        callback(null);
-      });
-    },
-    function(callback) {
-      log.debug("Swissmedic", "Download file", { save:'data/auto/swissmedic.xlsx'});
-
-      var save = {
-        directory: "data/auto",
-        url: link
-      };
-      log.time("Swissmedic","Downloaded in");
-      download.file( save, function( ) {
-        log.timeEnd("Swissmedic","Downloaded in");
-        callback(null);
-      });
-    },
-    function(callback) {
-      log.debug("Swissmedic","Transform Excel to JSON", {save:'data/release/swissmedic'} );
-
-      xlsxToJSON( "data/auto/swissmedic.xlsx", function( rows )
-      {
-        diskWriter.ensureDir("./data/release/swissmedic");
-
-        fs.writeFileSync( "data/release/swissmedic/swissmedic.json", JSON.stringify( rows, null, 3 ) );
-        fs.writeFileSync( "data/release/swissmedic/swissmedic.min.json", JSON.stringify( rows ) );
-        callback(null);
-      });
-    },
-    function() {
-      log.timeEnd("Swissmedic", "Completed in");
-      done(null);
-    }
-  ]);
-}
+  return;
+};
 
 // ACTUAL WORKERS
 var link;
 
 // Zugelassene Packungen Swissmedic
-function xlsxToJSON( filename, callback )
+function processXLSX(filename)
 {
   var excel = xlsx.readFile(filename);
   var worksheet = excel.SheetNames[0];
@@ -148,7 +117,7 @@ function xlsxToJSON( filename, callback )
     cleaned.push( clean );
   }
 
-  callback( cleaned );
+  return cleaned;
 };
 
 function repairATC( raw )
