@@ -4,7 +4,7 @@ var rewire = require("rewire");
 var chai = require("chai");
 var expect = chai.expect;
 
-describe("fileWriter", function () {
+describe("diskWriter", function () {
   var diskWriter, mkdirpMock, mkdirpMockCB, fsMock, writeFileCB, data;
 
   before(function () {
@@ -29,8 +29,10 @@ describe("fileWriter", function () {
     });
 
     describe(".resolve()", function () {
-      it("should resolve if dir is ensured", function (done) {
-        diskWriter.ensureDir("tmp").then(done);
+      it("should resolve if given dir is ensured", function (done) {
+        diskWriter.ensureDir("tmp").then(function () {
+          done();
+        });
         mkdirpMockCB();
       });
     });
