@@ -2,7 +2,7 @@ var xlsx = require('xlsx');
 var util = require("../lib/util");
 var log = require("../lib").log;
 
-var config = require("../config.json");
+var config = require("../config.json").swissmedic;
 
 var diskWriter = require("../lib/diskWriter");
 var fetchHTML = require("../lib/fetchHTML");
@@ -10,31 +10,29 @@ var parseLink = require("../lib/parseLink");
 var downloadFile = require("../lib/downloadFile");
 
 module.exports = function(done) {
-  fetchHTML(url)
+  fetchHTML(config.download.url)
     .then(function (html) {
-      return parseLink(config.swissmedic.download.url, html, new RegExp(config.swissmedic.download.link));
+      var linkRegExp = /href="([\/a-zäöü0-9?;,=.\-_&]*)".*Excel-Version Zugelassene Verpackungen/i;
+      return parseLink(config.download.url, html, linkRegExp);
     })
     .then(function (link) {
-      diskWriter.ensureDir(config.base.download.dir);
+      diskWriter.ensureDir(config.download.dir);
 
-      return downloadFile(link, config.swissmedic.download.file);
+      return downloadFile(link, config.download.file);
     })
     .then(function () {
-      return processXLSX(config.swissmedic.download.file);
+      return processXLSX(config.download.file);
     })
     .then(function (processedXLSX) {
       diskWriter
-        .ensureDir(config.swissmedic.process.dir)
-        .json(processedXLSX, config.swissmedic.process.file)
-        .jsonMin(processedXLSX, config.swissmedic.process.minFile);
+        .ensureDir(config.process.dir)
+        .json(processedXLSX, config.process.file)
+        .jsonMin(processedXLSX, config.process.minFile);
     })
     .then(done);
 
   return;
 };
-
-// ACTUAL WORKERS
-var link;
 
 // Zugelassene Packungen Swissmedic
 function processXLSX(filename)
