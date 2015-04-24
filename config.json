@@ -2,8 +2,8 @@
   "swissmedic": {
     "download": {
       "url": "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
-      "file": "./data/auto/swissmedic.xlsx",
-      "link": "href='([\/a-zäöü0-9\?;,=\.\-_&]*)'.*Excel-Version Zugelassene Verpackungen"
+      "dir": "./data/auto/",
+      "file": "./data/auto/swissmedic.xlsx"
     },
     "process": {
       "dir": "./data/release/swissmedic/",
