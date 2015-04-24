@@ -50,59 +50,61 @@ describe("diskWriter", function () {
     });
   });
 
-  describe(".json()", function () {
-    it("should return a Promise", function () {
-      expect(diskWriter.json("file.json", data)).to.be.an.instanceof(Promise);
-    });
+  describe(".write", function () {
+    describe(".json()", function () {
+      it("should return a Promise", function () {
+        expect(diskWriter.write.json("file.json", data)).to.be.an.instanceof(Promise);
+      });
 
-    describe(".resolve()", function () {
-      it("should resolve if json-file is written", function (done) {
-        diskWriter.json("file.json", data).then(function () {
-          done();
+      describe(".resolve()", function () {
+        it("should resolve if json-file is written", function (done) {
+          diskWriter.write.json("file.json", data).then(function () {
+            done();
+          });
+          writeFileCB();
         });
-        writeFileCB();
+      });
+
+      describe(".reject()", function () {
+        it("should reject if an error has occurred while file writing", function (done) {
+          var jsonFileErr = new Error("Could not write json");
+
+          diskWriter.write.json("file.json", data).catch(function (err) {
+            expect(jsonFileErr).to.equal(err);
+            done();
+          });
+
+          writeFileCB(jsonFileErr);
+        })
       });
     });
 
-    describe(".reject()", function () {
-      it("should reject if an error has occurred while file writing", function (done) {
-        var jsonFileErr = new Error("Could not write json");
-
-        diskWriter.json("file.json", data).catch(function (err) {
-          expect(jsonFileErr).to.equal(err);
-          done();
-        });
-
-        writeFileCB(jsonFileErr);
-      })
-    });
-  });
-
-  describe(".jsonMin()", function () {
-    it("should return a Promise", function () {
-      expect(diskWriter.jsonMin("file.json", data)).to.be.an.instanceof(Promise);
-    });
-
-    describe(".resolve()", function () {
-      it("should resolve if json-file is written", function (done) {
-        diskWriter.jsonMin("file.json", data).then(function () {
-          done();
-        });
-        writeFileCB();
+    describe(".jsonMin()", function () {
+      it("should return a Promise", function () {
+        expect(diskWriter.write.jsonMin("file.json", data)).to.be.an.instanceof(Promise);
       });
-    });
 
-    describe(".reject()", function () {
-      it("should reject if an error has occurred while file writing", function (done) {
-        var jsonMinFileErr = new Error("Could not write min-json");
-
-        diskWriter.jsonMin("file.json", data).catch(function (err) {
-          expect(jsonMinFileErr).to.equal(err);
-          done();
+      describe(".resolve()", function () {
+        it("should resolve if json-file is written", function (done) {
+          diskWriter.write.jsonMin("file.json", data).then(function () {
+            done();
+          });
+          writeFileCB();
         });
+      });
 
-        writeFileCB(jsonMinFileErr);
-      })
+      describe(".reject()", function () {
+        it("should reject if an error has occurred while file writing", function (done) {
+          var jsonMinFileErr = new Error("Could not write min-json");
+
+          diskWriter.write.jsonMin("file.json", data).catch(function (err) {
+            expect(jsonMinFileErr).to.equal(err);
+            done();
+          });
+
+          writeFileCB(jsonMinFileErr);
+        })
+      });
     });
   });
 });
