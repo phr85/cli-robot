@@ -1,41 +1,98 @@
+var download = require("../lib/download");
+
 var xlsx = require('xlsx');
 var util = require("../lib/util");
+var fs = require("fs");
+var async = require("async");
 var log = require("../lib").log;
+var parse = require("csv-parse");
+var path = require("path");
 
-var config = require("../config.json").swissmedic;
-
-var diskWriter = require("../lib/diskWriter");
-var fetchHTML = require("../lib/fetchHTML");
-var parseLink = require("../lib/parseLink");
-var downloadFile = require("../lib/downloadFile");
+var atcKorrekturen;
 
 module.exports = function(done) {
-  fetchHTML(config.download.url)
-    .then(function (html) {
-      var linkRegExp = /href="([\/a-zäöü0-9?;,=.\-_&]*)".*Excel-Version Zugelassene Verpackungen/i;
-      return parseLink(config.download.url, html, linkRegExp);
-    })
-    .then(function (link) {
-      diskWriter.ensureDir(config.download.dir);
 
-      return downloadFile(link, config.download.file);
-    })
-    .then(function () {
-      return processXLSX(config.download.file);
-    })
-    .then(function (processedXLSX) {
-      diskWriter
-        .ensureDir(config.process.dir)
-        .json(processedXLSX, config.process.file)
-        .jsonMin(processedXLSX, config.process.minFile);
-    })
-    .then(done);
+  async.series([ 
+    function(callback) {
+      log.info("Swissmedic", "Get, Load and Parse");
+      log.time("Swissmedic", "Completed in");
+      callback(null);
+    },
+    function(callback) {  
+      log.debug("Swissmedic", "Search link", {url:"https://www.swissmedic.ch/"});
+      log.time("TOTAL");
 
-  return;
-};
+      var find = {
+        url: "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
+        match: /href="([\/a-zäöü0-9\?\;\,\=\.\-\_\&]*)".*Excel-Version Zugelassene Verpackungen/gi
+      };
+      log.time("Swissmedic", "Searched in");
+      download.link( find, function( urls ) {
+        link = urls.pop();
+        log.timeEnd("Swissmedic", "Searched in");
+        callback(null);
+      });     
+    },
+    function(callback) {
+      log.debug("Swissmedic", "Download file", { save:'data/auto/swissmedic.xlsx'});
+
+      var save = {
+        directory: "data/auto",
+        url: link
+      };
+      log.time("Swissmedic","Downloaded in");
+      download.file( save, function( filename ) {
+        log.timeEnd("Swissmedic","Downloaded in");
+        callback(null);
+      });
+    },
+    function(callback) {
+      log.debug("Swissmedic", "Load korrekturen for atc", { file:'data/manual/swissmedic/atc.csv'});
+    
+      var file = path.resolve(__dirname, "../data/manual/swissmedic", "atc.csv");
+      var csv = fs.readFileSync(file);
+      parse(csv, function(err,data) {
+      if( err) throw err;
+      if(!err) {
+        var atcKorrekturenKnown = {};
+        data.forEach( function(cells) {  
+          atcKorrekturenKnown[cells[0]] = {
+            approval: cells[0],
+            atcOriginal: cells[1],
+            atcKorrektur: cells[2],
+            name: cells[3]
+          };
+        });
+        atcKorrekturen = atcKorrekturenKnown;
+        callback(null);
+      }
+    });
+    },
+    function(callback) {
+      log.debug("Swissmedic","Transform Excel to JSON", {save:'data/release/swissmedic'} );
+
+      xlsxToJSON( "data/auto/swissmedic.xlsx", function( rows )
+      {
+        if( !fs.existsSync( "./data/release" ) ) fs.mkdirSync( "./data/release" );
+        if( !fs.existsSync( "./data/release/swissmedic" ) ) fs.mkdirSync( "./data/release/swissmedic" );
+        
+        fs.writeFileSync( "data/release/swissmedic/swissmedic.json", JSON.stringify( rows, null, 3 ) ); 
+        fs.writeFileSync( "data/release/swissmedic/swissmedic.min.json", JSON.stringify( rows ) ); 
+        callback(null);
+      });
+    },
+    function() {
+      log.timeEnd("Swissmedic", "Completed in");
+      done(null);
+    }
+  ]);
+}
+
+// ACTUAL WORKERS
+var link;
 
 // Zugelassene Packungen Swissmedic
-function processXLSX(filename)
+function xlsxToJSON( filename, callback )
 {
   var excel = xlsx.readFile(filename);
   var worksheet = excel.SheetNames[0];
@@ -115,25 +172,20 @@ function processXLSX(filename)
     cleaned.push( clean );
   }
 
-  return cleaned;
+  callback( cleaned );
 };
 
+//---
+// atc
+// zulassung
+//--
 function repairATC( raw )
 {
-  if( raw.atc == "C05BA" && raw.name == "Hirudoid, Creme" ) raw.atc = "C05BA01";
-  if( raw.atc == "R05CA" && raw.name == "Mucosil Phyto Junior, sirop pectoral" ) raw.atc = "R05CA10";
-  if( raw.atc == "V04CL" && raw.name.indexOf("Testlösung zur Allergiediagnose Teomed") == 0 ) raw.atc = "V01AA20";
-  if( raw.atc == "G04BC" && raw.name.indexOf("UROCIT") == 0 ) raw.atc = "G04BC01";
-    
-  var johannis = [];
-  johannis.splice(0,0,'62884','62658','58544','58102','62658','53148','57009','54729','55676','53790');
-  johannis.splice(0,0,'44553','54826','54859','56225','57605','53924');
-  
-  if( johannis.indexOf( raw.zulassung ) > -1 )
-  {
-    if( raw.atc == "N06AX" ) raw.atc = "N05CP03";
-    if( raw.atc == "N05CM" ) raw.atc = "N05CP03";
-  }
-  
-  return raw;
+ if( atcKorrekturen[raw.zulassung] ) {
+    if(atcKorrekturen[raw.zulassung].atcOriginal == raw.atc) {
+      raw.atc = atcKorrekturen[raw.zulassung].atcKorrektur;
+    }
+ }
+ return raw;
 };
+
