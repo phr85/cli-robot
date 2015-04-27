@@ -1,21 +1,19 @@
 "use strict";
 
-var rewire = require("rewire")
+var rewire = require("rewire");
+var server = require("../server");
 
 describe("job: siwssmedic", function () {
-  var server, job, config;
+  var job, config;
 
   before(function (done) {
-    server = require("../server");
-    server.spinUp(done);
-
     config = require("../../config.json");
 
     job = rewire("../../jobs/swissmedic");
-    job.__set__("config", {
+    job.__set__("cfg", {
       download: {
         url: "http://localhost:" + server.port + "/arzneimittel/00156/00221/00222/00230/index.html",
-        dir: "/test_integration/tmp/data/auto",
+        dir: "./test_integration/tmp/data/auto",
         file: "./test_integration/tmp/data/auto/swissmedic.xlsx"
       },
       process: {
@@ -24,11 +22,16 @@ describe("job: siwssmedic", function () {
         minFile: "./test_integration/tmp/data/release/swissmedic/siwssmedic.min.json"
       }
     });
+
+    server.spinUp(done);
   });
 
   it("should download and process xlsx-file properly", function (done) {
     job(function () {
+      //@TODO assertions, e.g. file size and
       done();
     });
   });
+
+  after(server.spinDown);
 });
