@@ -8,7 +8,7 @@ var disk = require("../lib/disk");
 var fetchHTML = require("../lib/fetchHTML");
 var parseLink = require("../lib/parseLink");
 var downloadFile = require("../lib/downloadFile");
-var readATCanXLSX = require("../lib/swissmedic/readATCandXLSX");
+var readATCandXLSX = require("../lib/swissmedic/readATCandXLSX");
 var mergeATCwXLSX = require("../lib/swissmedic/mergeATCwXLSX");
 
 /**
@@ -20,8 +20,7 @@ function swissmedic(done) {
   log.info("Swissmedic", "Get, Load and Parse");
   log.time("Swissmedic", "Completed in");
 
-  disk
-    .ensureDir(cfg.download.dir, cfg.process.dir)
+  disk.ensureDir(cfg.download.dir, cfg.process.dir)
     .then(function () {
       log.time("Swissmedic", "Get HTML");
       return fetchHTML(cfg.download.url);
@@ -40,7 +39,7 @@ function swissmedic(done) {
     .then(function () {
       log.timeEnd("Swissmedic", "Download");
       log.time("Swissmedic", "Read Files")
-      return readATCanXLSX(path.resolve(__dirname, "../data/manual/swissmedic", "atc.csv"), cfg.download.file); //@TODO move to config
+      return readATCandXLSX(path.resolve(__dirname, "../data/manual/swissmedic", "atc.csv"), cfg.download.file); //@TODO move to config
     })
     .then(function (data) {
       var atcDATA = data[0];
@@ -61,9 +60,10 @@ function swissmedic(done) {
     })
     .then(function () {
       log.time("Swissmedic", "Write Files");
+      log.timeEnd("Swissmedic", "Completed in");
       done(null);
     })
     .catch(done);
 }
 
-moduel.export = swissmedic;
+module.exports = swissmedic;
