@@ -50,6 +50,15 @@ describe("disk", function () {
     });
   });
 
+  describe(".read", function () {
+    describe(".file", function () {
+      //@TODO
+    });
+    describe(".csv", function () {
+      //@TODO
+    });
+  });
+
   describe(".write", function () {
     describe(".json()", function () {
       it("should return a Promise", function () {
