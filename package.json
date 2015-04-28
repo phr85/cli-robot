@@ -10,8 +10,8 @@
     "start": "node ./bin/cli.js",
     "test": "mocha --recursive",
     "watch-test": "mocha --watch --recursive --growl",
-    "test-integration": "mocha --recursive --timeout 10000 ./test_integration",
-    "watch-test-integration": "mocha --watch --recursive --growl --timeout 10000 ./test_integration"
+    "test-integration": "mocha --recursive --timeout 20000 ./test_integration",
+    "watch-test-integration": "mocha --watch --recursive --growl --timeout 20000 ./test_integration"
   },
   "main": "./lib/index.js",
   "dependencies": {
@@ -41,6 +41,7 @@
     "express": "^4.12.3",
     "mocha": "^2.2.4",
     "rewire": "^2.3.1",
+    "shasum": "^1.0.1",
     "sinon": "^1.14.1",
     "superagent-mock": "^1.0.0"
   },
