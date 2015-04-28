@@ -71,7 +71,10 @@ function swissmedic(done) {
       log.timeEnd("Swissmedic", "Completed in");
       done(null);
     })
-    .catch(done);
+    .catch(function (err) {
+      log.error(err);
+      done(err);
+    });
 }
 
 module.exports = swissmedic;
