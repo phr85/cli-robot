@@ -9,7 +9,7 @@ var fetchHTML = require("../lib/fetchHTML");
 var parseLink = require("../lib/parseLink");
 var downloadFile = require("../lib/downloadFile");
 var readATCandXLSX = require("../lib/swissmedic/readATCandXLSX");
-var mergeATCwXLSX = require("../lib/swissmedic/mergeATCwXLSX");
+var correctXLSX = require("../lib/swissmedic/correctXLSX");
 
 /**
  *
@@ -42,13 +42,13 @@ function swissmedic(done) {
       return readATCandXLSX(path.resolve(__dirname, "../data/manual/swissmedic", "atc.csv"), cfg.download.file); //@TODO move to config
     })
     .then(function (data) {
-      var atcDATA = data[0];
+      var atcCorrection = data[0];
       var xlsxData = data[1];
 
       log.timeEnd("Swissmedic", "Read Files");
       log.time("Siwssmedic", "Merge Files");
 
-      return mergeATCwXLSX(atcDATA, xlsxData);
+      return correctXLSX(atcCorrection, xlsxData);
     })
     .then(function (data) {
       log.timeEnd("Swissmedic", "Merge Files");
