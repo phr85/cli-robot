@@ -14,14 +14,14 @@ var readXLSX = require("../lib/swissmedic/readXLSX");
 var cfg = {
   "download": {
     "url": "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
-    "dir": "./data/auto/",
-    "file": "./data/auto/swissmedic.xlsx"
+    "dir": path.resolve(__dirname, "../data/auto/"),
+    "file": path.resolve(__dirname, "../data/auto/swissmedic.xlsx")
   },
   "process": {
-    "dir": "./data/release/swissmedic/",
-    "atcFile": "./data/manual/swissmedic/atc.csv",
-    "file": "./data/release/swissmedic/swissmedic.json",
-    "minFile": "./data/release/swissmedic/siwssmedic.min.json"
+    "dir": path.resolve(__dirname, "../data/release/swissmedic/"),
+    "atcFile": path.resolve(__dirname, "../data/manual/swissmedic/atc.csv"),
+    "file": path.resolve(__dirname, "../data/release/swissmedic/swissmedic.json"),
+    "minFile": path.resolve(__dirname, "../data/release/swissmedic/siwssmedic.min.json")
   }
 };
 
@@ -59,7 +59,6 @@ function swissmedic(done) {
       return readXLSX(cfg.download.file, correctXLSX.setATCCorrection(atcCorrection));
     })
     .then(function (parsedXLSX) {
-      console.log(typeof parsedXLSX, parsedXLSX.length);
       log.timeEnd("Swissmedic", "Read Files");
       log.time("Swissmedic", "Write Files");
       return disk.write.json(cfg.process.file, parsedXLSX);
