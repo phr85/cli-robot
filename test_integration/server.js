@@ -13,7 +13,7 @@ var server;
 var port = 3001;
 var cfg = {
   "swissmedic": {
-    "xlsx": path.resolve(__dirname, "./fixtures/swissmedic/download.xlsx"),
+    "xlsx": path.resolve(__dirname, "./fixtures/swissmedic/swissmedic.xlsx"),
     "html": path.resolve(__dirname, "./fixtures/swissmedic/index.html"),
     "path": url.parse(config.swissmedic.download.url).path,
     "qs": { download: "NHzLpZeg7t,lnp6I0NTU042l2Z6ln1acy4Zn4Z2qZpnO2Yuq2Z6gpJCDdHx7hGym162epYbg2c_JjKbNoKSn6A--" }

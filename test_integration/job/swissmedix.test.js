@@ -1,5 +1,7 @@
 "use strict";
 
+var path = require("path");
+
 var rewire = require("rewire");
 var shasum = require("shasum");
 var xlsx = require("xlsx");
@@ -33,7 +35,6 @@ describe("job: siwssmedic", function () {
   before(function (done) {
     job = rewire("../../jobs/swissmedic");
     job.__set__("cfg", test.cfg);
-
     job(done);
   });
 
@@ -41,6 +42,24 @@ describe("job: siwssmedic", function () {
     // very slow: ~20000ms
     it("should download whole xlsx-File from swissmedic", function () {
       expect(shasum(xlsx.readFile(server.cfg.swissmedic.xlsx))).to.equal(shasum(xlsx.readFile(test.cfg.download.file)));
+    });
+  });
+
+  describe("JSON Release", function () {
+    it("should have build a proper JSON-file", function () {
+      var fixture = require("../fixtures/swissmedic/swissmedic.json");
+      var jsonBuild = require(path.resolve(__dirname, "../../", test.cfg.process.file));
+
+      expect(fixture).to.equal(jsonBuild);
+    });
+  });
+
+  describe("JSON Release", function () {
+    it("should have build a proper JSON-file", function () {
+      var fixture = require("../fixtures/swissmedic/swissmedic.min.json");
+      var jsonMinBuild = require(path.resolve(__dirname, "../../", test.cfg.process.minFile));
+
+      expect(fixture).to.equal(jsonMinBuild);
     });
   });
 
