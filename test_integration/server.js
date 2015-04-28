@@ -5,8 +5,11 @@ var path = require("path");
 var fs = require("fs");
 
 var express = require("express");
+var rewire = require("rewire");
 
-var config = require("../config.json");
+var config = {
+  "swissmedic": rewire("../jobs/swissmedic").__get__("cfg")
+};
 
 var app = express();
 var server;

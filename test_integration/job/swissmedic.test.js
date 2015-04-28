@@ -15,7 +15,17 @@ describe("job: siwssmedic", function () {
   var job, cfg, test;
 
   function cleanUp(done) {
-    rmdir(path.resolve(__dirname, "../tmp"), done);
+    var cleanPath = path.resolve(__dirname, "../tmp");
+
+    fs.lstat(cleanPath, function (err) {
+      if (err && err.code === "ENOENT") {
+        return done();
+      }
+      if (err && err.code !== "ENOENT") {
+        return done(err);
+      }
+      rmdir(cleanPath, done);
+    });
   }
 
   // make sure that test environment is clean
@@ -34,6 +44,7 @@ describe("job: siwssmedic", function () {
         process: {
           dir: "./test_integration/tmp/data/release/swissmedic/",
           file: "./test_integration/tmp/data/release/swissmedic/swissmedic.json",
+          atcFile: path.resolve(__dirname, "../../data/manual/swissmedic/atc.csv"),
           minFile: "./test_integration/tmp/data/release/swissmedic/siwssmedic.min.json"
         }
       }

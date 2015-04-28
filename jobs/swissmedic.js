@@ -2,7 +2,6 @@
 
 var path = require("path");
 
-var cfg = require("../config").swissmedic;
 var log = require("../lib").log;
 var disk = require("../lib/disk");
 var fetchHTML = require("../lib/fetchHTML");
@@ -11,6 +10,20 @@ var downloadFile = require("../lib/downloadFile");
 var createATCCorrection = require("../lib/swissmedic/createATCCorrection");
 var correctXLSX = require("../lib/swissmedic/correctXLSX");
 var readXLSX = require("../lib/swissmedic/readXLSX");
+
+var cfg = {
+  "download": {
+    "url": "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
+    "dir": "./data/auto/",
+    "file": "./data/auto/swissmedic.xlsx"
+  },
+  "process": {
+    "dir": "./data/release/swissmedic/",
+    "atcFile": "./data/manual/swissmedic/atc.csv",
+    "file": "./data/release/swissmedic/swissmedic.json",
+    "minFile": "./data/release/swissmedic/siwssmedic.min.json"
+  }
+};
 
 /**
  *
@@ -40,7 +53,7 @@ function swissmedic(done) {
     .then(function () {
       log.timeEnd("Swissmedic", "Download");
       log.time("Swissmedic", "Read Files");
-      return createATCCorrection(path.resolve(__dirname, "../data/manual/swissmedic", "atc.csv")); //@TODO move to config
+      return createATCCorrection(cfg.process.atcFile);
     })
     .then(function (atcCorrection) {
       return readXLSX(cfg.download.file, correctXLSX.setATCCorrection(atcCorrection));
