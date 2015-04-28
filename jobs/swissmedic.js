@@ -8,8 +8,9 @@ var disk = require("../lib/disk");
 var fetchHTML = require("../lib/fetchHTML");
 var parseLink = require("../lib/parseLink");
 var downloadFile = require("../lib/downloadFile");
-var readATCandXLSX = require("../lib/swissmedic/readATCandXLSX");
+var createATCCorrection = require("../lib/swissmedic/createATCCorrection");
 var correctXLSX = require("../lib/swissmedic/correctXLSX");
+var readXLSX = require("../lib/swissmedic/readXLSX");
 
 /**
  *
@@ -38,25 +39,20 @@ function swissmedic(done) {
     //@TODO resolve dependencies, in this case atc.csv must be present
     .then(function () {
       log.timeEnd("Swissmedic", "Download");
-      log.time("Swissmedic", "Read Files")
-      return readATCandXLSX(path.resolve(__dirname, "../data/manual/swissmedic", "atc.csv"), cfg.download.file); //@TODO move to config
+      log.time("Swissmedic", "Read Files");
+      return createATCCorrection(path.resolve(__dirname, "../data/manual/swissmedic", "atc.csv")); //@TODO move to config
     })
-    .then(function (data) {
-      var atcCorrection = data[0];
-      var xlsxData = data[1];
-
+    .then(function (atcCorrection) {
+      return readXLSX(cfg.download.file, correctXLSX.setATCCorrection(atcCorrection));
+    })
+    .then(function (parsedXLSX) {
+      console.log(typeof parsedXLSX, parsedXLSX.length);
       log.timeEnd("Swissmedic", "Read Files");
-      log.time("Siwssmedic", "Merge Files");
-
-      return correctXLSX(atcCorrection, xlsxData);
-    })
-    .then(function (data) {
-      log.timeEnd("Swissmedic", "Merge Files");
       log.time("Swissmedic", "Write Files");
-      return disk.write.json(cfg.process.file, data);
+      return disk.write.json(cfg.process.file, parsedXLSX);
     })
-    .then(function (data) {
-      return disk.write.jsonMin(cfg.process.minFile, data);
+    .then(function (parsedXLSX) {
+      return disk.write.jsonMin(cfg.process.minFile, parsedXLSX);
     })
     .then(function () {
       log.time("Swissmedic", "Write Files");

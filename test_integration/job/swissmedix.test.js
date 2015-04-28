@@ -1,17 +1,25 @@
 "use strict";
 
 var path = require("path");
+var fs = require("fs");
 
 var rewire = require("rewire");
 var shasum = require("shasum");
 var xlsx = require("xlsx");
 var expect = require("chai").expect;
+var rmdir = require("rmdir");
 
 var server = require("../server");
 
 describe("job: siwssmedic", function () {
   var job, cfg, test;
 
+  function cleanUp(done) {
+    rmdir(path.resolve(__dirname, "../tmp"), done);
+  }
+
+  // make sure that test environment is clean
+  before(cleanUp);
   // start server
   before(server.spinUp);
   // create test config
@@ -39,7 +47,7 @@ describe("job: siwssmedic", function () {
   });
 
   describe("XLSX-Download", function () {
-    // very slow: ~20000ms
+    // quite slow: ~20000ms
     it("should download whole xlsx-File from swissmedic", function () {
       expect(shasum(xlsx.readFile(server.cfg.swissmedic.xlsx))).to.equal(shasum(xlsx.readFile(test.cfg.download.file)));
     });
@@ -50,23 +58,23 @@ describe("job: siwssmedic", function () {
       var fixture = require("../fixtures/swissmedic/swissmedic.json");
       var jsonBuild = require(path.resolve(__dirname, "../../", test.cfg.process.file));
 
-      expect(fixture).to.equal(jsonBuild);
+      expect(jsonBuild).to.have.length(fixture.length);
+      expect(jsonBuild).to.deep.equal(fixture);
     });
   });
 
-  describe("JSON Release", function () {
-    it("should have build a proper JSON-file", function () {
+  describe("JSON-Min Release", function () {
+    it("should have build a proper minified JSON-file", function () {
       var fixture = require("../fixtures/swissmedic/swissmedic.min.json");
       var jsonMinBuild = require(path.resolve(__dirname, "../../", test.cfg.process.minFile));
 
-      expect(fixture).to.equal(jsonMinBuild);
+      expect(jsonMinBuild).to.have.length(fixture.length);
+      expect(jsonMinBuild).to.deep.equal(fixture);
     });
   });
 
   // stop server
   after(server.spinDown);
   // clean after job
-  after(function (done) {
-    done();
-  });
+  after(cleanUp);
 });

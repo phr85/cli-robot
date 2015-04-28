@@ -41,6 +41,7 @@
     "express": "^4.12.3",
     "mocha": "^2.2.4",
     "rewire": "^2.3.1",
+    "rmdir": "^1.1.0",
     "shasum": "^1.0.1",
     "sinon": "^1.14.1",
     "superagent-mock": "^1.0.0"

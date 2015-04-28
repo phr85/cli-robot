@@ -84,7 +84,7 @@ describe("disk", function () {
           });
 
           writeFileCB(jsonFileErr);
-        })
+        });
       });
     });
 
