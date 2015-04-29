@@ -77,4 +77,6 @@ function swissmedic(done) {
     });
 }
 
+swissmedic.cfg = cfg;
+
 module.exports = swissmedic;
