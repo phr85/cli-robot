@@ -1,37 +1,17 @@
 "use strict";
 
 var path = require("path");
-var fs = require("fs");
 
 var rewire = require("rewire");
 var shasum = require("shasum");
 var xlsx = require("xlsx");
 var expect = require("chai").expect;
-var rmdir = require("rmdir");
 
 var server = require("../server");
 
 describe("job: siwssmedic", function () {
   var job, cfg, test;
 
-  function cleanUp(done) {
-    var cleanPath = path.resolve(__dirname, "../tmp");
-
-    fs.lstat(cleanPath, function (err) {
-      if (err && err.code === "ENOENT") {
-        return done();
-      }
-      if (err && err.code !== "ENOENT") {
-        return done(err);
-      }
-      rmdir(cleanPath, done);
-    });
-  }
-
-  // make sure that test environment is clean
-  before(cleanUp);
-  // start server
-  before(server.spinUp);
   // create test config
   before(function () {
     test = {
@@ -83,9 +63,4 @@ describe("job: siwssmedic", function () {
       expect(jsonMinBuild).to.deep.equal(fixture);
     });
   });
-
-  // stop server
-  after(server.spinDown);
-  // clean after job
-  after(cleanUp);
 });
