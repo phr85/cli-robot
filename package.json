@@ -10,8 +10,7 @@
     "start": "node ./bin/cli.js",
     "test": "mocha --recursive",
     "watch-test": "mocha --watch --recursive --growl",
-    "test-integration": "mocha --recursive --timeout 20000 ./test_integration",
-    "watch-test-integration": "mocha --watch --recursive --growl --timeout 20000 ./test_integration"
+    "test-integration": "mocha --recursive --timeout 10000 ./test_integration"
   },
   "main": "./lib/index.js",
   "dependencies": {

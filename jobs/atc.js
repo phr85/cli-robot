@@ -119,7 +119,7 @@ function atc(done) {
         disk.write.json(cfg.process.atcDe, atcDE),
         disk.write.jsonMin(cfg.process.atcDeMin, atcDE),
         disk.write.json(cfg.process.atcCh, atcCH),
-        disk.write.json(cfg.process.atcChMin, atcCH)
+        disk.write.jsonMin(cfg.process.atcChMin, atcCH)
       ]).then(function () {
         return atcDE;
       });

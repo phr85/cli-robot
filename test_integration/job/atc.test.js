@@ -11,7 +11,7 @@ var expect = require("chai").expect;
 var server = require("../server");
 var disk = require("../../lib/disk");
 
-describe.only("job: ATC", function () {
+describe("job: ATC", function () {
   var job, test;
 
   before(function () {
@@ -71,12 +71,29 @@ describe.only("job: ATC", function () {
           expect(shasum(jsonMinBuild)).to.equal(shasum(fixture));
         });
       });
+      describe("CSV", function () {
+        it("should release a proper CSV-File", function (done) {
+          Promise
+            .all([
+              disk.read.csv(path.resolve(__dirname, "../fixtures/atc/atc.csv")),
+              disk.read.csv(test.cfg.process.csv)
+            ])
+            .then(function (csvs) {
+              var fixture = csvs[0];
+              var release = csvs[1];
+
+              expect(shasum(release)).to.equal(shasum(fixture));
+            })
+            .then(done)
+            .catch(done);
+        });
+      });
     });
 
     describe("DE-CH", function () {
       describe("JSON", function () {
         it("should have build a proper JSON-file", function () {
-          var fixture = require("../fixtures/atc/atc.min.json");
+          var fixture = require("../fixtures/atc/atc_de-ch.json");
           var jsonBuild = require(test.cfg.process.atcCh);
 
           expect(shasum(jsonBuild)).to.equal(shasum(fixture));
@@ -85,29 +102,11 @@ describe.only("job: ATC", function () {
 
       describe("JSON-Min", function () {
         it("should have build a proper minified JSON-file", function () {
-          var fixture = require("../fixtures/atc/atc.min.json");
+          var fixture = require("../fixtures/atc/atc_de-ch.min.json");
           var jsonMinBuild = require(test.cfg.process.atcChMin);
 
           expect(shasum(jsonMinBuild)).to.equal(shasum(fixture));
         });
-      });
-    });
-
-    describe("CSV", function () {
-      it("should release a proper CSV-File", function (done) {
-        Promise
-          .all([
-            disk.read.csv(path.resolve(__dirname, "../fixtures/atc/atc.csv")),
-            disk.read.csv(test.cfg.process.csv)
-          ])
-          .then(function (csvs) {
-            var fixture = csvs[0];
-            var release = csvs[1];
-
-            expect(shasum(release)).to.equal(shasum(fixture));
-          })
-          .then(done)
-          .catch(done);
       });
     });
   });

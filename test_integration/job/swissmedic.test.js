@@ -38,8 +38,9 @@ describe("job: siwssmedic", function () {
   });
 
   describe("XLSX-Download", function () {
-    // quite slow: ~20000ms
+    // @TODO use a smaller fixture
     it("should download whole xlsx-File from swissmedic", function () {
+      this.timeout(50000);
       expect(shasum(xlsx.readFile(server.cfg.swissmedic.xlsx))).to.equal(shasum(xlsx.readFile(test.cfg.download.file)));
     });
   });
