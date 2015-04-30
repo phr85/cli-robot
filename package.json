@@ -32,6 +32,7 @@
     "streamifier": "^0.1.0",
     "superagent": "^1.2.0",
     "tedious": "~1.2.2",
+    "unzip": "^0.1.11",
     "xlsjs": "*",
     "xlsx": "^0.5.17",
     "xml-splitter": "^1.2.1"
@@ -43,7 +44,6 @@
     "rewire": "^2.3.1",
     "rmdir": "^1.1.0",
     "shasum": "^1.0.1",
-    "sinon": "^1.14.1",
     "superagent-mock": "^1.0.0"
   },
   "keywords": [

@@ -18,14 +18,18 @@ describe("disk", function () {
     };
 
     disk = rewire("../../lib/disk");
-    disk.__set__({"fs": fsMock, "mkdirp": mkdirpMock});
-
     data = [{"a": "A"}, {"b": "B"}, {"c": "C"}, {"d": "D"}];
   });
 
   describe(".ensureDir()", function () {
-    it("should return a Promise", function () {
-      expect(disk.ensureDir("tmp")).to.be.an.instanceof(Promise);
+    before(function () {
+      disk.__set__({"fs": fsMock, "mkdirp": mkdirpMock});
+    });
+
+    describe("Promise", function () {
+      it("should return a Promise", function () {
+        expect(disk.ensureDir("tmp")).to.be.an.instanceof(Promise);
+      });
     });
 
     describe(".resolve()", function () {
@@ -46,8 +50,12 @@ describe("disk", function () {
           done();
         });
         mkdirpMockCB(ensureDirErr);
-      })
+      });
     });
+  });
+
+  describe(".unzip()", function () {
+    //@TODO
   });
 
   describe(".read", function () {
