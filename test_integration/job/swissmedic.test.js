@@ -10,7 +10,7 @@ var expect = require("chai").expect;
 var server = require("../server");
 
 describe("job: siwssmedic", function () {
-  var job, cfg, test;
+  var job, test;
 
   // create test config
   before(function () {
@@ -25,7 +25,7 @@ describe("job: siwssmedic", function () {
           dir: "./test_integration/tmp/data/release/swissmedic/",
           file: "./test_integration/tmp/data/release/swissmedic/swissmedic.json",
           atcFile: path.resolve(__dirname, "../../data/manual/swissmedic/atc.csv"),
-          minFile: "./test_integration/tmp/data/release/swissmedic/siwssmedic.min.json"
+          minFile: "./test_integration/tmp/data/release/swissmedic/swissmedic.min.json"
         }
       }
     };

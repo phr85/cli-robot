@@ -21,7 +21,7 @@ var cfg = {
     "dir": path.resolve(__dirname, "../data/release/swissmedic/"),
     "atcFile": path.resolve(__dirname, "../data/manual/swissmedic/atc.csv"),
     "file": path.resolve(__dirname, "../data/release/swissmedic/swissmedic.json"),
-    "minFile": path.resolve(__dirname, "../data/release/swissmedic/siwssmedic.min.json")
+    "minFile": path.resolve(__dirname, "../data/release/swissmedic/swissmedic.min.json")
   }
 };
 
@@ -42,7 +42,7 @@ function swissmedic(done) {
     .then(function (html) {
       log.timeEnd("Swissmedic", "Get HTML");
       log.time("Swissmedic", "Parse Link");
-      return parseLink(cfg.download.url, html, /href="([\/a-zäöü0-9?;,=.\-_&]*)".*Excel-Version Zugelassene Verpackungen/i);
+      return parseLink(cfg.download.url, html, /href="([\/a-zäöü0-9?;,=.\-_&]*)".*Excel-Version Zugelassene Verpackungen/ig);
     })
     .then(function (parsedLink) {
       log.timeEnd("Swissmedic", "Parse Link");
