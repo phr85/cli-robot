@@ -1,13 +1,13 @@
 "use strict";
 
 var path = require("path");
-var swissmedicCfg = require("../jobs/swissmedic").cfg;
+var swissmedicCfg = require("./swissmedic").cfg;
 
 var cfg = {
   "download": {
     "url": "http://wido.de/amtl_atc-code.html",
     "dir": path.resolve(__dirname, "../data/auto/"),
-    "file": path.resolve(__dirname, "../data/auto/atc.xlsx")
+    "file": path.resolve(__dirname, "../data/auto/atc.zip")
   },
   "manual": {
     "addFile": path.resolve(__dirname, "../data/manual/atc", "add.csv"),
@@ -15,12 +15,13 @@ var cfg = {
     "changeFile": path.resolve(__dirname, "../data/manual/atc", "change.csv")
   },
   "process": {
+    "xlsx": path.resolve(__dirname, "../data/auto/atc.xlsx"),
     "dir": path.resolve(__dirname, "../data/release/atc"),
     "atcDe": path.resolve(__dirname, "../data/release/atc/atc.json"),
     "atcDeMin": path.resolve(__dirname, "../data/release/atc/atc.min.json"),
     "atcCh": path.resolve(__dirname, "../data/release/atc/atc_de-ch.json"),
     "atcChMin": path.resolve(__dirname, "../data/release/atc/atc_de-ch.min.json"),
-    "release": path.resolve(__dirname, "../data/release/atc/atc.csv")
+    "csv": path.resolve(__dirname, "../data/release/atc/atc.csv")
   }
 };
 
@@ -54,7 +55,7 @@ function atc(done) {
       return new Promise(function (resolve, reject) {
         try {
           resolve(swissmedicData = require(swissmedicCfg.process.file));
-        } catch(err) {
+        } catch (err) {
           if (err && err.code === "MODULE_NOT_FOUND") {
             log.error("ATC", "Please load swissmedic first");
             return reject(new Error("ATC", "Please load swissmedic first"));
@@ -70,7 +71,7 @@ function atc(done) {
     .then(function (html) {
       log.timeEnd("ATC", "Get HTML");
       log.time("ATC", "Parse Link");
-      return parseLink(cfg.download.url, html, /href="(.*atc.*\.zip)"/im);
+      return parseLink(cfg.download.url, html, /href="(.*atc.*\.zip)"/igm);
     })
     .then(function (parsedLink) {
       log.timeEnd("ATC", "Parse Link");
@@ -78,9 +79,12 @@ function atc(done) {
       return downloadFile(parsedLink, cfg.download.file);
     })
     .then(function () {
+      return disk.unzip(cfg.download.file, /widode.xlsx/, cfg.process.xlsx);
+    })
+    .then(function () {
       log.timeEnd("ATC", "Download");
       log.time("ATC", "Read Files");
-      return readXLSX(cfg.download.file);
+      return readXLSX(cfg.process.xlsx);
     })
     .then(function (atcDE) {
       log.debug("ATC", "Modify Codes");
@@ -95,16 +99,15 @@ function atc(done) {
       return modifyNames(cfg.manual.capitalizeFile, atcDEwModifiedCodes);
     })
     .then(function (atcDEwModifiedNames) {
-      log.debug("ATC","Remove empty strings");
+      log.debug("ATC", "Remove empty strings");
       return removeEmptyStrings(atcDEwModifiedNames);
     })
     .then(function (atcDEwAllModifications) {
-      log.debug("ATC","Create CH file");
-      return Promise.all(
-        createATCCH(swissmedicData, atcDEwAllModifications),
-        atcDEwAllModifications
-      );
-
+      log.debug("ATC", "Create CH file");
+      return Promise.all([
+        atcDEwAllModifications,
+        createATCCH(atcDEwAllModifications, swissmedicData)
+      ]);
     })
     .then(function (atc) {
       var atcDE = atc[0];
@@ -112,23 +115,29 @@ function atc(done) {
 
       log.debug("ATC", "Write files");
 
-      return Promise.all(
+      return Promise.all([
         disk.write.json(cfg.process.atcDe, atcDE),
         disk.write.jsonMin(cfg.process.atcDeMin, atcDE),
         disk.write.json(cfg.process.atcCh, atcCH),
         disk.write.json(cfg.process.atcChMin, atcCH)
-      ).then(function () {
-        return atcDE
+      ]).then(function () {
+        return atcDE;
       });
-    }).then(function (atcDE) {
+    })
+    .then(function (atcDE) {
       log.debug("ATC", "Release csv");
-      writeCSV(atcDE);
-    }).catch(function (err) {
+      return writeCSV(cfg.process.csv, atcDE);
+    })
+    .then(function () {
+      log.time("ATC", "Completed in");
+      done();
+    })
+    .catch(function (err) {
       log.error(err);
       done(err);
     });
-
+}
 
 atc.cfg = cfg;
 
-module.exports = cfg;
+module.exports = atc;
