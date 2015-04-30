@@ -18,14 +18,14 @@ describe("job: siwssmedic", function () {
       cfg: {
         download: {
           url: "http://localhost:" + server.port + "/arzneimittel/00156/00221/00222/00230/index.html",
-          dir: "./test_integration/tmp/data/auto",
-          file: "./test_integration/tmp/data/auto/swissmedic.xlsx"
+          dir: path.resolve(__dirname, "../../test_integration/tmp/data/auto"),
+          file: path.resolve(__dirname, "../../test_integration/tmp/data/auto/swissmedic.xlsx")
         },
         process: {
-          dir: "./test_integration/tmp/data/release/swissmedic/",
-          file: "./test_integration/tmp/data/release/swissmedic/swissmedic.json",
-          atcFile: path.resolve(__dirname, "../../data/manual/swissmedic/atc.csv"),
-          minFile: "./test_integration/tmp/data/release/swissmedic/swissmedic.min.json"
+          dir: path.resolve(__dirname, "../../test_integration/tmp/data/release/swissmedic/"),
+          file: path.resolve(__dirname, "../../test_integration/tmp/data/release/swissmedic/swissmedic.json"),
+          atcFile: path.resolve(__dirname, "../../test_integration/fixtures/swissmedic/atc.csv"),
+          minFile: path.resolve(__dirname, "../../test_integration/tmp/data/release/swissmedic/swissmedic.min.json")
         }
       }
     };
