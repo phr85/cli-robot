@@ -1,0 +1,8406 @@
+{
+   "A": {
+      "name": "Alimentäres System und Stoffwechsel"
+   },
+   "A01": {
+      "name": "Stomatologika"
+   },
+   "A01A": {
+      "name": "Stomatologika"
+   },
+   "A01AA": {
+      "name": "Mittel zur Kariesprophylaxe"
+   },
+   "A01AA01": {
+      "name": "Natriumfluorid",
+      "ddd": "1,1 mg O 0.5 mg Fluorid"
+   },
+   "A01AA51": {
+      "name": "Natriumfluorid, Kombinationen"
+   },
+   "A01AB": {
+      "name": "Antiinfektiva und Antiseptika zur oralen Lokalbehandlung"
+   },
+   "A01AB03": {
+      "name": "Chlorhexidin",
+      "ddd": "30 mg O"
+   },
+   "A01AB04": {
+      "name": "Amphotericin B",
+      "ddd": "40 mg O"
+   },
+   "A01AB09": {
+      "name": "Miconazol",
+      "ddd": "0,2 g O"
+   },
+   "A01AB11": {
+      "name": "Verschiedene"
+   },
+   "A01AB12": {
+      "name": "Hexetidin"
+   },
+   "A01AB14": {
+      "name": "Benzoxoniumchlorid"
+   },
+   "A01AC": {
+      "name": "Corticosteroide zur oralen Lokalbehandlung"
+   },
+   "A01AC01": {
+      "name": "Triamcinolon"
+   },
+   "A01AC03": {
+      "name": "Hydrocortison"
+   },
+   "A01AC54": {
+      "name": "Prednisolon, Kombinationen"
+   },
+   "A01AD": {
+      "name": "Andere Mittel zur oralen Lokalbehandlung"
+   },
+   "A01AD02": {
+      "name": "Benzydamin"
+   },
+   "A01AD11": {
+      "name": "Verschiedene"
+   },
+   "A02": {
+      "name": "Mittel bei Säure bedingten Erkrankungen"
+   },
+   "A02A": {
+      "name": "Antacida"
+   },
+   "A02AC": {
+      "name": "Calcium-haltige Verbindungen"
+   },
+   "A02AC10": {
+      "name": "Kombinationen"
+   },
+   "A02AD": {
+      "name": "Kombinationen und Komplexe von Aluminium-, Calcium- und Magnesium-haltigen Verbindungen"
+   },
+   "A02AD01": {
+      "name": "Einfache Salzkombinationen"
+   },
+   "A02AD02": {
+      "name": "Magaldrat",
+      "ddd": "3,2 g O"
+   },
+   "A02AD04": {
+      "name": "Hydrotalcit",
+      "ddd": "3,5 g O"
+   },
+   "A02AF": {
+      "name": "Antacida mit Karminativa"
+   },
+   "A02AF02": {
+      "name": "Einfache Salzkombinationen und Karminativa"
+   },
+   "A02AH": {
+      "name": "Antacida mit Natriumbicarbonat"
+   },
+   "A02AH01": {
+      "name": "Natriumhydrogencarbonat"
+   },
+   "A02AX": {
+      "name": "Antacida, andere Kombinationen"
+   },
+   "A02AX50": {
+      "name": "Antacida, andere Kombinationen"
+   },
+   "A02B": {
+      "name": "Mittel bei peptischem Ulkus und gastroesophagealer Refluxkrankheit"
+   },
+   "A02BA": {
+      "name": "Histamin-H2-Rezeptorantagonisten"
+   },
+   "A02BA02": {
+      "name": "Ranitidin",
+      "ddd": "0,3 g O,P"
+   },
+   "A02BB": {
+      "name": "Prostaglandine"
+   },
+   "A02BB01": {
+      "name": "Misoprostol",
+      "ddd": "0,8 mg O"
+   },
+   "A02BC": {
+      "name": "Protonenpumpenhemmer"
+   },
+   "A02BC01": {
+      "name": "Omeprazol",
+      "ddd": "20 mg O,P"
+   },
+   "A02BC02": {
+      "name": "Pantoprazol",
+      "ddd": "20 mg O,P"
+   },
+   "A02BC03": {
+      "name": "Lansoprazol",
+      "ddd": "15 mg O"
+   },
+   "A02BC04": {
+      "name": "Rabeprazol",
+      "ddd": "10 mg O,P"
+   },
+   "A02BC05": {
+      "name": "Esomeprazol",
+      "ddd": "20 mg O,P"
+   },
+   "A02BC06": {
+      "name": "Dexlansoprazol",
+      "ddd": "30 mg O"
+   },
+   "A02BX": {
+      "name": "Andere Mittel bei peptischem Ulkus und gastrooesophagealer Refluxkrankheit"
+   },
+   "A02BX02": {
+      "name": "Sucralfat",
+      "ddd": "4 g O"
+   },
+   "A02X": {
+      "name": "Andere Mittel bei Säure bedingten Erkrankungen"
+   },
+   "A03": {
+      "name": "Mittel bei funktionellen gastrointestinalen Störungen"
+   },
+   "A03A": {
+      "name": "Mittel bei funktionellen gastrointestinalen Störungen"
+   },
+   "A03AA": {
+      "name": "Synthetische Anticholinergika, Ester mit tertiären Aminogruppen"
+   },
+   "A03AA04": {
+      "name": "Mebeverin",
+      "ddd": "0,4 g O"
+   },
+   "A03AA05": {
+      "name": "Trimebutin",
+      "ddd": "0,6 g O"
+   },
+   "A03AX": {
+      "name": "Andere Mittel bei funktionellen gastrointestinalen Störungen"
+   },
+   "A03AX04": {
+      "name": "Pinaverium",
+      "ddd": "0,15 g O"
+   },
+   "A03AX13": {
+      "name": "Silikone",
+      "ddd": "0,5 g O"
+   },
+   "A03B": {
+      "name": "Belladonna und Derivate, rein"
+   },
+   "A03BA": {
+      "name": "Belladonna-Alkaloide, tertiäre Amine"
+   },
+   "A03BA01": {
+      "name": "Atropin",
+      "ddd": "1,5 mg O,P"
+   },
+   "A03BB": {
+      "name": "Belladonna-Alkaloide, halbsynthetisch, quartäre Ammonium-Verbindungen"
+   },
+   "A03BB01": {
+      "name": "Butylscopolamin",
+      "ddd": "60 mg O,P,R"
+   },
+   "A03C": {
+      "name": "Spasmolytika in Kombination mit Psycholeptika"
+   },
+   "A03CA": {
+      "name": "Synthetische Anticholinergika in Kombination mit Psycholeptika"
+   },
+   "A03CA02": {
+      "name": "Clidinium und Psycholeptika"
+   },
+   "A03F": {
+      "name": "Prokinetika"
+   },
+   "A03FA": {
+      "name": "Prokinetika"
+   },
+   "A03FA01": {
+      "name": "Metoclopramid",
+      "ddd": "30 mg O,P,R; 10 mg R Kinder DDD"
+   },
+   "A03FA03": {
+      "name": "Domperidon",
+      "ddd": "30 mg O,P; 0,12 g R"
+   },
+   "A04": {
+      "name": "Antiemetika und Mittel gegen Übelkeit"
+   },
+   "A04A": {
+      "name": "Antiemetika und Mittel gegen Übelkeit"
+   },
+   "A04AA": {
+      "name": "Serotonin-5HT3-Antagonisten"
+   },
+   "A04AA01": {
+      "name": "Ondansetron",
+      "ddd": "16 mg O,P,R"
+   },
+   "A04AA02": {
+      "name": "Granisetron",
+      "ddd": "2 mg O; 3 mg P; 3,1 mg TD Pflaster bezogen auf die Freisetzungsrate pro 24 Stunden"
+   },
+   "A04AA05": {
+      "name": "Palonosetron",
+      "ddd": "0,25 mg P; 0,5 mg O"
+   },
+   "A04AD": {
+      "name": "Andere Antiemetika"
+   },
+   "A04AD12": {
+      "name": "Aprepitant, Fosaprepitant",
+      "ddd": "95 mg O; 95 mg P bezogen auf Fosaprepitant (115 mg); 1 DE P bezogen auf Fosaprepitant (150 mg)"
+   },
+   "A05": {
+      "name": "Gallen- und Lebertherapie"
+   },
+   "A05A": {
+      "name": "Gallentherapie"
+   },
+   "A05AA": {
+      "name": "Gallensäure-haltige Zubereitungen"
+   },
+   "A05AA02": {
+      "name": "Ursodeoxycholsäure",
+      "ddd": "0,75 g O"
+   },
+   "A05AX": {
+      "name": "Andere Mittel zur Gallentherapie"
+   },
+   "A05B": {
+      "name": "Lebertherapie, Lipotrope Substanzen"
+   },
+   "A05BA": {
+      "name": "Lebertherapie"
+   },
+   "A06": {
+      "name": "Mittel gegen Obstipation"
+   },
+   "A06A": {
+      "name": "Mittel gegen Obstipation"
+   },
+   "A06AA": {
+      "name": "Gleitmittel, Emollientia"
+   },
+   "A06AA01": {
+      "name": "Dickflüssiges Paraffin",
+      "ddd": "15 g O"
+   },
+   "A06AA51": {
+      "name": "Dickflüssiges Paraffin, Kombinationen"
+   },
+   "A06AB": {
+      "name": "Kontaktlaxanzien"
+   },
+   "A06AB02": {
+      "name": "Bisacodyl",
+      "ddd": "10 mg O,R"
+   },
+   "A06AB05": {
+      "name": "Rizinusöl",
+      "ddd": "20 g O"
+   },
+   "A06AB06": {
+      "name": "Sennoside"
+   },
+   "A06AB08": {
+      "name": "Natriumpicosulfat",
+      "ddd": "5 mg O"
+   },
+   "A06AB20": {
+      "name": "Kontaktlaxanzien in Kombination"
+   },
+   "A06AB56": {
+      "name": "Sennoside, Kombinationen"
+   },
+   "A06AB58": {
+      "name": "Natriumpicosulfat, Kombinationen"
+   },
+   "A06AC": {
+      "name": "Quellmittel"
+   },
+   "A06AC01": {
+      "name": "Ispaghula (Flohsamen)",
+      "ddd": "7 g O"
+   },
+   "A06AC03": {
+      "name": "Sterculia",
+      "ddd": "8 g O"
+   },
+   "A06AC51": {
+      "name": "Ispaghula, Kombinationen"
+   },
+   "A06AC53": {
+      "name": "Sterculia, Kombinationen"
+   },
+   "A06AC55": {
+      "name": "Leinsamen, Kombinationen"
+   },
+   "A06AD": {
+      "name": "Osmotisch wirkende Laxanzien"
+   },
+   "A06AD02": {
+      "name": "Magnesiumoxid",
+      "ddd": "7 g O"
+   },
+   "A06AD10": {
+      "name": "Mineralsalze in Kombination"
+   },
+   "A06AD11": {
+      "name": "Lactulose",
+      "ddd": "12,5 g O"
+   },
+   "A06AD12": {
+      "name": "Lactitol",
+      "ddd": "10 g O"
+   },
+   "A06AD15": {
+      "name": "Macrogol",
+      "ddd": "10 g O"
+   },
+   "A06AD16": {
+      "name": "Mannitol"
+   },
+   "A06AD17": {
+      "name": "Natriumphosphat",
+      "ddd": "50 g O"
+   },
+   "A06AD65": {
+      "name": "Macrogol, Kombinationen",
+      "ddd": "Standarddosis: 2 Applikationsformen O"
+   },
+   "A06AG": {
+      "name": "Klysmen"
+   },
+   "A06AG01": {
+      "name": "Natriumphosphat",
+      "ddd": "Standarddosis: 1 Klysma"
+   },
+   "A06AG04": {
+      "name": "Glycerol",
+      "ddd": "Standarddosis: 1 Klysma"
+   },
+   "A06AG10": {
+      "name": "Docusat-Natrium, inkl. Kombinationen",
+      "ddd": "Standarddosis: 1 Klysma"
+   },
+   "A06AG11": {
+      "name": "Laurylsulfat, inkl. Kombinationen",
+      "ddd": "Standarddosis: 1 Klysma"
+   },
+   "A06AH": {
+      "name": "Periphere Opioidrezeptor-Antagonisten"
+   },
+   "A06AH01": {
+      "name": "Methylnaltrexon bromid",
+      "ddd": "6 mg P"
+   },
+   "A06AX": {
+      "name": "Andere Mittel gegen Obstipation"
+   },
+   "A06AX01": {
+      "name": "Glycerol",
+      "ddd": "2 g R"
+   },
+   "A06AX03": {
+      "name": "Lubiproston"
+   },
+   "A06AX04": {
+      "name": "Linaclotid",
+      "ddd": "0,29 mg O"
+   },
+   "A06AX05": {
+      "name": "Prucaloprid",
+      "ddd": "2 mg O"
+   },
+   "A07": {
+      "name": "Antidiarrhoika und Intestinale Antiphlogistika/antiinfektiva"
+   },
+   "A07A": {
+      "name": "Intestinale Antiinfektiva"
+   },
+   "A07AA": {
+      "name": "Antibiotika"
+   },
+   "A07AA02": {
+      "name": "Nystatin",
+      "ddd": "1,5 MIO E O"
+   },
+   "A07AA06": {
+      "name": "Paromomycin",
+      "ddd": "3 g O"
+   },
+   "A07AA07": {
+      "name": "Amphotericin B",
+      "ddd": "0,4 g O"
+   },
+   "A07AA11": {
+      "name": "Rifaximin",
+      "ddd": "0,6 g O"
+   },
+   "A07AA12": {
+      "name": "Fidaxomicin",
+      "ddd": "0,4 g O"
+   },
+   "A07B": {
+      "name": "Intestinale Adsorbenzien"
+   },
+   "A07BA": {
+      "name": "Kohle-haltige Zubereitungen"
+   },
+   "A07BA01": {
+      "name": "Medizinische Kohle",
+      "ddd": "5 g O"
+   },
+   "A07BA51": {
+      "name": "Medizinische Kohle, Kombinationen"
+   },
+   "A07C": {
+      "name": "Elektrolyte mit Kohlenhydraten"
+   },
+   "A07CA": {
+      "name": "Elektrolyte zur oralen Rehydrierung"
+   },
+   "A07D": {
+      "name": "Motilitätshemmer"
+   },
+   "A07DA": {
+      "name": "Motilitätshemmer"
+   },
+   "A07DA03": {
+      "name": "Loperamid",
+      "ddd": "10 mg O; 3,5 mg O Kinder DDD"
+   },
+   "A07DA53": {
+      "name": "Loperamid, Kombinationen"
+   },
+   "A07E": {
+      "name": "Intestinale Antiphlogistika"
+   },
+   "A07EA": {
+      "name": "Corticosteroide mit lokaler Wirkung"
+   },
+   "A07EA06": {
+      "name": "Budesonid",
+      "ddd": "9 mg O; Standarddosis: 1 Klysma"
+   },
+   "A07EB": {
+      "name": "Antiallergika, exkl. Corticosteroide"
+   },
+   "A07EB01": {
+      "name": "Cromoglicinsäure",
+      "ddd": "0,8 g O"
+   },
+   "A07EC": {
+      "name": "Aminosalicylsäure und ähnliche Mittel"
+   },
+   "A07EC01": {
+      "name": "Sulfasalazin",
+      "ddd": "2 g O,R; Standarddosis: 1 Klysma"
+   },
+   "A07EC02": {
+      "name": "Mesalazin",
+      "ddd": "1,5 g O,R; Standarddosis: 1 Klysma"
+   },
+   "A07F": {
+      "name": "Mikrobielle Antidiarrhoika"
+   },
+   "A07FA": {
+      "name": "Mikrobielle Antidiarrhoika"
+   },
+   "A07FA01": {
+      "name": "Milchsäurebildner"
+   },
+   "A07FA02": {
+      "name": "Saccharomyces boulardii",
+      "ddd": "1 g O"
+   },
+   "A07X": {
+      "name": "Andere Antidiarrhoika"
+   },
+   "A07XA": {
+      "name": "Andere Antidiarrhoika"
+   },
+   "A07XA51": {
+      "name": "Albumintannat, Kombinationen"
+   },
+   "A08": {
+      "name": "Antiadiposita, exkl. Diätetika"
+   },
+   "A08A": {
+      "name": "Antiadiposita, exkl. Diätetika"
+   },
+   "A08AB": {
+      "name": "Peripher wirkende Antiadiposita"
+   },
+   "A08AB01": {
+      "name": "Orlistat",
+      "ddd": "0,36 g O"
+   },
+   "A09": {
+      "name": "Digestiva, inkl. Enzyme"
+   },
+   "A09A": {
+      "name": "Digestiva, inkl. Enzyme"
+   },
+   "A09AA": {
+      "name": "Enzym-haltige Zubereitungen"
+   },
+   "A09AA02": {
+      "name": "Multienzyme (Lipase, Protease etc.)",
+      "ddd": "240 TSD FIP E O Lipase"
+   },
+   "A09AA04": {
+      "name": "Tilactase"
+   },
+   "A09AC": {
+      "name": "Enzym- und Säure-haltige Zubereitungen, Kombinationen"
+   },
+   "A09AC01": {
+      "name": "Pepsin- und Säure-haltige Zubereitungen"
+   },
+   "A10": {
+      "name": "Antidiabetika"
+   },
+   "A10A": {
+      "name": "Insuline und Analoga"
+   },
+   "A10AB": {
+      "name": "Insuline und Analoga zur Injektion, schnell wirkend"
+   },
+   "A10AB01": {
+      "name": "Insulin (human)",
+      "ddd": "40 E P"
+   },
+   "A10AB03": {
+      "name": "Insulin (Schwein)",
+      "ddd": "40 E P"
+   },
+   "A10AB04": {
+      "name": "Insulin lispro",
+      "ddd": "40 E P"
+   },
+   "A10AB05": {
+      "name": "Insulin aspart",
+      "ddd": "40 E P"
+   },
+   "A10AB06": {
+      "name": "Insulin glulisin",
+      "ddd": "40 E P"
+   },
+   "A10AC": {
+      "name": "Insuline und Analoga zur Injektion, intermediär wirkend"
+   },
+   "A10AC01": {
+      "name": "Insulin (human)",
+      "ddd": "40 E P"
+   },
+   "A10AC03": {
+      "name": "Insulin (Schwein)",
+      "ddd": "40 E P"
+   },
+   "A10AC30": {
+      "name": "Kombinationen",
+      "ddd": "40 E P"
+   },
+   "A10AD": {
+      "name": "Insuline und Analoga zur Injektion, intermediär oder lang wirkend kombiniert mit schnell wirkend"
+   },
+   "A10AD01": {
+      "name": "Insulin (human)",
+      "ddd": "40 E P"
+   },
+   "A10AD05": {
+      "name": "Insulin aspart",
+      "ddd": "40 E P"
+   },
+   "A10AD06": {
+      "name": "Insulin degludec und Insulin aspart",
+      "ddd": "40 E P"
+   },
+   "A10AE": {
+      "name": "Insuline und Analoga zur Injektion, lang wirkend"
+   },
+   "A10AE03": {
+      "name": "Insulin (Schwein)",
+      "ddd": "40 E P"
+   },
+   "A10AE04": {
+      "name": "Insulin glargin",
+      "ddd": "40 E P"
+   },
+   "A10AE05": {
+      "name": "Insulin detemir",
+      "ddd": "40 E P"
+   },
+   "A10AE06": {
+      "name": "Insulin degludec",
+      "ddd": "40 E P"
+   },
+   "A10B": {
+      "name": "Antidiabetika, exkl. Insuline"
+   },
+   "A10BA": {
+      "name": "Biguanide"
+   },
+   "A10BA02": {
+      "name": "Metformin",
+      "ddd": "2 g O"
+   },
+   "A10BB": {
+      "name": "Sulfonylharnstoff-Derivate"
+   },
+   "A10BB01": {
+      "name": "Glibenclamid",
+      "ddd": "10 mg O; 7 mg O mikrokristall. Substanz"
+   },
+   "A10BB04": {
+      "name": "Glibornurid",
+      "ddd": "38 mg O"
+   },
+   "A10BB09": {
+      "name": "Gliclazid",
+      "ddd": "60 mg O"
+   },
+   "A10BB12": {
+      "name": "Glimepirid",
+      "ddd": "2 mg O"
+   },
+   "A10BD": {
+      "name": "Kombinationen mit oralen Antidiabetika"
+   },
+   "A10BD02": {
+      "name": "Metformin und Sulfonamide"
+   },
+   "A10BD05": {
+      "name": "Metformin und Pioglitazon",
+      "ddd": "Standarddosis: 2 Applikationsformen O"
+   },
+   "A10BD07": {
+      "name": "Metformin und Sitagliptin",
+      "ddd": "Standarddosis: 2 Applikationsformen O"
+   },
+   "A10BD08": {
+      "name": "Metformin und Vildagliptin",
+      "ddd": "Standarddosis: 2 Applikationsformen O"
+   },
+   "A10BD10": {
+      "name": "Metformin und Saxagliptin",
+      "ddd": "Standarddosis: 2 Applikationsformen O"
+   },
+   "A10BD11": {
+      "name": "Metformin und Linagliptin"
+   },
+   "A10BD13": {
+      "name": "Metformin und Alogliptin"
+   },
+   "A10BD16": {
+      "name": "Metformin und Canagliflozin",
+      "ddd": "Standarddosis: 2 Applikationsformen O"
+   },
+   "A10BF": {
+      "name": "Alpha-Glukosidasehemmer"
+   },
+   "A10BF01": {
+      "name": "Acarbose",
+      "ddd": "0,3 g O"
+   },
+   "A10BG": {
+      "name": "Thiazolidindione"
+   },
+   "A10BG03": {
+      "name": "Pioglitazon",
+      "ddd": "30 mg O"
+   },
+   "A10BH": {
+      "name": "Dipeptidyl-Peptidase-4-Inhibitoren"
+   },
+   "A10BH01": {
+      "name": "Sitagliptin",
+      "ddd": "0,1 g O"
+   },
+   "A10BH02": {
+      "name": "Vildagliptin",
+      "ddd": "0,1 g O"
+   },
+   "A10BH03": {
+      "name": "Saxagliptin",
+      "ddd": "5 mg O"
+   },
+   "A10BH04": {
+      "name": "Alogliptin"
+   },
+   "A10BH05": {
+      "name": "Linagliptin",
+      "ddd": "5 mg O"
+   },
+   "A10BX": {
+      "name": "Andere Antidiabetika, exkl. Insuline"
+   },
+   "A10BX02": {
+      "name": "Repaglinid",
+      "ddd": "4 mg O"
+   },
+   "A10BX03": {
+      "name": "Nateglinid",
+      "ddd": "0,36 g O"
+   },
+   "A10BX04": {
+      "name": "Exenatid",
+      "ddd": "15 mcg P; 0,286 mg P Depotinjektion"
+   },
+   "A10BX07": {
+      "name": "Liraglutid",
+      "ddd": "1,2 mg P"
+   },
+   "A10BX09": {
+      "name": "Dapagliflozin",
+      "ddd": "10 mg O"
+   },
+   "A10BX11": {
+      "name": "Canagliflozin",
+      "ddd": "0,1 g O"
+   },
+   "A10BX12": {
+      "name": "Empagliflozin",
+      "ddd": "10 mg O"
+   },
+   "A11": {
+      "name": "Vitamine"
+   },
+   "A11A": {
+      "name": "Multivitamine, Kombinationen"
+   },
+   "A11AA": {
+      "name": "Multivitamine mit Mineralstoffen"
+   },
+   "A11AA03": {
+      "name": "Multivitamine und andere Mineralstoffe, inkl. Kombinationen",
+      "ddd": "Standarddosis: 1 Tablette oder 30 ml Mixtur"
+   },
+   "A11AB": {
+      "name": "Multivitamine, andere Kombinationen"
+   },
+   "A11B": {
+      "name": "Multivitamine, rein"
+   },
+   "A11BA": {
+      "name": "Multivitamine, rein"
+   },
+   "A11C": {
+      "name": "Vitamin A und D, inkl. deren Kombinationen"
+   },
+   "A11CA": {
+      "name": "Vitamin A, rein"
+   },
+   "A11CA01": {
+      "name": "Retinol (Vitamin A)",
+      "ddd": "50 TSD E O,P"
+   },
+   "A11CA02": {
+      "name": "Betacaroten"
+   },
+   "A11CC": {
+      "name": "Vitamin D und Analoga"
+   },
+   "A11CC02": {
+      "name": "Dihydrotachysterol",
+      "ddd": "1 mg O"
+   },
+   "A11CC04": {
+      "name": "Calcitriol",
+      "ddd": "1 mcg O,P"
+   },
+   "A11CC05": {
+      "name": "Colecalciferol",
+      "ddd": "20 mcg O; Standarddosis: 1 Applikationsform O, P zur Stoßtherapie; 500 IE O Kinder DDD prophylaktische Dosis"
+   },
+   "A11D": {
+      "name": "Vitamin B1, rein und in Kombination mit Vitamin B6 und Vitamin B12"
+   },
+   "A11DA": {
+      "name": "Vitamin B1, rein"
+   },
+   "A11DA01": {
+      "name": "Thiamin (Vitamin B1)",
+      "ddd": "50 mg O,P"
+   },
+   "A11DB": {
+      "name": "Vitamin B1 in Kombination mit Vitamin B6 und/oder Vitamin B12"
+   },
+   "A11E": {
+      "name": "Vitamin-b-komplex, inkl. Kombinationen"
+   },
+   "A11EA": {
+      "name": "Vitamin-B-Komplex, rein"
+   },
+   "A11EB": {
+      "name": "Vitamin-B-Komplex mit Vitamin C"
+   },
+   "A11EX": {
+      "name": "Vitamin-B-Komplex, andere Kombinationen"
+   },
+   "A11EX50": {
+      "name": "Vitamin-B-Komplex, andere Kombinationen"
+   },
+   "A11G": {
+      "name": "Ascorbinsäure (vitamin C), inkl. Kombinationen"
+   },
+   "A11GA": {
+      "name": "Ascorbinsäure (Vitamin C), rein"
+   },
+   "A11GA01": {
+      "name": "Ascorbinsäure (Vitamin C)",
+      "ddd": "0,2 g O,P"
+   },
+   "A11GB": {
+      "name": "Ascorbinsäure (Vitamin C), Kombinationen"
+   },
+   "A11GB01": {
+      "name": "Ascorbinsäure (Vitamin C) und Calcium"
+   },
+   "A11H": {
+      "name": "Andere Vitaminpräparate, rein"
+   },
+   "A11HA": {
+      "name": "Andere Vitaminpräparate, rein"
+   },
+   "A11HA02": {
+      "name": "Pyridoxin (Vitamin B6)",
+      "ddd": "0,16 g O,P"
+   },
+   "A11HA03": {
+      "name": "Tocopherol (Vitamin E)",
+      "ddd": "0,2 g O,P"
+   },
+   "A11HA04": {
+      "name": "Riboflavin (Vitamin B2)"
+   },
+   "A11HA05": {
+      "name": "Biotin",
+      "ddd": "5 mg O"
+   },
+   "A11HA30": {
+      "name": "Dexpanthenol"
+   },
+   "A11J": {
+      "name": "Andere Vitaminpräparate, Kombinationen"
+   },
+   "A11JB": {
+      "name": "Vitamine mit Mineralstoffen"
+   },
+   "A11JC": {
+      "name": "Vitamine, andere Kombinationen"
+   },
+   "A12": {
+      "name": "Mineralstoffe"
+   },
+   "A12A": {
+      "name": "Calcium"
+   },
+   "A12AA": {
+      "name": "Calcium"
+   },
+   "A12AA02": {
+      "name": "Calciumglubionat",
+      "ddd": "2,75 g P"
+   },
+   "A12AA04": {
+      "name": "Calciumcarbonat",
+      "ddd": "3 g O"
+   },
+   "A12AA06": {
+      "name": "Calciumlactogluconat",
+      "ddd": "3 g O"
+   },
+   "A12AA12": {
+      "name": "Calciumacetat, wasserfrei",
+      "ddd": "2 g O"
+   },
+   "A12AX": {
+      "name": "Calcium, Kombinationen mit Vitamin D und/oder anderen Mitteln"
+   },
+   "A12AX01": {
+      "name": "Calciumcarbonat und Colecalciferol"
+   },
+   "A12B": {
+      "name": "Kalium"
+   },
+   "A12BA": {
+      "name": "Kalium"
+   },
+   "A12BA01": {
+      "name": "Kaliumchlorid",
+      "ddd": "3 g O"
+   },
+   "A12BA30": {
+      "name": "Kombinationen"
+   },
+   "A12C": {
+      "name": "Andere Mineralstoffe"
+   },
+   "A12CB": {
+      "name": "Zink"
+   },
+   "A12CB01": {
+      "name": "Zinksulfat",
+      "ddd": "20 mg O,P"
+   },
+   "A12CB02": {
+      "name": "Zinkgluconat",
+      "ddd": "20 mg O,P"
+   },
+   "A12CB03": {
+      "name": "Zinkprotein-Komplex",
+      "ddd": "20 mg O,P"
+   },
+   "A12CC": {
+      "name": "Magnesium"
+   },
+   "A12CC04": {
+      "name": "Magnesiumcitrat",
+      "ddd": "2 g O"
+   },
+   "A12CC05": {
+      "name": "Magnesiumaspartat",
+      "ddd": "10 mmol O Mg2+"
+   },
+   "A12CC08": {
+      "name": "Magnesiumpidolat"
+   },
+   "A12CC09": {
+      "name": "Magnesiumorotat"
+   },
+   "A12CC10": {
+      "name": "Magnesiumoxid",
+      "ddd": "0,5 g O"
+   },
+   "A12CC30": {
+      "name": "Magnesium (verschiedene Salze in Kombination)"
+   },
+   "A12CE": {
+      "name": "Selen"
+   },
+   "A12CE01": {
+      "name": "Natriumselenat",
+      "ddd": "0,2 mg O Se"
+   },
+   "A12CX": {
+      "name": "Andere Mineralstoff-haltige Zubereitungen"
+   },
+   "A12CX50": {
+      "name": "Andere Mineralstoff-haltige Zubereitungen, Kombinationen"
+   },
+   "A13": {
+      "name": "Tonika"
+   },
+   "A13A": {
+      "name": "Tonika"
+   },
+   "A14": {
+      "name": "Anabolika zur systemischen Anwendung"
+   },
+   "A14A": {
+      "name": "Anabole Steroide"
+   },
+   "A14AB": {
+      "name": "Estren-Derivate"
+   },
+   "A14AB01": {
+      "name": "Nandrolon",
+      "ddd": "2 mg P"
+   },
+   "A15": {
+      "name": "Appetit stimulierende Mittel"
+   },
+   "A16": {
+      "name": "Andere Mittel für das alimentäre System und den Stoffwechsel"
+   },
+   "A16A": {
+      "name": "Andere Mittel für das alimentäre System und den Stoffwechsel"
+   },
+   "A16AA": {
+      "name": "Aminosäuren und Derivate"
+   },
+   "A16AA01": {
+      "name": "Levocarnitin",
+      "ddd": "2 g O,P"
+   },
+   "A16AB": {
+      "name": "Enzyme"
+   },
+   "A16AB02": {
+      "name": "Imiglucerase",
+      "ddd": "300 E P"
+   },
+   "A16AB03": {
+      "name": "Agalsidase alfa",
+      "ddd": "1 mg P"
+   },
+   "A16AB04": {
+      "name": "Agalsidase beta",
+      "ddd": "5 mg P"
+   },
+   "A16AB05": {
+      "name": "Laronidase",
+      "ddd": "1 TSD E P"
+   },
+   "A16AB07": {
+      "name": "Alglucosidase alfa",
+      "ddd": "0,1 g P"
+   },
+   "A16AB08": {
+      "name": "Galsulfase"
+   },
+   "A16AB09": {
+      "name": "Idursulfase",
+      "ddd": "5 mg P"
+   },
+   "A16AB10": {
+      "name": "Velaglucerase alfa",
+      "ddd": "300 E P"
+   },
+   "A16AX": {
+      "name": "Sonstige Mittel für das alimentäre System und den Stoffwechsel"
+   },
+   "A16AX02": {
+      "name": "Anetholtrithion"
+   },
+   "A16AX06": {
+      "name": "Miglustat",
+      "ddd": "0,3 g O"
+   },
+   "A16AX07": {
+      "name": "Sapropterin",
+      "ddd": "0,7 g O"
+   },
+   "B": {
+      "name": "Blut und blutbildende Organe"
+   },
+   "B01": {
+      "name": "Antithrombotische Mittel"
+   },
+   "B01A": {
+      "name": "Antithrombotische Mittel"
+   },
+   "B01AA": {
+      "name": "Vitamin-K-Antagonisten"
+   },
+   "B01AA04": {
+      "name": "Phenprocoumon",
+      "ddd": "3 mg O"
+   },
+   "B01AA07": {
+      "name": "Acenocoumarol",
+      "ddd": "5 mg O"
+   },
+   "B01AB": {
+      "name": "Heparingruppe"
+   },
+   "B01AB01": {
+      "name": "Heparin",
+      "ddd": "10 TSD E P"
+   },
+   "B01AB02": {
+      "name": "Antithrombin III, Antithrombin alfa",
+      "ddd": "2,1 TSD E P; 7,5 TSD E P bezogen auf Antithrombin alfa"
+   },
+   "B01AB04": {
+      "name": "Dalteparin",
+      "ddd": "2,5 TSD E P anti Xa"
+   },
+   "B01AB05": {
+      "name": "Enoxaparin",
+      "ddd": "2 TSD E P anti Xa"
+   },
+   "B01AB06": {
+      "name": "Nadroparin",
+      "ddd": "2,85 TSD E P anti Xa"
+   },
+   "B01AB09": {
+      "name": "Danaparoid",
+      "ddd": "1,5 TSD E P anti Xa"
+   },
+   "B01AC": {
+      "name": "Thrombozytenaggregationshemmer, exkl. Heparin"
+   },
+   "B01AC04": {
+      "name": "Clopidogrel",
+      "ddd": "75 mg O"
+   },
+   "B01AC06": {
+      "name": "Acetylsalicylsäure",
+      "ddd": "1 Tablette O (unabhängig von der Wirkstärke)"
+   },
+   "B01AC09": {
+      "name": "Epoprostenol",
+      "ddd": "38 mcg P"
+   },
+   "B01AC11": {
+      "name": "Iloprost",
+      "ddd": "0,15 mg Inhal; 50 mcg P"
+   },
+   "B01AC13": {
+      "name": "Abciximab",
+      "ddd": "25 mg P"
+   },
+   "B01AC16": {
+      "name": "Eptifibatid",
+      "ddd": "0,2 g P"
+   },
+   "B01AC17": {
+      "name": "Tirofiban",
+      "ddd": "10 mg P"
+   },
+   "B01AC21": {
+      "name": "Treprostinil",
+      "ddd": "4,3 mg P"
+   },
+   "B01AC22": {
+      "name": "Prasugrel",
+      "ddd": "10 mg O"
+   },
+   "B01AC24": {
+      "name": "Ticagrelor",
+      "ddd": "0,18 g O"
+   },
+   "B01AC30": {
+      "name": "Kombinationen"
+   },
+   "B01AD": {
+      "name": "Enzyme"
+   },
+   "B01AD02": {
+      "name": "Alteplase",
+      "ddd": "0,1 g P"
+   },
+   "B01AD04": {
+      "name": "Urokinase",
+      "ddd": "3 MIO E P"
+   },
+   "B01AD11": {
+      "name": "Tenecteplase",
+      "ddd": "40 mg P"
+   },
+   "B01AD12": {
+      "name": "Protein C"
+   },
+   "B01AE": {
+      "name": "Direkte Thrombininhibitoren"
+   },
+   "B01AE03": {
+      "name": "Argatroban",
+      "ddd": "0,2 g P"
+   },
+   "B01AE06": {
+      "name": "Bivalirudin",
+      "ddd": "0,25 g P"
+   },
+   "B01AE07": {
+      "name": "Dabigatran etexilat",
+      "ddd": "0,22 g O"
+   },
+   "B01AF": {
+      "name": "Direkte Faktor-Xa-Inhibitoren"
+   },
+   "B01AF01": {
+      "name": "Rivaroxaban",
+      "ddd": "10 mg O"
+   },
+   "B01AF02": {
+      "name": "Apixaban",
+      "ddd": "5 mg O"
+   },
+   "B01AX": {
+      "name": "Andere antithrombotische Mittel"
+   },
+   "B01AX05": {
+      "name": "Fondaparinux",
+      "ddd": "2,5 mg P"
+   },
+   "B02": {
+      "name": "Antihämorrhagika"
+   },
+   "B02A": {
+      "name": "Antifibrinolytika"
+   },
+   "B02AA": {
+      "name": "Aminosäuren"
+   },
+   "B02AA02": {
+      "name": "Tranexamsäure",
+      "ddd": "2 g O,P"
+   },
+   "B02AB": {
+      "name": "Proteinasehemmer"
+   },
+   "B02AB02": {
+      "name": "Alfa1-Antitrypsin",
+      "ddd": "0,6 g P"
+   },
+   "B02B": {
+      "name": "Vitamin K und andere Hämostatika"
+   },
+   "B02BA": {
+      "name": "Vitamin K"
+   },
+   "B02BA01": {
+      "name": "Phytomenadion",
+      "ddd": "20 mg O,P"
+   },
+   "B02BB": {
+      "name": "Fibrinogene"
+   },
+   "B02BB01": {
+      "name": "Fibrinogen, human",
+      "ddd": "5 g P"
+   },
+   "B02BC": {
+      "name": "Lokale Hämostatika"
+   },
+   "B02BC30": {
+      "name": "Kombinationen"
+   },
+   "B02BD": {
+      "name": "Blutgerinnungsfaktoren"
+   },
+   "B02BD01": {
+      "name": "Gerinnungsfaktoren IX, II, VII und X in Kombination",
+      "ddd": "350 E P bezogen auf Gerinnungsfaktor IX"
+   },
+   "B02BD02": {
+      "name": "Gerinnungsfaktor VIII",
+      "ddd": "500 E P"
+   },
+   "B02BD03": {
+      "name": "Faktor-VIII-Inhibitor-bypass-Aktivität",
+      "ddd": "10 TSD E P"
+   },
+   "B02BD04": {
+      "name": "Gerinnungsfaktor IX",
+      "ddd": "350 E P"
+   },
+   "B02BD05": {
+      "name": "Gerinnungsfaktor VII",
+      "ddd": "6 TSD E P"
+   },
+   "B02BD06": {
+      "name": "Von Willebrand-Faktor und Gerinnungsfaktor VIII in Kombination",
+      "ddd": "7,2 TSD E P; 500 E P bei Hämophilie A"
+   },
+   "B02BD07": {
+      "name": "Gerinnungsfaktor XIII",
+      "ddd": "3,5 TSD E P"
+   },
+   "B02BD08": {
+      "name": "Eptacog alfa (aktiviert)",
+      "ddd": "2500 TSD E P"
+   },
+   "B02BD09": {
+      "name": "Nonacog alfa",
+      "ddd": "450 E P"
+   },
+   "B02BD10": {
+      "name": "Von Willebrand-Faktor",
+      "ddd": "6 TSD E P"
+   },
+   "B02BD11": {
+      "name": "Catridecacog"
+   },
+   "B02BX": {
+      "name": "Andere systemische Hämostatika"
+   },
+   "B02BX01": {
+      "name": "Etamsylat"
+   },
+   "B02BX04": {
+      "name": "Romiplostim",
+      "ddd": "30 mcg P"
+   },
+   "B02BX05": {
+      "name": "Eltrombopag",
+      "ddd": "50 mg O"
+   },
+   "B03": {
+      "name": "Antianämika"
+   },
+   "B03A": {
+      "name": "Eisen-haltige Zubereitungen"
+   },
+   "B03AA": {
+      "name": "Eisen zweiwertig, orale Zubereitungen"
+   },
+   "B03AA01": {
+      "name": "Eisen(II)glycinsulfat",
+      "ddd": "0,2 g O Fe2+"
+   },
+   "B03AA02": {
+      "name": "Eisen(II)fumarat",
+      "ddd": "0,2 g O Fe2+"
+   },
+   "B03AA07": {
+      "name": "Eisen(II)sulfat",
+      "ddd": "0,2 g O Fe2+"
+   },
+   "B03AB": {
+      "name": "Eisen dreiwertig, orale Zubereitungen"
+   },
+   "B03AB05": {
+      "name": "Eisen(III)hydroxid-Polymaltose-Komplex",
+      "ddd": "90 mg O Fe3+"
+   },
+   "B03AC": {
+      "name": "Eisen, parenterale Zubereitungen"
+   },
+   "B03AC01": {
+      "name": "Eisen(III)hydroxid-Polymaltose-Komplex",
+      "ddd": "0,1 g P Fe"
+   },
+   "B03AD": {
+      "name": "Eisen in Kombination mit Folsäure"
+   },
+   "B03AD03": {
+      "name": "Eisen(II)sulfat",
+      "ddd": "0,1 g O Fe2+"
+   },
+   "B03AD04": {
+      "name": "Eisen(III)hydroxid-Polymaltose-Komplex"
+   },
+   "B03AE": {
+      "name": "Eisen in anderen Kombinationen"
+   },
+   "B03AE02": {
+      "name": "Eisen, Multivitamine und Folsäure"
+   },
+   "B03AE10": {
+      "name": "Verschiedene Kombinationen"
+   },
+   "B03B": {
+      "name": "Vitamin B12 und Folsäure"
+   },
+   "B03BA": {
+      "name": "Vitamin B12 (Cyanocobalamin und Analoga)"
+   },
+   "B03BA01": {
+      "name": "Cyanocobalamin",
+      "ddd": "70 mcg N; 1 mg O; 20 mcg P"
+   },
+   "B03BA02": {
+      "name": "Cyanocobalamin-Tannin-Komplex",
+      "ddd": "20 mcg P"
+   },
+   "B03BA03": {
+      "name": "Hydroxocobalamin",
+      "ddd": "20 mcg P"
+   },
+   "B03BA51": {
+      "name": "Cyanocobalamin, Kombinationen"
+   },
+   "B03BA53": {
+      "name": "Hydroxocobalamin, Kombinationen"
+   },
+   "B03BB": {
+      "name": "Folsäure und Derivate"
+   },
+   "B03BB01": {
+      "name": "Folsäure",
+      "ddd": "0,4 mg O prophylaktische Dosis; 10 mg P therapeutische Dosis; 10 mg O therapeutische Dosis"
+   },
+   "B03X": {
+      "name": "Andere Antianämika"
+   },
+   "B03XA": {
+      "name": "Andere Antianämika"
+   },
+   "B03XA01": {
+      "name": "Erythropoietin",
+      "ddd": "1 TSD E P"
+   },
+   "B03XA02": {
+      "name": "Darbepoetin alfa",
+      "ddd": "4,5 mcg P"
+   },
+   "B03XA03": {
+      "name": "Methoxy-Polyethylenglycol-Epoetin beta",
+      "ddd": "4 mcg P"
+   },
+   "B05": {
+      "name": "Blutersatzmittel und Perfusionslösungen"
+   },
+   "B05A": {
+      "name": "Blut und verwandte Produkte"
+   },
+   "B05AA": {
+      "name": "Blutersatzmittel und Plasmaproteinfraktionen"
+   },
+   "B05AA01": {
+      "name": "Albumin",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05AA06": {
+      "name": "Gelatine-haltige Mittel",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05AA07": {
+      "name": "Hydroxyethylstärke",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05B": {
+      "name": "I.V.-lösungen"
+   },
+   "B05BA": {
+      "name": "Lösungen zur parenteralen Ernährung"
+   },
+   "B05BA01": {
+      "name": "Aminosäuren",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05BA02": {
+      "name": "Fett-Emulsionen",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05BA03": {
+      "name": "Kohlenhydrate",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05BA10": {
+      "name": "Kombinationen",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05BB": {
+      "name": "Lösungen mit Wirkung auf den Elektrolythaushalt"
+   },
+   "B05BB01": {
+      "name": "Elektrolyte",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05BB02": {
+      "name": "Elektrolyte mit Kohlenhydraten",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05BC": {
+      "name": "Osmodiuretika"
+   },
+   "B05BC01": {
+      "name": "Mannitol",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05C": {
+      "name": "Spüllösungen"
+   },
+   "B05CA": {
+      "name": "Antiinfektiva"
+   },
+   "B05CA05": {
+      "name": "Taurolidin"
+   },
+   "B05CA08": {
+      "name": "Ethacridinlactat"
+   },
+   "B05CB": {
+      "name": "Salzlösungen"
+   },
+   "B05CB04": {
+      "name": "Natriumbicarbonat",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05D": {
+      "name": "Lösungen zur Peritonealdialyse"
+   },
+   "B05DA": {
+      "name": "Isotone Lösungen"
+   },
+   "B05DB": {
+      "name": "Hypertone Lösungen"
+   },
+   "B05X": {
+      "name": "Additiva Zu I.V.-lösungen"
+   },
+   "B05XA": {
+      "name": "Elektrolytlösungen"
+   },
+   "B05XA01": {
+      "name": "Kaliumchlorid",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05XA02": {
+      "name": "Natriumbicarbonat",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05XA03": {
+      "name": "Natriumchlorid",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05XA05": {
+      "name": "Magnesiumsulfat",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05XA06": {
+      "name": "Kaliumphosphat, inkl. Kombinationen mit anderen Kaliumsalzen"
+   },
+   "B05XA11": {
+      "name": "Magnesiumchlorid"
+   },
+   "B05XA14": {
+      "name": "Dinatrium-1-glycerinphosphat"
+   },
+   "B05XA31": {
+      "name": "Elektrolyte in Kombination mit anderen Mitteln",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05XB": {
+      "name": "Aminosäuren"
+   },
+   "B05XB02": {
+      "name": "Alanylglutamin",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "B05XC": {
+      "name": "Vitamine"
+   },
+   "B05Z": {
+      "name": "Hämodialysekonzentrate und Hämofiltrate"
+   },
+   "B05ZB": {
+      "name": "Hämofiltrate"
+   },
+   "B06": {
+      "name": "Andere Hämatologika"
+   },
+   "B06A": {
+      "name": "Andere Hämatologika"
+   },
+   "B06AB": {
+      "name": "Andere Hämprodukte"
+   },
+   "B06AB01": {
+      "name": "Hematin"
+   },
+   "B06AC": {
+      "name": "Mittel zur Behandlung des Hereditären Angioödems"
+   },
+   "B06AC01": {
+      "name": "C1-Inhibitor, aus Plasma gewonnen",
+      "ddd": "1,4 TSD E P"
+   },
+   "B06AC02": {
+      "name": "Icatibant",
+      "ddd": "30 mg P"
+   },
+   "C": {
+      "name": "Kardiovaskuläres System"
+   },
+   "C01": {
+      "name": "Herztherapie"
+   },
+   "C01A": {
+      "name": "Herzglykoside"
+   },
+   "C01AA": {
+      "name": "Digitalisglykoside"
+   },
+   "C01AA05": {
+      "name": "Digoxin",
+      "ddd": "0,25 mg O,P"
+   },
+   "C01B": {
+      "name": "Antiarrhythmika, Klasse I und III"
+   },
+   "C01BB": {
+      "name": "Antiarrhythmika, Klasse Ib"
+   },
+   "C01BB01": {
+      "name": "Lidocain",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "C01BC": {
+      "name": "Antiarrhythmika, Klasse Ic"
+   },
+   "C01BC03": {
+      "name": "Propafenon",
+      "ddd": "0,5 g O,P"
+   },
+   "C01BC04": {
+      "name": "Flecainid",
+      "ddd": "0,2 g O,P"
+   },
+   "C01BD": {
+      "name": "Antiarrhythmika, Klasse III"
+   },
+   "C01BD01": {
+      "name": "Amiodaron",
+      "ddd": "0,2 g O,P"
+   },
+   "C01BD05": {
+      "name": "Ibutilid",
+      "ddd": "1 mg P"
+   },
+   "C01BD07": {
+      "name": "Dronedaron",
+      "ddd": "0,8 g O"
+   },
+   "C01BG": {
+      "name": "Andere Antiarrhythmika, Klasse I und III"
+   },
+   "C01BG11": {
+      "name": "Vernakalant",
+      "ddd": "0,2 g P bezogen auf Vernakalant hydrochlorid"
+   },
+   "C01C": {
+      "name": "Kardiostimulanzien, exkl. Herzglykoside"
+   },
+   "C01CA": {
+      "name": "Adrenerge und dopaminerge Mittel"
+   },
+   "C01CA01": {
+      "name": "Etilefrin",
+      "ddd": "50 mg O,P"
+   },
+   "C01CA02": {
+      "name": "Isoprenalin",
+      "ddd": "90 mg O,P"
+   },
+   "C01CA03": {
+      "name": "Norepinephrin",
+      "ddd": "6 mg P"
+   },
+   "C01CA04": {
+      "name": "Dopamin",
+      "ddd": "0,5 g P"
+   },
+   "C01CA06": {
+      "name": "Phenylephrin",
+      "ddd": "4 mg P"
+   },
+   "C01CA07": {
+      "name": "Dobutamin",
+      "ddd": "0,5 g P"
+   },
+   "C01CA17": {
+      "name": "Midodrin",
+      "ddd": "30 mg O"
+   },
+   "C01CA24": {
+      "name": "Epinephrin",
+      "ddd": "0,5 mg P"
+   },
+   "C01CA26": {
+      "name": "Ephedrin",
+      "ddd": "50 mg P"
+   },
+   "C01CE": {
+      "name": "Phosphodiesterasehemmer"
+   },
+   "C01CE02": {
+      "name": "Milrinon",
+      "ddd": "50 mg P"
+   },
+   "C01CX": {
+      "name": "Andere Kardiostimulanzien"
+   },
+   "C01CX08": {
+      "name": "Levosimendan",
+      "ddd": "11 mg P"
+   },
+   "C01D": {
+      "name": "Bei Herzerkrankungen eingesetzte Vasodilatatoren"
+   },
+   "C01DA": {
+      "name": "Organische Nitrate"
+   },
+   "C01DA02": {
+      "name": "Glyceroltrinitrat",
+      "ddd": "5 mg O,TD; 2,5 mg oral Aerosol,SL; Standarddosis: 1 Applikationsform P"
+   },
+   "C01DA08": {
+      "name": "Isosorbiddinitrat",
+      "ddd": "60 mg O; 20 mg oral Aerosol,SL; 0,1 g TD;Standarddosis: 1 Applikationsform P"
+   },
+   "C01DA14": {
+      "name": "Isosorbidmononitrat",
+      "ddd": "40 mg O"
+   },
+   "C01DX": {
+      "name": "Andere bei Herzerkrankungen eingesetzte Vasodilatatoren"
+   },
+   "C01DX12": {
+      "name": "Molsidomin",
+      "ddd": "8 mg O"
+   },
+   "C01DX16": {
+      "name": "Nicorandil",
+      "ddd": "40 mg O"
+   },
+   "C01E": {
+      "name": "Andere Herzmittel"
+   },
+   "C01EA": {
+      "name": "Prostaglandine"
+   },
+   "C01EA01": {
+      "name": "Alprostadil",
+      "ddd": "0,5 mg P"
+   },
+   "C01EB": {
+      "name": "Andere Herzmittel"
+   },
+   "C01EB10": {
+      "name": "Adenosin",
+      "ddd": "15 mg P"
+   },
+   "C01EB17": {
+      "name": "Ivabradin",
+      "ddd": "10 mg O"
+   },
+   "C01EB18": {
+      "name": "Ranolazin",
+      "ddd": "1,5 g O"
+   },
+   "C01EX": {
+      "name": "Andere Herzmittel, Kombinationen"
+   },
+   "C02": {
+      "name": "Antihypertonika"
+   },
+   "C02A": {
+      "name": "Antiadrenerge Mittel, zentral wirkend"
+   },
+   "C02AB": {
+      "name": "Methyldopa"
+   },
+   "C02AB01": {
+      "name": "Methyldopa (linksdrehend)",
+      "ddd": "1 g O,P"
+   },
+   "C02AC": {
+      "name": "Imidazolin-Rezeptoragonisten"
+   },
+   "C02AC01": {
+      "name": "Clonidin",
+      "ddd": "0,45 mg O,P"
+   },
+   "C02AC05": {
+      "name": "Moxonidin",
+      "ddd": "0,3 mg O"
+   },
+   "C02C": {
+      "name": "Antiadrenerge Mittel, peripher wirkend"
+   },
+   "C02CA": {
+      "name": "Alpha-Adrenozeptor-Antagonisten"
+   },
+   "C02CA04": {
+      "name": "Doxazosin",
+      "ddd": "4 mg O"
+   },
+   "C02CA06": {
+      "name": "Urapidil",
+      "ddd": "0,12 g O; 50 mg P"
+   },
+   "C02D": {
+      "name": "Mittel mit Wirkung auf die arterielle Gefässmuskulatur"
+   },
+   "C02DC": {
+      "name": "Pyrimidin-Derivate"
+   },
+   "C02DC01": {
+      "name": "Minoxidil",
+      "ddd": "20 mg O"
+   },
+   "C02K": {
+      "name": "Andere Antihypertonika"
+   },
+   "C02KX": {
+      "name": "Antihypertonika zur Behandlung der pulmonalen arteriellen Hypertonie"
+   },
+   "C02KX01": {
+      "name": "Bosentan",
+      "ddd": "0,25 g O"
+   },
+   "C02KX02": {
+      "name": "Ambrisentan",
+      "ddd": "7,5 mg O"
+   },
+   "C02KX04": {
+      "name": "Macitentan",
+      "ddd": "10 mg O"
+   },
+   "C02KX05": {
+      "name": "Riociguat",
+      "ddd": "6 mg O"
+   },
+   "C02L": {
+      "name": "Antihypertonika und Diuretika in Kombination"
+   },
+   "C02LA": {
+      "name": "Rauwolfia-Alkaloide und Diuretika in Kombination"
+   },
+   "C02LA51": {
+      "name": "Reserpin und Diuretika, Kombinationen mit anderen Mitteln",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C03": {
+      "name": "Diuretika"
+   },
+   "C03A": {
+      "name": "Low-ceiling-diuretika, Thiazide"
+   },
+   "C03AA": {
+      "name": "Thiazide, rein"
+   },
+   "C03AA03": {
+      "name": "Hydrochlorothiazid",
+      "ddd": "25 mg O"
+   },
+   "C03B": {
+      "name": "Low-ceiling-diuretika, exkl. Thiazide"
+   },
+   "C03BA": {
+      "name": "Sulfonamide, rein"
+   },
+   "C03BA04": {
+      "name": "Chlortalidon",
+      "ddd": "25 mg O"
+   },
+   "C03BA08": {
+      "name": "Metolazon",
+      "ddd": "5 mg O"
+   },
+   "C03BA11": {
+      "name": "Indapamid",
+      "ddd": "2,5 mg O"
+   },
+   "C03C": {
+      "name": "High-ceiling-diuretika"
+   },
+   "C03CA": {
+      "name": "Sulfonamide, rein"
+   },
+   "C03CA01": {
+      "name": "Furosemid",
+      "ddd": "40 mg O,P"
+   },
+   "C03CA04": {
+      "name": "Torasemid",
+      "ddd": "15 mg O,P"
+   },
+   "C03D": {
+      "name": "Kalium sparende Mittel"
+   },
+   "C03DA": {
+      "name": "Aldosteron-Antagonisten"
+   },
+   "C03DA01": {
+      "name": "Spironolacton",
+      "ddd": "75 mg O"
+   },
+   "C03DA02": {
+      "name": "Kaliumcanrenoat",
+      "ddd": "0,4 g P"
+   },
+   "C03DA04": {
+      "name": "Eplerenon",
+      "ddd": "50 mg O"
+   },
+   "C03E": {
+      "name": "Diuretika und Kalium sparende Mittel in Kombination"
+   },
+   "C03EA": {
+      "name": "Low-ceiling-Diuretika und Kalium sparende Mittel"
+   },
+   "C03EA01": {
+      "name": "Hydrochlorothiazid und Kalium sparende Mittel"
+   },
+   "C03EB": {
+      "name": "High-ceiling-Diuretika und Kalium sparende Diuretika"
+   },
+   "C03EB01": {
+      "name": "Furosemid und Kalium sparende Mittel",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C04": {
+      "name": "Periphere Vasodilatatoren"
+   },
+   "C04A": {
+      "name": "Periphere Vasodilatatoren"
+   },
+   "C04AD": {
+      "name": "Purin-Derivate"
+   },
+   "C04AD03": {
+      "name": "Pentoxifyllin",
+      "ddd": "1 g O; 0,3 g P"
+   },
+   "C04AE": {
+      "name": "Mutterkorn-Alkaloide"
+   },
+   "C04AE01": {
+      "name": "Ergoloidmesylat",
+      "ddd": "3 mg O,P"
+   },
+   "C04AX": {
+      "name": "Andere periphere Vasodilatatoren"
+   },
+   "C04AX21": {
+      "name": "Naftidrofuryl",
+      "ddd": "0,6 g O; 0,3 g P"
+   },
+   "C05": {
+      "name": "Vasoprotektoren"
+   },
+   "C05A": {
+      "name": "Mittel zur Behandlung von Hämorrhoiden und Analfissuren zur topischen Anwendung"
+   },
+   "C05AA": {
+      "name": "Corticosteroide"
+   },
+   "C05AA04": {
+      "name": "Prednisolon"
+   },
+   "C05AA09": {
+      "name": "Dexamethason"
+   },
+   "C05AA10": {
+      "name": "Fluocinolon acetonid"
+   },
+   "C05AD": {
+      "name": "Lokalanästhetika"
+   },
+   "C05AD01": {
+      "name": "Lidocain"
+   },
+   "C05AD04": {
+      "name": "Cinchocain"
+   },
+   "C05AE": {
+      "name": "Muskelrelaxanzien"
+   },
+   "C05AE01": {
+      "name": "Glyceroltrinitrat"
+   },
+   "C05AX": {
+      "name": "Andere Mittel zur Behandlung von Hämorrhoiden und Analfissuren zur topischen Anwendung"
+   },
+   "C05AX03": {
+      "name": "Andere Hämorrhoidenmittel, Kombinationen"
+   },
+   "C05B": {
+      "name": "Antivarikosa"
+   },
+   "C05BA": {
+      "name": "Heparine oder Heparinoide zur topischen Anwendung"
+   },
+   "C05BA01": {
+      "name": "Heparinoide"
+   },
+   "C05BA03": {
+      "name": "Heparin",
+      "ddd": "Standarddosis: 2,5 g Salbe etc."
+   },
+   "C05BA53": {
+      "name": "Heparin, Kombinationen"
+   },
+   "C05BB": {
+      "name": "Sklerosierende Mittel zur lokalen Injektion"
+   },
+   "C05BB02": {
+      "name": "Polidocanol (Lauromacrogol 400)"
+   },
+   "C05BX": {
+      "name": "Andere sklerosierende Mittel"
+   },
+   "C05BX01": {
+      "name": "Calciumdobesilat"
+   },
+   "C05C": {
+      "name": "Kapillarstabilisierende Mittel"
+   },
+   "C05CA": {
+      "name": "Bioflavonoide"
+   },
+   "C05CA01": {
+      "name": "Rutoside"
+   },
+   "C05CA04": {
+      "name": "Troxerutin",
+      "ddd": "0,9 g O"
+   },
+   "C05CA51": {
+      "name": "Rutosid, Kombinationen"
+   },
+   "C05CA53": {
+      "name": "Diosmin, Kombinationen"
+   },
+   "C05CA54": {
+      "name": "Troxerutin, Kombinationen"
+   },
+   "C05CX": {
+      "name": "Andere kapillarstabilisierende Mittel"
+   },
+   "C07": {
+      "name": "Beta-adrenozeptor-antagonisten"
+   },
+   "C07A": {
+      "name": "Beta-adrenozeptor-antagonisten"
+   },
+   "C07AA": {
+      "name": "Beta-Adrenozeptor-Antagonisten, nichtselektiv"
+   },
+   "C07AA03": {
+      "name": "Pindolol",
+      "ddd": "15 mg O"
+   },
+   "C07AA05": {
+      "name": "Propranolol",
+      "ddd": "0,16 g O"
+   },
+   "C07AA07": {
+      "name": "Sotalol",
+      "ddd": "0,16 g O"
+   },
+   "C07AB": {
+      "name": "Beta-Adrenozeptor-Antagonisten, selektiv"
+   },
+   "C07AB02": {
+      "name": "Metoprolol",
+      "ddd": "0,15 g O"
+   },
+   "C07AB03": {
+      "name": "Atenolol",
+      "ddd": "75 mg O"
+   },
+   "C07AB07": {
+      "name": "Bisoprolol",
+      "ddd": "10 mg O bezogen auf Bisoprololhemifumarat"
+   },
+   "C07AB08": {
+      "name": "Celiprolol",
+      "ddd": "0,2 g O"
+   },
+   "C07AB09": {
+      "name": "Esmolol"
+   },
+   "C07AB12": {
+      "name": "Nebivolol",
+      "ddd": "5 mg O"
+   },
+   "C07AG": {
+      "name": "Alpha- und Beta-Adrenozeptor-Antagonisten"
+   },
+   "C07AG01": {
+      "name": "Labetalol",
+      "ddd": "0,6 g O"
+   },
+   "C07AG02": {
+      "name": "Carvedilol",
+      "ddd": "37,5 mg O"
+   },
+   "C07B": {
+      "name": "Beta-adrenozeptor-antagonisten und Thiazide"
+   },
+   "C07BB": {
+      "name": "Beta-Adrenozeptor-Antagonisten, selektiv, und Thiazide"
+   },
+   "C07BB07": {
+      "name": "Bisoprolol und Thiazide"
+   },
+   "C07BB12": {
+      "name": "Nebivolol und Thiazide"
+   },
+   "C07C": {
+      "name": "Beta-adrenozeptor-antagonisten und andere Diuretika"
+   },
+   "C07CA": {
+      "name": "Beta-Adrenozeptor-Antagonisten, nichtselektiv, und andere Diuretika"
+   },
+   "C07CA03": {
+      "name": "Pindolol und andere Diuretika",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C07CB": {
+      "name": "Beta-Adrenozeptor-Antagonisten, selektiv, und andere Diuretika"
+   },
+   "C07CB02": {
+      "name": "Metoprolol und andere Diuretika"
+   },
+   "C07CB03": {
+      "name": "Atenolol und andere Diuretika"
+   },
+   "C07F": {
+      "name": "Beta-adrenozeptor-antagonisten und andere Antihypertonika"
+   },
+   "C07FB": {
+      "name": "Beta-Adrenozeptor-Antagonisten, selektiv, und andere Antihypertonika"
+   },
+   "C07FB02": {
+      "name": "Metoprolol und andere Antihypertonika",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C07FB03": {
+      "name": "Atenolol und andere Antihypertonika"
+   },
+   "C08": {
+      "name": "Calciumkanalblocker"
+   },
+   "C08C": {
+      "name": "Selektive Calciumkanalblocker mit vorwiegender Gefässwirkung"
+   },
+   "C08CA": {
+      "name": "Dihydropyridin-Derivate"
+   },
+   "C08CA01": {
+      "name": "Amlodipin",
+      "ddd": "5 mg O"
+   },
+   "C08CA02": {
+      "name": "Felodipin",
+      "ddd": "5 mg O"
+   },
+   "C08CA03": {
+      "name": "Isradipin",
+      "ddd": "5 mg O,P"
+   },
+   "C08CA05": {
+      "name": "Nifedipin",
+      "ddd": "30 mg O,P"
+   },
+   "C08CA06": {
+      "name": "Nimodipin",
+      "ddd": "0,3 g O; 50 mg P"
+   },
+   "C08CA08": {
+      "name": "Nitrendipin",
+      "ddd": "20 mg O"
+   },
+   "C08CA09": {
+      "name": "Lacidipin",
+      "ddd": "4 mg O"
+   },
+   "C08CA13": {
+      "name": "Lercanidipin",
+      "ddd": "10 mg O"
+   },
+   "C08CA16": {
+      "name": "Clevidipin",
+      "ddd": "0,12 g P"
+   },
+   "C08D": {
+      "name": "Selektive Calciumkanalblocker mit vorwiegender Herzwirkung"
+   },
+   "C08DA": {
+      "name": "Phenylalkylamin-Derivate"
+   },
+   "C08DA01": {
+      "name": "Verapamil",
+      "ddd": "0,24 g O,P"
+   },
+   "C08DB": {
+      "name": "Benzothiazepin-Derivate"
+   },
+   "C08DB01": {
+      "name": "Diltiazem",
+      "ddd": "0,24 g O"
+   },
+   "C09": {
+      "name": "Mittel mit Wirkung auf das Renin-angiotensin-system"
+   },
+   "C09A": {
+      "name": "Ace-hemmer, rein"
+   },
+   "C09AA": {
+      "name": "ACE-Hemmer, rein"
+   },
+   "C09AA01": {
+      "name": "Captopril",
+      "ddd": "50 mg O"
+   },
+   "C09AA02": {
+      "name": "Enalapril",
+      "ddd": "10 mg O,P"
+   },
+   "C09AA03": {
+      "name": "Lisinopril",
+      "ddd": "10 mg O"
+   },
+   "C09AA04": {
+      "name": "Perindopril",
+      "ddd": "4 mg O"
+   },
+   "C09AA05": {
+      "name": "Ramipril",
+      "ddd": "2,5 mg O"
+   },
+   "C09AA06": {
+      "name": "Quinapril",
+      "ddd": "15 mg O,P"
+   },
+   "C09AA07": {
+      "name": "Benazepril",
+      "ddd": "7,5 mg O"
+   },
+   "C09AA08": {
+      "name": "Cilazapril",
+      "ddd": "2,5 mg O"
+   },
+   "C09AA10": {
+      "name": "Trandolapril",
+      "ddd": "2 mg O"
+   },
+   "C09B": {
+      "name": "Ace-hemmer, Kombinationen"
+   },
+   "C09BA": {
+      "name": "ACE-Hemmer und Diuretika"
+   },
+   "C09BA01": {
+      "name": "Captopril und Diuretika"
+   },
+   "C09BA02": {
+      "name": "Enalapril und Diuretika"
+   },
+   "C09BA03": {
+      "name": "Lisinopril und Diuretika"
+   },
+   "C09BA04": {
+      "name": "Perindopril und Diuretika"
+   },
+   "C09BA05": {
+      "name": "Ramipril und Diuretika"
+   },
+   "C09BA06": {
+      "name": "Quinapril und Diuretika"
+   },
+   "C09BA07": {
+      "name": "Benazepril und Diuretika"
+   },
+   "C09BA08": {
+      "name": "Cilazapril und Diuretika"
+   },
+   "C09BA09": {
+      "name": "Fosinopril und Diuretika"
+   },
+   "C09BB": {
+      "name": "ACE-Hemmer und Calciumkanalblocker"
+   },
+   "C09BB02": {
+      "name": "Enalapril und Lercanidipin",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C09BB04": {
+      "name": "Perindopril und Amlodipin"
+   },
+   "C09BB10": {
+      "name": "Trandolapril und Verapamil",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C09BX": {
+      "name": "ACE-Hemmer, andere Kombinationen"
+   },
+   "C09BX01": {
+      "name": "Perindopril, Amlodipin und Indapamid"
+   },
+   "C09C": {
+      "name": "Angiotensin-ii-antagonisten, rein"
+   },
+   "C09CA": {
+      "name": "Angiotensin-II-Antagonisten, rein"
+   },
+   "C09CA01": {
+      "name": "Losartan",
+      "ddd": "50 mg O"
+   },
+   "C09CA02": {
+      "name": "Eprosartan",
+      "ddd": "0,6 g O"
+   },
+   "C09CA03": {
+      "name": "Valsartan",
+      "ddd": "80 mg O"
+   },
+   "C09CA04": {
+      "name": "Irbesartan",
+      "ddd": "0,15 g O"
+   },
+   "C09CA06": {
+      "name": "Candesartan",
+      "ddd": "8 mg O"
+   },
+   "C09CA07": {
+      "name": "Telmisartan",
+      "ddd": "40 mg O"
+   },
+   "C09CA08": {
+      "name": "Olmesartan medoxomil",
+      "ddd": "20 mg O"
+   },
+   "C09CA09": {
+      "name": "Azilsartan medoxomil",
+      "ddd": "40 mg O"
+   },
+   "C09D": {
+      "name": "Angiotensin-ii-antagonisten, Kombinationen"
+   },
+   "C09DA": {
+      "name": "Angiotensin-II-Antagonisten und Diuretika"
+   },
+   "C09DA01": {
+      "name": "Losartan und Diuretika"
+   },
+   "C09DA02": {
+      "name": "Eprosartan und Diuretika"
+   },
+   "C09DA03": {
+      "name": "Valsartan und Diuretika"
+   },
+   "C09DA04": {
+      "name": "Irbesartan und Diuretika"
+   },
+   "C09DA06": {
+      "name": "Candesartan und Diuretika"
+   },
+   "C09DA07": {
+      "name": "Telmisartan und Diuretika"
+   },
+   "C09DA08": {
+      "name": "Olmesartan medoxomil und Diuretika"
+   },
+   "C09DB": {
+      "name": "Angiotensin-II-Antagonisten und Calciumkanalblocker"
+   },
+   "C09DB01": {
+      "name": "Valsartan und Amlodipin",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C09DB02": {
+      "name": "Olmesartan medoxomil und Amlodipin",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C09DB04": {
+      "name": "Telmisartan und Amlodipin",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C09DX": {
+      "name": "Angiotensin-II-Antagonisten, andere Kombinationen"
+   },
+   "C09DX01": {
+      "name": "Valsartan, Amlodipin und Hydrochlorothiazid",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C09DX03": {
+      "name": "Olmesartan medoxomil, Amlodipin und Hydrochlorothiazid",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C09X": {
+      "name": "Andere Mittel mit Wirkung auf das Renin-angiotensin-system"
+   },
+   "C09XA": {
+      "name": "Renin-Inhibitoren"
+   },
+   "C09XA02": {
+      "name": "Aliskiren",
+      "ddd": "0,15 g O"
+   },
+   "C09XA52": {
+      "name": "Aliskiren und Hydrochlorothiazid",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C09XA53": {
+      "name": "Aliskiren und Amlodipin"
+   },
+   "C09XA54": {
+      "name": "Aliskiren, Amlodipin und Hydrochlorothiazid"
+   },
+   "C10": {
+      "name": "Mittel, die den Lipidstoffwechsel beeinflussen"
+   },
+   "C10A": {
+      "name": "Mittel, die den Lipidstoffwechsel Beeinflussen, rein"
+   },
+   "C10AA": {
+      "name": "HMG-CoA-Reduktasehemmer"
+   },
+   "C10AA01": {
+      "name": "Simvastatin",
+      "ddd": "30 mg O"
+   },
+   "C10AA03": {
+      "name": "Pravastatin",
+      "ddd": "30 mg O"
+   },
+   "C10AA04": {
+      "name": "Fluvastatin",
+      "ddd": "60 mg O"
+   },
+   "C10AA05": {
+      "name": "Atorvastatin",
+      "ddd": "20 mg O"
+   },
+   "C10AA07": {
+      "name": "Rosuvastatin",
+      "ddd": "10 mg O"
+   },
+   "C10AA08": {
+      "name": "Pitavastatin",
+      "ddd": "2 mg O"
+   },
+   "C10AB": {
+      "name": "Fibrate"
+   },
+   "C10AB02": {
+      "name": "Bezafibrat",
+      "ddd": "0,6 g O"
+   },
+   "C10AB04": {
+      "name": "Gemfibrozil",
+      "ddd": "1,2 g O"
+   },
+   "C10AB05": {
+      "name": "Fenofibrat",
+      "ddd": "0,2 g O mikronisiert; 0,25 g O nicht mikronisiert"
+   },
+   "C10AB08": {
+      "name": "Ciprofibrat",
+      "ddd": "0,1 g O"
+   },
+   "C10AB11": {
+      "name": "Cholinfenofibrat",
+      "ddd": "0,135 g O bezogen auf Fenofibratsäure"
+   },
+   "C10AC": {
+      "name": "Gallensäure bindende Mittel"
+   },
+   "C10AC01": {
+      "name": "Colestyramin",
+      "ddd": "14 g O"
+   },
+   "C10AC02": {
+      "name": "Colestipol",
+      "ddd": "20 g O"
+   },
+   "C10AD": {
+      "name": "Nicotinsäure und Derivate"
+   },
+   "C10AD06": {
+      "name": "Acipimox",
+      "ddd": "0,5 g O"
+   },
+   "C10AX": {
+      "name": "Andere Mittel, die den Lipidstoffwechsel beeinflussen"
+   },
+   "C10AX06": {
+      "name": "Omega-3-Fettsäuren inkl. andere Ester und Säuren"
+   },
+   "C10AX09": {
+      "name": "Ezetimib",
+      "ddd": "10 mg O"
+   },
+   "C10B": {
+      "name": "Mittel, die den Lipidstoffwechsel Beeinflussen, Kombinationen"
+   },
+   "C10BA": {
+      "name": "HMG-CoA-Reduktasehemmer in Kombination mit anderen Mitteln, die den Lipidstoffwechsel beeinflussen"
+   },
+   "C10BA02": {
+      "name": "Simvastatin und Ezetimib",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "C10BA04": {
+      "name": "Simvastatin und Fenofibrat"
+   },
+   "C10BX": {
+      "name": "HMG-CoA-Reduktasehemmer, andere Kombinationen"
+   },
+   "C10BX03": {
+      "name": "Atorvastatin und Amlodipin"
+   },
+   "D": {
+      "name": "Dermatika"
+   },
+   "D01": {
+      "name": "Antimykotika zur dermatologischen Anwendung"
+   },
+   "D01A": {
+      "name": "Antimykotika zur topischen Anwendung"
+   },
+   "D01AA": {
+      "name": "Antibiotika"
+   },
+   "D01AA01": {
+      "name": "Nystatin",
+      "ddd": "250 TSD E T"
+   },
+   "D01AC": {
+      "name": "Imidazol- und Triazol-Derivate"
+   },
+   "D01AC01": {
+      "name": "Clotrimazol",
+      "ddd": "25 mg T"
+   },
+   "D01AC02": {
+      "name": "Miconazol",
+      "ddd": "40 mg T"
+   },
+   "D01AC03": {
+      "name": "Econazol"
+   },
+   "D01AC05": {
+      "name": "Isoconazol"
+   },
+   "D01AC08": {
+      "name": "Ketoconazol",
+      "ddd": "30 mg T (Creme)"
+   },
+   "D01AC11": {
+      "name": "Oxiconazol",
+      "ddd": "10 mg T"
+   },
+   "D01AC20": {
+      "name": "Kombinationen"
+   },
+   "D01AC52": {
+      "name": "Miconazol, Kombinationen"
+   },
+   "D01AE": {
+      "name": "Andere Antimykotika zur topischen Anwendung"
+   },
+   "D01AE04": {
+      "name": "Undecylensäure"
+   },
+   "D01AE14": {
+      "name": "Ciclopirox",
+      "ddd": "20 mg T bezogen auf Ciclopirox olamin (Creme)"
+   },
+   "D01AE15": {
+      "name": "Terbinafin",
+      "ddd": "10 mg T"
+   },
+   "D01AE16": {
+      "name": "Amorolfin"
+   },
+   "D01AE20": {
+      "name": "Kombinationen"
+   },
+   "D01B": {
+      "name": "Antimykotika zur systemischen Anwendung"
+   },
+   "D01BA": {
+      "name": "Antimykotika zur systemischen Anwendung"
+   },
+   "D01BA02": {
+      "name": "Terbinafin",
+      "ddd": "0,25 g O"
+   },
+   "D02": {
+      "name": "Emollientia und Hautschutzmittel"
+   },
+   "D02A": {
+      "name": "Emollientia und Hautschutzmittel"
+   },
+   "D02AB": {
+      "name": "Zink-haltige Mittel"
+   },
+   "D02AC": {
+      "name": "Vaseline und Fett-haltige Mittel"
+   },
+   "D02AE": {
+      "name": "Harnstoff-haltige Mittel"
+   },
+   "D02AE01": {
+      "name": "Harnstoff",
+      "ddd": "0,2 g T"
+   },
+   "D02AE51": {
+      "name": "Harnstoff, Kombinationen"
+   },
+   "D02AF": {
+      "name": "Salicylsäure-haltige Zubereitungen"
+   },
+   "D02AX": {
+      "name": "Andere Emollientia und Hautschutzmittel"
+   },
+   "D02B": {
+      "name": "Protektiva gegen Uv-strahlung"
+   },
+   "D02BB": {
+      "name": "Protektiva gegen UV-Strahlung zur systemischen Anwendung"
+   },
+   "D02BB01": {
+      "name": "Betacaroten",
+      "ddd": "0,1 g O"
+   },
+   "D03": {
+      "name": "Zubereitungen zur Behandlung von Wunden und Geschwüren"
+   },
+   "D03A": {
+      "name": "Wundbehandlungsmittel"
+   },
+   "D03AA": {
+      "name": "Lebertransalben"
+   },
+   "D03AX": {
+      "name": "Andere Wundbehandlungsmittel"
+   },
+   "D03AX03": {
+      "name": "Dexpanthenol",
+      "ddd": "0,125 g T"
+   },
+   "D03AX04": {
+      "name": "Calciumpantothenat"
+   },
+   "D03AX05": {
+      "name": "Hyaluronsäure"
+   },
+   "D03B": {
+      "name": "Enzyme"
+   },
+   "D03BA": {
+      "name": "Proteolytische Enzyme"
+   },
+   "D03BA02": {
+      "name": "Kollagenase"
+   },
+   "D04": {
+      "name": "Antipruriginosa, inkl. Antihistaminika, Anästhetika etc."
+   },
+   "D04A": {
+      "name": "Antipruriginosa, inkl.  Antihistaminika, Anästhetika etc."
+   },
+   "D04AA": {
+      "name": "Antihistaminika zur topischen Anwendung"
+   },
+   "D04AA13": {
+      "name": "Dimetinden"
+   },
+   "D04AB": {
+      "name": "Lokalanästhetika"
+   },
+   "D04AB01": {
+      "name": "Lidocain"
+   },
+   "D04AB05": {
+      "name": "Chinisocain"
+   },
+   "D04AX": {
+      "name": "Andere Antipruriginosa"
+   },
+   "D05": {
+      "name": "Antipsoriatika"
+   },
+   "D05A": {
+      "name": "Antipsoriatika zur topischen Anwendung"
+   },
+   "D05AA": {
+      "name": "Teere"
+   },
+   "D05AX": {
+      "name": "Andere Antipsoriatika zur topischen Anwendung"
+   },
+   "D05AX02": {
+      "name": "Calcipotriol",
+      "ddd": "75 mcg T"
+   },
+   "D05AX03": {
+      "name": "Calcitriol",
+      "ddd": "6 mcg T"
+   },
+   "D05AX04": {
+      "name": "Tacalcitol",
+      "ddd": "4 mcg T"
+   },
+   "D05AX52": {
+      "name": "Calcipotriol, Kombinationen"
+   },
+   "D05B": {
+      "name": "Antipsoriatika zur systemischen Anwendung"
+   },
+   "D05BB": {
+      "name": "Retinoide zur Behandlung der Psoriasis"
+   },
+   "D05BB02": {
+      "name": "Acitretin",
+      "ddd": "35 mg O"
+   },
+   "D06": {
+      "name": "Antibiotika und Chemotherapeutika zur dermatologischen Anwendung"
+   },
+   "D06A": {
+      "name": "Antibiotika zur topischen Anwendung"
+   },
+   "D06AX": {
+      "name": "Andere Antibiotika zur topischen Anwendung"
+   },
+   "D06AX01": {
+      "name": "Fusidinsäure",
+      "ddd": "60 mg T"
+   },
+   "D06AX09": {
+      "name": "Mupirocin",
+      "ddd": "40 mg T"
+   },
+   "D06B": {
+      "name": "Chemotherapeutika zur topischen Anwendung"
+   },
+   "D06BA": {
+      "name": "Sulfonamide"
+   },
+   "D06BA01": {
+      "name": "Sulfadiazin-Silber"
+   },
+   "D06BA51": {
+      "name": "Sulfadiazin-Silber, Kombinationen"
+   },
+   "D06BB": {
+      "name": "Antivirale Mittel"
+   },
+   "D06BB02": {
+      "name": "Tromantadin"
+   },
+   "D06BB03": {
+      "name": "Aciclovir",
+      "ddd": "25 mg T für 5%-ige Zubereitungen"
+   },
+   "D06BB04": {
+      "name": "Podophyllotoxin"
+   },
+   "D06BB06": {
+      "name": "Penciclovir",
+      "ddd": "6 mg T für 1%-ige Zubereitungen"
+   },
+   "D06BB10": {
+      "name": "Imiquimod"
+   },
+   "D06BX": {
+      "name": "Andere Chemotherapeutika"
+   },
+   "D06BX01": {
+      "name": "Metronidazol",
+      "ddd": "15 mg T"
+   },
+   "D06BX02": {
+      "name": "Ingenol mebutat",
+      "ddd": "Standarddosis: 1 Applikationsform T"
+   },
+   "D07": {
+      "name": "Corticosteroide, dermatologische Zubereitungen"
+   },
+   "D07A": {
+      "name": "Corticosteroide, rein"
+   },
+   "D07AA": {
+      "name": "Corticosteroide, schwach wirksam (Gruppe I)"
+   },
+   "D07AA02": {
+      "name": "Hydrocortison"
+   },
+   "D07AA03": {
+      "name": "Prednisolon"
+   },
+   "D07AB": {
+      "name": "Corticosteroide, mittelstark wirksam (Gruppe II)"
+   },
+   "D07AB01": {
+      "name": "Clobetason"
+   },
+   "D07AB02": {
+      "name": "Hydrocortisonbutyrat"
+   },
+   "D07AB03": {
+      "name": "Flumetason"
+   },
+   "D07AB08": {
+      "name": "Desonid"
+   },
+   "D07AC": {
+      "name": "Corticosteroide, stark wirksam (Gruppe III)"
+   },
+   "D07AC01": {
+      "name": "Betamethason",
+      "ddd": "2 mg T für 0,1%-ige Zubereitungen"
+   },
+   "D07AC04": {
+      "name": "Fluocinolon acetonid",
+      "ddd": "0,3 mg T"
+   },
+   "D07AC08": {
+      "name": "Fluocinonid"
+   },
+   "D07AC13": {
+      "name": "Mometason",
+      "ddd": "1 mg T"
+   },
+   "D07AC14": {
+      "name": "Methylprednisolonaceponat",
+      "ddd": "1 mg T"
+   },
+   "D07AC17": {
+      "name": "Fluticason"
+   },
+   "D07AC18": {
+      "name": "Prednicarbat",
+      "ddd": "2,5 mg T"
+   },
+   "D07AD": {
+      "name": "Corticosteroide, sehr stark wirksam (Gruppe IV)"
+   },
+   "D07AD01": {
+      "name": "Clobetasol",
+      "ddd": "0,5 mg T für 0,05%-ige Zubereitungen"
+   },
+   "D07B": {
+      "name": "Corticosteroide, Kombinationen mit Antiseptika"
+   },
+   "D07BC": {
+      "name": "Corticosteroide, stark wirksam, Kombinationen mit Antiseptika"
+   },
+   "D07BC01": {
+      "name": "Betamethason und Antiseptika"
+   },
+   "D07C": {
+      "name": "Corticosteroide, Kombinationen mit Antibiotika"
+   },
+   "D07CA": {
+      "name": "Corticosteroide, schwach wirksam, Kombinationen mit Antibiotika"
+   },
+   "D07CA01": {
+      "name": "Hydrocortison und Antibiotika"
+   },
+   "D07CC": {
+      "name": "Corticosteroide, stark wirksam, Kombinationen mit Antibiotika"
+   },
+   "D07CC01": {
+      "name": "Betamethason und Antibiotika"
+   },
+   "D07CC02": {
+      "name": "Fluocinolon acetonid und Antibiotika"
+   },
+   "D07CC05": {
+      "name": "Fluocinonid und Antibiotika"
+   },
+   "D07X": {
+      "name": "Corticosteroide, andere Kombinationen"
+   },
+   "D07XA": {
+      "name": "Corticosteroide, schwach wirksam, andere Kombinationen"
+   },
+   "D07XA01": {
+      "name": "Hydrocortison"
+   },
+   "D07XA02": {
+      "name": "Prednisolon"
+   },
+   "D07XB": {
+      "name": "Corticosteroide, mittelstark wirksam, andere Kombinationen"
+   },
+   "D07XB01": {
+      "name": "Flumetason"
+   },
+   "D07XB02": {
+      "name": "Triamcinolon"
+   },
+   "D07XB05": {
+      "name": "Dexamethason"
+   },
+   "D07XC": {
+      "name": "Corticosteroide, stark wirksam, andere Kombinationen"
+   },
+   "D07XC01": {
+      "name": "Betamethason"
+   },
+   "D07XD": {
+      "name": "Corticosteroide, sehr stark wirksam, andere Kombinationen"
+   },
+   "D08": {
+      "name": "Antiseptika und Desinfektionsmittel"
+   },
+   "D08A": {
+      "name": "Antiseptika und Desinfektionsmittel"
+   },
+   "D08AC": {
+      "name": "Biguanide und Amidine"
+   },
+   "D08AC02": {
+      "name": "Chlorhexidin"
+   },
+   "D08AC05": {
+      "name": "Polihexanid"
+   },
+   "D08AC52": {
+      "name": "Chlorhexidin, Kombinationen"
+   },
+   "D08AE": {
+      "name": "Phenol und Derivate"
+   },
+   "D08AE04": {
+      "name": "Triclosan"
+   },
+   "D08AG": {
+      "name": "Iod-haltige Mittel"
+   },
+   "D08AG02": {
+      "name": "Povidon-Iod",
+      "ddd": "0,4 g T"
+   },
+   "D08AG03": {
+      "name": "Iod"
+   },
+   "D08AJ": {
+      "name": "Quartäre Ammonium-Verbindungen"
+   },
+   "D08AJ57": {
+      "name": "Octenidin, Kombinationen"
+   },
+   "D08AX": {
+      "name": "Andere Antiseptika und Desinfektionsmittel"
+   },
+   "D08AX01": {
+      "name": "Wasserstoffperoxid"
+   },
+   "D08AX02": {
+      "name": "Eosin"
+   },
+   "D08AX05": {
+      "name": "Isopropanol"
+   },
+   "D08AX07": {
+      "name": "Natriumhypochlorit"
+   },
+   "D09": {
+      "name": "Medizinische Verbände"
+   },
+   "D09A": {
+      "name": "Medizinische Verbände"
+   },
+   "D09AA": {
+      "name": "Medizinische Verbände mit Antiinfektiva"
+   },
+   "D09AA02": {
+      "name": "Fusidinsäure"
+   },
+   "D09AA09": {
+      "name": "Povidon-Iod",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "D10": {
+      "name": "Aknemittel"
+   },
+   "D10A": {
+      "name": "Aknemittel zur topischen Anwendung"
+   },
+   "D10AB": {
+      "name": "Schwefel-haltige Mittel"
+   },
+   "D10AB02": {
+      "name": "Schwefel"
+   },
+   "D10AB05": {
+      "name": "Mesulfen"
+   },
+   "D10AD": {
+      "name": "Retinoide zur topischen Anwendung bei Akne"
+   },
+   "D10AD01": {
+      "name": "Tretinoin"
+   },
+   "D10AD03": {
+      "name": "Adapalen",
+      "ddd": "1 mg T"
+   },
+   "D10AD04": {
+      "name": "Isotretinoin"
+   },
+   "D10AD05": {
+      "name": "Motretinid"
+   },
+   "D10AD53": {
+      "name": "Adapalen, Kombinationen"
+   },
+   "D10AE": {
+      "name": "Peroxide"
+   },
+   "D10AE01": {
+      "name": "Benzoylperoxid",
+      "ddd": "0,1 g T"
+   },
+   "D10AE51": {
+      "name": "Benzoylperoxid, Kombinationen"
+   },
+   "D10AF": {
+      "name": "Antiinfektiva zur Behandlung der Akne"
+   },
+   "D10AF01": {
+      "name": "Clindamycin"
+   },
+   "D10AF02": {
+      "name": "Erythromycin",
+      "ddd": "Standarddosis: 2,0 g Salbe etc."
+   },
+   "D10AF51": {
+      "name": "Clindamycin, Kombinationen"
+   },
+   "D10AX": {
+      "name": "Andere Aknemittel zur topischen Anwendung"
+   },
+   "D10AX03": {
+      "name": "Azelainsäure"
+   },
+   "D10AX30": {
+      "name": "Verschiedene Kombinationen"
+   },
+   "D10B": {
+      "name": "Aknemittel zur systemischen Anwendung"
+   },
+   "D10BA": {
+      "name": "Retinoide zur Behandlung der Akne"
+   },
+   "D10BA01": {
+      "name": "Isotretinoin",
+      "ddd": "30 mg O"
+   },
+   "D11": {
+      "name": "Andere Dermatika"
+   },
+   "D11A": {
+      "name": "Andere Dermatika"
+   },
+   "D11AA": {
+      "name": "Antihidrotika"
+   },
+   "D11AC": {
+      "name": "Medizinische Haarwaschmittel"
+   },
+   "D11AC03": {
+      "name": "Selen-haltige Verbindungen"
+   },
+   "D11AC08": {
+      "name": "Schwefel-haltige Verbindungen"
+   },
+   "D11AF": {
+      "name": "Warzenmittel und Keratolytika"
+   },
+   "D11AH": {
+      "name": "Mittel zur Behandlung der Dermatitis, exkl. Corticosteroide"
+   },
+   "D11AH01": {
+      "name": "Tacrolimus"
+   },
+   "D11AH02": {
+      "name": "Pimecrolimus",
+      "ddd": "20 mg T"
+   },
+   "D11AH04": {
+      "name": "Alitretinoin",
+      "ddd": "20 mg O"
+   },
+   "D11AX": {
+      "name": "Andere Dermatika"
+   },
+   "D11AX01": {
+      "name": "Minoxidil"
+   },
+   "D11AX02": {
+      "name": "Gamolensäure",
+      "ddd": "0,4 g O"
+   },
+   "D11AX04": {
+      "name": "Lithiumsuccinat"
+   },
+   "D11AX10": {
+      "name": "Finasterid",
+      "ddd": "1 mg O"
+   },
+   "D11AX11": {
+      "name": "Hydrochinon"
+   },
+   "D11AX16": {
+      "name": "Eflornithin"
+   },
+   "D11AX18": {
+      "name": "Diclofenac"
+   },
+   "D11AX21": {
+      "name": "Brimonidin",
+      "ddd": "1,65 mg T"
+   },
+   "G": {
+      "name": "Urogenitalsystem und Sexualhormone"
+   },
+   "G01": {
+      "name": "Gynäkologische Antiinfektiva und Antiseptika"
+   },
+   "G01A": {
+      "name": "Antiinfektiva und Antiseptika, exkl. Kombinationen mit Corticosteroiden"
+   },
+   "G01AA": {
+      "name": "Antibiotika"
+   },
+   "G01AA10": {
+      "name": "Clindamycin",
+      "ddd": "0,1 g V"
+   },
+   "G01AC": {
+      "name": "Chinolin-Derivate"
+   },
+   "G01AC05": {
+      "name": "Dequalinium",
+      "ddd": "10 mg V"
+   },
+   "G01AD": {
+      "name": "Organische Säuren"
+   },
+   "G01AD01": {
+      "name": "Milchsäure"
+   },
+   "G01AF": {
+      "name": "Imidazol-Derivate"
+   },
+   "G01AF01": {
+      "name": "Metronidazol",
+      "ddd": "0,5 g V"
+   },
+   "G01AF02": {
+      "name": "Clotrimazol",
+      "ddd": "0,1 g V"
+   },
+   "G01AF05": {
+      "name": "Econazol",
+      "ddd": "0,1 g V"
+   },
+   "G01AF07": {
+      "name": "Isoconazol",
+      "ddd": "0,6 g V"
+   },
+   "G01AF17": {
+      "name": "Oxiconazol"
+   },
+   "G01AX": {
+      "name": "Andere Antiinfektiva und Antiseptika"
+   },
+   "G01AX11": {
+      "name": "Povidon-Iod",
+      "ddd": "0,2 g V"
+   },
+   "G01AX12": {
+      "name": "Ciclopirox",
+      "ddd": "50 mg V bezogen auf Ciclopirox olamin (Vaginalcreme)"
+   },
+   "G02": {
+      "name": "Andere Gynäkologika"
+   },
+   "G02A": {
+      "name": "Wehen fördernde Mittel"
+   },
+   "G02AB": {
+      "name": "Mutterkorn-Alkaloide"
+   },
+   "G02AB01": {
+      "name": "Methylergometrin",
+      "ddd": "0,2 mg O,P"
+   },
+   "G02AD": {
+      "name": "Prostaglandine"
+   },
+   "G02AD02": {
+      "name": "Dinoproston",
+      "ddd": "0,5 mg O,V"
+   },
+   "G02AD05": {
+      "name": "Sulproston",
+      "ddd": "0,5 mg P"
+   },
+   "G02AD06": {
+      "name": "Misoprostol"
+   },
+   "G02B": {
+      "name": "Kontrazeptiva zur lokalen Anwendung"
+   },
+   "G02BA": {
+      "name": "Intrauterine Kontrazeptiva"
+   },
+   "G02BA03": {
+      "name": "Plastik-IUP mit Gestagen"
+   },
+   "G02BB": {
+      "name": "Intravaginale Kontrazeptiva"
+   },
+   "G02BB01": {
+      "name": "Vaginalring mit Gestagenen und Estrogenen",
+      "ddd": "0,0357 DE V"
+   },
+   "G02C": {
+      "name": "Andere Gynäkologika"
+   },
+   "G02CA": {
+      "name": "Sympathomimetika, Wehen hemmend"
+   },
+   "G02CB": {
+      "name": "Prolactinhemmer"
+   },
+   "G02CB03": {
+      "name": "Cabergolin",
+      "ddd": "0,5 mg O"
+   },
+   "G02CB04": {
+      "name": "Quinagolid",
+      "ddd": "75 mcg O"
+   },
+   "G02CX": {
+      "name": "Andere Gynäkologika"
+   },
+   "G02CX01": {
+      "name": "Atosiban",
+      "ddd": "165 mg P"
+   },
+   "G03": {
+      "name": "Sexualhormone und Modulatoren des Genitalsystems"
+   },
+   "G03A": {
+      "name": "Hormonelle Kontrazeptiva zur systemischen Anwendung"
+   },
+   "G03AA": {
+      "name": "Gestagene und Estrogene, fixe Kombinationen"
+   },
+   "G03AA07": {
+      "name": "Levonorgestrel und Ethinylestradiol",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O;Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03AA09": {
+      "name": "Desogestrel und Ethinylestradiol",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O;Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03AA10": {
+      "name": "Gestoden und Ethinylestradiol",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O;Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03AA12": {
+      "name": "Drospirenon und Ethinylestradiol",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O;Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03AA13": {
+      "name": "Norelgestromin und Ethinylestradiol"
+   },
+   "G03AA14": {
+      "name": "Nomegestrol und Estradiol",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O"
+   },
+   "G03AA15": {
+      "name": "Chlormadinon und Ethinylestradiol",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O;Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03AB": {
+      "name": "Gestagene und Estrogene, Sequenzialpräparate"
+   },
+   "G03AB05": {
+      "name": "Desogestrel und Ethinylestradiol",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O;Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03AB06": {
+      "name": "Gestoden und Ethinylestradiol"
+   },
+   "G03AB08": {
+      "name": "Dienogest und Estradiol",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O"
+   },
+   "G03AC": {
+      "name": "Gestagene"
+   },
+   "G03AC06": {
+      "name": "Medroxyprogesteron",
+      "ddd": "1,67 mg P"
+   },
+   "G03AC08": {
+      "name": "Etonogestrel",
+      "ddd": "68 mcg s.c. Implantat"
+   },
+   "G03AC09": {
+      "name": "Desogestrel",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O;Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03AD": {
+      "name": "Notfallkontrazeptiva"
+   },
+   "G03AD01": {
+      "name": "Levonorgestrel",
+      "ddd": "1,5 mg O"
+   },
+   "G03AD02": {
+      "name": "Ulipristal",
+      "ddd": "30 mg O"
+   },
+   "G03B": {
+      "name": "Androgene"
+   },
+   "G03BA": {
+      "name": "3-Oxoandrosten-4-Derivate"
+   },
+   "G03BA03": {
+      "name": "Testosteron",
+      "ddd": "0,12 g O,R; 18 mg P; 60 mg SL; 3 mg TD; 50 mg TD Gel;12 mg P bezogen auf Testosteronundecanoat"
+   },
+   "G03C": {
+      "name": "Estrogene"
+   },
+   "G03CA": {
+      "name": "Natürliche und halbsynthetische Estrogene, rein"
+   },
+   "G03CA03": {
+      "name": "Estradiol",
+      "ddd": "0,3 mg N; 2 mg O; 1 mg P Depot mit kurzer Wirkdauer;0,3 mg P Depot mit langer Wirkdauer; 5 mg R; 1 mg TD Gel;50 mcg TD Pflaster bezogen auf die Freisetzungsrate pro 24 Stunden;25 mcg V; 7,5 mcg V Vaginalring bezogen auf die Freisetzungsratepro 24 Stunden"
+   },
+   "G03CA04": {
+      "name": "Estriol",
+      "ddd": "2 mg O,P; 0,2 mg V"
+   },
+   "G03CA09": {
+      "name": "Promestrien"
+   },
+   "G03CA53": {
+      "name": "Estradiol, Kombinationen"
+   },
+   "G03CC": {
+      "name": "Estrogene, Kombinationen mit anderen Mitteln"
+   },
+   "G03CX": {
+      "name": "Andere Estrogene"
+   },
+   "G03CX01": {
+      "name": "Tibolon",
+      "ddd": "2,5 mg O"
+   },
+   "G03D": {
+      "name": "Gestagene"
+   },
+   "G03DA": {
+      "name": "Pregnen-4-Derivate"
+   },
+   "G03DA02": {
+      "name": "Medroxyprogesteron",
+      "ddd": "5 mg O; 7 mg P"
+   },
+   "G03DA04": {
+      "name": "Progesteron",
+      "ddd": "0,3 g O; 5 mg P; 0,2 g R; 90 mg V"
+   },
+   "G03DB": {
+      "name": "Pregnadien-Derivate"
+   },
+   "G03DB01": {
+      "name": "Dydrogesteron",
+      "ddd": "10 mg O"
+   },
+   "G03DB08": {
+      "name": "Dienogest",
+      "ddd": "2 mg O"
+   },
+   "G03DC": {
+      "name": "Estren-Derivate"
+   },
+   "G03DC02": {
+      "name": "Norethisteron",
+      "ddd": "5 mg O; 0,65 mg O niedrigdosierte Zubereitungen"
+   },
+   "G03F": {
+      "name": "Gestagene und Estrogene in Kombination"
+   },
+   "G03FA": {
+      "name": "Gestagene und Estrogene, fixe Kombinationen"
+   },
+   "G03FA01": {
+      "name": "Norethisteron und Estrogen",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O;Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03FA12": {
+      "name": "Medroxyprogesteron und Estrogen",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O;Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03FA14": {
+      "name": "Dydrogesteron und Estrogen",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O"
+   },
+   "G03FA17": {
+      "name": "Drospirenon und Estrogen",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O;Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03FB": {
+      "name": "Gestagene und Estrogene, Sequenzialpräparate"
+   },
+   "G03FB05": {
+      "name": "Norethisteron und Estrogen",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O;Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03FB08": {
+      "name": "Dydrogesteron und Estrogen",
+      "ddd": "Zykluspackung mit 28 Tabletten 1 DE O"
+   },
+   "G03G": {
+      "name": "Gonadotropine und andere Ovulationsauslöser"
+   },
+   "G03GA": {
+      "name": "Gonadotropine"
+   },
+   "G03GA01": {
+      "name": "Choriongonadotrophin",
+      "ddd": "7,5 TSD E P zur Ovulationsauslösung"
+   },
+   "G03GA02": {
+      "name": "Humanes menopausales Gonadotrophin",
+      "ddd": "75 E P"
+   },
+   "G03GA04": {
+      "name": "Urofollitropin",
+      "ddd": "75 E P"
+   },
+   "G03GA05": {
+      "name": "Follitropin alfa",
+      "ddd": "75 E P"
+   },
+   "G03GA06": {
+      "name": "Follitropin beta",
+      "ddd": "75 E P"
+   },
+   "G03GA07": {
+      "name": "Lutropin alfa",
+      "ddd": "75 E P"
+   },
+   "G03GA08": {
+      "name": "Choriongonadotropin alfa",
+      "ddd": "0,25 mg P"
+   },
+   "G03GB": {
+      "name": "Ovulationsauslöser, synthetisch"
+   },
+   "G03GB02": {
+      "name": "Clomifen",
+      "ddd": "9 mg O"
+   },
+   "G03H": {
+      "name": "Antiandrogene"
+   },
+   "G03HA": {
+      "name": "Antiandrogene, rein"
+   },
+   "G03HA01": {
+      "name": "Cyproteron",
+      "ddd": "0,1 g O,P; 25 mg P Depot, für den Mann"
+   },
+   "G03HB": {
+      "name": "Antiandrogene und Estrogene"
+   },
+   "G03HB01": {
+      "name": "Cyproteron und Estrogen",
+      "ddd": "Zykluspackung mit 21 Tabletten 0,75 DE O"
+   },
+   "G03X": {
+      "name": "Andere Sexualhormone und Modulatoren des Genitalsystems"
+   },
+   "G03XB": {
+      "name": "Progesteron-Rezeptor-Modulatoren"
+   },
+   "G03XB01": {
+      "name": "Mifepriston",
+      "ddd": "0,6 g O"
+   },
+   "G03XC": {
+      "name": "Selektive Estrogenrezeptor-Modulatoren"
+   },
+   "G03XC01": {
+      "name": "Raloxifen",
+      "ddd": "60 mg O"
+   },
+   "G03XC02": {
+      "name": "Bazedoxifen",
+      "ddd": "20 mg O"
+   },
+   "G04": {
+      "name": "Urologika"
+   },
+   "G04B": {
+      "name": "Urologika"
+   },
+   "G04BC": {
+      "name": "Harnkonkrement lösende Mittel"
+   },
+   "G04BC01": {
+      "name": "Kalium-Natrium-Hydrogencitrat"
+   },
+   "G04BD": {
+      "name": "Mittel bei häufiger Blasenentleerung und Harninkontinenz"
+   },
+   "G04BD02": {
+      "name": "Flavoxat",
+      "ddd": "0,8 g O"
+   },
+   "G04BD04": {
+      "name": "Oxybutynin",
+      "ddd": "15 mg O; 3,9 mg TD"
+   },
+   "G04BD07": {
+      "name": "Tolterodin",
+      "ddd": "4 mg O"
+   },
+   "G04BD08": {
+      "name": "Solifenacin",
+      "ddd": "5 mg O"
+   },
+   "G04BD09": {
+      "name": "Trospium",
+      "ddd": "40 mg O"
+   },
+   "G04BD10": {
+      "name": "Darifenacin",
+      "ddd": "7,5 mg O"
+   },
+   "G04BD11": {
+      "name": "Fesoterodin",
+      "ddd": "4 mg O"
+   },
+   "G04BD12": {
+      "name": "Mirabegron",
+      "ddd": "50 mg O"
+   },
+   "G04BE": {
+      "name": "Mittel bei erektiler Dysfunktion"
+   },
+   "G04BE01": {
+      "name": "Alprostadil",
+      "ddd": "20 mcg P; 0,25 mg urethral"
+   },
+   "G04BE03": {
+      "name": "Sildenafil",
+      "ddd": "50 mg O"
+   },
+   "G04BE08": {
+      "name": "Tadalafil",
+      "ddd": "10 mg O"
+   },
+   "G04BE09": {
+      "name": "Vardenafil",
+      "ddd": "10 mg O"
+   },
+   "G04BX": {
+      "name": "Andere Urologika"
+   },
+   "G04BX14": {
+      "name": "Dapoxetin",
+      "ddd": "30 mg O"
+   },
+   "G04C": {
+      "name": "Mittel bei benigner Prostatahyperplasie"
+   },
+   "G04CA": {
+      "name": "Alpha-Adrenozeptor-Antagonisten"
+   },
+   "G04CA01": {
+      "name": "Alfuzosin",
+      "ddd": "7,5 mg O"
+   },
+   "G04CA02": {
+      "name": "Tamsulosin",
+      "ddd": "0,4 mg O"
+   },
+   "G04CA03": {
+      "name": "Terazosin",
+      "ddd": "5 mg O"
+   },
+   "G04CB": {
+      "name": "Testosteron-5-alpha-Reduktasehemmer"
+   },
+   "G04CB01": {
+      "name": "Finasterid",
+      "ddd": "5 mg O"
+   },
+   "G04CB02": {
+      "name": "Dutasterid",
+      "ddd": "0,5 mg O"
+   },
+   "G04CX": {
+      "name": "Andere Mittel bei benigner Prostatahyperplasie"
+   },
+   "H": {
+      "name": "Systemische Hormonpräparate, exkl. Sexualhormone und Insuline"
+   },
+   "H01": {
+      "name": "Hypophysen- und Hypothalamushormone und Analoga"
+   },
+   "H01A": {
+      "name": "Hypophysenvorderlappenhormone und Analoga"
+   },
+   "H01AA": {
+      "name": "ACTH"
+   },
+   "H01AA02": {
+      "name": "Tetracosactid",
+      "ddd": "0,25 mg P"
+   },
+   "H01AB": {
+      "name": "Thyrotropin"
+   },
+   "H01AB01": {
+      "name": "Thyrotropin alfa",
+      "ddd": "0,9 mg P"
+   },
+   "H01AC": {
+      "name": "Somatropin und Somatropin-Agonisten"
+   },
+   "H01AC01": {
+      "name": "Somatropin",
+      "ddd": "2 E P Kinder DDD"
+   },
+   "H01B": {
+      "name": "Hypophysenhinterlappenhormone"
+   },
+   "H01BA": {
+      "name": "Vasopressin und Analoga"
+   },
+   "H01BA02": {
+      "name": "Desmopressin",
+      "ddd": "25 mcg N; 0,4 mg O; 4 mcg P; 0,24 mg SL Base"
+   },
+   "H01BA04": {
+      "name": "Terlipressin",
+      "ddd": "12 mg P bezogen auf das Terlipressinacetat"
+   },
+   "H01BB": {
+      "name": "Oxytocin und Analoga"
+   },
+   "H01BB02": {
+      "name": "Oxytocin",
+      "ddd": "15 E N,P; 200 E O"
+   },
+   "H01BB03": {
+      "name": "Carbetocin",
+      "ddd": "0,1 mg P"
+   },
+   "H01C": {
+      "name": "Hypothalamushormone"
+   },
+   "H01CA": {
+      "name": "Gonadotropin-Releasing-Hormone"
+   },
+   "H01CA01": {
+      "name": "Gonadorelin"
+   },
+   "H01CA02": {
+      "name": "Nafarelin",
+      "ddd": "0,4 mg N"
+   },
+   "H01CB": {
+      "name": "Somatostatin und Analoga"
+   },
+   "H01CB01": {
+      "name": "Somatostatin",
+      "ddd": "6 mg P"
+   },
+   "H01CB02": {
+      "name": "Octreotid",
+      "ddd": "0,7 mg P  i.m. Monatsdepot ; 0,3 mg P s.c."
+   },
+   "H01CB03": {
+      "name": "Lanreotid",
+      "ddd": "3 mg P"
+   },
+   "H01CB05": {
+      "name": "Pasireotid",
+      "ddd": "1,2 mg P"
+   },
+   "H01CC": {
+      "name": "Gonadotropin-Releasing-Hormon-Antagonisten"
+   },
+   "H01CC01": {
+      "name": "Ganirelix",
+      "ddd": "0,25 mg P"
+   },
+   "H01CC02": {
+      "name": "Cetrorelix",
+      "ddd": "0,25 mg P"
+   },
+   "H02": {
+      "name": "Corticosteroide zur systemischen Anwendung"
+   },
+   "H02A": {
+      "name": "Corticosteroide zur systemischen Anwendung, rein"
+   },
+   "H02AA": {
+      "name": "Mineralocorticoide"
+   },
+   "H02AA02": {
+      "name": "Fludrocortison",
+      "ddd": "0,1 mg O"
+   },
+   "H02AB": {
+      "name": "Glucocorticoide"
+   },
+   "H02AB01": {
+      "name": "Betamethason",
+      "ddd": "1,5 mg O,P; 0,4 mg P Depot"
+   },
+   "H02AB02": {
+      "name": "Dexamethason",
+      "ddd": "1,5 mg O,P"
+   },
+   "H02AB04": {
+      "name": "Methylprednisolon",
+      "ddd": "7,5 mg O; 20 mg P"
+   },
+   "H02AB06": {
+      "name": "Prednisolon",
+      "ddd": "10 mg O,P"
+   },
+   "H02AB07": {
+      "name": "Prednison",
+      "ddd": "10 mg O"
+   },
+   "H02AB08": {
+      "name": "Triamcinolon",
+      "ddd": "7,5 mg O,P"
+   },
+   "H02AB09": {
+      "name": "Hydrocortison",
+      "ddd": "30 mg O,P"
+   },
+   "H02AB13": {
+      "name": "Deflazacort",
+      "ddd": "15 mg O"
+   },
+   "H02B": {
+      "name": "Corticosteroide zur systemischen Anwendung, Kombinationen"
+   },
+   "H02BX": {
+      "name": "Corticosteroide zur systemischen Anwendung, Kombinationen"
+   },
+   "H02BX01": {
+      "name": "Methylprednisolon, Kombinationen"
+   },
+   "H03": {
+      "name": "Schilddrüsentherapie"
+   },
+   "H03A": {
+      "name": "Schilddrüsenpräparate"
+   },
+   "H03AA": {
+      "name": "Schilddrüsenhormone"
+   },
+   "H03AA01": {
+      "name": "Levothyroxin-Natrium",
+      "ddd": "0,15 mg O,P"
+   },
+   "H03AA03": {
+      "name": "Kombinationen von Levothyroxin und Liothyronin"
+   },
+   "H03B": {
+      "name": "Thyreostatika"
+   },
+   "H03BB": {
+      "name": "Schwefel-haltige Imidazol-Derivate"
+   },
+   "H03BB01": {
+      "name": "Carbimazol",
+      "ddd": "15 mg O"
+   },
+   "H03BB02": {
+      "name": "Thiamazol",
+      "ddd": "10 mg O"
+   },
+   "H04": {
+      "name": "Pankreashormone"
+   },
+   "H04A": {
+      "name": "Glykogenolytische Hormone"
+   },
+   "H04AA": {
+      "name": "Glykogenolytische Hormone"
+   },
+   "H04AA01": {
+      "name": "Glucagon",
+      "ddd": "1 mg P"
+   },
+   "H05": {
+      "name": "Calciumhomöostase"
+   },
+   "H05A": {
+      "name": "Nebenschilddrüsenhormone und Analoga"
+   },
+   "H05AA": {
+      "name": "Nebenschilddrüsenhormone und Analoga"
+   },
+   "H05AA02": {
+      "name": "Teriparatid",
+      "ddd": "20 mcg P"
+   },
+   "H05B": {
+      "name": "Nebenschilddrüsen-antagonisten"
+   },
+   "H05BA": {
+      "name": "Calcitonin-haltige Zubereitungen"
+   },
+   "H05BA01": {
+      "name": "Calcitonin (Lachs, synthetisch)",
+      "ddd": "200 E N; 100 E P"
+   },
+   "H05BX": {
+      "name": "Andere Nebenschilddrüsen-Antagonisten"
+   },
+   "H05BX01": {
+      "name": "Cinacalcet",
+      "ddd": "60 mg O"
+   },
+   "H05BX02": {
+      "name": "Paricalcitol",
+      "ddd": "2 mcg O,P"
+   },
+   "J": {
+      "name": "Antiinfektiva zur systemischen Anwendung"
+   },
+   "J01": {
+      "name": "Antibiotika zur systemischen Anwendung"
+   },
+   "J01A": {
+      "name": "Tetracycline"
+   },
+   "J01AA": {
+      "name": "Tetracycline"
+   },
+   "J01AA02": {
+      "name": "Doxycyclin",
+      "ddd": "0,1 g O,P"
+   },
+   "J01AA04": {
+      "name": "Lymecyclin",
+      "ddd": "0,6 g O,P"
+   },
+   "J01AA08": {
+      "name": "Minocyclin",
+      "ddd": "0,2 g O,P"
+   },
+   "J01AA12": {
+      "name": "Tigecyclin",
+      "ddd": "0,1 g P"
+   },
+   "J01C": {
+      "name": "Betalactam-antibiotika, Penicilline"
+   },
+   "J01CA": {
+      "name": "Penicilline mit erweitertem Wirkungsspektrum"
+   },
+   "J01CA04": {
+      "name": "Amoxicillin",
+      "ddd": "1 g O,P; 1 g O Kinder DDD"
+   },
+   "J01CE": {
+      "name": "Beta-Lactamase-sensitive Penicilline"
+   },
+   "J01CE01": {
+      "name": "Benzylpenicillin",
+      "ddd": "3,6 g P"
+   },
+   "J01CE02": {
+      "name": "Phenoxymethylpenicillin",
+      "ddd": "2 g O; 1,5 MIO E O Kinder DDD"
+   },
+   "J01CE10": {
+      "name": "Phenoxymethylpenicillin-Benzathin",
+      "ddd": "2 g O; 1,5 MIO E O Kinder DDD"
+   },
+   "J01CF": {
+      "name": "Beta-Lactamase-resistente Penicilline"
+   },
+   "J01CF05": {
+      "name": "Flucloxacillin",
+      "ddd": "3 g O,P; 1 g O Kinder DDD"
+   },
+   "J01CR": {
+      "name": "Kombinationen von Penicillinen, inkl. Beta-Lactamase-Inhibitoren"
+   },
+   "J01CR02": {
+      "name": "Amoxicillin und Enzym-Inhibitoren",
+      "ddd": "1,75 g O bezogen auf Amoxicillin; 3 g P bezogen auf Amoxicillin; 1 g O Kinder DDD bezogen auf Amoxicillin"
+   },
+   "J01CR05": {
+      "name": "Piperacillin und Enzym-Inhibitoren",
+      "ddd": "14 g P bezogen auf Piperacillin"
+   },
+   "J01D": {
+      "name": "Andere Beta-lactam-antibiotika"
+   },
+   "J01DB": {
+      "name": "Cephalosporine der 1. Generation"
+   },
+   "J01DB04": {
+      "name": "Cefazolin",
+      "ddd": "3 g P"
+   },
+   "J01DC": {
+      "name": "Cephalosporine der 2. Generation"
+   },
+   "J01DC02": {
+      "name": "Cefuroxim",
+      "ddd": "0,5 g O; 3 g P"
+   },
+   "J01DC03": {
+      "name": "Cefamandol",
+      "ddd": "6 g P"
+   },
+   "J01DC04": {
+      "name": "Cefaclor",
+      "ddd": "1 g O; 0,75 g O Kinder DDD"
+   },
+   "J01DD": {
+      "name": "Cephalosporine der 3. Generation"
+   },
+   "J01DD02": {
+      "name": "Ceftazidim",
+      "ddd": "4 g P"
+   },
+   "J01DD04": {
+      "name": "Ceftriaxon",
+      "ddd": "2 g P"
+   },
+   "J01DD08": {
+      "name": "Cefixim",
+      "ddd": "0,4 g O; 0,2 g O Kinder DDD"
+   },
+   "J01DD13": {
+      "name": "Cefpodoxim",
+      "ddd": "0,4 g O; 0,2 g O Kinder DDD"
+   },
+   "J01DD14": {
+      "name": "Ceftibuten",
+      "ddd": "0,4 g O"
+   },
+   "J01DE": {
+      "name": "Cephalosporine der 4. Generation"
+   },
+   "J01DE01": {
+      "name": "Cefepim",
+      "ddd": "2 g P"
+   },
+   "J01DF": {
+      "name": "Monobactame"
+   },
+   "J01DF01": {
+      "name": "Aztreonam",
+      "ddd": "0,225 g Inhal.lösung; 4 g P"
+   },
+   "J01DH": {
+      "name": "Carbapeneme"
+   },
+   "J01DH02": {
+      "name": "Meropenem",
+      "ddd": "2 g P"
+   },
+   "J01DH03": {
+      "name": "Ertapenem",
+      "ddd": "1 g P"
+   },
+   "J01DH51": {
+      "name": "Imipenem und Enzym-Inhibitoren",
+      "ddd": "2 g P bezogen auf Imipenem"
+   },
+   "J01DI": {
+      "name": "Andere Cephalosporine und Peneme"
+   },
+   "J01DI01": {
+      "name": "Ceftobiprol medocaril",
+      "ddd": "1,5 g P"
+   },
+   "J01DI02": {
+      "name": "Ceftarolin fosamil",
+      "ddd": "1,2 g P"
+   },
+   "J01E": {
+      "name": "Sulfonamide und Trimethoprim"
+   },
+   "J01EE": {
+      "name": "Kombinationen von Sulfonamiden und Trimethoprim, inkl. Derivate"
+   },
+   "J01EE01": {
+      "name": "Sulfamethoxazol und Trimethoprim",
+      "ddd": "1,6 g Sulfamethoxazol + 0,32 g Trimethoprim Erwachsenen DDD; 0,8 g Sulfamethoxazol + 0,16 g Trimethoprim Kinder DDD"
+   },
+   "J01F": {
+      "name": "Makrolide, Lincosamide und Streptogramine"
+   },
+   "J01FA": {
+      "name": "Makrolide"
+   },
+   "J01FA01": {
+      "name": "Erythromycin",
+      "ddd": "1 g O; 2 g O Erythromycinethylsuccinat-Tabletten; 2 g P; 1 g O Kinder DDD für Erythromycinethylsuccinat-haltige Mittel"
+   },
+   "J01FA09": {
+      "name": "Clarithromycin",
+      "ddd": "0,5 g O; 1 g P; 0,375 g O Kinder DDD"
+   },
+   "J01FA10": {
+      "name": "Azithromycin",
+      "ddd": "0,3 g O; 0,5 g P; 0,25 g O Kinder DDD"
+   },
+   "J01FF": {
+      "name": "Lincosamide"
+   },
+   "J01FF01": {
+      "name": "Clindamycin",
+      "ddd": "1,2 g O; 1,8 g P; 0,45 g O Kinder DDD"
+   },
+   "J01G": {
+      "name": "Aminoglykosid-antibiotika"
+   },
+   "J01GB": {
+      "name": "Andere Aminoglykoside"
+   },
+   "J01GB01": {
+      "name": "Tobramycin",
+      "ddd": "0,3 g Inhal.lösung; 0,112 g Inhal.pulver; 0,24 g P"
+   },
+   "J01GB03": {
+      "name": "Gentamicin",
+      "ddd": "0,24 g P"
+   },
+   "J01GB06": {
+      "name": "Amikacin",
+      "ddd": "1 g P"
+   },
+   "J01M": {
+      "name": "Chinolone"
+   },
+   "J01MA": {
+      "name": "Fluorchinolone"
+   },
+   "J01MA01": {
+      "name": "Ofloxacin",
+      "ddd": "0,4 g O,P"
+   },
+   "J01MA02": {
+      "name": "Ciprofloxacin",
+      "ddd": "1 g O; 0,5 g P"
+   },
+   "J01MA06": {
+      "name": "Norfloxacin",
+      "ddd": "0,8 g O"
+   },
+   "J01MA12": {
+      "name": "Levofloxacin",
+      "ddd": "0,5 g O,P"
+   },
+   "J01MA14": {
+      "name": "Moxifloxacin",
+      "ddd": "0,4 g O,P"
+   },
+   "J01X": {
+      "name": "Andere Antibiotika"
+   },
+   "J01XA": {
+      "name": "Glycopeptid-Antibiotika"
+   },
+   "J01XA01": {
+      "name": "Vancomycin",
+      "ddd": "2 g P"
+   },
+   "J01XA02": {
+      "name": "Teicoplanin",
+      "ddd": "0,4 g P"
+   },
+   "J01XB": {
+      "name": "Polymyxine"
+   },
+   "J01XB01": {
+      "name": "Colistin",
+      "ddd": "3 MIO E Inhal.lösung,P; 3 MIO E Inhal.pulver"
+   },
+   "J01XC": {
+      "name": "Steroid-Antibiotika"
+   },
+   "J01XC01": {
+      "name": "Fusidinsäure",
+      "ddd": "1,5 g O,P"
+   },
+   "J01XD": {
+      "name": "Imidazol-Derivate"
+   },
+   "J01XD01": {
+      "name": "Metronidazol",
+      "ddd": "1,5 g P"
+   },
+   "J01XE": {
+      "name": "Nitrofuran-Derivate"
+   },
+   "J01XE01": {
+      "name": "Nitrofurantoin",
+      "ddd": "0,2 g O; 0,12 g O Kinder DDD"
+   },
+   "J01XX": {
+      "name": "Andere Antibiotika"
+   },
+   "J01XX01": {
+      "name": "Fosfomycin",
+      "ddd": "3 g O; 8 g P"
+   },
+   "J01XX08": {
+      "name": "Linezolid",
+      "ddd": "1,2 g O,P"
+   },
+   "J01XX09": {
+      "name": "Daptomycin",
+      "ddd": "0,28 g P  zur Therapie von Haut- und Weichteilinfektionen"
+   },
+   "J02": {
+      "name": "Antimykotika zur systemischen Anwendung"
+   },
+   "J02A": {
+      "name": "Antimykotika zur systemischen Anwendung"
+   },
+   "J02AA": {
+      "name": "Antibiotika"
+   },
+   "J02AA01": {
+      "name": "Amphotericin B",
+      "ddd": "35 mg P"
+   },
+   "J02AC": {
+      "name": "Triazol-Derivate"
+   },
+   "J02AC01": {
+      "name": "Fluconazol",
+      "ddd": "0,2 g O,P"
+   },
+   "J02AC02": {
+      "name": "Itraconazol",
+      "ddd": "0,2 g O,P"
+   },
+   "J02AC03": {
+      "name": "Voriconazol",
+      "ddd": "0,4 g O,P"
+   },
+   "J02AC04": {
+      "name": "Posaconazol",
+      "ddd": "0,8 g O"
+   },
+   "J02AX": {
+      "name": "Andere Antimykotika zur systemischen Anwendung"
+   },
+   "J02AX01": {
+      "name": "Flucytosin",
+      "ddd": "10 g O,P"
+   },
+   "J02AX04": {
+      "name": "Caspofungin",
+      "ddd": "50 mg P"
+   },
+   "J02AX05": {
+      "name": "Micafungin",
+      "ddd": "0,1 g P"
+   },
+   "J02AX06": {
+      "name": "Anidulafungin",
+      "ddd": "0,1 g P"
+   },
+   "J04": {
+      "name": "Mittel gegen Mykobakterien"
+   },
+   "J04A": {
+      "name": "Mittel zur Behandlung der Tuberkulose"
+   },
+   "J04AB": {
+      "name": "Antibiotika"
+   },
+   "J04AB02": {
+      "name": "Rifampicin",
+      "ddd": "0,6 g O,P; 0,3 g O Kinder DDD"
+   },
+   "J04AB04": {
+      "name": "Rifabutin",
+      "ddd": "0,15 g O"
+   },
+   "J04AC": {
+      "name": "Hydrazide"
+   },
+   "J04AC01": {
+      "name": "Isoniazid",
+      "ddd": "0,3 g O,P"
+   },
+   "J04AK": {
+      "name": "Andere Mittel zur Behandlung der Tuberkulose"
+   },
+   "J04AK01": {
+      "name": "Pyrazinamid",
+      "ddd": "1,5 g O"
+   },
+   "J04AK02": {
+      "name": "Ethambutol",
+      "ddd": "1,2 g O,P"
+   },
+   "J04AM": {
+      "name": "Kombinationen von Mitteln zur Behandlung der Tuberkulose"
+   },
+   "J04AM02": {
+      "name": "Rifampicin und Isoniazid"
+   },
+   "J04AM05": {
+      "name": "Rifampicin, Pyrazinamid und Isoniazid"
+   },
+   "J04AM06": {
+      "name": "Rifampicin, Pyrazinamid, Ethambutol und Isoniazid"
+   },
+   "J05": {
+      "name": "Antivirale Mittel zur systemischen Anwendung"
+   },
+   "J05A": {
+      "name": "Direkt wirkende antivirale Mittel"
+   },
+   "J05AB": {
+      "name": "Nukleoside und Nukleotide, exkl. Inhibitoren der Reversen Transkriptase"
+   },
+   "J05AB01": {
+      "name": "Aciclovir",
+      "ddd": "4 g O,P"
+   },
+   "J05AB04": {
+      "name": "Ribavirin",
+      "ddd": "6 g Inhal.lösung; 1 g O"
+   },
+   "J05AB06": {
+      "name": "Ganciclovir",
+      "ddd": "3 g O; 0,5 g P"
+   },
+   "J05AB09": {
+      "name": "Famciclovir",
+      "ddd": "1,5 g O"
+   },
+   "J05AB11": {
+      "name": "Valaciclovir",
+      "ddd": "3 g O"
+   },
+   "J05AB14": {
+      "name": "Valganciclovir",
+      "ddd": "0,9 g O"
+   },
+   "J05AB15": {
+      "name": "Brivudin",
+      "ddd": "0,125 g O"
+   },
+   "J05AD": {
+      "name": "Phosphonsäure-Derivate"
+   },
+   "J05AD01": {
+      "name": "Foscarnet",
+      "ddd": "6,5 g P"
+   },
+   "J05AE": {
+      "name": "Proteasehemmer"
+   },
+   "J05AE01": {
+      "name": "Saquinavir",
+      "ddd": "2 g O"
+   },
+   "J05AE02": {
+      "name": "Indinavir",
+      "ddd": "2,4 g O"
+   },
+   "J05AE03": {
+      "name": "Ritonavir",
+      "ddd": "1,2 g O"
+   },
+   "J05AE07": {
+      "name": "Fosamprenavir",
+      "ddd": "1,4 g O"
+   },
+   "J05AE08": {
+      "name": "Atazanavir",
+      "ddd": "0,3 g O"
+   },
+   "J05AE09": {
+      "name": "Tipranavir",
+      "ddd": "1 g O; 0,64 g O Kinder DDD"
+   },
+   "J05AE10": {
+      "name": "Darunavir",
+      "ddd": "1,2 g O"
+   },
+   "J05AE11": {
+      "name": "Telaprevir",
+      "ddd": "2,25 g O"
+   },
+   "J05AE12": {
+      "name": "Boceprevir",
+      "ddd": "2,4 g O"
+   },
+   "J05AE14": {
+      "name": "Simeprevir",
+      "ddd": "0,15 g O"
+   },
+   "J05AF": {
+      "name": "Nukleosidale und nukleotidale Inhibitoren der Reversen Transkriptase"
+   },
+   "J05AF01": {
+      "name": "Zidovudin",
+      "ddd": "0,6 g O,P"
+   },
+   "J05AF02": {
+      "name": "Didanosin",
+      "ddd": "0,4 g O"
+   },
+   "J05AF04": {
+      "name": "Stavudin",
+      "ddd": "80 mg O"
+   },
+   "J05AF05": {
+      "name": "Lamivudin",
+      "ddd": "0,3 g O"
+   },
+   "J05AF06": {
+      "name": "Abacavir",
+      "ddd": "0,6 g O"
+   },
+   "J05AF07": {
+      "name": "Tenofovir disoproxil",
+      "ddd": "0,245 g O"
+   },
+   "J05AF08": {
+      "name": "Adefovir dipivoxil",
+      "ddd": "10 mg O"
+   },
+   "J05AF09": {
+      "name": "Emtricitabin",
+      "ddd": "0,2 g O"
+   },
+   "J05AF10": {
+      "name": "Entecavir",
+      "ddd": "0,5 mg O"
+   },
+   "J05AF11": {
+      "name": "Telbivudin",
+      "ddd": "0,6 g O"
+   },
+   "J05AG": {
+      "name": "Nicht-Nukleosidale Inhibitoren der Reversen Transkriptase"
+   },
+   "J05AG01": {
+      "name": "Nevirapin",
+      "ddd": "0,4 g O; 0,3 g O Kinder DDD"
+   },
+   "J05AG03": {
+      "name": "Efavirenz",
+      "ddd": "0,6 g O"
+   },
+   "J05AG04": {
+      "name": "Etravirin",
+      "ddd": "0,4 g O"
+   },
+   "J05AG05": {
+      "name": "Rilpivirin",
+      "ddd": "25 mg O"
+   },
+   "J05AH": {
+      "name": "Neuraminidasehemmer"
+   },
+   "J05AH01": {
+      "name": "Zanamivir",
+      "ddd": "20 mg Inhal.pulver  zur Therapie"
+   },
+   "J05AH02": {
+      "name": "Oseltamivir",
+      "ddd": "0,15 g O"
+   },
+   "J05AR": {
+      "name": "Antivirale Mittel zur Behandlung von HIV Infektionen, Kombinationen"
+   },
+   "J05AR01": {
+      "name": "Zidovudin und Lamivudin",
+      "ddd": "Standarddosis: 2 Applikationsformen O"
+   },
+   "J05AR02": {
+      "name": "Lamivudin und Abacavir",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "J05AR03": {
+      "name": "Tenofovir disoproxil und Emtricitabin",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "J05AR04": {
+      "name": "Zidovudin, Lamivudin und Abacavir",
+      "ddd": "Standarddosis: 2 Applikationsformen O"
+   },
+   "J05AR06": {
+      "name": "Emtricitabin, Tenofovir disoproxil und Efavirenz",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "J05AR08": {
+      "name": "Emtricitabin, Tenofovir disoproxil und Rilpivirin",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "J05AR09": {
+      "name": "Emtricitabin, Tenofovir disoproxil, Elvitegravir und Cobicistat",
+      "ddd": "Standarddosis: 1 Applikationsform O"
+   },
+   "J05AR10": {
+      "name": "Lopinavir und Ritonavir",
+      "ddd": "0,8 g O bezogen auf Lopinavir"
+   },
+   "J05AX": {
+      "name": "Andere antivirale Mittel"
+   },
+   "J05AX07": {
+      "name": "Enfuvirtid",
+      "ddd": "0,18 g P"
+   },
+   "J05AX08": {
+      "name": "Raltegravir",
+      "ddd": "0,8 g O"
+   },
+   "J05AX09": {
+      "name": "Maraviroc",
+      "ddd": "0,6 g O"
+   },
+   "J05AX12": {
+      "name": "Dolutegravir",
+      "ddd": "50 mg O"
+   },
+   "J06": {
+      "name": "Immunsera und Immunglobuline"
+   },
+   "J06A": {
+      "name": "Immunsera"
+   },
+   "J06AA": {
+      "name": "Immunsera"
+   },
+   "J06AA03": {
+      "name": "Schlangengift-Antiserum"
+   },
+   "J06B": {
+      "name": "Immunglobuline"
+   },
+   "J06BA": {
+      "name": "Immunglobuline, normal human"
+   },
+   "J06BA01": {
+      "name": "Immunglobuline, normal human, zur extravasalen Anwendung",
+      "ddd": "1,4 g P"
+   },
+   "J06BA02": {
+      "name": "Immunglobuline, normal human, zur intravasalen Anwendung",
+      "ddd": "1,6 g P"
+   },
+   "J06BB": {
+      "name": "Spezifische Immunglobuline"
+   },
+   "J06BB01": {
+      "name": "Anti-D(rh)-Immunglobulin"
+   },
+   "J06BB02": {
+      "name": "Tetanus-Immunglobulin"
+   },
+   "J06BB03": {
+      "name": "Varicella/Zoster-Immunglobulin"
+   },
+   "J06BB04": {
+      "name": "Hepatitis-B-Immunglobulin",
+      "ddd": "500 IE P"
+   },
+   "J06BB05": {
+      "name": "Tollwut-Immunglobulin"
+   },
+   "J06BB09": {
+      "name": "Cytomegalievirus-Immunglobulin"
+   },
+   "J06BB16": {
+      "name": "Palivizumab",
+      "ddd": "3,75 mg P Säuglings DDD"
+   },
+   "J07": {
+      "name": "Impfstoffe"
+   },
+   "J07A": {
+      "name": "Bakterielle Impfstoffe"
+   },
+   "J07AE": {
+      "name": "Cholera-Impfstoffe"
+   },
+   "J07AE01": {
+      "name": "Cholera, inaktiviert, ganze Zelle",
+      "ddd": "Standarddosis: 1 Einzeldosis O"
+   },
+   "J07AG": {
+      "name": "Haemophilus influenzae B-Impfstoffe"
+   },
+   "J07AG01": {
+      "name": "Haemophilus influenzae B, gereinigtes Antigen konjugiert",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07AH": {
+      "name": "Meningokokken-Impfstoffe"
+   },
+   "J07AH04": {
+      "name": "Meningokokken tetravalent (A, C, Y, W-135), gereinigtes Polysaccharid-Antigen",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07AH07": {
+      "name": "Meningokokken C, gereinigtes Polysaccharid-Antigen, konjugiert",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07AH08": {
+      "name": "Meningokokken tetravalent (A, C, Y, W-135), gereinigtes Polysaccharid-Antigen, konjugiert",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07AJ": {
+      "name": "Pertussis-Impfstoffe"
+   },
+   "J07AJ52": {
+      "name": "Pertussis, gereinigtes Antigen, Kombinationen mit Toxoiden",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07AL": {
+      "name": "Pneumokokken-Impfstoffe"
+   },
+   "J07AL01": {
+      "name": "Pneumokokken, gereinigtes Polysaccharid-Antigen",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07AL02": {
+      "name": "Pneumokokken, gereinigtes Polysaccharid-Antigen, konjugiert",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07AM": {
+      "name": "Tetanus-Impfstoffe"
+   },
+   "J07AM01": {
+      "name": "Tetanus-Toxoid",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07AM51": {
+      "name": "Tetanus-Toxoid, Kombinationen mit Diphtherie-Toxoid",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07AN": {
+      "name": "Tuberkulose-Impfstoffe"
+   },
+   "J07AP": {
+      "name": "Typhus-Impfstoffe"
+   },
+   "J07AP01": {
+      "name": "Typhus, oral, lebend abgeschwächt",
+      "ddd": "Standarddosis: 1 Einzeldosis O"
+   },
+   "J07AX": {
+      "name": "Andere bakterielle Impfstoffe"
+   },
+   "J07B": {
+      "name": "Virale Impfstoffe"
+   },
+   "J07BA": {
+      "name": "Encephalitis-Impfstoffe"
+   },
+   "J07BA01": {
+      "name": "FSME, inaktiviert, ganzes Virus",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BA02": {
+      "name": "Encephalitis, japanische, inaktiviert, ganzes Virus",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BB": {
+      "name": "Influenza-Impfstoffe"
+   },
+   "J07BB02": {
+      "name": "Influenza, inaktiviert, Spaltvirus oder Oberflächenantigen",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BC": {
+      "name": "Hepatitis-Impfstoffe"
+   },
+   "J07BC01": {
+      "name": "Hepatitis B, gereinigtes Antigen",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BC02": {
+      "name": "Hepatitis A, inaktiviert, ganzes Virus",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BC20": {
+      "name": "Kombinationen",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BD": {
+      "name": "Masern-Impfstoffe"
+   },
+   "J07BD01": {
+      "name": "Masern, lebend abgeschwächt",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BD52": {
+      "name": "Masern, Kombinationen mit Mumps und Röteln, lebend abgeschwächt",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BD54": {
+      "name": "Masern, Kombinationen mit Mumps, Röteln und Varicella, lebend abgeschwächt",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BF": {
+      "name": "Poliomyelitis-Impfstoffe"
+   },
+   "J07BF03": {
+      "name": "Poliomyelitis, trivalent, inaktiviert, ganzes Virus",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BG": {
+      "name": "Tollwut-Impfstoffe"
+   },
+   "J07BG01": {
+      "name": "Tollwut, inaktiviert, ganzes Virus",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BH": {
+      "name": "Rotavirus-Diarrhoe-Impfstoffe"
+   },
+   "J07BH01": {
+      "name": "Rotavirus, lebend abgeschwächt",
+      "ddd": "Standarddosis: 1 Einzeldosis O"
+   },
+   "J07BK": {
+      "name": "Varicella Zoster Impfstoffe"
+   },
+   "J07BK01": {
+      "name": "Varicella, lebend abgeschwächt",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BK02": {
+      "name": "Zoster Virus, lebend abgeschwächt",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BL": {
+      "name": "Gelbfieber-Impfstoffe"
+   },
+   "J07BL01": {
+      "name": "Gelbfieber, lebend abgeschwächt",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BM": {
+      "name": "Papillomvirus-Impfstoffe"
+   },
+   "J07BM01": {
+      "name": "Humaner Papillomvirus-Impfstoff (Typen 6,11,16,18)",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07BM02": {
+      "name": "Humaner Papillomvirus-Impfstoff (Typen 16,18)",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07C": {
+      "name": "Bakterielle und virale Impfstoffe, kombiniert"
+   },
+   "J07CA": {
+      "name": "Bakterielle und virale Impfstoffe, kombiniert"
+   },
+   "J07CA01": {
+      "name": "Diphtherie-Poliomyelitis-Tetanus",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07CA02": {
+      "name": "Diphtherie-Pertussis-Poliomyelitis-Tetanus",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07CA06": {
+      "name": "Diphtherie-Haemophilus influenzae B-Pertussis-Poliomyelitis-Tetanus",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "J07CA09": {
+      "name": "Diphtherie-Haemophilus influenzae B-Pertussis-Poliomyelitis-Tetanus-Hepatitis B",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "L": {
+      "name": "Antineoplastische und immunmodulierende Mittel"
+   },
+   "L01": {
+      "name": "Antineoplastische Mittel"
+   },
+   "L01A": {
+      "name": "Alkylierende Mittel"
+   },
+   "L01AA": {
+      "name": "Stickstofflost-Analoga"
+   },
+   "L01AA01": {
+      "name": "Cyclophosphamid"
+   },
+   "L01AA02": {
+      "name": "Chlorambucil"
+   },
+   "L01AA03": {
+      "name": "Melphalan"
+   },
+   "L01AA06": {
+      "name": "Ifosfamid",
+      "ddd": "0,7 g P"
+   },
+   "L01AA09": {
+      "name": "Bendamustin"
+   },
+   "L01AB": {
+      "name": "Alkylsulfonate"
+   },
+   "L01AB01": {
+      "name": "Busulfan"
+   },
+   "L01AC": {
+      "name": "Ethylenimine"
+   },
+   "L01AC01": {
+      "name": "Thiotepa",
+      "ddd": "1,62 g P"
+   },
+   "L01AX": {
+      "name": "Andere alkylierende Mittel"
+   },
+   "L01AX03": {
+      "name": "Temozolomid",
+      "ddd": "65 mg O,P"
+   },
+   "L01AX04": {
+      "name": "Dacarbazin",
+      "ddd": "0,1 g P"
+   },
+   "L01B": {
+      "name": "Antimetaboliten"
+   },
+   "L01BA": {
+      "name": "Folsäure-Analoga"
+   },
+   "L01BA01": {
+      "name": "Methotrexat",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "L01BA03": {
+      "name": "Raltitrexed"
+   },
+   "L01BA04": {
+      "name": "Pemetrexed",
+      "ddd": "43 mg P"
+   },
+   "L01BA05": {
+      "name": "Pralatrexat"
+   },
+   "L01BB": {
+      "name": "Purin-Analoga"
+   },
+   "L01BB02": {
+      "name": "Mercaptopurin",
+      "ddd": "0,175 g O bezogen auf kg Körpergewicht"
+   },
+   "L01BB03": {
+      "name": "Tioguanin"
+   },
+   "L01BB04": {
+      "name": "Cladribin"
+   },
+   "L01BB05": {
+      "name": "Fludarabin",
+      "ddd": "8 mg P"
+   },
+   "L01BB07": {
+      "name": "Nelarabin",
+      "ddd": "0,39 g P"
+   },
+   "L01BC": {
+      "name": "Pyrimidin-Analoga"
+   },
+   "L01BC01": {
+      "name": "Cytarabin"
+   },
+   "L01BC02": {
+      "name": "Fluorouracil",
+      "ddd": "0,15 g O; 0,1 g P"
+   },
+   "L01BC05": {
+      "name": "Gemcitabin",
+      "ddd": "0,2 g P"
+   },
+   "L01BC06": {
+      "name": "Capecitabin",
+      "ddd": "3 g O"
+   },
+   "L01BC08": {
+      "name": "Decitabin",
+      "ddd": "6,43 mg P"
+   },
+   "L01C": {
+      "name": "Pflanzliche Alkaloide und andere natürliche Mittel"
+   },
+   "L01CA": {
+      "name": "Vinka-Alkaloide und Analoga"
+   },
+   "L01CA01": {
+      "name": "Vinblastin",
+      "ddd": "11,61 mg P Wochendosis"
+   },
+   "L01CA02": {
+      "name": "Vincristin",
+      "ddd": "0,36 mg P"
+   },
+   "L01CA03": {
+      "name": "Vindesin"
+   },
+   "L01CA04": {
+      "name": "Vinorelbin",
+      "ddd": "18 mg O; 7 mg P"
+   },
+   "L01CB": {
+      "name": "Podophyllotoxin-Derivate"
+   },
+   "L01CB01": {
+      "name": "Etoposid",
+      "ddd": "50 mg O; 25 mg P"
+   },
+   "L01CD": {
+      "name": "Taxane"
+   },
+   "L01CD01": {
+      "name": "Paclitaxel",
+      "ddd": "15 mg P; 22 mg P Nanopartikelformulierung"
+   },
+   "L01CD02": {
+      "name": "Docetaxel",
+      "ddd": "6,43 mg P"
+   },
+   "L01CX": {
+      "name": "Andere pflanzliche Alkaloide und natürliche Mittel"
+   },
+   "L01CX01": {
+      "name": "Trabectedin",
+      "ddd": "0,13 mg P"
+   },
+   "L01D": {
+      "name": "Zytotoxische Antibiotika und verwandte Substanzen"
+   },
+   "L01DB": {
+      "name": "Anthracycline und verwandte Substanzen"
+   },
+   "L01DB01": {
+      "name": "Doxorubicin",
+      "ddd": "5 mg P; 3 mg P pegylierte liposomale Form;Standarddosis: 1 Instillationsset U"
+   },
+   "L01DB03": {
+      "name": "Epirubicin",
+      "ddd": "7 mg P"
+   },
+   "L01DB06": {
+      "name": "Idarubicin",
+      "ddd": "6 mg O; 3 mg P"
+   },
+   "L01DB07": {
+      "name": "Mitoxantron",
+      "ddd": "10 mg P Zytostatikum; 0,24 mg P Multiple Sklerose"
+   },
+   "L01DC": {
+      "name": "Andere zytotoxische Antibiotika"
+   },
+   "L01DC01": {
+      "name": "Bleomycin",
+      "ddd": "3 mg P entsprechend einer standardisierten biologischen Aktivitätvon 3.000 E"
+   },
+   "L01DC03": {
+      "name": "Mitomycin",
+      "ddd": "4,29 mg intravesikal; 0,65 mg P"
+   },
+   "L01DC04": {
+      "name": "Ixabepilon"
+   },
+   "L01X": {
+      "name": "Andere antineoplastische Mittel"
+   },
+   "L01XA": {
+      "name": "Platin-haltige Verbindungen"
+   },
+   "L01XA01": {
+      "name": "Cisplatin",
+      "ddd": "6,75 mg P"
+   },
+   "L01XA02": {
+      "name": "Carboplatin",
+      "ddd": "25 mg P"
+   },
+   "L01XA03": {
+      "name": "Oxaliplatin",
+      "ddd": "11 mg P"
+   },
+   "L01XB": {
+      "name": "Methylhydrazine"
+   },
+   "L01XB01": {
+      "name": "Procarbazin"
+   },
+   "L01XC": {
+      "name": "Monoklonale Antikörper"
+   },
+   "L01XC02": {
+      "name": "Rituximab",
+      "ddd": "32 mg P"
+   },
+   "L01XC03": {
+      "name": "Trastuzumab",
+      "ddd": "29 mg P s.c.; 20 mg P"
+   },
+   "L01XC06": {
+      "name": "Cetuximab",
+      "ddd": "65 mg P"
+   },
+   "L01XC07": {
+      "name": "Bevacizumab",
+      "ddd": "45 mg P"
+   },
+   "L01XC08": {
+      "name": "Panitumumab",
+      "ddd": "30 mg P"
+   },
+   "L01XC10": {
+      "name": "Ofatumumab",
+      "ddd": "0,133 g P"
+   },
+   "L01XC11": {
+      "name": "Ipilimumab",
+      "ddd": "10 mg P"
+   },
+   "L01XC12": {
+      "name": "Brentuximab vedotin",
+      "ddd": "6 mg P"
+   },
+   "L01XC13": {
+      "name": "Pertuzumab",
+      "ddd": "20 mg P"
+   },
+   "L01XC14": {
+      "name": "Trastuzumab emtansin",
+      "ddd": "12 mg P"
+   },
+   "L01XC15": {
+      "name": "Obinutuzumab",
+      "ddd": "48 mg P"
+   },
+   "L01XD": {
+      "name": "Sensibilisatoren für die photodynamische/Radio-Therapie"
+   },
+   "L01XD03": {
+      "name": "Methylaminolevulinat"
+   },
+   "L01XD04": {
+      "name": "Aminolevulinsäure"
+   },
+   "L01XE": {
+      "name": "Proteinkinase-Inhibitoren"
+   },
+   "L01XE01": {
+      "name": "Imatinib",
+      "ddd": "0,5 g O"
+   },
+   "L01XE02": {
+      "name": "Gefitinib",
+      "ddd": "0,25 g O"
+   },
+   "L01XE03": {
+      "name": "Erlotinib",
+      "ddd": "0,125 g O"
+   },
+   "L01XE04": {
+      "name": "Sunitinib",
+      "ddd": "35 mg O"
+   },
+   "L01XE05": {
+      "name": "Sorafenib",
+      "ddd": "0,8 g O"
+   },
+   "L01XE06": {
+      "name": "Dasatinib",
+      "ddd": "0,12 g O"
+   },
+   "L01XE07": {
+      "name": "Lapatinib",
+      "ddd": "1,375 g O"
+   },
+   "L01XE08": {
+      "name": "Nilotinib",
+      "ddd": "0,6 g O"
+   },
+   "L01XE09": {
+      "name": "Temsirolimus",
+      "ddd": "7,1 mg P"
+   },
+   "L01XE10": {
+      "name": "Everolimus",
+      "ddd": "10 mg O"
+   },
+   "L01XE11": {
+      "name": "Pazopanib",
+      "ddd": "0,8 g O"
+   },
+   "L01XE12": {
+      "name": "Vandetanib",
+      "ddd": "0,3 g O"
+   },
+   "L01XE13": {
+      "name": "Afatinib",
+      "ddd": "40 mg O"
+   },
+   "L01XE14": {
+      "name": "Bosutinib",
+      "ddd": "0,5 g O"
+   },
+   "L01XE15": {
+      "name": "Vemurafenib",
+      "ddd": "1,92 g O"
+   },
+   "L01XE16": {
+      "name": "Crizotinib",
+      "ddd": "0,5 g O"
+   },
+   "L01XE17": {
+      "name": "Axitinib",
+      "ddd": "10 mg O"
+   },
+   "L01XE18": {
+      "name": "Ruxolitinib",
+      "ddd": "30 mg O"
+   },
+   "L01XE21": {
+      "name": "Regorafenib",
+      "ddd": "0,12 g O"
+   },
+   "L01XE23": {
+      "name": "Dabrafenib",
+      "ddd": "0,3 g O"
+   },
+   "L01XE24": {
+      "name": "Ponatinib",
+      "ddd": "45 mg O"
+   },
+   "L01XX": {
+      "name": "Andere antineoplastische Mittel"
+   },
+   "L01XX01": {
+      "name": "Amsacrin"
+   },
+   "L01XX05": {
+      "name": "Hydroxycarbamid",
+      "ddd": "1,75 g O"
+   },
+   "L01XX11": {
+      "name": "Estramustin",
+      "ddd": "0,56 g O"
+   },
+   "L01XX14": {
+      "name": "Tretinoin"
+   },
+   "L01XX17": {
+      "name": "Topotecan",
+      "ddd": "1 mg O; 0,65 mg P"
+   },
+   "L01XX19": {
+      "name": "Irinotecan",
+      "ddd": "30 mg P"
+   },
+   "L01XX23": {
+      "name": "Mitotan"
+   },
+   "L01XX27": {
+      "name": "Arsentrioxid"
+   },
+   "L01XX32": {
+      "name": "Bortezomib",
+      "ddd": "0,45 mg P"
+   },
+   "L01XX35": {
+      "name": "Anagrelid",
+      "ddd": "2 mg O"
+   },
+   "L01XX41": {
+      "name": "Eribulin",
+      "ddd": "0,21 mg P bezogen auf Eribulin"
+   },
+   "L01XX43": {
+      "name": "Vismodegib",
+      "ddd": "0,15 g O"
+   },
+   "L02": {
+      "name": "Endokrine Therapie"
+   },
+   "L02A": {
+      "name": "Hormone und verwandte Mittel"
+   },
+   "L02AA": {
+      "name": "Estrogene"
+   },
+   "L02AA02": {
+      "name": "Polyestradiolphosphat",
+      "ddd": "6 mg P"
+   },
+   "L02AB": {
+      "name": "Gestagene"
+   },
+   "L02AB02": {
+      "name": "Medroxyprogesteron",
+      "ddd": "1 g O,P"
+   },
+   "L02AE": {
+      "name": "Gonadotropin-Releasing-Hormon-Analoga"
+   },
+   "L02AE02": {
+      "name": "Leuprorelin",
+      "ddd": "1 mg P; 1 DE P pro Behandlungszeitraum für Depotarzneiformen"
+   },
+   "L02AE03": {
+      "name": "Goserelin",
+      "ddd": "0,129 mg Implantat"
+   },
+   "L02AE04": {
+      "name": "Triptorelin",
+      "ddd": "0,1 mg P; 0,134 mg P Depotinjektion"
+   },
+   "L02B": {
+      "name": "Hormonantagonisten und verwandte Mittel"
+   },
+   "L02BA": {
+      "name": "Antiestrogene"
+   },
+   "L02BA01": {
+      "name": "Tamoxifen",
+      "ddd": "20 mg O"
+   },
+   "L02BA03": {
+      "name": "Fulvestrant",
+      "ddd": "18 mg P"
+   },
+   "L02BB": {
+      "name": "Antiandrogene"
+   },
+   "L02BB03": {
+      "name": "Bicalutamid",
+      "ddd": "50 mg O; 0,15 g O bezogen auf die Monotherapie"
+   },
+   "L02BG": {
+      "name": "Aromatase-Inhibitoren"
+   },
+   "L02BG03": {
+      "name": "Anastrozol",
+      "ddd": "1 mg O"
+   },
+   "L02BG04": {
+      "name": "Letrozol",
+      "ddd": "2,5 mg O"
+   },
+   "L02BG06": {
+      "name": "Exemestan",
+      "ddd": "25 mg O"
+   },
+   "L02BX": {
+      "name": "Andere Hormonantagonisten und verwandte Mittel"
+   },
+   "L02BX03": {
+      "name": "Abirateron",
+      "ddd": "1 g O bezogen auf Abirateronacetat"
+   },
+   "L03": {
+      "name": "Immunstimulanzien"
+   },
+   "L03A": {
+      "name": "Immunstimulanzien"
+   },
+   "L03AA": {
+      "name": "Koloniestimulierende Faktoren"
+   },
+   "L03AA02": {
+      "name": "Filgrastim",
+      "ddd": "0,35 mg P bezogen auf kg Körpergewicht"
+   },
+   "L03AA10": {
+      "name": "Lenograstim",
+      "ddd": "0,35 mg P bezogen auf kg Körpergewicht"
+   },
+   "L03AA13": {
+      "name": "Pegfilgrastim",
+      "ddd": "0,3 mg P"
+   },
+   "L03AB": {
+      "name": "Interferone"
+   },
+   "L03AB03": {
+      "name": "Interferon gamma",
+      "ddd": "40 mcg P"
+   },
+   "L03AB04": {
+      "name": "Interferon alfa-2a",
+      "ddd": "2 MIO E P"
+   },
+   "L03AB05": {
+      "name": "Interferon alfa-2b",
+      "ddd": "2 MIO E P"
+   },
+   "L03AB07": {
+      "name": "Interferon beta-1a",
+      "ddd": "4,3 mcg P i.m.; 18,86 mcg P s.c."
+   },
+   "L03AB08": {
+      "name": "Interferon beta-1b",
+      "ddd": "4 MIO E P"
+   },
+   "L03AB10": {
+      "name": "Peginterferon alfa-2b",
+      "ddd": "15 mcg P Kombinationstherapie bei Hepatitis C"
+   },
+   "L03AB11": {
+      "name": "Peginterferon alfa-2a",
+      "ddd": "26 mcg P Kombinationstherapie bei Hepatitis C"
+   },
+   "L03AC": {
+      "name": "Interleukine"
+   },
+   "L03AC01": {
+      "name": "Aldesleukin",
+      "ddd": "0,2 mg P"
+   },
+   "L03AX": {
+      "name": "Andere Immunstimulanzien"
+   },
+   "L03AX03": {
+      "name": "BCG-Impfstoff",
+      "ddd": "0,033 Darreichungsform intravesikal"
+   },
+   "L03AX11": {
+      "name": "Tasonermin",
+      "ddd": "3,5 mg P"
+   },
+   "L03AX13": {
+      "name": "Glatirameracetat",
+      "ddd": "20 mg P"
+   },
+   "L03AX15": {
+      "name": "Mifamurtid",
+      "ddd": "0,7 mg P"
+   },
+   "L03AX16": {
+      "name": "Plerixafor",
+      "ddd": "16,8 mg P"
+   },
+   "L04": {
+      "name": "Immunsuppressiva"
+   },
+   "L04A": {
+      "name": "Immunsuppressiva"
+   },
+   "L04AA": {
+      "name": "Selektive Immunsuppressiva"
+   },
+   "L04AA04": {
+      "name": "Antithymozytäres Immunglobulin (Kaninchen)",
+      "ddd": "0,1 g P"
+   },
+   "L04AA06": {
+      "name": "Mycophenolsäure",
+      "ddd": "2 g O,P bezogen auf Mycophenolatmofetil"
+   },
+   "L04AA10": {
+      "name": "Sirolimus",
+      "ddd": "3 mg O"
+   },
+   "L04AA13": {
+      "name": "Leflunomid",
+      "ddd": "20 mg O"
+   },
+   "L04AA18": {
+      "name": "Everolimus",
+      "ddd": "1,5 mg O"
+   },
+   "L04AA23": {
+      "name": "Natalizumab",
+      "ddd": "10 mg P"
+   },
+   "L04AA24": {
+      "name": "Abatacept",
+      "ddd": "27 mg P"
+   },
+   "L04AA25": {
+      "name": "Eculizumab",
+      "ddd": "64 mg P"
+   },
+   "L04AA26": {
+      "name": "Belimumab",
+      "ddd": "25 mg P"
+   },
+   "L04AA27": {
+      "name": "Fingolimod",
+      "ddd": "0,5 mg O"
+   },
+   "L04AA28": {
+      "name": "Belatacept",
+      "ddd": "12,5 mg P"
+   },
+   "L04AA29": {
+      "name": "Tofacitinib"
+   },
+   "L04AA31": {
+      "name": "Teriflunomid",
+      "ddd": "14 mg O"
+   },
+   "L04AA33": {
+      "name": "Vedolizumab",
+      "ddd": "5 mg P"
+   },
+   "L04AB": {
+      "name": "Tumornekrosefaktor alpha(TNF-alpha)-Inhibitoren"
+   },
+   "L04AB01": {
+      "name": "Etanercept",
+      "ddd": "7 mg P; 3 mg P Kinder DDD"
+   },
+   "L04AB02": {
+      "name": "Infliximab",
+      "ddd": "3,75 mg P"
+   },
+   "L04AB04": {
+      "name": "Adalimumab",
+      "ddd": "2,9 mg P; 1,6 mg P Kinder DDD"
+   },
+   "L04AB05": {
+      "name": "Certolizumab pegol",
+      "ddd": "14 mg P"
+   },
+   "L04AB06": {
+      "name": "Golimumab",
+      "ddd": "1,66 mg P"
+   },
+   "L04AC": {
+      "name": "Interleukin-Inhibitoren"
+   },
+   "L04AC02": {
+      "name": "Basiliximab",
+      "ddd": "40 mg P Dosis pro Behandlungszyklus"
+   },
+   "L04AC05": {
+      "name": "Ustekinumab",
+      "ddd": "0,54 mg P"
+   },
+   "L04AC07": {
+      "name": "Tocilizumab",
+      "ddd": "20 mg P"
+   },
+   "L04AC08": {
+      "name": "Canakinumab",
+      "ddd": "2,7 mg P"
+   },
+   "L04AC10": {
+      "name": "Secukinumab"
+   },
+   "L04AD": {
+      "name": "Calcineurin-Inhibitoren"
+   },
+   "L04AD01": {
+      "name": "Ciclosporin",
+      "ddd": "0,25 g O,P"
+   },
+   "L04AD02": {
+      "name": "Tacrolimus",
+      "ddd": "5 mg O,P"
+   },
+   "L04AX": {
+      "name": "Andere Immunsuppressiva"
+   },
+   "L04AX01": {
+      "name": "Azathioprin",
+      "ddd": "0,15 g O,P"
+   },
+   "L04AX04": {
+      "name": "Lenalidomid",
+      "ddd": "10 mg O"
+   },
+   "L04AX06": {
+      "name": "Pomalidomid",
+      "ddd": "3 mg O"
+   },
+   "M": {
+      "name": "Muskel- und Skelettsystem"
+   },
+   "M01": {
+      "name": "Antiphlogistika und Antirheumatika"
+   },
+   "M01A": {
+      "name": "Nichtsteroidale Antiphlogistika und Antirheumatika"
+   },
+   "M01AB": {
+      "name": "Essigsäure-Derivate und verwandte Substanzen"
+   },
+   "M01AB01": {
+      "name": "Indometacin",
+      "ddd": "0,1 g O,P,R"
+   },
+   "M01AB05": {
+      "name": "Diclofenac",
+      "ddd": "0,1 g O,P,R"
+   },
+   "M01AB08": {
+      "name": "Etodolac",
+      "ddd": "0,4 g O"
+   },
+   "M01AB11": {
+      "name": "Acemetacin",
+      "ddd": "0,12 g O"
+   },
+   "M01AB15": {
+      "name": "Ketorolac",
+      "ddd": "30 mg O,P"
+   },
+   "M01AB55": {
+      "name": "Diclofenac, Kombinationen",
+      "ddd": "0,1 g O bezogen auf Diclofenac"
+   },
+   "M01AC": {
+      "name": "Oxicame"
+   },
+   "M01AC01": {
+      "name": "Piroxicam",
+      "ddd": "20 mg O,P,R"
+   },
+   "M01AC02": {
+      "name": "Tenoxicam",
+      "ddd": "20 mg O,P,R"
+   },
+   "M01AC05": {
+      "name": "Lornoxicam",
+      "ddd": "12 mg O,P,R"
+   },
+   "M01AC06": {
+      "name": "Meloxicam",
+      "ddd": "15 mg O,P,R"
+   },
+   "M01AE": {
+      "name": "Propionsäure-Derivate"
+   },
+   "M01AE01": {
+      "name": "Ibuprofen",
+      "ddd": "1,2 g O,R; 0,4 g O Kinder DDD"
+   },
+   "M01AE02": {
+      "name": "Naproxen",
+      "ddd": "0,5 g O,R"
+   },
+   "M01AE09": {
+      "name": "Flurbiprofen",
+      "ddd": "0,2 g O,R"
+   },
+   "M01AE14": {
+      "name": "Dexibuprofen",
+      "ddd": "0,8 g O"
+   },
+   "M01AE17": {
+      "name": "Dexketoprofen",
+      "ddd": "75 mg O,P"
+   },
+   "M01AE52": {
+      "name": "Naproxen und Esomeprazol",
+      "ddd": "0,5 g O bezogen auf Naproxen"
+   },
+   "M01AG": {
+      "name": "Fenamate"
+   },
+   "M01AG01": {
+      "name": "Mefenaminsäure",
+      "ddd": "1 g O"
+   },
+   "M01AH": {
+      "name": "Coxibe"
+   },
+   "M01AH01": {
+      "name": "Celecoxib",
+      "ddd": "0,2 g O"
+   },
+   "M01AH05": {
+      "name": "Etoricoxib",
+      "ddd": "60 mg O"
+   },
+   "M01AX": {
+      "name": "Andere nichtsteroidale Antiphlogistika und Antirheumatika"
+   },
+   "M01AX17": {
+      "name": "Nimesulid",
+      "ddd": "0,2 g O"
+   },
+   "M01AX25": {
+      "name": "Chondroitinsulfat"
+   },
+   "M01C": {
+      "name": "Spezifische Antirheumatika"
+   },
+   "M01CB": {
+      "name": "Gold-Verbindungen"
+   },
+   "M01CB01": {
+      "name": "Natrium aurothiomalat",
+      "ddd": "2,4 mg P"
+   },
+   "M02": {
+      "name": "Topische Mittel gegen Gelenk- und Muskelschmerzen"
+   },
+   "M02A": {
+      "name": "Topische Mittel gegen Gelenk- und Muskelschmerzen"
+   },
+   "M02AA": {
+      "name": "Nichtsteroidale Antiphlogistika zur topischen Anwendung"
+   },
+   "M02AA06": {
+      "name": "Etofenamat",
+      "ddd": "1 g T"
+   },
+   "M02AA07": {
+      "name": "Piroxicam",
+      "ddd": "17,5 mg T"
+   },
+   "M02AA10": {
+      "name": "Ketoprofen",
+      "ddd": "0,275 g T"
+   },
+   "M02AA15": {
+      "name": "Diclofenac",
+      "ddd": "0,1 g T; 0,28 g TD"
+   },
+   "M02AA23": {
+      "name": "Indometacin",
+      "ddd": "0,04 g T"
+   },
+   "M02AB": {
+      "name": "Capsaicin und ähnliche Mittel"
+   },
+   "M02AC": {
+      "name": "Zubereitungen mit Salicylsäure-Derivaten"
+   },
+   "M02AX": {
+      "name": "Andere topische Mittel gegen Gelenk- und Muskelschmerzen"
+   },
+   "M02AX05": {
+      "name": "Idrocilamid"
+   },
+   "M02AX10": {
+      "name": "Verschiedene"
+   },
+   "M03": {
+      "name": "Muskelrelaxanzien"
+   },
+   "M03A": {
+      "name": "Muskelrelaxanzien, peripher wirkende Mittel"
+   },
+   "M03AB": {
+      "name": "Cholin-Derivate"
+   },
+   "M03AB01": {
+      "name": "Suxamethonium"
+   },
+   "M03AC": {
+      "name": "Andere quartäre Ammonium-Verbindungen"
+   },
+   "M03AC04": {
+      "name": "Atracurium",
+      "ddd": "38,5 mg P"
+   },
+   "M03AC09": {
+      "name": "Rocuroniumbromid",
+      "ddd": "42 mg P"
+   },
+   "M03AC10": {
+      "name": "Mivacuriumchlorid",
+      "ddd": "14 mg P"
+   },
+   "M03AC11": {
+      "name": "Cisatracurium",
+      "ddd": "10,5 mg P"
+   },
+   "M03B": {
+      "name": "Muskelrelaxanzien, zentral wirkende Mittel"
+   },
+   "M03BX": {
+      "name": "Andere zentral wirkende Mittel"
+   },
+   "M03BX01": {
+      "name": "Baclofen",
+      "ddd": "50 mg O; 0,55 mg P"
+   },
+   "M03BX02": {
+      "name": "Tizanidin",
+      "ddd": "12 mg O"
+   },
+   "M03BX04": {
+      "name": "Tolperison",
+      "ddd": "0,2 g O"
+   },
+   "M03C": {
+      "name": "Muskelrelaxanzien, direkt wirkende Mittel"
+   },
+   "M03CA": {
+      "name": "Dantrolen und Derivate"
+   },
+   "M03CA01": {
+      "name": "Dantrolen",
+      "ddd": "0,1 g O"
+   },
+   "M04": {
+      "name": "Gichtmittel"
+   },
+   "M04A": {
+      "name": "Gichtmittel"
+   },
+   "M04AA": {
+      "name": "Urikostatika"
+   },
+   "M04AA01": {
+      "name": "Allopurinol",
+      "ddd": "0,4 g O,P"
+   },
+   "M04AB": {
+      "name": "Urikosurika"
+   },
+   "M04AB01": {
+      "name": "Probenecid",
+      "ddd": "1 g O"
+   },
+   "M05": {
+      "name": "Mittel zur Behandlung von Knochenerkrankungen"
+   },
+   "M05B": {
+      "name": "Mittel mit Einfluss auf die Knochenstruktur und die Mineralisation"
+   },
+   "M05BA": {
+      "name": "Bisphosphonate"
+   },
+   "M05BA02": {
+      "name": "Clodronsäure",
+      "ddd": "1,6 g O; 1,5 g P Dosis pro Behandlungszyklus bezogen auf das Salz der Clodronsäure"
+   },
+   "M05BA03": {
+      "name": "Pamidronsäure",
+      "ddd": "60 mg P Dosis pro Behandlungszyklus bezogen auf das Salz der Pamidronsäure"
+   },
+   "M05BA04": {
+      "name": "Alendronsäure",
+      "ddd": "10 mg O bezogen auf die Säure der Alendronsäure"
+   },
+   "M05BA06": {
+      "name": "Ibandronsäure",
+      "ddd": "5 mg O Osteoporose; 6 mg P Dosis pro Behandlungszyklus bei Tumor-induzierter Hyperkalzämie; 50 mg O bei Tumor-induzierter Hyperkalzämie;33 mcg P bei Osteoporose bezogen auf die Säure der Ibandronsäure"
+   },
+   "M05BA07": {
+      "name": "Risedronsäure",
+      "ddd": "5 mg O Osteoporose; 30 mg O bei Morbus Paget bezogen auf das Salz der Risedronsäure"
+   },
+   "M05BA08": {
+      "name": "Zoledronsäure",
+      "ddd": "4 mg P Dosis pro Behandlungszyklus bei Tumor-induzierter Hyperkalzämie;14 mcg P Osteoporose bezogen auf die Säure der Zoledronsäure"
+   },
+   "M05BB": {
+      "name": "Bisphosphonate, Kombinationen"
+   },
+   "M05BB03": {
+      "name": "Alendronsäure und Colecalciferol",
+      "ddd": "10 mg O bezogen auf die Säure der Alendronsäure"
+   },
+   "M05BC": {
+      "name": "Knochenmorphogene Proteine"
+   },
+   "M05BC01": {
+      "name": "Dibotermin alfa"
+   },
+   "M05BX": {
+      "name": "Andere Mittel mit Einfluss auf die Knochenstruktur und die Mineralisation"
+   },
+   "M05BX02": {
+      "name": "Aluminiumhydroxychlorid"
+   },
+   "M05BX04": {
+      "name": "Denosumab",
+      "ddd": "0,33 mg P; 4,3 mg P bei Tumor-induzierter Hyperkalzämie"
+   },
+   "M09": {
+      "name": "Andere Mittel gegen Störungen des Muskel- und Skelettsystems"
+   },
+   "M09A": {
+      "name": "Andere Mittel gegen Störungen des Muskel- und Skelettsystems"
+   },
+   "M09AB": {
+      "name": "Enzyme"
+   },
+   "M09AB02": {
+      "name": "Kollagenase aus Clostridium histolyticum",
+      "ddd": "0,9 mg P"
+   },
+   "M09AX": {
+      "name": "Andere Mittel gegen Störungen des Muskel- und Skelettsystems"
+   },
+   "M09AX02": {
+      "name": "Autologe Chondrozyten",
+      "ddd": "Standarddosis: 1 Einzeldosis P"
+   },
+   "N": {
+      "name": "Nervensystem"
+   },
+   "N01": {
+      "name": "Anästhetika"
+   },
+   "N01A": {
+      "name": "Allgemeinanästhetika"
+   },
+   "N01AB": {
+      "name": "Halogenierte Kohlenwasserstoffe"
+   },
+   "N01AB06": {
+      "name": "Isofluran"
+   },
+   "N01AB07": {
+      "name": "Desfluran"
+   },
+   "N01AB08": {
+      "name": "Sevofluran"
+   },
+   "N01AF": {
+      "name": "Barbiturate, rein"
+   },
+   "N01AF03": {
+      "name": "Thiopental"
+   },
+   "N01AH": {
+      "name": "Opioidanästhetika"
+   },
+   "N01AH01": {
+      "name": "Fentanyl",
+      "ddd": "0,7 mg P; 55 mcg P Kinder DDD"
+   },
+   "N01AH02": {
+      "name": "Alfentanil"
+   },
+   "N01AH03": {
+      "name": "Sufentanil",
+      "ddd": "30 mcg P; Standarddosis: 1 Applikationsform epidural"
+   },
+   "N01AH06": {
+      "name": "Remifentanil",
+      "ddd": "52,5 mcg P"
+   },
+   "N01AX": {
+      "name": "Andere Allgemeinanästhetika"
+   },
+   "N01AX03": {
+      "name": "Ketamin",
+      "ddd": "0,25 g P"
+   },
+   "N01AX07": {
+      "name": "Etomidate"
+   },
+   "N01AX10": {
+      "name": "Propofol",
+      "ddd": "0,14 g P"
+   },
+   "N01AX13": {
+      "name": "Distickstoffmonoxid"
+   },
+   "N01AX63": {
+      "name": "Distickstoffmonoxid, Kombinationen"
+   },
+   "N01B": {
+      "name": "Lokalanästhetika"
+   },
+   "N01BA": {
+      "name": "Ester der Aminobenzoesäure"
+   },
+   "N01BA01": {
+      "name": "Metabutethamin",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BA02": {
+      "name": "Procain",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BA04": {
+      "name": "Chloroprocain",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BB": {
+      "name": "Amide"
+   },
+   "N01BB01": {
+      "name": "Bupivacain",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BB02": {
+      "name": "Lidocain",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BB03": {
+      "name": "Mepivacain",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BB04": {
+      "name": "Prilocain",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BB09": {
+      "name": "Ropivacain",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BB10": {
+      "name": "Levobupivacain",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BB20": {
+      "name": "Kombinationen",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BB51": {
+      "name": "Bupivacain, Kombinationen",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BB52": {
+      "name": "Lidocain, Kombinationen",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BB53": {
+      "name": "Mepivacain, Kombinationen",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BB58": {
+      "name": "Articain, Kombinationen",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BX": {
+      "name": "Andere Lokalanästhetika"
+   },
+   "N01BX01": {
+      "name": "Ethylchlorid",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "N01BX04": {
+      "name": "Capsaicin",
+      "ddd": "Standarddosis: 1 Applikationsform P; Standarddosis: 1 TD Pflaster"
+   },
+   "N02": {
+      "name": "Analgetika"
+   },
+   "N02A": {
+      "name": "Opioide"
+   },
+   "N02AA": {
+      "name": "Natürliche Opium-Alkaloide"
+   },
+   "N02AA01": {
+      "name": "Morphin",
+      "ddd": "0,1 g O; 30 mg P,R"
+   },
+   "N02AA03": {
+      "name": "Hydromorphon",
+      "ddd": "20 mg O; 4 mg P,R"
+   },
+   "N02AA04": {
+      "name": "Nicomorphin",
+      "ddd": "30 mg O,P,R"
+   },
+   "N02AA05": {
+      "name": "Oxycodon",
+      "ddd": "75 mg O; 30 mg P"
+   },
+   "N02AA08": {
+      "name": "Dihydrocodein",
+      "ddd": "0,15 g O"
+   },
+   "N02AA55": {
+      "name": "Oxycodon, Kombinationen",
+      "ddd": "75 mg O bezogen auf Oxycodon hydrochlorid, bei Kombination mit Naloxon"
+   },
+   "N02AA59": {
+      "name": "Codein, Kombinationen exkl. Psycholeptika"
+   },
+   "N02AB": {
+      "name": "Phenylpiperidin-Derivate"
+   },
+   "N02AB02": {
+      "name": "Pethidin",
+      "ddd": "0,4 g O,P,R"
+   },
+   "N02AB03": {
+      "name": "Fentanyl",
+      "ddd": "0,6 mg N,SL; 1,2 mg TD"
+   },
+   "N02AE": {
+      "name": "Oripavin-Derivate"
+   },
+   "N02AE01": {
+      "name": "Buprenorphin",
+      "ddd": "1,2 mg P,SL,TD"
+   },
+   "N02AF": {
+      "name": "Morphinan-Derivate"
+   },
+   "N02AF02": {
+      "name": "Nalbufin",
+      "ddd": "80 mg P"
+   },
+   "N02AX": {
+      "name": "Andere Opioide"
+   },
+   "N02AX01": {
+      "name": "Tilidin",
+      "ddd": "0,2 g O,P"
+   },
+   "N02AX02": {
+      "name": "Tramadol",
+      "ddd": "0,3 g O,P,R"
+   },
+   "N02AX06": {
+      "name": "Tapentadol",
+      "ddd": "0,4 g O"
+   },
+   "N02AX52": {
+      "name": "Tramadol, Kombinationen"
+   },
+   "N02B": {
+      "name": "Andere Analgetika und Antipyretika"
+   },
+   "N02BA": {
+      "name": "Salicylsäure und Derivate"
+   },
+   "N02BA01": {
+      "name": "Acetylsalicylsäure",
+      "ddd": "3 g O,R; 1 g P bezogen auf Lysinacetylsalicylat; 0,3 g O Kinder DDD"
+   },
+   "N02BA15": {
+      "name": "Carbasalat calcium",
+      "ddd": "3,6 g O"
+   },
+   "N02BA51": {
+      "name": "Acetylsalicylsäure, Kombinationen exkl. Psycholeptika",
+      "ddd": "3 g O bezogen auf Acetylsalicylsäure"
+   },
+   "N02BB": {
+      "name": "Pyrazolone"
+   },
+   "N02BB02": {
+      "name": "Metamizol-Natrium",
+      "ddd": "3 g O,P,R; 0,75 g O,R Kinder DDD"
+   },
+   "N02BE": {
+      "name": "Anilide"
+   },
+   "N02BE01": {
+      "name": "Paracetamol",
+      "ddd": "3 g O,P,R; 0,375 g R Säuglings DDD; 0,75 g O,R Kinder DDD"
+   },
+   "N02BE51": {
+      "name": "Paracetamol, Kombinationen exkl. Psycholeptika"
+   },
+   "N02BG": {
+      "name": "Andere Analgetika und Antipyretika"
+   },
+   "N02BG08": {
+      "name": "Ziconotid",
+      "ddd": "12 mcg P"
+   },
+   "N02C": {
+      "name": "Migränemittel"
+   },
+   "N02CA": {
+      "name": "Mutterkorn-Alkaloide"
+   },
+   "N02CA01": {
+      "name": "Dihydroergotamin",
+      "ddd": "1 mg N; 4 mg O,P"
+   },
+   "N02CC": {
+      "name": "Selektive Serotonin-5HT1-Agonisten"
+   },
+   "N02CC01": {
+      "name": "Sumatriptan",
+      "ddd": "20 mg N; 50 mg O; 6 mg P; 25 mg R"
+   },
+   "N02CC02": {
+      "name": "Naratriptan",
+      "ddd": "2,5 mg O"
+   },
+   "N02CC03": {
+      "name": "Zolmitriptan",
+      "ddd": "2,5 mg N,O"
+   },
+   "N02CC04": {
+      "name": "Rizatriptan",
+      "ddd": "10 mg O"
+   },
+   "N02CC05": {
+      "name": "Almotriptan",
+      "ddd": "12,5 mg O"
+   },
+   "N02CC07": {
+      "name": "Frovatriptan",
+      "ddd": "2,5 mg O"
+   },
+   "N03": {
+      "name": "Antiepileptika"
+   },
+   "N03A": {
+      "name": "Antiepileptika"
+   },
+   "N03AA": {
+      "name": "Barbiturate und Derivate"
+   },
+   "N03AA02": {
+      "name": "Phenobarbital",
+      "ddd": "0,1 g O,P"
+   },
+   "N03AA03": {
+      "name": "Primidon",
+      "ddd": "1,25 g O"
+   },
+   "N03AB": {
+      "name": "Hydantoin-Derivate"
+   },
+   "N03AB02": {
+      "name": "Phenytoin",
+      "ddd": "0,3 g O,P"
+   },
+   "N03AD": {
+      "name": "Succinimid-Derivate"
+   },
+   "N03AD01": {
+      "name": "Ethosuximid",
+      "ddd": "1,25 g O"
+   },
+   "N03AD03": {
+      "name": "Mesuximid",
+      "ddd": "0,9 g O"
+   },
+   "N03AE": {
+      "name": "Benzodiazepin-Derivate"
+   },
+   "N03AE01": {
+      "name": "Clonazepam",
+      "ddd": "8 mg O,P; 3 mg O Kinder DDD"
+   },
+   "N03AF": {
+      "name": "Carboxamid-Derivate"
+   },
+   "N03AF01": {
+      "name": "Carbamazepin",
+      "ddd": "1 g O,R"
+   },
+   "N03AF02": {
+      "name": "Oxcarbazepin",
+      "ddd": "1 g O"
+   },
+   "N03AF03": {
+      "name": "Rufinamid",
+      "ddd": "1,4 g O"
+   },
+   "N03AG": {
+      "name": "Fettsäure-Derivate"
+   },
+   "N03AG01": {
+      "name": "Valproinsäure",
+      "ddd": "1,5 g O,P,R"
+   },
+   "N03AG04": {
+      "name": "Vigabatrin",
+      "ddd": "2 g O"
+   },
+   "N03AX": {
+      "name": "Andere Antiepileptika"
+   },
+   "N03AX03": {
+      "name": "Sultiam",
+      "ddd": "0,4 g O"
+   },
+   "N03AX09": {
+      "name": "Lamotrigin",
+      "ddd": "0,3 g O"
+   },
+   "N03AX10": {
+      "name": "Felbamat",
+      "ddd": "2,4 g O"
+   },
+   "N03AX11": {
+      "name": "Topiramat",
+      "ddd": "0,3 g O"
+   },
+   "N03AX12": {
+      "name": "Gabapentin",
+      "ddd": "1,8 g O"
+   },
+   "N03AX14": {
+      "name": "Levetiracetam",
+      "ddd": "1,5 g O,P"
+   },
+   "N03AX15": {
+      "name": "Zonisamid",
+      "ddd": "0,4 g O"
+   },
+   "N03AX16": {
+      "name": "Pregabalin",
+      "ddd": "0,3 g O"
+   },
+   "N03AX18": {
+      "name": "Lacosamid",
+      "ddd": "0,3 g O,P"
+   },
+   "N03AX21": {
+      "name": "Retigabin",
+      "ddd": "0,9 g O"
+   },
+   "N03AX22": {
+      "name": "Perampanel",
+      "ddd": "8 mg O"
+   },
+   "N04": {
+      "name": "Antiparkinsonmittel"
+   },
+   "N04A": {
+      "name": "Anticholinergika"
+   },
+   "N04AA": {
+      "name": "Tertiäre Amine"
+   },
+   "N04AA02": {
+      "name": "Biperiden",
+      "ddd": "10 mg O,P"
+   },
+   "N04AA04": {
+      "name": "Procyclidin",
+      "ddd": "25 mg O,P"
+   },
+   "N04B": {
+      "name": "Dopaminerge Mittel"
+   },
+   "N04BA": {
+      "name": "Dopa und Dopa-Derivate"
+   },
+   "N04BA03": {
+      "name": "Levodopa, Decarboxylasehemmer und COMT-Hemmer",
+      "ddd": "0,45 g O bezogen auf Levodopa"
+   },
+   "N04BB": {
+      "name": "Adamantan-Derivate"
+   },
+   "N04BB01": {
+      "name": "Amantadin",
+      "ddd": "0,2 g O; 0,2 g P"
+   },
+   "N04BC": {
+      "name": "Dopamin-Agonisten"
+   },
+   "N04BC01": {
+      "name": "Bromocriptin",
+      "ddd": "40 mg O"
+   },
+   "N04BC04": {
+      "name": "Ropinirol",
+      "ddd": "6 mg O"
+   },
+   "N04BC05": {
+      "name": "Pramipexol",
+      "ddd": "2,5 mg O Hydrochlorid"
+   },
+   "N04BC06": {
+      "name": "Cabergolin",
+      "ddd": "3 mg O"
+   },
+   "N04BC07": {
+      "name": "Apomorphin",
+      "ddd": "20 mg P"
+   },
+   "N04BC09": {
+      "name": "Rotigotin",
+      "ddd": "6 mg TD Pflaster"
+   },
+   "N04BD": {
+      "name": "Monoaminoxidase-B-Hemmer"
+   },
+   "N04BD01": {
+      "name": "Selegilin",
+      "ddd": "5 mg O"
+   },
+   "N04BD02": {
+      "name": "Rasagilin",
+      "ddd": "1 mg O"
+   },
+   "N04BX": {
+      "name": "Andere dopaminerge Mittel"
+   },
+   "N04BX01": {
+      "name": "Tolcapon",
+      "ddd": "0,45 g O"
+   },
+   "N04BX02": {
+      "name": "Entacapon",
+      "ddd": "1 g O"
+   },
+   "N05": {
+      "name": "Psycholeptika"
+   },
+   "N05A": {
+      "name": "Antipsychotika"
+   },
+   "N05AA": {
+      "name": "Phenothiazine mit aliphatischer Seitenkette"
+   },
+   "N05AA02": {
+      "name": "Levomepromazin",
+      "ddd": "0,3 g O; 0,1 g P"
+   },
+   "N05AA03": {
+      "name": "Promazin",
+      "ddd": "0,3 g O; 0,1 g P"
+   },
+   "N05AD": {
+      "name": "Butyrophenon-Derivate"
+   },
+   "N05AD01": {
+      "name": "Haloperidol",
+      "ddd": "8 mg O,P; 3,3 mg P Depot"
+   },
+   "N05AD05": {
+      "name": "Pipamperon",
+      "ddd": "0,2 g O"
+   },
+   "N05AE": {
+      "name": "Indol-Derivate"
+   },
+   "N05AE03": {
+      "name": "Sertindol",
+      "ddd": "16 mg O"
+   },
+   "N05AE05": {
+      "name": "Lurasidon"
+   },
+   "N05AF": {
+      "name": "Thioxanthen-Derivate"
+   },
+   "N05AF01": {
+      "name": "Flupentixol",
+      "ddd": "6 mg O; 4 mg P Depot"
+   },
+   "N05AF03": {
+      "name": "Chlorprothixen",
+      "ddd": "0,3 g O; 50 mg P"
+   },
+   "N05AF05": {
+      "name": "Zuclopenthixol",
+      "ddd": "30 mg O,P; 15 mg P Depot"
+   },
+   "N05AH": {
+      "name": "Diazepine, Oxazepine, Thiazepine und Oxepine"
+   },
+   "N05AH02": {
+      "name": "Clozapin",
+      "ddd": "0,3 g O,P"
+   },
+   "N05AH03": {
+      "name": "Olanzapin",
+      "ddd": "10 mg O,P; 10 mg P Depot"
+   },
+   "N05AH04": {
+      "name": "Quetiapin",
+      "ddd": "0,4 g O"
+   },
+   "N05AH05": {
+      "name": "Asenapin",
+      "ddd": "20 mg O"
+   },
+   "N05AH06": {
+      "name": "Clotiapin",
+      "ddd": "80 mg O,P"
+   },
+   "N05AL": {
+      "name": "Benzamide"
+   },
+   "N05AL01": {
+      "name": "Sulpirid",
+      "ddd": "0,8 g O,P"
+   },
+   "N05AL03": {
+      "name": "Tiaprid",
+      "ddd": "0,4 g O,P"
+   },
+   "N05AL05": {
+      "name": "Amisulprid",
+      "ddd": "0,4 g O"
+   },
+   "N05AN": {
+      "name": "Lithium"
+   },
+   "N05AN01": {
+      "name": "Lithium",
+      "ddd": "24 mmol O"
+   },
+   "N05AX": {
+      "name": "Andere Antipsychotika"
+   },
+   "N05AX08": {
+      "name": "Risperidon",
+      "ddd": "5 mg O; 2,7 mg P Depot"
+   },
+   "N05AX12": {
+      "name": "Aripiprazol",
+      "ddd": "15 mg O,P"
+   },
+   "N05AX13": {
+      "name": "Paliperidon",
+      "ddd": "6 mg O; 2,5 mg P Depot, bezogen auf Paliperidon"
+   },
+   "N05B": {
+      "name": "Anxiolytika"
+   },
+   "N05BA": {
+      "name": "Benzodiazepin-Derivate"
+   },
+   "N05BA01": {
+      "name": "Diazepam",
+      "ddd": "10 mg O,P,R"
+   },
+   "N05BA04": {
+      "name": "Oxazepam",
+      "ddd": "50 mg O; 50 mg R"
+   },
+   "N05BA05": {
+      "name": "Dikaliumclorazepat",
+      "ddd": "20 mg O"
+   },
+   "N05BA06": {
+      "name": "Lorazepam",
+      "ddd": "2,5 mg O,P,SL"
+   },
+   "N05BA08": {
+      "name": "Bromazepam",
+      "ddd": "10 mg O"
+   },
+   "N05BA09": {
+      "name": "Clobazam",
+      "ddd": "20 mg O"
+   },
+   "N05BA10": {
+      "name": "Ketazolam"
+   },
+   "N05BA11": {
+      "name": "Prazepam",
+      "ddd": "30 mg O"
+   },
+   "N05BA12": {
+      "name": "Alprazolam",
+      "ddd": "1 mg O"
+   },
+   "N05BA56": {
+      "name": "Lorazepam, Kombinationen"
+   },
+   "N05BB": {
+      "name": "Diphenylmethan-Derivate"
+   },
+   "N05BB01": {
+      "name": "Hydroxyzin",
+      "ddd": "75 mg O,P"
+   },
+   "N05C": {
+      "name": "Hypnotika und Sedativa"
+   },
+   "N05CC": {
+      "name": "Aldehyde und Derivate"
+   },
+   "N05CC01": {
+      "name": "Chloralhydrat",
+      "ddd": "1 g O,R"
+   },
+   "N05CD": {
+      "name": "Benzodiazepin-Derivate"
+   },
+   "N05CD01": {
+      "name": "Flurazepam",
+      "ddd": "30 mg O"
+   },
+   "N05CD02": {
+      "name": "Nitrazepam",
+      "ddd": "5 mg O"
+   },
+   "N05CD03": {
+      "name": "Flunitrazepam",
+      "ddd": "1 mg O,P"
+   },
+   "N05CD05": {
+      "name": "Triazolam",
+      "ddd": "0,25 mg O; 0,2 mg SL"
+   },
+   "N05CD06": {
+      "name": "Lormetazepam",
+      "ddd": "1 mg O; 1 mg P"
+   },
+   "N05CD07": {
+      "name": "Temazepam",
+      "ddd": "20 mg O"
+   },
+   "N05CD08": {
+      "name": "Midazolam",
+      "ddd": "15 mg O,P"
+   },
+   "N05CF": {
+      "name": "Benzodiazepin-verwandte Mittel"
+   },
+   "N05CF01": {
+      "name": "Zopiclon",
+      "ddd": "7,5 mg O"
+   },
+   "N05CF02": {
+      "name": "Zolpidem",
+      "ddd": "10 mg O; 10 mg SL"
+   },
+   "N05CH": {
+      "name": "Melatonin-Rezeptor-Agonisten"
+   },
+   "N05CH01": {
+      "name": "Melatonin",
+      "ddd": "2 mg O"
+   },
+   "N05CM": {
+      "name": "Andere Hypnotika und Sedativa"
+   },
+   "N05CM02": {
+      "name": "Clomethiazol",
+      "ddd": "1,5 g O,P"
+   },
+   "N05CM18": {
+      "name": "Dexmedetomidin",
+      "ddd": "1 mg P"
+   },
+   "N05CP": {
+      "name": "Pflanzliche Hypnotika und Sedativa"
+   },
+   "N05CP03": {
+      "name": "Johanniskraut"
+   },
+   "N05CX": {
+      "name": "Hypnotika und Sedativa in Kombination, exkl. Barbiturate"
+   },
+   "N06": {
+      "name": "Psychoanaleptika"
+   },
+   "N06A": {
+      "name": "Antidepressiva"
+   },
+   "N06AA": {
+      "name": "Nichtselektive Monoamin-Wiederaufnahmehemmer"
+   },
+   "N06AA02": {
+      "name": "Imipramin",
+      "ddd": "0,1 g O,P"
+   },
+   "N06AA04": {
+      "name": "Clomipramin",
+      "ddd": "0,1 g O,P"
+   },
+   "N06AA05": {
+      "name": "Opipramol",
+      "ddd": "0,15 g O"
+   },
+   "N06AA06": {
+      "name": "Trimipramin",
+      "ddd": "0,15 g O,P"
+   },
+   "N06AA08": {
+      "name": "Dibenzepin",
+      "ddd": "0,3 g O"
+   },
+   "N06AA09": {
+      "name": "Amitriptylin",
+      "ddd": "75 mg O,P"
+   },
+   "N06AA10": {
+      "name": "Nortriptylin",
+      "ddd": "75 mg O; 30 mg P"
+   },
+   "N06AA12": {
+      "name": "Doxepin",
+      "ddd": "0,1 g O,P"
+   },
+   "N06AA21": {
+      "name": "Maprotilin",
+      "ddd": "0,1 g O,P"
+   },
+   "N06AB": {
+      "name": "Selektive Serotonin-Wiederaufnahmehemmer"
+   },
+   "N06AB03": {
+      "name": "Fluoxetin",
+      "ddd": "20 mg O"
+   },
+   "N06AB04": {
+      "name": "Citalopram",
+      "ddd": "20 mg O,P"
+   },
+   "N06AB05": {
+      "name": "Paroxetin",
+      "ddd": "20 mg O"
+   },
+   "N06AB06": {
+      "name": "Sertralin",
+      "ddd": "50 mg O"
+   },
+   "N06AB08": {
+      "name": "Fluvoxamin",
+      "ddd": "0,1 g O"
+   },
+   "N06AB10": {
+      "name": "Escitalopram",
+      "ddd": "10 mg O"
+   },
+   "N06AG": {
+      "name": "Monoaminoxidase-A-Hemmer"
+   },
+   "N06AG02": {
+      "name": "Moclobemid",
+      "ddd": "0,3 g O"
+   },
+   "N06AX": {
+      "name": "Andere Antidepressiva"
+   },
+   "N06AX03": {
+      "name": "Mianserin",
+      "ddd": "60 mg O"
+   },
+   "N06AX05": {
+      "name": "Trazodon",
+      "ddd": "0,3 g O"
+   },
+   "N06AX11": {
+      "name": "Mirtazapin",
+      "ddd": "30 mg O"
+   },
+   "N06AX12": {
+      "name": "Bupropion",
+      "ddd": "0,15 g O"
+   },
+   "N06AX16": {
+      "name": "Venlafaxin",
+      "ddd": "0,1 g O"
+   },
+   "N06AX18": {
+      "name": "Reboxetin",
+      "ddd": "8 mg O"
+   },
+   "N06AX21": {
+      "name": "Duloxetin",
+      "ddd": "60 mg O"
+   },
+   "N06AX22": {
+      "name": "Agomelatin",
+      "ddd": "25 mg O"
+   },
+   "N06B": {
+      "name": "Psychostimulanzien, Mittel für die ADHD und Nootropika"
+   },
+   "N06BA": {
+      "name": "Zentral wirkende Sympathomimetika"
+   },
+   "N06BA04": {
+      "name": "Methylphenidat",
+      "ddd": "30 mg O Kinder DDD; 40 mg O"
+   },
+   "N06BA07": {
+      "name": "Modafinil",
+      "ddd": "0,3 g O"
+   },
+   "N06BA09": {
+      "name": "Atomoxetin",
+      "ddd": "80 mg O"
+   },
+   "N06BA11": {
+      "name": "Dexmethylphenidat"
+   },
+   "N06BA12": {
+      "name": "Lisdexamfetamin",
+      "ddd": "30 mg O Kinder DDD"
+   },
+   "N06BX": {
+      "name": "Andere Psychostimulanzien und Nootropika"
+   },
+   "N06BX03": {
+      "name": "Piracetam",
+      "ddd": "2,4 g O; 6 g P"
+   },
+   "N06C": {
+      "name": "Psycholeptika und Psychoanaleptika in Kombination"
+   },
+   "N06CA": {
+      "name": "Antidepressiva in Kombination mit Psycholeptika"
+   },
+   "N06CA01": {
+      "name": "Amitriptylin und Psycholeptika"
+   },
+   "N06CA02": {
+      "name": "Melitracen und Psycholeptika"
+   },
+   "N06D": {
+      "name": "Antidementiva"
+   },
+   "N06DA": {
+      "name": "Cholinesterasehemmer"
+   },
+   "N06DA02": {
+      "name": "Donepezil",
+      "ddd": "7,5 mg O"
+   },
+   "N06DA03": {
+      "name": "Rivastigmin",
+      "ddd": "9 mg O; 9,5 mg TD Freisetzungsrate"
+   },
+   "N06DA04": {
+      "name": "Galantamin",
+      "ddd": "16 mg O"
+   },
+   "N06DX": {
+      "name": "Andere Antidementiva"
+   },
+   "N06DX01": {
+      "name": "Memantin",
+      "ddd": "20 mg O"
+   },
+   "N07": {
+      "name": "Andere Mittel für das Nervensystem"
+   },
+   "N07A": {
+      "name": "Parasympathomimetika"
+   },
+   "N07AA": {
+      "name": "Cholinesterasehemmer"
+   },
+   "N07AA02": {
+      "name": "Pyridostigmin",
+      "ddd": "0,18 g O; 10 mg P"
+   },
+   "N07AA03": {
+      "name": "Distigmin",
+      "ddd": "5 mg O; 0,25 mg P"
+   },
+   "N07AA51": {
+      "name": "Neostigmin, Kombinationen"
+   },
+   "N07AB": {
+      "name": "Cholinester"
+   },
+   "N07AB02": {
+      "name": "Bethanechol",
+      "ddd": "45 mg O"
+   },
+   "N07AX": {
+      "name": "Andere Parasympathomimetika"
+   },
+   "N07AX01": {
+      "name": "Pilocarpin",
+      "ddd": "15 mg O; 10 mg P"
+   },
+   "N07B": {
+      "name": "Mittel zur Behandlung von Suchterkrankungen"
+   },
+   "N07BA": {
+      "name": "Mittel zur Behandlung der Nikotinabhängigkeit"
+   },
+   "N07BA01": {
+      "name": "Nicotin",
+      "ddd": "60 mg Inhalation; 30 mg Kaugummi,N,SL; 14 mg TD; 30 mg Lutschtabletten"
+   },
+   "N07BA03": {
+      "name": "Vareniclin",
+      "ddd": "2 mg O"
+   },
+   "N07BB": {
+      "name": "Mittel zur Behandlung der Alkoholabhängigkeit"
+   },
+   "N07BB01": {
+      "name": "Disulfiram",
+      "ddd": "0,2 g O"
+   },
+   "N07BB03": {
+      "name": "Acamprosat",
+      "ddd": "2 g O"
+   },
+   "N07BB04": {
+      "name": "Naltrexon",
+      "ddd": "50 mg O"
+   },
+   "N07BB05": {
+      "name": "Nalmefen",
+      "ddd": "18 mg O"
+   },
+   "N07BC": {
+      "name": "Mittel zur Behandlung der Opiatabhängigkeit"
+   },
+   "N07BC01": {
+      "name": "Buprenorphin",
+      "ddd": "8 mg SL"
+   },
+   "N07BC02": {
+      "name": "Methadon",
+      "ddd": "25 mg O,P"
+   },
+   "N07BC05": {
+      "name": "Levomethadon"
+   },
+   "N07BC06": {
+      "name": "Diamorphin"
+   },
+   "N07C": {
+      "name": "Antivertiginosa"
+   },
+   "N07CA": {
+      "name": "Antivertiginosa"
+   },
+   "N07CA01": {
+      "name": "Betahistin",
+      "ddd": "24 mg O"
+   },
+   "N07CA02": {
+      "name": "Cinnarizin",
+      "ddd": "90 mg O"
+   },
+   "N07CA03": {
+      "name": "Flunarizin",
+      "ddd": "10 mg O"
+   },
+   "N07X": {
+      "name": "Andere Mittel für das Nervensystem"
+   },
+   "N07XX": {
+      "name": "Andere Mittel für das Nervensystem"
+   },
+   "N07XX02": {
+      "name": "Riluzol",
+      "ddd": "0,1 g O"
+   },
+   "N07XX04": {
+      "name": "Natriumoxybat",
+      "ddd": "7,5 g O"
+   },
+   "N07XX05": {
+      "name": "Amifampridin",
+      "ddd": "40 mg O"
+   },
+   "N07XX06": {
+      "name": "Tetrabenazin",
+      "ddd": "0,1 g O"
+   },
+   "N07XX09": {
+      "name": "Dimethyl fumarat",
+      "ddd": "0,48 g O"
+   },
+   "P": {
+      "name": "Antiparasitäre Mittel, Insektizide und Repellenzien"
+   },
+   "P01": {
+      "name": "Mittel gegen Protozoen-erkrankungen"
+   },
+   "P01A": {
+      "name": "Mittel gegen Amöbiasis und andere Protozoen-erkrankungen"
+   },
+   "P01AB": {
+      "name": "Nitroimidazol-Derivate"
+   },
+   "P01AB01": {
+      "name": "Metronidazol",
+      "ddd": "2 g O,R"
+   },
+   "P01AB03": {
+      "name": "Ornidazol",
+      "ddd": "1,5 g O"
+   },
+   "P01AX": {
+      "name": "Andere Mittel gegen Amöbiasis und andere Protozoen-Erkrankungen"
+   },
+   "P01AX06": {
+      "name": "Atovaquon",
+      "ddd": "2,25 g O"
+   },
+   "P01B": {
+      "name": "Malariamittel"
+   },
+   "P01BA": {
+      "name": "Aminochinoline"
+   },
+   "P01BA01": {
+      "name": "Chloroquin",
+      "ddd": "0,5 g O,P Base"
+   },
+   "P01BA02": {
+      "name": "Hydroxychloroquin",
+      "ddd": "0,516 g O Base"
+   },
+   "P01BB": {
+      "name": "Biguanide"
+   },
+   "P01BB51": {
+      "name": "Proguanil, Kombinationen",
+      "ddd": "0,4 g Proguanilhydrochlorid und 1 g Atovaquon zur Therapie; 0,1 g Proguanilhydrochlorid und 0,25 g Atovaquon zur Prophylaxe; 0,05 g Proguanilhydrochlorid und 0,125 g Atovaquon Kinder DDD zur Prophylaxe"
+   },
+   "P01BC": {
+      "name": "Methanolchinoline"
+   },
+   "P01BC01": {
+      "name": "Chinin",
+      "ddd": "1,5 g O,P Base"
+   },
+   "P01BC02": {
+      "name": "Mefloquin",
+      "ddd": "1 g O Base"
+   },
+   "P01BD": {
+      "name": "Diaminopyrimidine"
+   },
+   "P01BD01": {
+      "name": "Pyrimethamin",
+      "ddd": "75 mg O"
+   },
+   "P01BF": {
+      "name": "Artemisinin und Derivate, Kombinationen"
+   },
+   "P01BF01": {
+      "name": "Artemether und Lumefantrin"
+   },
+   "P01C": {
+      "name": "Mittel gegen Leishmaniasis und Trypanosomiasis"
+   },
+   "P01CX": {
+      "name": "Andere Mittel gegen Leishmaniasis und Trypanosomiasis"
+   },
+   "P02": {
+      "name": "Anthelmintika"
+   },
+   "P02C": {
+      "name": "Nematodenmittel"
+   },
+   "P02CA": {
+      "name": "Benzimidazol-Derivate"
+   },
+   "P02CA01": {
+      "name": "Mebendazol",
+      "ddd": "0,2 g O"
+   },
+   "P02CA03": {
+      "name": "Albendazol",
+      "ddd": "0,8 g O"
+   },
+   "P02CC": {
+      "name": "Tetrahydropyrimidin-Derivate"
+   },
+   "P02CC01": {
+      "name": "Pyrantel",
+      "ddd": "0,75 g O"
+   },
+   "P03": {
+      "name": "Mittel gegen Ektoparasiten, inkl. Antiscabiosa, Insektizide und Repellenzien"
+   },
+   "P03A": {
+      "name": "Mittel gegen Ektoparasiten, inkl. Antiscabiosa"
+   },
+   "P03AC": {
+      "name": "Pyrethrine, inkl. synthetische Verbindungen"
+   },
+   "P03AC04": {
+      "name": "Permethrin"
+   },
+   "P03AX": {
+      "name": "Andere Mittel gegen Ektoparasiten, inkl. Antiscabiosa"
+   },
+   "P03AX03": {
+      "name": "Malathion"
+   },
+   "R": {
+      "name": "Respirationstrakt"
+   },
+   "R01": {
+      "name": "Rhinologika"
+   },
+   "R01A": {
+      "name": "Dekongestiva und andere Rhinologika zur topischen Anwendung"
+   },
+   "R01AA": {
+      "name": "Sympathomimetika, rein"
+   },
+   "R01AA04": {
+      "name": "Phenylephrin",
+      "ddd": "4 mg N"
+   },
+   "R01AA05": {
+      "name": "Oxymetazolin",
+      "ddd": "0,4 mg N"
+   },
+   "R01AA07": {
+      "name": "Xylometazolin",
+      "ddd": "0,8 mg N; 0,175 mg N Kinder DDD"
+   },
+   "R01AB": {
+      "name": "Sympathomimetika, Kombinationen exkl. Corticosteroide"
+   },
+   "R01AB01": {
+      "name": "Phenylephrin",
+      "ddd": "0,8 ml N"
+   },
+   "R01AB06": {
+      "name": "Xylometazolin"
+   },
+   "R01AB08": {
+      "name": "Tuaminoheptan"
+   },
+   "R01AC": {
+      "name": "Antiallergika, exkl. Corticosteroide"
+   },
+   "R01AC01": {
+      "name": "Cromoglicinsäure",
+      "ddd": "40 mg N"
+   },
+   "R01AC02": {
+      "name": "Levocabastin",
+      "ddd": "0,6 mg N"
+   },
+   "R01AC03": {
+      "name": "Azelastin",
+      "ddd": "0,56 mg N"
+   },
+   "R01AD": {
+      "name": "Corticosteroide"
+   },
+   "R01AD01": {
+      "name": "Beclometason",
+      "ddd": "0,4 mg N"
+   },
+   "R01AD05": {
+      "name": "Budesonid",
+      "ddd": "0,2 mg N"
+   },
+   "R01AD08": {
+      "name": "Fluticason",
+      "ddd": "0,2 mg N"
+   },
+   "R01AD09": {
+      "name": "Mometason",
+      "ddd": "0,2 mg N"
+   },
+   "R01AD11": {
+      "name": "Triamcinolon",
+      "ddd": "0,22 mg N"
+   },
+   "R01AD12": {
+      "name": "Fluticason furoat",
+      "ddd": "0,11 mg N"
+   },
+   "R01AD57": {
+      "name": "Tixocortol, Kombinationen"
+   },
+   "R01AD58": {
+      "name": "Fluticason, Kombinationen"
+   },
+   "R01AX": {
+      "name": "Andere Rhinologika"
+   },
+   "R01AX02": {
+      "name": "Retinol",
+      "ddd": "800 E N"
+   },
+   "R01AX03": {
+      "name": "Ipratropium bromid",
+      "ddd": "0,24 mg N"
+   },
+   "R01AX06": {
+      "name": "Mupirocin",
+      "ddd": "3 mg N"
+   },
+   "R01AX09": {
+      "name": "Hyaluronsäure"
+   },
+   "R01AX10": {
+      "name": "Verschiedene"
+   },
+   "R01B": {
+      "name": "Nasale Dekongestiva zur systemischen Anwendung"
+   },
+   "R01BA": {
+      "name": "Sympathomimetika"
+   },
+   "R01BA02": {
+      "name": "Pseudoephedrin",
+      "ddd": "0,24 g O"
+   },
+   "R01BA53": {
+      "name": "Phenylephrin, Kombinationen"
+   },
+   "R02": {
+      "name": "Hals- und Rachentherapeutika"
+   },
+   "R02A": {
+      "name": "Hals- und Rachentherapeutika"
+   },
+   "R02AA": {
+      "name": "Antiseptika"
+   },
+   "R02AA02": {
+      "name": "Dequalinium",
+      "ddd": "1,5 mg O"
+   },
+   "R02AA03": {
+      "name": "Dichlorbenzylalkohol"
+   },
+   "R02AA05": {
+      "name": "Chlorhexidin",
+      "ddd": "30 mg O"
+   },
+   "R02AA06": {
+      "name": "Cetylpyridinium"
+   },
+   "R02AA15": {
+      "name": "Povidon-Iod"
+   },
+   "R02AA20": {
+      "name": "Verschiedene"
+   },
+   "R02AB": {
+      "name": "Antibiotika"
+   },
+   "R02AB02": {
+      "name": "Tyrothricin"
+   },
+   "R02AB03": {
+      "name": "Fusafungin"
+   },
+   "R02AX": {
+      "name": "Andere Hals- und Rachentherapeutika"
+   },
+   "R02AX01": {
+      "name": "Flurbiprofen",
+      "ddd": "44 mg O"
+   },
+   "R03": {
+      "name": "Mittel bei obstruktiven Atemwegserkrankungen"
+   },
+   "R03A": {
+      "name": "Inhalative Sympathomimetika"
+   },
+   "R03AC": {
+      "name": "Selektive Beta2-Adrenozeptor-Agonisten"
+   },
+   "R03AC02": {
+      "name": "Salbutamol",
+      "ddd": "0,8 mg Inhal.Aerosol; 10 mg Inhal.lösung; 0,8 mg Inhal.pulver (aus dem Mundstück abgegebene Dosis)"
+   },
+   "R03AC03": {
+      "name": "Terbutalin",
+      "ddd": "2 mg Inhal.Aerosol/pulver bezogen auf das Terbutalin sulfat;20 mg Inhal.lösung"
+   },
+   "R03AC04": {
+      "name": "Fenoterol",
+      "ddd": "0,6 mg Inhal.Aerosol/pulver bezogen auf das Fenoterol hydrobromid;4 mg Inhal.lösung"
+   },
+   "R03AC12": {
+      "name": "Salmeterol",
+      "ddd": "0,1 mg Inhal.Aerosol/pulver"
+   },
+   "R03AC13": {
+      "name": "Formoterol",
+      "ddd": "24 mcg Inhal.Aerosol/pulver bezogen auf das Formoterol hemifumarat"
+   },
+   "R03AC18": {
+      "name": "Indacaterol",
+      "ddd": "0,15 mg Inhal.pulver"
+   },
+   "R03AC19": {
+      "name": "Olodaterol",
+      "ddd": "5 mcg Inhal.lösung (aus dem Mundstück abgegebene Dosis)"
+   },
+   "R03AK": {
+      "name": "Sympathomimetika in Kombination mit Corticosteroiden oder anderen Mitteln, exkl. Anticholinergika"
+   },
+   "R03AK03": {
+      "name": "Fenoterol und Cromoglicinsäure, Dinatriumsalz"
+   },
+   "R03AK04": {
+      "name": "Salbutamol und Cromoglicinsäure, Dinatriumsalz"
+   },
+   "R03AK06": {
+      "name": "Salmeterol und Fluticason",
+      "ddd": "0,1 mg Inhal.Aerosol/pulver bezogen auf Salmeterol"
+   },
+   "R03AK07": {
+      "name": "Formoterol und Budesonid",
+      "ddd": "24 mcg Inhal.Aerosol/pulver bezogen auf das Formoterol hemifumarat"
+   },
+   "R03AK10": {
+      "name": "Vilanterol und Fluticason furoat",
+      "ddd": "25 mcg Inhal.pulver bezogen auf Vilanterol"
+   },
+   "R03AK11": {
+      "name": "Formoterol und Fluticason",
+      "ddd": "24 mcg Inhal.Aerosol/pulver bezogen auf das Formoterol hemifumarat"
+   },
+   "R03AL": {
+      "name": "Sympathomimetika in Kombination mit Anticholinergika"
+   },
+   "R03AL03": {
+      "name": "Vilanterol und Umeclidinium bromid",
+      "ddd": "Standarddosis: 1 DE Inhal.pulver"
+   },
+   "R03AL04": {
+      "name": "Indacaterol und Glycopyrronium bromid",
+      "ddd": "Standarddosis: 1 DE Inhal.pulver"
+   },
+   "R03B": {
+      "name": "Andere inhalative Mittel bei obstruktiven Atemwegserkrankungen"
+   },
+   "R03BA": {
+      "name": "Glucocorticoide"
+   },
+   "R03BA01": {
+      "name": "Beclometason",
+      "ddd": "0,8 mg Inhal.Aerosol/pulver bezogen auf das Beclometason dipropionat;1,5 mg Inhal.lösung bezogen auf das Beclometason dipropionat;0,4 mg Inhal.Aerosol Partikelgröße < 3,3 mcm bezogen auf das Beclometason dipropionat"
+   },
+   "R03BA02": {
+      "name": "Budesonid",
+      "ddd": "0,8 mg Inhal.Aerosol/pulver; 1,5 mg Inhal.lösung"
+   },
+   "R03BA05": {
+      "name": "Fluticason",
+      "ddd": "0,6 mg Inhal.Aerosol/pulver bezogen auf das Fluticason propionat;1,5 mg Inhal.lösung bezogen auf das Fluticason propionat"
+   },
+   "R03BA07": {
+      "name": "Mometason",
+      "ddd": "0,4 mg Inhal.pulver bezogen auf das Mometason furoat"
+   },
+   "R03BA08": {
+      "name": "Ciclesonid",
+      "ddd": "0,16 mg Inhal.Aerosol"
+   },
+   "R03BB": {
+      "name": "Anticholinergika"
+   },
+   "R03BB01": {
+      "name": "Ipratropium bromid",
+      "ddd": "0,12 mg Inhal.Aerosol; 1,5 mg Inhal.lösung; 0,6 mg Inhal.pulver"
+   },
+   "R03BB04": {
+      "name": "Tiotropium bromid",
+      "ddd": "5 mcg Inhal.lösung bezogen auf Tiotropium (aus dem Mundstück abgegebene Dosis); 18 mcg Inhal.pulver bezogen auf Tiotropium"
+   },
+   "R03BB05": {
+      "name": "Aclidinium bromid",
+      "ddd": "0,644 mg Inhal.pulver bezogen auf Aclidinium (aus dem Mundstückabgegebene Dosis)"
+   },
+   "R03BB06": {
+      "name": "Glycopyrronium bromid",
+      "ddd": "44 mcg Inhal.pulver bezogen auf Glycopyrronium (aus dem Mundstück abgegebene Dosis)"
+   },
+   "R03BC": {
+      "name": "Antiallergika, exkl. Corticosteroide"
+   },
+   "R03BC01": {
+      "name": "Cromoglicinsäure",
+      "ddd": "40 mg Inhal.Aerosol bezogen auf das Cromoglicinsäure, Dinatriumsalz;80 mg Inhal.lösung/pulver  bezogen auf das Cromoglicinsäure, Dinatriumsalz"
+   },
+   "R03C": {
+      "name": "Sympathomimetika zur systemischen Anwendung"
+   },
+   "R03CA": {
+      "name": "Alpha- und Beta-Adrenozeptor-Agonisten"
+   },
+   "R03CA02": {
+      "name": "Ephedrin",
+      "ddd": "50 mg O"
+   },
+   "R03D": {
+      "name": "Andere Mittel bei obstruktiven Atemwegserkrankungen zur systemischen Anwendung"
+   },
+   "R03DA": {
+      "name": "Xanthine"
+   },
+   "R03DA04": {
+      "name": "Theophyllin",
+      "ddd": "0,4 g O,P,R"
+   },
+   "R03DA05": {
+      "name": "Aminophyllin",
+      "ddd": "0,6 g O,P,R"
+   },
+   "R03DC": {
+      "name": "Leukotrienrezeptor-Antagonisten"
+   },
+   "R03DC01": {
+      "name": "Zafirlukast",
+      "ddd": "40 mg O"
+   },
+   "R03DC03": {
+      "name": "Montelukast",
+      "ddd": "10 mg O; 5 mg O Kinder DDD"
+   },
+   "R03DX": {
+      "name": "Andere Mittel bei obstruktiven Atemwegserkrankungen zur systemischen Anwendung"
+   },
+   "R03DX05": {
+      "name": "Omalizumab",
+      "ddd": "16 mg P s.c."
+   },
+   "R03DX07": {
+      "name": "Roflumilast",
+      "ddd": "0,5 mg O"
+   },
+   "R05": {
+      "name": "Husten- und Erkältungsmittel"
+   },
+   "R05C": {
+      "name": "Expektoranzien, exkl. Kombinationen mit Antitussiva"
+   },
+   "R05CA": {
+      "name": "Expektoranzien"
+   },
+   "R05CA03": {
+      "name": "Guaifenesin",
+      "ddd": "0,9 g O,P"
+   },
+   "R05CA10": {
+      "name": "Kombinationen"
+   },
+   "R05CB": {
+      "name": "Mukolytika"
+   },
+   "R05CB01": {
+      "name": "Acetylcystein",
+      "ddd": "0,5 g O,P"
+   },
+   "R05CB02": {
+      "name": "Bromhexin",
+      "ddd": "24 mg O,P; 24 mg Inhal.lösung"
+   },
+   "R05CB03": {
+      "name": "Carbocistein",
+      "ddd": "1,5 g O"
+   },
+   "R05CB06": {
+      "name": "Ambroxol",
+      "ddd": "75 mg Inhal.lösung,O,P,R; 40 mg O,R Kinder DDD"
+   },
+   "R05CB10": {
+      "name": "Kombinationen"
+   },
+   "R05CB13": {
+      "name": "Dornase alfa (Desoxyribonuclease)",
+      "ddd": "2,5 mg Inhal.lösung"
+   },
+   "R05CB15": {
+      "name": "Erdostein",
+      "ddd": "0,6 g O"
+   },
+   "R05D": {
+      "name": "Antitussiva, exkl. Kombinationen mit Expektoranzien"
+   },
+   "R05DA": {
+      "name": "Opium-Alkaloide und Derivate"
+   },
+   "R05DA03": {
+      "name": "Hydrocodon",
+      "ddd": "15 mg O; 15 mg P"
+   },
+   "R05DA04": {
+      "name": "Codein",
+      "ddd": "0,1 g O"
+   },
+   "R05DA07": {
+      "name": "Noscapin",
+      "ddd": "0,125 g O"
+   },
+   "R05DA09": {
+      "name": "Dextromethorphan",
+      "ddd": "90 mg O"
+   },
+   "R05DA20": {
+      "name": "Kombinationen"
+   },
+   "R05DB": {
+      "name": "Andere Antitussiva"
+   },
+   "R05DB13": {
+      "name": "Butamirat",
+      "ddd": "25 mg O"
+   },
+   "R05DB20": {
+      "name": "Kombinationen"
+   },
+   "R05DB25": {
+      "name": "Morclofon"
+   },
+   "R05F": {
+      "name": "Antitussiva und Expektoranzien, Kombinationen"
+   },
+   "R05FA": {
+      "name": "Opium-Derivate und Expektoranzien"
+   },
+   "R05FA02": {
+      "name": "Opium-Derivate und Expektoranzien"
+   },
+   "R05FB": {
+      "name": "Andere Antitussiva und Expektoranzien"
+   },
+   "R05FB01": {
+      "name": "Antitussiva und Mukolytika"
+   },
+   "R05FB02": {
+      "name": "Antitussiva und Expektoranzien"
+   },
+   "R05X": {
+      "name": "Andere Zubereitungen gegen Erkältungskrankheiten"
+   },
+   "R06": {
+      "name": "Antihistaminika zur systemischen Anwendung"
+   },
+   "R06A": {
+      "name": "Antihistaminika zur systemischen Anwendung"
+   },
+   "R06AA": {
+      "name": "Aminoalkylether"
+   },
+   "R06AA04": {
+      "name": "Clemastin",
+      "ddd": "2 mg O,P"
+   },
+   "R06AA52": {
+      "name": "Diphenhydramin, Kombinationen"
+   },
+   "R06AB": {
+      "name": "Substituierte Alkylamine"
+   },
+   "R06AB03": {
+      "name": "Dimetinden",
+      "ddd": "4 mg O; 4 mg P"
+   },
+   "R06AB04": {
+      "name": "Chlorphenamin",
+      "ddd": "12 mg O,P"
+   },
+   "R06AD": {
+      "name": "Phenothiazin-Derivate"
+   },
+   "R06AD03": {
+      "name": "Thiethylperazin",
+      "ddd": "13 mg O,P,R"
+   },
+   "R06AD08": {
+      "name": "Oxomemazin",
+      "ddd": "30 mg O"
+   },
+   "R06AE": {
+      "name": "Piperazin-Derivate"
+   },
+   "R06AE07": {
+      "name": "Cetirizin",
+      "ddd": "10 mg O"
+   },
+   "R06AE09": {
+      "name": "Levocetirizin",
+      "ddd": "5 mg O"
+   },
+   "R06AX": {
+      "name": "Andere Antihistaminika zur systemischen Anwendung"
+   },
+   "R06AX13": {
+      "name": "Loratadin",
+      "ddd": "10 mg O"
+   },
+   "R06AX17": {
+      "name": "Ketotifen",
+      "ddd": "2 mg O"
+   },
+   "R06AX26": {
+      "name": "Fexofenadin",
+      "ddd": "0,12 g O"
+   },
+   "R06AX27": {
+      "name": "Desloratadin",
+      "ddd": "5 mg O"
+   },
+   "R06AX29": {
+      "name": "Bilastin",
+      "ddd": "20 mg O"
+   },
+   "R07": {
+      "name": "Andere Mittel für den Respirationstrakt"
+   },
+   "R07A": {
+      "name": "Andere Mittel für den Respirationstrakt"
+   },
+   "R07AA": {
+      "name": "Surfactant-Präparate"
+   },
+   "R07AA30": {
+      "name": "Kombinationen"
+   },
+   "R07AB": {
+      "name": "Atemstimulanzien"
+   },
+   "R07AB52": {
+      "name": "Nikethamid, Kombinationen"
+   },
+   "R07AX": {
+      "name": "Andere Mittel für den Respirationstrakt"
+   },
+   "R07AX01": {
+      "name": "Stickoxid"
+   },
+   "R07AX02": {
+      "name": "Ivacaftor",
+      "ddd": "0,3 g O"
+   },
+   "S": {
+      "name": "Sinnesorgane"
+   },
+   "S01": {
+      "name": "Ophthalmika*"
+   },
+   "S01A": {
+      "name": "Antiinfektiva"
+   },
+   "S01AA": {
+      "name": "Antibiotika"
+   },
+   "S01AA12": {
+      "name": "Tobramycin"
+   },
+   "S01AA13": {
+      "name": "Fusidinsäure"
+   },
+   "S01AA27": {
+      "name": "Cefuroxim"
+   },
+   "S01AA30": {
+      "name": "Kombinationen von Antibiotika"
+   },
+   "S01AD": {
+      "name": "Antivirale Mittel"
+   },
+   "S01AD03": {
+      "name": "Aciclovir"
+   },
+   "S01AX": {
+      "name": "Andere Antiinfektiva"
+   },
+   "S01AX05": {
+      "name": "Bibrocathol"
+   },
+   "S01AX08": {
+      "name": "Hexamidin"
+   },
+   "S01B": {
+      "name": "Antiphlogistika"
+   },
+   "S01BA": {
+      "name": "Corticosteroide, rein"
+   },
+   "S01BA01": {
+      "name": "Dexamethason",
+      "ddd": "0,2 mg AT,AS"
+   },
+   "S01BA02": {
+      "name": "Hydrocortison"
+   },
+   "S01BA04": {
+      "name": "Prednisolon"
+   },
+   "S01BA05": {
+      "name": "Triamcinolon"
+   },
+   "S01BA07": {
+      "name": "Fluorometholon"
+   },
+   "S01BA13": {
+      "name": "Rimexolon"
+   },
+   "S01BC": {
+      "name": "Nichtsteroidale Antiphlogistika"
+   },
+   "S01BC01": {
+      "name": "Indometacin"
+   },
+   "S01BC03": {
+      "name": "Diclofenac"
+   },
+   "S01BC05": {
+      "name": "Ketorolac",
+      "ddd": "0,75 mg AT bezogen auf Ketorolac trometamol"
+   },
+   "S01BC10": {
+      "name": "Nepafenac",
+      "ddd": "0,15 mg AT"
+   },
+   "S01BC11": {
+      "name": "Bromfenac",
+      "ddd": "66 mcg AT"
+   },
+   "S01C": {
+      "name": "Antiphlogistika und Antiinfektiva in Kombination"
+   },
+   "S01CA": {
+      "name": "Corticosteroide und Antiinfektiva in Kombination"
+   },
+   "S01CA01": {
+      "name": "Dexamethason und Antiinfektiva"
+   },
+   "S01CA02": {
+      "name": "Prednisolon und Antiinfektiva"
+   },
+   "S01CA07": {
+      "name": "Fluorometholon und Antiinfektiva"
+   },
+   "S01CC": {
+      "name": "Nichtsteroidale Antiphlogistika und Antiinfektiva in Kombination"
+   },
+   "S01CC01": {
+      "name": "Diclofenac und Antiinfektiva"
+   },
+   "S01E": {
+      "name": "Glaukommittel und Miotika"
+   },
+   "S01EA": {
+      "name": "Sympathomimetika in der Glaukomtherapie"
+   },
+   "S01EA03": {
+      "name": "Apraclonidin",
+      "ddd": "0,3 ml AT"
+   },
+   "S01EA05": {
+      "name": "Brimonidin",
+      "ddd": "0,2 ml AT"
+   },
+   "S01EB": {
+      "name": "Parasympathomimetika"
+   },
+   "S01EB01": {
+      "name": "Pilocarpin",
+      "ddd": "0,285  Lamelle; 0,4 ml; 0,4 g AS"
+   },
+   "S01EB02": {
+      "name": "Carbachol",
+      "ddd": "0,4 ml"
+   },
+   "S01EB09": {
+      "name": "Acetylcholin"
+   },
+   "S01EC": {
+      "name": "Carboanhydrasehemmer"
+   },
+   "S01EC01": {
+      "name": "Acetazolamid",
+      "ddd": "0,75 g O,P"
+   },
+   "S01EC03": {
+      "name": "Dorzolamid",
+      "ddd": "0,3 ml"
+   },
+   "S01EC04": {
+      "name": "Brinzolamid",
+      "ddd": "0,2 ml"
+   },
+   "S01ED": {
+      "name": "Beta-Adrenozeptor-Antagonisten"
+   },
+   "S01ED01": {
+      "name": "Timolol",
+      "ddd": "0,2 g AS; 0,2 ml AT"
+   },
+   "S01ED02": {
+      "name": "Betaxolol",
+      "ddd": "0,2 ml AT"
+   },
+   "S01ED03": {
+      "name": "Levobunolol",
+      "ddd": "0,2 ml AT"
+   },
+   "S01ED05": {
+      "name": "Carteolol",
+      "ddd": "0,2 ml AT"
+   },
+   "S01ED51": {
+      "name": "Timolol, Kombinationen"
+   },
+   "S01EE": {
+      "name": "Prostaglandin-Analoga"
+   },
+   "S01EE01": {
+      "name": "Latanoprost",
+      "ddd": "0,1 ml AT"
+   },
+   "S01EE03": {
+      "name": "Bimatoprost",
+      "ddd": "0,1 ml AT"
+   },
+   "S01EE04": {
+      "name": "Travoprost",
+      "ddd": "0,1 ml AT"
+   },
+   "S01EE05": {
+      "name": "Tafluprost",
+      "ddd": "0,1 ml AT"
+   },
+   "S01F": {
+      "name": "Mydriatika und Zykloplegika"
+   },
+   "S01FA": {
+      "name": "Anticholinergika"
+   },
+   "S01FA01": {
+      "name": "Atropin",
+      "ddd": "1 mg AT"
+   },
+   "S01FA02": {
+      "name": "Scopolamin"
+   },
+   "S01FA04": {
+      "name": "Cyclopentolat"
+   },
+   "S01FA06": {
+      "name": "Tropicamid"
+   },
+   "S01FA56": {
+      "name": "Tropicamid, Kombinationen"
+   },
+   "S01G": {
+      "name": "Dekongestiva und Antiallergika"
+   },
+   "S01GA": {
+      "name": "Sympathomimetika als Dekongestiva"
+   },
+   "S01GA02": {
+      "name": "Tetryzolin",
+      "ddd": "62,5 mcg AT"
+   },
+   "S01GA51": {
+      "name": "Naphazolin, Kombinationen"
+   },
+   "S01GA52": {
+      "name": "Tetryzolin, Kombinationen"
+   },
+   "S01GX": {
+      "name": "Andere Antiallergika"
+   },
+   "S01GX01": {
+      "name": "Cromoglicinsäure",
+      "ddd": "8 mg AT"
+   },
+   "S01GX02": {
+      "name": "Levocabastin"
+   },
+   "S01GX03": {
+      "name": "Spagluminsäure"
+   },
+   "S01GX06": {
+      "name": "Emedastin"
+   },
+   "S01GX07": {
+      "name": "Azelastin",
+      "ddd": "0,1 mg AT bezogen auf Azelastin hydrochlorid"
+   },
+   "S01GX08": {
+      "name": "Ketotifen"
+   },
+   "S01GX09": {
+      "name": "Olopatadin"
+   },
+   "S01H": {
+      "name": "Lokalanästhetika"
+   },
+   "S01HA": {
+      "name": "Lokalanästhetika"
+   },
+   "S01HA02": {
+      "name": "Oxybuprocain"
+   },
+   "S01HA03": {
+      "name": "Tetracain"
+   },
+   "S01HA04": {
+      "name": "Proxymetacain"
+   },
+   "S01J": {
+      "name": "Diagnostika"
+   },
+   "S01JA": {
+      "name": "Farbstoffe"
+   },
+   "S01JA01": {
+      "name": "Fluorescein"
+   },
+   "S01JA51": {
+      "name": "Fluorescein, Kombinationen"
+   },
+   "S01L": {
+      "name": "Mittel gegen vaskuläre Augenerkrankungen"
+   },
+   "S01LA": {
+      "name": "Antineovaskuläre Mittel"
+   },
+   "S01LA01": {
+      "name": "Verteporfin"
+   },
+   "S01LA04": {
+      "name": "Ranibizumab",
+      "ddd": "0,036 DE"
+   },
+   "S01LA05": {
+      "name": "Aflibercept",
+      "ddd": "0,018 DE"
+   },
+   "S01X": {
+      "name": "Andere Ophthalmika"
+   },
+   "S01XA": {
+      "name": "Andere Ophthalmika"
+   },
+   "S01XA02": {
+      "name": "Retinol"
+   },
+   "S01XA03": {
+      "name": "Natriumchlorid, hyperton"
+   },
+   "S01XA20": {
+      "name": "Künstliche Tränen und andere indifferente Mittel",
+      "ddd": "Standarddosis: 0,4 ml AT; 0,4 g AS"
+   },
+   "S01XA22": {
+      "name": "Ocriplasmin",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "S02": {
+      "name": "Otologika"
+   },
+   "S02A": {
+      "name": "Antiinfektiva"
+   },
+   "S02AA": {
+      "name": "Antiinfektiva"
+   },
+   "S02AA12": {
+      "name": "Rifamycin"
+   },
+   "S02AA30": {
+      "name": "Antiinfektiva, Kombinationen"
+   },
+   "S02C": {
+      "name": "Corticosteroide und Antiinfektiva in Kombination"
+   },
+   "S02CA": {
+      "name": "Corticosteroide und Antiinfektiva in Kombination"
+   },
+   "S02CA03": {
+      "name": "Hydrocortison und Antiinfektiva"
+   },
+   "S02CA06": {
+      "name": "Dexamethason und Antiinfektiva"
+   },
+   "S02CA07": {
+      "name": "Fludrocortison und Antiinfektiva"
+   },
+   "S02D": {
+      "name": "Andere Otologika"
+   },
+   "S02DA": {
+      "name": "Analgetika und Anästhetika"
+   },
+   "S02DA01": {
+      "name": "Lidocain"
+   },
+   "S02DA30": {
+      "name": "Kombinationen"
+   },
+   "S02DC": {
+      "name": "Indifferente Zubereitungen"
+   },
+   "V": {
+      "name": "Varia"
+   },
+   "V01": {
+      "name": "Allergene"
+   },
+   "V01A": {
+      "name": "Allergene"
+   },
+   "V01AA": {
+      "name": "Allergen-Extrakte"
+   },
+   "V01AA02": {
+      "name": "Gräserpollen"
+   },
+   "V01AA03": {
+      "name": "Hausstaubmilben"
+   },
+   "V01AA05": {
+      "name": "Baumpollen"
+   },
+   "V01AA07": {
+      "name": "Insekten"
+   },
+   "V01AA11": {
+      "name": "Tiere"
+   },
+   "V01AA20": {
+      "name": "Verschiedene"
+   },
+   "V03": {
+      "name": "Alle übrigen therapeutischen Mittel"
+   },
+   "V03A": {
+      "name": "Alle übrigen therapeutischen Mittel"
+   },
+   "V03AB": {
+      "name": "Antidote"
+   },
+   "V03AB13": {
+      "name": "Obidoxim"
+   },
+   "V03AB14": {
+      "name": "Protamin",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "V03AB15": {
+      "name": "Naloxon",
+      "ddd": "Standarddosis: 1 Applikationsform P"
+   },
+   "V03AB21": {
+      "name": "Kaliumiodid"
+   },
+   "V03AB24": {
+      "name": "Digitalis-Antitoxin"
+   },
+   "V03AB25": {
+      "name": "Flumazenil"
+   },
+   "V03AB26": {
+      "name": "Methionin"
+   },
+   "V03AB33": {
+      "name": "Hydroxocobalamin"
+   },
+   "V03AB35": {
+      "name": "Sugammadex",
+      "ddd": "0,28 g P"
+   },
+   "V03AC": {
+      "name": "Eisen-Chelatbildner"
+   },
+   "V03AC01": {
+      "name": "Deferoxamin"
+   },
+   "V03AC02": {
+      "name": "Deferipron"
+   },
+   "V03AC03": {
+      "name": "Deferasirox"
+   },
+   "V03AE": {
+      "name": "Mittel zur Behandlung der Hyperkaliämie und Hyperphosphatämie"
+   },
+   "V03AE01": {
+      "name": "Polystyrolsulfonat",
+      "ddd": "45 g O"
+   },
+   "V03AE02": {
+      "name": "Sevelamer",
+      "ddd": "6,4 g O"
+   },
+   "V03AE03": {
+      "name": "Lanthan(III)-carbonat",
+      "ddd": "2,25 g O bezogen auf Lanthanum"
+   },
+   "V03AE04": {
+      "name": "Calciumacetat und Magnesiumcarbonat"
+   },
+   "V03AE05": {
+      "name": "Eisen(III)-oxidhydroxid-Saccharose-Stärke-Komplex"
+   },
+   "V03AF": {
+      "name": "Entgiftungsmittel für die Behandlung mit Zytostatika"
+   },
+   "V03AF01": {
+      "name": "Mesna"
+   },
+   "V03AF03": {
+      "name": "Calciumfolinat",
+      "ddd": "60 mg O,P bezogen auf Folinsäure"
+   },
+   "V03AF07": {
+      "name": "Rasburicase",
+      "ddd": "14 mg P"
+   },
+   "V03AF08": {
+      "name": "Palifermin",
+      "ddd": "4,2 mg P"
+   },
+   "V03AH": {
+      "name": "Mittel zur Behandlung der Hypoglykämie"
+   },
+   "V03AH01": {
+      "name": "Diazoxid"
+   },
+   "V03AN": {
+      "name": "Medizinische Gase"
+   },
+   "V03AN01": {
+      "name": "Sauerstoff"
+   },
+   "V03AN05": {
+      "name": "Medizinische Luft"
+   },
+   "V03AX": {
+      "name": "Andere therapeutische Mittel"
+   },
+   "V03AX03": {
+      "name": "Cobicistat",
+      "ddd": "0,15 g O"
+   },
+   "V04": {
+      "name": "Diagnostika"
+   },
+   "V04C": {
+      "name": "Andere Diagnostika"
+   },
+   "V04CD": {
+      "name": "Hypophysenfunktions-Tests"
+   },
+   "V04CD01": {
+      "name": "Metyrapon"
+   },
+   "V04CD05": {
+      "name": "Somatorelin"
+   },
+   "V04CF": {
+      "name": "Tuberkulose-Diagnostika"
+   },
+   "V04CF01": {
+      "name": "Tuberkulin",
+      "ddd": "Standarddosis: 1 Test"
+   },
+   "V04CH": {
+      "name": "Nierenfunktionstests und Tests auf Harnleiterverletzungen"
+   },
+   "V04CH02": {
+      "name": "Indigokarmin"
+   },
+   "V04CL": {
+      "name": "Allergie-Tests"
+   },
+   "V04CX": {
+      "name": "Andere Diagnostika"
+   },
+   "V06": {
+      "name": "Allgemeine Diätetika"
+   },
+   "V06D": {
+      "name": "Andere Diätetika"
+   },
+   "V06DX": {
+      "name": "Andere Diätetika-Kombinationen"
+   },
+   "V07": {
+      "name": "Alle übrigen nichttherapeutischen Mittel"
+   },
+   "V07A": {
+      "name": "Alle übrigen nichttherapeutischen Mittel"
+   },
+   "V07AB": {
+      "name": "Lösungs- und Verdünnungsmittel, inkl. Spüllösungen"
+   },
+   "V07AX": {
+      "name": "Waschsubstanzen etc."
+   },
+   "V08": {
+      "name": "Kontrastmittel"
+   },
+   "V08A": {
+      "name": "Röntgenkontrastmittel, Iod-haltig"
+   },
+   "V08AA": {
+      "name": "Wasserlösliche nephrotrope hochosmolare Röntgenkontrastmittel"
+   },
+   "V08AA01": {
+      "name": "Amidotrizoesäure",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08AA05": {
+      "name": "Ioxitalaminsäure",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08AB": {
+      "name": "Wasserlösliche nephrotrope niederosmolare Röntgenkontrastmittel"
+   },
+   "V08AB02": {
+      "name": "Iohexol",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08AB03": {
+      "name": "Ioxaglinsäure",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08AB04": {
+      "name": "Iopamidol",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08AB05": {
+      "name": "Iopromid",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08AB07": {
+      "name": "Ioversol",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08AB09": {
+      "name": "Iodixanol",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08AB10": {
+      "name": "Iomeprol",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08AB11": {
+      "name": "Iobitridol",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08AD": {
+      "name": "Wasserunlösliche Röntgenkontrastmittel"
+   },
+   "V08AD01": {
+      "name": "Ethylester iodierter Fettsäuren",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08B": {
+      "name": "Röntgenkontrastmittel, Nicht Iod-haltig"
+   },
+   "V08BA": {
+      "name": "Bariumsulfat-haltige Röntgenkontrastmittel"
+   },
+   "V08BA01": {
+      "name": "Bariumsulfat mit Suspensionsmittel",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08C": {
+      "name": "Kontrastmittel für die Magnetresonanztomographie"
+   },
+   "V08CA": {
+      "name": "Paramagnetische Kontrastmittel"
+   },
+   "V08CA01": {
+      "name": "Gadopentetsäure",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08CA02": {
+      "name": "Gadotersäure",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08CA03": {
+      "name": "Gadodiamid",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08CA04": {
+      "name": "Gadoteridol",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08CA08": {
+      "name": "Gadobensäure",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08CA09": {
+      "name": "Gadobutrol",
+      "ddd": "Standarddosis: 1 Applikationsform"
+   },
+   "V08CA10": {
+      "name": "Gadoxetsäure"
+   },
+   "V08D": {
+      "name": "Ultraschall-kontrastmittel"
+   },
+   "V08DA": {
+      "name": "Ultraschall-Kontrastmittel"
+   },
+   "V08DA05": {
+      "name": "Schwefelhexafluorid"
+   },
+   "V09": {
+      "name": "Radiodiagnostika"
+   },
+   "V09A": {
+      "name": "Zentrales Nervensystem"
+   },
+   "V09AB": {
+      "name": "[123I]Iod-Verbindungen"
+   },
+   "V09AB03": {
+      "name": "[123I]Iod-Ioflupan"
+   },
+   "V09AX": {
+      "name": "Andere Radiodiagnostika für das zentrale Nervensystem"
+   },
+   "V09AX01": {
+      "name": "[111In]Indium(III) pentetat"
+   },
+   "V09AX05": {
+      "name": "Florbetapir[18F]"
+   },
+   "V09B": {
+      "name": "Skelett"
+   },
+   "V09BA": {
+      "name": "[99mTc]Technetium-Verbindungen"
+   },
+   "V09C": {
+      "name": "Nierensystem"
+   },
+   "V09CA": {
+      "name": "[99mTc]Technetium-Verbindungen"
+   },
+   "V09CA01": {
+      "name": "[99mTc]Technetium-Pentetat"
+   },
+   "V09CA02": {
+      "name": "[99mTc]Technetium-Succimer"
+   },
+   "V09CA03": {
+      "name": "[99mTc]Technetium-Mertiatid"
+   },
+   "V09CX": {
+      "name": "Andere Radiodiagnostika für das Nierensystem"
+   },
+   "V09CX01": {
+      "name": "Natrium iodhippurat[123I]"
+   },
+   "V09D": {
+      "name": "Leber- und Retikuloendothelialsystem"
+   },
+   "V09DB": {
+      "name": "[99mTc]Technetium, Partikel und Kolloide"
+   },
+   "V09DB01": {
+      "name": "[99mTc]Technetium-Nanokolloid"
+   },
+   "V09E": {
+      "name": "Respirationstrakt"
+   },
+   "V09EB": {
+      "name": "[99mTc]Technetium, Partikel zur Injektion"
+   },
+   "V09EB01": {
+      "name": "[99mTc]Technetium-Macrosalb"
+   },
+   "V09EX": {
+      "name": "Andere Radiodiagnostika für den Respirationstrakt"
+   },
+   "V09EX03": {
+      "name": "[133Xe]Xenongas"
+   },
+   "V09F": {
+      "name": "Schilddrüse"
+   },
+   "V09FX": {
+      "name": "Verschiedene Radiodiagnostika für die Schilddrüse"
+   },
+   "V09FX01": {
+      "name": "[99mTc]Technetium-Pertechnetat"
+   },
+   "V09FX02": {
+      "name": "[123I]Natriumiodid"
+   },
+   "V09G": {
+      "name": "Kardiovaskuläres System"
+   },
+   "V09GA": {
+      "name": "[99mTc]Technetium-Verbindungen"
+   },
+   "V09GA01": {
+      "name": "[99mTc]Technetium-Sestamibi"
+   },
+   "V09GA02": {
+      "name": "[99mTc]Technetium-Tetrofosmin"
+   },
+   "V09GB": {
+      "name": "[125I]Iod-Verbindungen"
+   },
+   "V09GB02": {
+      "name": "[125I]Iod-Humanalbumin"
+   },
+   "V09GX": {
+      "name": "Andere Radiodiagnostika für das kardiovaskuläre System"
+   },
+   "V09GX01": {
+      "name": "[201Tl]Thallium(I)-chlorid"
+   },
+   "V09H": {
+      "name": "Entzündungs- und Infektionserkennung"
+   },
+   "V09HA": {
+      "name": "[99mTc]Technetium-Verbindungen"
+   },
+   "V09HA03": {
+      "name": "[99mTc]Technetium-Antigranulozyten-Antikörper"
+   },
+   "V09HX": {
+      "name": "Andere Radiodiagnostika zur Erkennung von Entzündungen und Infektionen"
+   },
+   "V09HX01": {
+      "name": "Gallium[67Ga]citrat"
+   },
+   "V09I": {
+      "name": "Tumorerkennung"
+   },
+   "V09IB": {
+      "name": "[111In]Indium-Verbindungen"
+   },
+   "V09IB01": {
+      "name": "[111In]Indium-Pentetreotid"
+   },
+   "V09IX": {
+      "name": "Andere Radiodiagnostika zur Tumorerkennung"
+   },
+   "V09IX01": {
+      "name": "Iobenguan[123I]"
+   },
+   "V09IX04": {
+      "name": "Fludeoxyglucose[18F]"
+   },
+   "V09IX06": {
+      "name": "Natrium[18F]fluorid"
+   },
+   "V09IX07": {
+      "name": "Fluoromethylcholin[18F]"
+   },
+   "V10": {
+      "name": "Radiotherapeutika"
+   },
+   "V10A": {
+      "name": "Entzündungshemmende Mittel"
+   },
+   "V10AA": {
+      "name": "[90Y]Yttrium-Verbindungen"
+   },
+   "V10AA01": {
+      "name": "[90Y]Yttriumcitrat-Kolloid"
+   },
+   "V10AX": {
+      "name": "Andere entzündungshemmende Radiotherapeutika"
+   },
+   "V10AX04": {
+      "name": "[169Er]Erbiumcitrat-Kolloid"
+   },
+   "V10AX05": {
+      "name": "[186Re]Rheniumsulfid-Kolloid"
+   },
+   "V10B": {
+      "name": "Schmerzlinderung (knochenmetastasen)"
+   },
+   "V10BX": {
+      "name": "Verschiedene Radiopharmaka zur Schmerzlinderung"
+   },
+   "V10BX02": {
+      "name": "Samarium[153Sm]lexidronam"
+   },
+   "V10X": {
+      "name": "Andere Radiotherapeutika"
+   },
+   "V10XA": {
+      "name": "[131I]Iod-Verbindungen"
+   },
+   "V10XA01": {
+      "name": "[131I]Natriumiodid"
+   },
+   "V10XX": {
+      "name": "Verschiedene Radiotherapeutika"
+   },
+   "V10XX02": {
+      "name": "[90Y]Ibritumomab tiuxetan"
+   },
+   "V10XX03": {
+      "name": "[223Ra]Radiumdichlorid"
+   },
+   "N06DX02": {
+      "name": "Ginkgo folium",
+      "ddd": "0.12 g O"
+   },
+   "N04BA02": {
+      "name": "Levodopa und Decarboxylasehemmer",
+      "ddd": "0.6 g O"
+   },
+   "C01EB04": {
+      "name": "Weissdorn"
+   },
+   "N05CM09": {
+      "name": "Baldrian"
+   },
+   "B06AA": {
+      "name": "Enzyme"
+   },
+   "B06AA11": {
+      "name": "Bromelain"
+   },
+   "G04CX02": {
+      "name": "Sägepalme sabal"
+   },
+   "A05BA03": {
+      "name": "Mariendistel"
+   },
+   "A10BX01": {
+      "name": "Guarmehl"
+   },
+   "G02CX04": {
+      "name": "Cimicifuga"
+   },
+   "G04CX01": {
+      "name": "Pygeumrindenextrakt"
+   },
+   "S01AX11": {
+      "name": "Ofloxacin"
+   },
+   "R07AA02": {
+      "name": "Phospholipide"
+   },
+   "S01AX13": {
+      "name": "Ciprofloxacin"
+   },
+   "M03AX": {
+      "name": "Andere Muskelrelaxanzien, peripher wirkende Mittel"
+   },
+   "M03AX01": {
+      "name": "Botulinumtoxin"
+   },
+   "B02BC10": {
+      "name": "Fibrinogen human, Factor XIII, Aprotinin und Thrombinum human"
+   },
+   "G02CX03": {
+      "name": "Mönchspfeffer"
+   },
+   "N01AX01": {
+      "name": "Droperidol"
+   },
+   "S01AX22": {
+      "name": "Moxifloxacin"
+   },
+   "N02AA09": {
+      "name": "Diamorphin"
+   },
+   "D06BB12": {
+      "name": "Camellia"
+   },
+   "C09DA09": {
+      "name": "Chlortalidon"
+   },
+   "A10BX13": {
+      "name": "Albiglutid"
+   },
+   "J05AR13": {
+      "name": "Dolutegravir, Abacavirum und Lamivudin"
+   },
+   "R03BB07": {
+      "name": "Umeclidin"
+   },
+   "L01XE27": {
+      "name": "Ibrutinib"
+   },
+   "S01EC54": {
+      "name": "Brinzolamid und Brimonidin"
+   },
+   "L01XX47": {
+      "name": "Idelalisib"
+   }
+}
