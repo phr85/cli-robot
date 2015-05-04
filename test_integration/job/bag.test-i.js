@@ -10,7 +10,7 @@ var expect = require("chai").expect;
 
 var server = require("../../fixtures/server");
 
-describe.only("job: BAG", function () {
+describe("job: BAG", function () {
   var job, test;
 
   before(function () {
@@ -49,14 +49,14 @@ describe.only("job: BAG", function () {
   describe("download and unzip", function () {
 
     it("should have unzipped bag.xls", function () {
-      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/bag/bag.xls"), {encoding: "utf8"}));
+      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/bag/bag.xml"), {encoding: "utf8"}));
       var download = shasum(fs.readFileSync(test.cfg.download.zipFiles[0].dest, {encoding: "utf8"}));
 
       expect(fixture).to.equal(download);
     });
 
     it("should have unzipped bag.xml", function () {
-      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/bag/bag.xml"), {encoding: "utf8"}));
+      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/bag/bag.xls"), {encoding: "utf8"}));
       var download = shasum(fs.readFileSync(test.cfg.download.zipFiles[1].dest, {encoding: "utf8"}));
 
       expect(fixture).to.equal(download);
@@ -67,6 +67,48 @@ describe.only("job: BAG", function () {
       var download = shasum(fs.readFileSync(test.cfg.download.zipFiles[2].dest, {encoding: "utf8"}));
 
       expect(fixture).to.equal(download);
+    });
+  });
+
+  describe("Release", function () {
+    describe("BAG", function () {
+      describe("JSON", function () {
+        it("should have build a proper JSON-file", function () {
+          var fixture = shasum(require("../../fixtures/bag/bag.json"));
+          var jsonBuild = shasum(require(test.cfg.process.bag));
+
+          expect(jsonBuild).to.equal(fixture);
+        });
+      });
+
+      describe("JSON-Min", function () {
+        it("should have build a proper minified JSON-file", function () {
+          var fixture = shasum(require("../../fixtures/bag/bag.min.json"));
+          var jsonMinBuild = shasum(require(test.cfg.process.bagMin));
+
+          expect(jsonMinBuild).to.equal(fixture);
+        });
+      });
+    });
+
+    describe("IT", function () {
+      describe("JSON", function () {
+        it("should have build a proper JSON-file", function () {
+          var fixture = shasum(require("../../fixtures/bag/it.json"));
+          var jsonBuild = shasum(require(test.cfg.process.it));
+
+          expect(jsonBuild).to.equal(fixture);
+        });
+      });
+
+      describe("JSON-Min", function () {
+        it("should have build a proper minified JSON-file", function () {
+          var fixture = shasum(require("../../fixtures/bag/it.min.json"));
+          var jsonMinBuild = shasum(require(test.cfg.process.itMin));
+
+          expect(jsonMinBuild).to.equal(fixture);
+        });
+      });
     });
   });
 });

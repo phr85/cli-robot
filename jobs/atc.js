@@ -88,7 +88,7 @@ function atc(done) {
       return readXLSX(cfg.download.zipFiles[0].dest);
     })
     .then(function (atcDE) {
-      log.debug("ATC", "Modify Codes");
+      log.debug("ATC", "Add Codes");
       return addCodes(cfg.manual.addFile, atcDE);
     })
     .then(function (atcDEwAdditions) {

@@ -85,7 +85,7 @@ function bag(done) {
 
       return Promise.all([
         disk.write.json(cfg.process.bag, bag),
-        disk.write.jsonMin(cfg.process.bag, bag),
+        disk.write.jsonMin(cfg.process.bagMin, bag),
         disk.write.json(cfg.process.it, it),
         disk.write.jsonMin(cfg.process.itMin, it)
       ]);
@@ -93,7 +93,7 @@ function bag(done) {
     .then(function () {
       log.timeEnd("BAG", "Write files");
       log.timeEnd("BAG", "Completed in");
-      done();
+      done(null);
     })
     .catch(function (err) {
       log.error(err);
