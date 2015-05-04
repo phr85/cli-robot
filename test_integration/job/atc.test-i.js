@@ -21,7 +21,10 @@ describe("job: ATC", function () {
         "download": {
           "url": "http://localhost:" + server.port + "/amtl_atc-code.html",
           "dir": path.resolve(__dirname, "../../test_integration/tmp/data/auto"),
-          "file": path.resolve(__dirname, "../../test_integration/tmp/data/auto/atc.zip")
+          "file": path.resolve(__dirname, "../../test_integration/tmp/data/auto/atc.zip"),
+          "zipFiles": [{
+            name: /widode.xlsx/, dest: path.resolve(__dirname, "../../test_integration/tmp/data/auto/atc.xlsx")
+          }]
         },
         "manual": {
           "addFile": path.resolve(__dirname, "../../data/manual/atc/add.csv"),
@@ -29,7 +32,6 @@ describe("job: ATC", function () {
           "changeFile": path.resolve(__dirname, "../../data/manual/atc/change.csv")
         },
         "process": {
-          "xlsx": path.resolve(__dirname, "../../test_integration/tmp/data/auto/atc.xlsx"),
           "dir": path.resolve(__dirname, "../../test_integration/tmp/data/release/atc"),
           "atcDe": path.resolve(__dirname, "../../test_integration/tmp/data/release/atc/atc.json"),
           "atcDeMin": path.resolve(__dirname, "../../test_integration/tmp/data/release/atc/atc.min.json"),
@@ -49,7 +51,9 @@ describe("job: ATC", function () {
 
   describe("Zip download and unzip XLSX", function () {
     it("should download ZIP-File and unzip it to atc.xlsx", function () {
-      expect(shasum(xlsx.readFile(server.cfg.atc.xlsx))).to.equal(shasum(xlsx.readFile(test.cfg.process.xlsx)));
+      var fixture = shasum(xlsx.readFile(server.cfg.atc.xlsx));
+      var download = shasum(xlsx.readFile(test.cfg.download.zipFiles[0].dest));
+      expect(fixture).to.equal(download);
     });
   });
 

@@ -8,7 +8,8 @@ var cfg = {
     "url": "http://wido.de/amtl_atc-code.html",
     "linkParser": /href="(.*atc.*\.zip)"/igm,
     "dir": path.resolve(__dirname, "../data/auto/"),
-    "file": path.resolve(__dirname, "../data/auto/atc.zip")
+    "file": path.resolve(__dirname, "../data/auto/atc.zip"),
+    "zipFiles": [{name: /widode.xlsx/, dest: path.resolve(__dirname, "../data/auto/atc.xlsx")}]
   },
   "manual": {
     "addFile": path.resolve(__dirname, "../data/manual/atc", "add.csv"),
@@ -16,7 +17,6 @@ var cfg = {
     "changeFile": path.resolve(__dirname, "../data/manual/atc", "change.csv")
   },
   "process": {
-    "xlsx": path.resolve(__dirname, "../data/auto/atc.xlsx"),
     "dir": path.resolve(__dirname, "../data/release/atc"),
     "atcDe": path.resolve(__dirname, "../data/release/atc/atc.json"),
     "atcDeMin": path.resolve(__dirname, "../data/release/atc/atc.min.json"),
@@ -80,12 +80,12 @@ function atc(done) {
       return downloadFile(parsedLink, cfg.download.file);
     })
     .then(function () {
-      return disk.unzip(cfg.download.file, /widode.xlsx/, cfg.process.xlsx);
+      return disk.unzip(cfg.download.file, cfg.download.zipFiles);
     })
     .then(function () {
       log.timeEnd("ATC", "Download");
       log.time("ATC", "Read Files");
-      return readXLSX(cfg.process.xlsx);
+      return readXLSX(cfg.download.zipFiles[0].dest);
     })
     .then(function (atcDE) {
       log.debug("ATC", "Modify Codes");
