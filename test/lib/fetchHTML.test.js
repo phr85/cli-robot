@@ -13,7 +13,7 @@ describe("fetchHTML", function () {
     request = require("superagent");
     config = require("../sa-mocks/fetchHTML.sa-mock");
     url = "https://fetch.html.success.test";
-    ref = fs.readFileSync(path.resolve(__dirname, "../fixtures/www.swissmedic.ch.html"), {encoding: "utf8"});
+    ref = fs.readFileSync(path.resolve(__dirname, "../../fixtures/swissmedic/index.html"), {encoding: "utf8"});
 
     require("superagent-mock")(request, config);
   });
@@ -28,7 +28,7 @@ describe("fetchHTML", function () {
         fetchHTML(url).then(function (html) {
           expect(html).to.equal(ref);
           done();
-        })
+        });
       });
     });
   });

@@ -5,7 +5,7 @@ var path = require("path");
 
 var rmdir = require("rmdir");
 
-var server = require('./server');
+var server = require('./../fixtures/server');
 
 function cleanUp(done) {
   var cleanPath = path.resolve(__dirname, "./tmp");

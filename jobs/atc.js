@@ -6,6 +6,7 @@ var swissmedicCfg = require("./swissmedic").cfg;
 var cfg = {
   "download": {
     "url": "http://wido.de/amtl_atc-code.html",
+    "linkParser": /href="(.*atc.*\.zip)"/igm,
     "dir": path.resolve(__dirname, "../data/auto/"),
     "file": path.resolve(__dirname, "../data/auto/atc.zip")
   },
@@ -71,7 +72,7 @@ function atc(done) {
     .then(function (html) {
       log.timeEnd("ATC", "Get HTML");
       log.time("ATC", "Parse Link");
-      return parseLink(cfg.download.url, html, /href="(.*atc.*\.zip)"/igm);
+      return parseLink(cfg.download.url, html, cfg.download.linkParser);
     })
     .then(function (parsedLink) {
       log.timeEnd("ATC", "Parse Link");

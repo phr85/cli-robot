@@ -5,10 +5,11 @@ var fs = require("fs");
 
 var rewire = require("rewire");
 var shasum = require("shasum");
+var merge = require("merge");
 var xlsx = require("xlsx");
 var expect = require("chai").expect;
 
-var server = require("../server");
+var server = require("../../fixtures/server");
 var disk = require("../../lib/disk");
 
 describe("job: ATC", function () {
@@ -42,7 +43,7 @@ describe("job: ATC", function () {
 
   before(function (done) {
     job = rewire("../../jobs/atc");
-    job.__set__("cfg", test.cfg);
+    job.__set__("cfg", merge.recursive(require("../../jobs/atc").cfg, test.cfg));
     job(done);
   });
 
@@ -56,7 +57,7 @@ describe("job: ATC", function () {
     describe("DE", function () {
       describe("JSON", function () {
         it("should have build a proper JSON-file", function () {
-          var fixture = require("../fixtures/atc/atc.json");
+          var fixture = require("../../fixtures/atc/atc.json");
           var jsonBuild = require(test.cfg.process.atcDe);
 
           expect(shasum(jsonBuild)).to.equal(shasum(fixture));
@@ -65,7 +66,7 @@ describe("job: ATC", function () {
 
       describe("JSON-Min", function () {
         it("should have build a proper minified JSON-file", function () {
-          var fixture = require("../fixtures/atc/atc.min.json");
+          var fixture = require("../../fixtures/atc/atc.min.json");
           var jsonMinBuild = require(test.cfg.process.atcDeMin);
 
           expect(shasum(jsonMinBuild)).to.equal(shasum(fixture));
@@ -75,7 +76,7 @@ describe("job: ATC", function () {
         it("should release a proper CSV-File", function (done) {
           Promise
             .all([
-              disk.read.csv(path.resolve(__dirname, "../fixtures/atc/atc.csv")),
+              disk.read.csv(path.resolve(__dirname, "../../fixtures/atc/atc.csv")),
               disk.read.csv(test.cfg.process.csv)
             ])
             .then(function (csvs) {
@@ -93,7 +94,7 @@ describe("job: ATC", function () {
     describe("DE-CH", function () {
       describe("JSON", function () {
         it("should have build a proper JSON-file", function () {
-          var fixture = require("../fixtures/atc/atc_de-ch.json");
+          var fixture = require("../../fixtures/atc/atc_de-ch.json");
           var jsonBuild = require(test.cfg.process.atcCh);
 
           expect(shasum(jsonBuild)).to.equal(shasum(fixture));
@@ -102,7 +103,7 @@ describe("job: ATC", function () {
 
       describe("JSON-Min", function () {
         it("should have build a proper minified JSON-file", function () {
-          var fixture = require("../fixtures/atc/atc_de-ch.min.json");
+          var fixture = require("../../fixtures/atc/atc_de-ch.min.json");
           var jsonMinBuild = require(test.cfg.process.atcChMin);
 
           expect(shasum(jsonMinBuild)).to.equal(shasum(fixture));

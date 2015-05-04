@@ -17,15 +17,15 @@ var atcDownloadPath =
   url.parse("http://www.wido.de/fileadmin/wido/downloads/pdf_arzneimittel/atc/wido_arz_amtl_atc-index_1214.zip").path;
 var cfg = {
   "swissmedic": {
-    "xlsx": path.resolve(__dirname, "./fixtures/swissmedic/swissmedic.xlsx"),
-    "html": path.resolve(__dirname, "./fixtures/swissmedic/index.html"),
+    "xlsx": path.resolve(__dirname, "../fixtures/swissmedic/swissmedic.xlsx"),
+    "html": path.resolve(__dirname, "../fixtures/swissmedic/index.html"),
     "path": url.parse(swissmedic.cfg.download.url).path,
     "qs": { download: "NHzLpZeg7t,lnp6I0NTU042l2Z6ln1acy4Zn4Z2qZpnO2Yuq2Z6gpJCDdHx7hGym162epYbg2c_JjKbNoKSn6A--" }
   },
   "atc": {
-    "xlsx": path.resolve(__dirname, "./fixtures/atc/atc.xlsx"),
-    "zip": path.resolve(__dirname, "./fixtures/atc/atc.zip"),
-    "html": path.resolve(__dirname, "./fixtures/atc/amtl_atc-code.html"),
+    "xlsx": path.resolve(__dirname, "../fixtures/atc/atc.xlsx"),
+    "zip": path.resolve(__dirname, "../fixtures/atc/atc.zip"),
+    "html": path.resolve(__dirname, "../fixtures/atc/amtl_atc-code.html"),
     "path": url.parse(atc.cfg.download.url).path,
     "downloadPath": atcDownloadPath
   }

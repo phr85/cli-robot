@@ -4,10 +4,11 @@ var path = require("path");
 
 var rewire = require("rewire");
 var shasum = require("shasum");
+var merge = require("merge");
 var xlsx = require("xlsx");
 var expect = require("chai").expect;
 
-var server = require("../server");
+var server = require("../../fixtures/server");
 
 describe("job: siwssmedic", function () {
   var job, test;
@@ -24,7 +25,7 @@ describe("job: siwssmedic", function () {
         process: {
           dir: path.resolve(__dirname, "../../test_integration/tmp/data/release/swissmedic/"),
           file: path.resolve(__dirname, "../../test_integration/tmp/data/release/swissmedic/swissmedic.json"),
-          atcFile: path.resolve(__dirname, "../../test_integration/fixtures/swissmedic/atc.csv"),
+          atcFile: path.resolve(__dirname, "../../fixtures/swissmedic/atc.csv"),
           minFile: path.resolve(__dirname, "../../test_integration/tmp/data/release/swissmedic/swissmedic.min.json")
         }
       }
@@ -33,7 +34,7 @@ describe("job: siwssmedic", function () {
   // run job
   before(function (done) {
     job = rewire("../../jobs/swissmedic");
-    job.__set__("cfg", test.cfg);
+    job.__set__("cfg", merge.recursive(require("../../jobs/swissmedic").cfg, test.cfg));
     job(done);
   });
 
@@ -47,7 +48,7 @@ describe("job: siwssmedic", function () {
 
   describe("JSON Release", function () {
     it("should have build a proper JSON-file", function () {
-      var fixture = require("../fixtures/swissmedic/swissmedic.json");
+      var fixture = require("../../fixtures/swissmedic/swissmedic.json");
       var jsonBuild = require(path.resolve(__dirname, "../../", test.cfg.process.file));
 
       expect(jsonBuild).to.have.length(fixture.length);
@@ -57,7 +58,7 @@ describe("job: siwssmedic", function () {
 
   describe("JSON-Min Release", function () {
     it("should have build a proper minified JSON-file", function () {
-      var fixture = require("../fixtures/swissmedic/swissmedic.min.json");
+      var fixture = require("../../fixtures/swissmedic/swissmedic.min.json");
       var jsonMinBuild = require(path.resolve(__dirname, "../../", test.cfg.process.minFile));
 
       expect(jsonMinBuild).to.have.length(fixture.length);
