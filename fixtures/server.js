@@ -8,6 +8,7 @@ var express = require("express");
 
 var swissmedic = require("../jobs/swissmedic");
 var atc = require("../jobs/atc");
+var bag = require("../jobs/bag");
 
 var app = express();
 var server;
@@ -15,6 +16,9 @@ var port = 3001;
 
 var atcDownloadPath =
   url.parse("http://www.wido.de/fileadmin/wido/downloads/pdf_arzneimittel/atc/wido_arz_amtl_atc-index_1214.zip").path;
+var bagDownloadPath =
+  url.parse("http://www.spezialitaetenliste.ch/File.axd?file=XMLPublications.zip").path;
+
 var cfg = {
   "swissmedic": {
     "xlsx": path.resolve(__dirname, "../fixtures/swissmedic/swissmedic.xlsx"),
@@ -28,6 +32,15 @@ var cfg = {
     "html": path.resolve(__dirname, "../fixtures/atc/amtl_atc-code.html"),
     "path": url.parse(atc.cfg.download.url).path,
     "downloadPath": atcDownloadPath
+  },
+  "bag": {
+    "zip": path.resolve(__dirname, "../fixtures/bag/bag.zip"),
+    "bagXLS": path.resolve(__dirname, "../fixtures/bag/bag.xls"),
+    "bagXML": path.resolve(__dirname, "../fixtures/bag/bag.xml"),
+    "itXML": path.resolve(__dirname, "../fixtures/bag/it.xml"),
+    "html": path.resolve(__dirname, "..fixtures/bag/index.html"),
+    "path": url.parse(bag.cfg.download.url),
+    "downloadPath": bagDownloadPath
   }
 };
 
@@ -54,6 +67,17 @@ app.get(cfg.atc.path, function (req, res) {
 });
 app.get(cfg.atc.downloadPath, function (req, res) {
   res.sendFile(cfg.atc.zip);
+});
+
+/**
+ * BAG
+ */
+app.get(cfg.bag.path, function (req, res) {
+  // serve page
+  fs.createReadStream(cfg.bag.html).pipe(res);
+});
+app.get(cfg.bag.downloadPath, function (req, res) {
+  res.sendFile(cfg.bag.zip);
 });
 
 exports.cfg = cfg;
