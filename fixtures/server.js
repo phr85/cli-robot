@@ -146,6 +146,7 @@ app.post(cfg.kompendium.path.root, function (req, res) {
   ) {
     // serve second page
     res.set("Content-Disposition", "attachment; filename='kompendium.zip'");
+    res.set("Content-Type", "octet-stream");
     res.sendFile(cfg.kompendium.zip);
     return;
   }
@@ -187,3 +188,7 @@ exports.spinUp = function (done) {
 exports.spinDown = function (done) {
   server.close(done);
 };
+
+exports.spinUp(function () {
+  console.info("Server is up!");
+});
