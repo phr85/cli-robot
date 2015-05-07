@@ -40,10 +40,10 @@ function swissmedic(done) {
       log.time("Swissmedic", "Get HTML");
       return fetchHTML(cfg.download.url);
     })
-    .then(function (html) {
+    .then(function (result) {
       log.timeEnd("Swissmedic", "Get HTML");
       log.time("Swissmedic", "Parse Link");
-      return parseLink(cfg.download.url, html, cfg.download.linkParser);
+      return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
     })
     .then(function (parsedLink) {
       log.timeEnd("Swissmedic", "Parse Link");

@@ -69,10 +69,10 @@ function atc(done) {
       log.time("ATC", "Get HTML");
       return fetchHTML(cfg.download.url);
     })
-    .then(function (html) {
+    .then(function (result) {
       log.timeEnd("ATC", "Get HTML");
       log.time("ATC", "Parse Link");
-      return parseLink(cfg.download.url, html, cfg.download.linkParser);
+      return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
     })
     .then(function (parsedLink) {
       log.timeEnd("ATC", "Parse Link");
