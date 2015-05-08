@@ -11,7 +11,7 @@ var expect = require("chai").expect
 var server = require("../../fixtures/server");
 var disk = require("../../lib/disk");
 
-describe.only("job: Kompendium", function () {
+describe("job: Kompendium", function () {
   var job, test;
 
   before(function () {
@@ -40,7 +40,9 @@ describe.only("job: Kompendium", function () {
             "fi": path.resolve(__dirname, "../tmp/data/release/kompendium/it/fi"),
             "pi": path.resolve(__dirname, "../tmp/data/release/kompendium/it/pi")
           },
-          "catalog": path.resolve(__dirname, "../tmp/data/release/kompendium/catalog.json")
+          "catalog": path.resolve(__dirname, "../tmp/data/release/kompendium/catalog.json"),
+          "json": path.resolve(__dirname, "../tmp/data/release/kompendium/kompendium.json"),
+          "jsonMin": path.resolve(__dirname, "../tmp/data/release/kompendium/kompendium.min.json")
         }
       }
     };
@@ -50,7 +52,7 @@ describe.only("job: Kompendium", function () {
     this.timeout(240000);
 
     job = rewire("../../jobs/kompendium");
-    job.__set__("cfg", merge.recursive(job.cfg, test.cfg));
+    job.__set__("cfg", merge.recursive(require("../../jobs/kompendium").cfg, test.cfg));
     job(done);
   });
 
@@ -62,11 +64,37 @@ describe.only("job: Kompendium", function () {
     });
   });
 
-  describe("catalog.json", function () {
-    it("should build a proper catalog.json-file", function () {
-      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/kompendium/catalog.json")));
-      var build = shasum(fs.readFileSync(test.cfg.process.catalog));
-      expect(fixture).to.equal(build);
+  describe.only("Release", function () {
+    describe("catalog.json", function () {
+      it("should build a proper catalog.json-file", function () {
+        var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/kompendium/catalog.json")));
+        var build = shasum(fs.readFileSync(test.cfg.process.catalog));
+        expect(fixture).to.equal(build);
+      });
+    });
+
+    describe("JSON", function () {
+      it("should have build a proper JSON-file", function () {
+        var fixture = require("../../fixtures/kompendium/kompendium.json");
+        var build = require(test.cfg.process.json);
+
+        delete fixture.version;
+        delete build.version;
+
+        expect(shasum(fixture)).to.equal(shasum(build));
+      });
+    });
+
+    describe("JSON-Min", function () {
+      it("should have build a proper minified JSON-file", function () {
+        var fixture = require("../../fixtures/kompendium/kompendium.min.json");
+        var minBuild = require(test.cfg.process.jsonMin);
+
+        delete fixture.version;
+        delete minBuild.version;
+
+        expect(shasum(fixture)).to.equal(shasum(minBuild));
+      });
     });
   });
 });

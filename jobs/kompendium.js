@@ -39,7 +39,9 @@ var cfg = {
       "fi": path.resolve(__dirname, "../data/release/kompendium/it/fi"),
       "pi": path.resolve(__dirname, "../data/release/kompendium/it/pi")
     },
-    "catalog": path.resolve(__dirname, "../data/release/kompendium/catalog.json")
+    "catalog": path.resolve(__dirname, "../data/release/kompendium/catalog.json"),
+    "json": path.resolve(__dirname, "../data/release/kompendium/kompendium.json"),
+    "jsonMin": path.resolve(__dirname, "../data/release/kompendium/kompendium.min.json")
   }
 };
 
@@ -69,24 +71,34 @@ function kompendium(done) {
       return fetchHTML(cfg.download.url);
     })
     .then(function (result) {
-      // @TODO improve progress renderer
+      // @TODO Improve and reuse progress renderer
       return startDownload(result, cfg.download.zip, function (progress) {
-        console.log(progress.percentage);
+        log.doing("Kompendium", "Download", progress.percentage);
       });
     })
     .then(function () {
       log.timeEnd("Kompendium","Download");
       log.time("Kompendium", "Unzip");
-      // @TODO add progress renderer
-      return disk.unzip(cfg.download.zip, cfg.download.zipFiles);
+      // @TODO Improve and reuse progress renderer
+      return disk.unzip(cfg.download.zip, cfg.download.zipFiles, function (progress) {
+        log.doing("Kompendium", "Unzip", progress.percentage);
+      });
     })
     .then(function () {
       log.timeEnd("Kompendium", "Unzip");
       log.time("Kompendium", "Parse");
       return parseKompendium(cfg);
     })
-    .then(function () {
+    .then(function (parsedData) {
       log.timeEnd("Kompendium", "Parse");
+      log.time("Kompendium", "Write Files");
+      return Promise.all([
+        disk.write.json(cfg.process.json, parsedData),
+        disk.write.jsonMin(cfg.process.jsonMin, parsedData)
+      ]);
+    })
+    .then(function () {
+      log.timeEnd("Kompendium", "Write Files");
       log.timeEnd("Kompendium","Completed in");
       done(null);
     })
