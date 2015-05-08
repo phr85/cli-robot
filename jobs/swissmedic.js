@@ -7,7 +7,7 @@ var disk = require("../lib/disk");
 var fetchHTML = require("../lib/fetchHTML");
 var parseLink = require("../lib/parseLink");
 var downloadFile = require("../lib/downloadFile");
-var renderDownloadProgress = require("../lib/renderDownloadProgress");
+var renderProgress = require("../lib/renderProgress");
 var createATCCorrection = require("../lib/swissmedic/createATCCorrection");
 var correctXLSX = require("../lib/swissmedic/correctXLSX");
 var readXLSX = require("../lib/swissmedic/readXLSX");
@@ -49,7 +49,7 @@ function swissmedic(done) {
     .then(function (parsedLink) {
       log.timeEnd("Swissmedic", "Parse Link");
       log.time("Swissmedic", "Download");
-      return downloadFile(parsedLink, cfg.download.file, renderDownloadProgress("Swissmedic", "Download"));
+      return downloadFile(parsedLink, cfg.download.file, renderProgress("Swissmedic", "Download"));
     })
     //@TODO resolve dependencies, in this case atc.csv must be present
     .then(function () {

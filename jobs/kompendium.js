@@ -12,7 +12,7 @@ var disk = require("../lib/disk");
 var fetchHTML = require("../lib/fetchHTML");
 var acceptTermsOfUse = require("../lib/kompendium/acceptTermsOfUse");
 var startDownload = require("../lib/kompendium/startDownload");
-var renderDownloadProgress = require("../lib/renderDownloadProgress");
+var renderProgress = require("../lib/renderProgress");
 var parseKompendium = require("../lib/kompendium/parseKompendium");
 
 var cfg = {
@@ -71,15 +71,12 @@ function kompendium(done) {
       return fetchHTML(cfg.download.url);
     })
     .then(function (result) {
-      return startDownload(result, cfg.download.zip, renderDownloadProgress("Kompendium", "Download"));
+      return startDownload(result, cfg.download.zip, renderProgress("Kompendium", "Download"));
     })
     .then(function () {
       log.timeEnd("Kompendium","Download");
       log.time("Kompendium", "Unzip");
-      // @TODO Improve and reuse progress renderer
-      return disk.unzip(cfg.download.zip, cfg.download.zipFiles, function (progress) {
-        log.doing("Kompendium", "Unzip", progress.percentage);
-      });
+      return disk.unzip(cfg.download.zip, cfg.download.zipFiles, renderProgress("Kompendium", "Unzip"));
     })
     .then(function () {
       log.timeEnd("Kompendium", "Unzip");
