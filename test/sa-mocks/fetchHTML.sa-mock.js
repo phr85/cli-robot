@@ -8,7 +8,7 @@ module.exports = [{
   pattern: "https://fetch.html.success.test",
 
   fixtures: function () {
-    return fs.readFileSync(path.resolve(__dirname, "../../fixtures/swissmedic/index.html"), {encoding: "utf8"});
+    return fs.readFileSync(path.resolve(__dirname, "../../fixtures/html/swissmedic.html"), {encoding: "utf8"});
   },
 
   callback: function (match, html) {

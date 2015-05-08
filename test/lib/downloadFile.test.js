@@ -7,7 +7,7 @@ var expect = require("chai").expect;
 
 var fakeAgent = require("../mocks/agent");
 
-describe("downloadFile", function () {
+describe.skip("downloadFile", function () {
   var downloadFile, link, dest, errRef, resRef;
   var fsMock, saMock;
 

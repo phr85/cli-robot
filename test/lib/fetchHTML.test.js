@@ -18,7 +18,7 @@ describe("fetchHTML", function () {
     request = require("superagent");
     config = require("../sa-mocks/fetchHTML.sa-mock");
     url = "https://fetch.html.success.test";
-    ref = fs.readFileSync(path.resolve(__dirname, "../../fixtures/swissmedic/index.html"), {encoding: "utf8"});
+    ref = fs.readFileSync(path.resolve(__dirname, "../../fixtures/html/swissmedic.html"), {encoding: "utf8"});
 
     require("superagent-mock")(request, config);
   });
