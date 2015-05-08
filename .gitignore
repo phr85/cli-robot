@@ -1,5 +1,6 @@
 data/auto/*
 data/release/*
+test_integration/tmp/*
 
 node_modules/
 npm-debug.log

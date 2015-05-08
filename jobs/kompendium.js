@@ -17,8 +17,7 @@ var parseKompendium = require("../lib/kompendium/parseKompendium");
 
 var cfg = {
   "download": {
-    //"url": "http://download.swissmedicinfo.ch/",
-    "url": "http://localhost:3001/kompendium/",
+    "url": "http://download.swissmedicinfo.ch/",
     "dir": path.resolve(__dirname, "../data/auto"),
     "zip": path.resolve(__dirname, "../data/auto/kompendium.zip"),
     "xml": path.resolve(__dirname, "../data/auto/kompendium.xml"),
@@ -27,7 +26,7 @@ var cfg = {
     }]
   },
   "process": {
-    "dir": path.resolve(__dirname, "../data/release/kompendium"),
+    "dir": path.resolve(__dirname, "../data/release/kompendium/"),
     "de": {
       "fi": path.resolve(__dirname, "../data/release/kompendium/de/fi"),
       "pi": path.resolve(__dirname, "../data/release/kompendium/de/pi")
@@ -39,7 +38,8 @@ var cfg = {
     "it": {
       "fi": path.resolve(__dirname, "../data/release/kompendium/it/fi"),
       "pi": path.resolve(__dirname, "../data/release/kompendium/it/pi")
-    }
+    },
+    "catalog": path.resolve(__dirname, "../data/release/kompendium/catalog.json")
   }
 };
 
@@ -83,7 +83,7 @@ function kompendium(done) {
     .then(function () {
       log.timeEnd("Kompendium", "Unzip");
       log.time("Kompendium", "Parse");
-      return parseKompendium(cfg.download.zipFiles[0].dest);
+      return parseKompendium(cfg);
     })
     .then(function () {
       log.timeEnd("Kompendium", "Parse");

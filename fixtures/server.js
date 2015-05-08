@@ -55,6 +55,8 @@ var cfg = {
   },
   "kompendium": {
     "zip": path.resolve(__dirname, "../fixtures/kompendium/kompendium.zip"),
+    "xml": path.resolve(__dirname, "../fixtures/kompendium/kompendium.xml"),
+    "json": path.resolve(__dirname, "../fixtures/kompendium/catalog.json"),
     "html": {
       "termsofuse": path.resolve(__dirname, "../fixtures/kompendium/termsofuse.html"),
       "warning": path.resolve(__dirname, "../fixtures/kompendium/warning.html")
@@ -188,7 +190,3 @@ exports.spinUp = function (done) {
 exports.spinDown = function (done) {
   server.close(done);
 };
-
-exports.spinUp(function () {
-  console.info("Server is up!");
-});
