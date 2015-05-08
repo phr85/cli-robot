@@ -39,5 +39,6 @@ bot.swissmedic( function() {
 
 #### `npm run test-integration`
 
+0. Run `npm run init-test-integration` which will download fresh data to `{ROOT}/data/auto` & `{ROOT}/data/release` and copies it to `{ROOT}/fixtures` to use it at fixtures
 1. Spins up a real node http-server that serves atc, swissmedic etc. dummy sites and downloads.
-2. It runs each job (currently atc, swissmedic) against the server and tests the whole flow from html parsing to creating release files.
+2. It runs each job against the integration-testing-server and tests the whole flow from html parsing to creating release files.
