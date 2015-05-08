@@ -35,6 +35,7 @@ var disk = require("../lib/disk");
 var fetchHTML  = require("../lib/fetchHTML");
 var parseLink = require("../lib/parseLink");
 var downloadFile = require("../lib/downloadFile");
+var renderDownloadProgress = require("../lib/renderDownloadProgress");
 var parseBAGXML = require("../lib/bag/parseBAGXML");
 var parseITCodes = require('../lib/bag/parseITCodes');
 
@@ -60,7 +61,7 @@ function bag(done) {
     .then(function (parsedLink) {
       log.timeEnd("BAG", "Parse Link");
       log.time("BAG", "Download");
-      return downloadFile(parsedLink, cfg.download.zip);
+      return downloadFile(parsedLink, cfg.download.zip, renderDownloadProgress("BAG", "Download"));
     })
     .then(function () {
       log.timeEnd("BAG", "Download");

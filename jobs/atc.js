@@ -31,6 +31,7 @@ var disk = require("../lib/disk");
 var fetchHTML = require("../lib/fetchHTML");
 var parseLink = require("../lib/parseLink");
 var downloadFile = require("../lib/downloadFile");
+var renderDownloadProgress = require("../lib/renderDownloadProgress");
 var readXLSX = require("../lib/atc/readXLSX");
 var addCodes = require("../lib/atc/addCodes");
 var modifyCodes = require("../lib/atc/modifyCodes");
@@ -77,7 +78,7 @@ function atc(done) {
     .then(function (parsedLink) {
       log.timeEnd("ATC", "Parse Link");
       log.time("ATC", "Download");
-      return downloadFile(parsedLink, cfg.download.file);
+      return downloadFile(parsedLink, cfg.download.file, renderDownloadProgress("ATC", "Download"));
     })
     .then(function () {
       return disk.unzip(cfg.download.file, cfg.download.zipFiles);
