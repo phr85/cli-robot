@@ -47,7 +47,7 @@ function swissmedic(done) {
     })
     .then(function (parsedLink) {
       log.timeEnd("Swissmedic", "Parse Link");
-      log.time("Siwssmedic", "Download");
+      log.time("Swissmedic", "Download");
       return downloadFile(parsedLink, cfg.download.file);
     })
     //@TODO resolve dependencies, in this case atc.csv must be present
@@ -62,10 +62,10 @@ function swissmedic(done) {
     .then(function (parsedXLSX) {
       log.timeEnd("Swissmedic", "Read Files");
       log.time("Swissmedic", "Write Files");
-      return disk.write.json(cfg.process.file, parsedXLSX);
-    })
-    .then(function (parsedXLSX) {
-      return disk.write.jsonMin(cfg.process.minFile, parsedXLSX);
+      return Promise.all([
+        disk.write.json(cfg.process.file, parsedXLSX),
+        disk.write.jsonMin(cfg.process.minFile, parsedXLSX)
+      ]);
     })
     .then(function () {
       log.time("Swissmedic", "Write Files");
