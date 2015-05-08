@@ -32,34 +32,32 @@ var bagDownloadPath =
 //@TODO: Prefix urls/path with job-name like already @kompendium done
 var cfg = {
   "swissmedic": {
-    "xlsx": path.resolve(__dirname, "../fixtures/swissmedic/swissmedic.xlsx"),
-    "html": path.resolve(__dirname, "../fixtures/swissmedic/index.html"),
+    "xlsx": path.resolve(__dirname, "../fixtures/auto/swissmedic.xlsx"),
+    "html": path.resolve(__dirname, "../fixtures/html/swissmedic.html"),
     "path": url.parse(swissmedic.cfg.download.url).path,
     "qs": { download: "NHzLpZeg7t,lnp6I0NTU042l2Z6ln1acy4Zn4Z2qZpnO2Yuq2Z6gpJCDdHx7hGym162epYbg2c_JjKbNoKSn6A--" }
   },
   "atc": {
-    "xlsx": path.resolve(__dirname, "../fixtures/atc/atc.xlsx"),
-    "zip": path.resolve(__dirname, "../fixtures/atc/atc.zip"),
-    "html": path.resolve(__dirname, "../fixtures/atc/amtl_atc-code.html"),
+    "zip": path.resolve(__dirname, "../fixtures/auto/atc.zip"),
+    "html": path.resolve(__dirname, "../fixtures/html/atc.html"),
     "path": url.parse(atc.cfg.download.url).path,
     "downloadPath": atcDownloadPath
   },
   "bag": {
-    "zip": path.resolve(__dirname, "../fixtures/bag/bag.zip"),
-    "bagXLS": path.resolve(__dirname, "../fixtures/bag/bag.xls"),
-    "bagXML": path.resolve(__dirname, "../fixtures/bag/bag.xml"),
-    "itXML": path.resolve(__dirname, "../fixtures/bag/it.xml"),
-    "html": path.resolve(__dirname, "..fixtures/bag/index.html"),
+    "zip": path.resolve(__dirname, "../fixtures/auto/XMLPublications.zip"),
+    "bagXLS": path.resolve(__dirname, "../fixtures/auto/bag.xls"),
+    "bagXML": path.resolve(__dirname, "../fixtures/auto/bag.xml"),
+    "itXML": path.resolve(__dirname, "../fixtures/auto/it.xml"),
+    "html": path.resolve(__dirname, "..fixtures/html/bag.html"),
     "path": url.parse(bag.cfg.download.url),
     "downloadPath": bagDownloadPath
   },
   "kompendium": {
-    "zip": path.resolve(__dirname, "../fixtures/kompendium/kompendium.zip"),
-    "xml": path.resolve(__dirname, "../fixtures/kompendium/kompendium.xml"),
-    "json": path.resolve(__dirname, "../fixtures/kompendium/catalog.json"),
+    "zip": path.resolve(__dirname, "../fixtures/auto/kompendium.zip"),
+    "xml": path.resolve(__dirname, "../fixtures/auto/kompendium.xml"),
     "html": {
-      "termsofuse": path.resolve(__dirname, "../fixtures/kompendium/termsofuse.html"),
-      "warning": path.resolve(__dirname, "../fixtures/kompendium/warning.html")
+      "termsofuse": path.resolve(__dirname, "../fixtures/html/kompendium1.html"),
+      "warning": path.resolve(__dirname, "../fixtures/html/kompendium2.html")
     },
     "path": {
       "root": "/kompendium/",

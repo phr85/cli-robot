@@ -23,7 +23,7 @@ describe("job: Kompendium", function () {
           "zip": path.resolve(__dirname, "../tmp/data/auto/kompendium.zip"),
           "xml": path.resolve(__dirname, "../tmp/data/auto/kompendium.xml"),
           "zipFiles": [{
-            name: /.xml/, dest: path.resolve(__dirname, "../../test_integration/tmp/data/auto/kompendium.xml")
+            name: /.xml/, dest: path.resolve(__dirname, "../tmp/data/auto/kompendium.xml")
           }]
         },
         "process": {
@@ -64,10 +64,10 @@ describe("job: Kompendium", function () {
     });
   });
 
-  describe.only("Release", function () {
+  describe("Release", function () {
     describe("catalog.json", function () {
       it("should build a proper catalog.json-file", function () {
-        var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/kompendium/catalog.json")));
+        var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/release/kompendium/catalog.json")));
         var build = shasum(fs.readFileSync(test.cfg.process.catalog));
         expect(fixture).to.equal(build);
       });
@@ -75,7 +75,7 @@ describe("job: Kompendium", function () {
 
     describe("JSON", function () {
       it("should have build a proper JSON-file", function () {
-        var fixture = require("../../fixtures/kompendium/kompendium.json");
+        var fixture = require("../../fixtures/release/kompendium/kompendium.json");
         var build = require(test.cfg.process.json);
 
         delete fixture.version;
@@ -87,7 +87,7 @@ describe("job: Kompendium", function () {
 
     describe("JSON-Min", function () {
       it("should have build a proper minified JSON-file", function () {
-        var fixture = require("../../fixtures/kompendium/kompendium.min.json");
+        var fixture = require("../../fixtures/release/kompendium/kompendium.min.json");
         var minBuild = require(test.cfg.process.jsonMin);
 
         delete fixture.version;

@@ -49,21 +49,21 @@ describe("job: BAG", function () {
   describe("download and unzip", function () {
 
     it("should have unzipped bag.xls", function () {
-      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/bag/bag.xml"), {encoding: "utf8"}));
+      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/auto/bag.xml"), {encoding: "utf8"}));
       var download = shasum(fs.readFileSync(test.cfg.download.zipFiles[0].dest, {encoding: "utf8"}));
 
       expect(fixture).to.equal(download);
     });
 
     it("should have unzipped bag.xml", function () {
-      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/bag/bag.xls"), {encoding: "utf8"}));
+      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/auto/bag.xls"), {encoding: "utf8"}));
       var download = shasum(fs.readFileSync(test.cfg.download.zipFiles[1].dest, {encoding: "utf8"}));
 
       expect(fixture).to.equal(download);
     });
 
     it("should have unzipped it.xml", function () {
-      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/bag/it.xml"), {encoding: "utf8"}));
+      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/auto/it.xml"), {encoding: "utf8"}));
       var download = shasum(fs.readFileSync(test.cfg.download.zipFiles[2].dest, {encoding: "utf8"}));
 
       expect(fixture).to.equal(download);
@@ -74,7 +74,7 @@ describe("job: BAG", function () {
     describe("BAG", function () {
       describe("JSON", function () {
         it("should have build a proper JSON-file", function () {
-          var fixture = shasum(require("../../fixtures/bag/bag.json"));
+          var fixture = shasum(require("../../fixtures/release/bag/bag.json"));
           var jsonBuild = shasum(require(test.cfg.process.bag));
 
           expect(jsonBuild).to.equal(fixture);
@@ -83,7 +83,7 @@ describe("job: BAG", function () {
 
       describe("JSON-Min", function () {
         it("should have build a proper minified JSON-file", function () {
-          var fixture = shasum(require("../../fixtures/bag/bag.min.json"));
+          var fixture = shasum(require("../../fixtures/release/bag/bag.min.json"));
           var jsonMinBuild = shasum(require(test.cfg.process.bagMin));
 
           expect(jsonMinBuild).to.equal(fixture);
@@ -94,7 +94,7 @@ describe("job: BAG", function () {
     describe("IT", function () {
       describe("JSON", function () {
         it("should have build a proper JSON-file", function () {
-          var fixture = shasum(require("../../fixtures/bag/it.json"));
+          var fixture = shasum(require("../../fixtures/release/bag/it.json"));
           var jsonBuild = shasum(require(test.cfg.process.it));
 
           expect(jsonBuild).to.equal(fixture);
@@ -103,7 +103,7 @@ describe("job: BAG", function () {
 
       describe("JSON-Min", function () {
         it("should have build a proper minified JSON-file", function () {
-          var fixture = shasum(require("../../fixtures/bag/it.min.json"));
+          var fixture = shasum(require("../../fixtures/release/bag/it.min.json"));
           var jsonMinBuild = shasum(require(test.cfg.process.itMin));
 
           expect(jsonMinBuild).to.equal(fixture);

@@ -20,24 +20,24 @@ describe("job: ATC", function () {
       cfg: {
         "download": {
           "url": "http://localhost:" + server.port + "/amtl_atc-code.html",
-          "dir": path.resolve(__dirname, "../../test_integration/tmp/data/auto"),
-          "file": path.resolve(__dirname, "../../test_integration/tmp/data/auto/atc.zip"),
+          "dir": path.resolve(__dirname, "../tmp/data/auto"),
+          "file": path.resolve(__dirname, "../tmp/data/auto/atc.zip"),
           "zipFiles": [{
-            name: /widode.xlsx/, dest: path.resolve(__dirname, "../../test_integration/tmp/data/auto/atc.xlsx")
+            name: /widode.xlsx/, dest: path.resolve(__dirname, "../tmp/data/auto/atc.xlsx")
           }]
         },
         "manual": {
-          "addFile": path.resolve(__dirname, "../../data/manual/atc/add.csv"),
-          "capitalizeFile": path.resolve(__dirname, "../../data/manual/atc/capitalize.csv"),
-          "changeFile": path.resolve(__dirname, "../../data/manual/atc/change.csv")
+          "addFile": path.resolve(__dirname, "../../fixtures/manual/atc/add.csv"),
+          "capitalizeFile": path.resolve(__dirname, "../../fixtures/manual/atc/capitalize.csv"),
+          "changeFile": path.resolve(__dirname, "../../fixtures/manual/atc/change.csv")
         },
         "process": {
-          "dir": path.resolve(__dirname, "../../test_integration/tmp/data/release/atc"),
-          "atcDe": path.resolve(__dirname, "../../test_integration/tmp/data/release/atc/atc.json"),
-          "atcDeMin": path.resolve(__dirname, "../../test_integration/tmp/data/release/atc/atc.min.json"),
-          "atcCh": path.resolve(__dirname, "../../test_integration/tmp/data/release/atc/atc_de-ch.json"),
-          "atcChMin": path.resolve(__dirname, "../../test_integration/tmp/data/release/atc/atc_de-ch.min.json"),
-          "csv": path.resolve(__dirname, "../../test_integration/tmp/data/release/atc/atc.csv")
+          "dir": path.resolve(__dirname, "../tmp/data/release/atc"),
+          "atcDe": path.resolve(__dirname, "../tmp/data/release/atc/atc.json"),
+          "atcDeMin": path.resolve(__dirname, "../tmp/data/release/atc/atc.min.json"),
+          "atcCh": path.resolve(__dirname, "../tmp/data/release/atc/atc_de-ch.json"),
+          "atcChMin": path.resolve(__dirname, "../tmp/data/release/atc/atc_de-ch.min.json"),
+          "csv": path.resolve(__dirname, "../tmp/data/release/atc/atc.csv")
         }
       }
     };
@@ -51,7 +51,7 @@ describe("job: ATC", function () {
 
   describe("Zip download and unzip XLSX", function () {
     it("should download ZIP-File and unzip it to atc.xlsx", function () {
-      var fixture = shasum(xlsx.readFile(server.cfg.atc.xlsx));
+      var fixture = shasum(xlsx.readFile(path.resolve(__dirname, "../../fixtures/auto/atc.xlsx")));
       var download = shasum(xlsx.readFile(test.cfg.download.zipFiles[0].dest));
       expect(fixture).to.equal(download);
     });
@@ -61,7 +61,7 @@ describe("job: ATC", function () {
     describe("DE", function () {
       describe("JSON", function () {
         it("should have build a proper JSON-file", function () {
-          var fixture = require("../../fixtures/atc/atc.json");
+          var fixture = require("../../fixtures/release/atc/atc.json");
           var jsonBuild = require(test.cfg.process.atcDe);
 
           expect(shasum(jsonBuild)).to.equal(shasum(fixture));
@@ -70,7 +70,7 @@ describe("job: ATC", function () {
 
       describe("JSON-Min", function () {
         it("should have build a proper minified JSON-file", function () {
-          var fixture = require("../../fixtures/atc/atc.min.json");
+          var fixture = require("../../fixtures/release/atc/atc.min.json");
           var jsonMinBuild = require(test.cfg.process.atcDeMin);
 
           expect(shasum(jsonMinBuild)).to.equal(shasum(fixture));
@@ -80,7 +80,7 @@ describe("job: ATC", function () {
         it("should release a proper CSV-File", function (done) {
           Promise
             .all([
-              disk.read.csv(path.resolve(__dirname, "../../fixtures/atc/atc.csv")),
+              disk.read.csv(path.resolve(__dirname, "../../fixtures/release/atc/atc.csv")),
               disk.read.csv(test.cfg.process.csv)
             ])
             .then(function (csvs) {
@@ -98,7 +98,7 @@ describe("job: ATC", function () {
     describe("DE-CH", function () {
       describe("JSON", function () {
         it("should have build a proper JSON-file", function () {
-          var fixture = require("../../fixtures/atc/atc_de-ch.json");
+          var fixture = require("../../fixtures/release/atc/atc_de-ch.json");
           var jsonBuild = require(test.cfg.process.atcCh);
 
           expect(shasum(jsonBuild)).to.equal(shasum(fixture));
@@ -107,7 +107,7 @@ describe("job: ATC", function () {
 
       describe("JSON-Min", function () {
         it("should have build a proper minified JSON-file", function () {
-          var fixture = require("../../fixtures/atc/atc_de-ch.min.json");
+          var fixture = require("../../fixtures/release/atc/atc_de-ch.min.json");
           var jsonMinBuild = require(test.cfg.process.atcChMin);
 
           expect(shasum(jsonMinBuild)).to.equal(shasum(fixture));
