@@ -38,30 +38,35 @@ function swissmedic(done) {
 
   disk.ensureDir(cfg.download.dir, cfg.process.dir)
     .then(function () {
-      log.time("Swissmedic", "Get HTML");
+      log.time("Swissmedic", "Go to");
+      log.debug("Swissmedic", "Go to " + cfg.download.url);
       return fetchHTML(cfg.download.url);
     })
     .then(function (result) {
-      log.timeEnd("Swissmedic", "Get HTML");
+      log.timeEnd("Swissmedic", "Go to");
       log.time("Swissmedic", "Parse Link");
       return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
     })
     .then(function (parsedLink) {
       log.timeEnd("Swissmedic", "Parse Link");
+      log.debug("Swissmedic", "Parsed Link: " + parsedLink);
+      log.debug("Swissmdeic", "Start Download");
       log.time("Swissmedic", "Download");
       return downloadFile(parsedLink, cfg.download.file, renderProgress("Swissmedic", "Download"));
     })
     //@TODO resolve dependencies, in this case atc.csv must be present
     .then(function () {
       log.timeEnd("Swissmedic", "Download");
-      log.time("Swissmedic", "Read Files");
+      log.debug("Swissmedic", "Process Files");
+      log.time("Swissmedic", "Process Files");
       return createATCCorrection(cfg.process.atcFile);
     })
     .then(function (atcCorrection) {
       return readXLSX(cfg.download.file, correctXLSX.setATCCorrection(atcCorrection));
     })
     .then(function (parsedXLSX) {
-      log.timeEnd("Swissmedic", "Read Files");
+      log.timeEnd("Swissmedic", "Process Files");
+      log.debug("Swissmedic", "Write Processed Files");
       log.time("Swissmedic", "Write Files");
       return Promise.all([
         disk.write.json(cfg.process.file, parsedXLSX),
@@ -70,6 +75,7 @@ function swissmedic(done) {
     })
     .then(function () {
       log.time("Swissmedic", "Write Files");
+      log.debug("Swissmedic", "Done");
       log.timeEnd("Swissmedic", "Completed in");
       done(null);
     })

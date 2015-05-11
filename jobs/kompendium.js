@@ -60,31 +60,44 @@ function kompendium(done) {
     cfg.process.it.fi, cfg.process.it.pi
   )
     .then(function () {
-      log.time("Kompendium","Download");
+      log.debug("Kompendium", "Go to " + cfg.download.url);
+      log.time("Kompendium", "Fetch HTML 1");
       // set persistent agent which stores cookies
       return fetchHTML.setAgent(request.agent())(cfg.download.url);
     })
     .then(function (result) {
+      log.timeEnd("Kompendium", "Go to");
+      log.debug("Kompendium", "Accept Terms Of Use");
+      log.time("Kompendium", "Accept Terms Of Use");
       return acceptTermsOfUse(result);
     })
     .then(function () {
+      log.timeEnd("Kompendium", "Accept Terms Of Use");
+      log.debug("Kompendium", "Re-visit " + cfg.download.url);
+      log.time("Kompendium", "Re-visit");
       return fetchHTML(cfg.download.url);
     })
     .then(function (result) {
+      log.timeEnd("Kompendium", "Re-visit");
+      log.debug("Kompendium", "Start Download");
+      log.time("Kompendium", "Download");
       return startDownload(result, cfg.download.zip, renderProgress("Kompendium", "Download"));
     })
     .then(function () {
-      log.timeEnd("Kompendium","Download");
+      log.timeEnd("Kompendium", "Download");
+      log.debug("Kompendium", "Unzip");
       log.time("Kompendium", "Unzip");
       return disk.unzip(cfg.download.zip, cfg.download.zipFiles, renderProgress("Kompendium", "Unzip"));
     })
     .then(function () {
       log.timeEnd("Kompendium", "Unzip");
-      log.time("Kompendium", "Parse");
+      log.debug("Kompendium", "Process Files");
+      log.time("Kompendium", "Process Files");
       return parseKompendium(cfg);
     })
     .then(function (parsedData) {
-      log.timeEnd("Kompendium", "Parse");
+      log.timeEnd("Kompendium", "Process Files");
+      log.debug("Kompendium", "Write Processed Files");
       log.time("Kompendium", "Write Files");
       return Promise.all([
         disk.write.json(cfg.process.json, parsedData),
@@ -92,8 +105,9 @@ function kompendium(done) {
       ]);
     })
     .then(function () {
-      log.timeEnd("Kompendium", "Write Files");
-      log.timeEnd("Kompendium","Completed in");
+      log.timeEnd("Kompendium", "Write Processed Files");
+      log.debug("Kompendium", "Done");
+      log.timeEnd("Kompendium", "Completed in");
       done(null);
     })
     .catch(function (err) {

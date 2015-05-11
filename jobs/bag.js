@@ -50,27 +50,32 @@ function bag(done) {
 
   disk.ensureDir(cfg.download.dir, cfg.process.dir)
     .then(function () {
-      log.time("BAG", "Get HTML");
+      log.debug("BAG", "Go to " + cfg.download.url);
+      log.time("BAG", "Go to");
       return fetchHTML(cfg.download.url);
     })
     .then(function (result) {
-      log.timeEnd("BAG", "Get HTML");
+      log.timeEnd("BAG", "Go to");
+      log.debug("BAG", "Parse Link");
       log.time("BAG", "Parse Link");
       return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
     })
     .then(function (parsedLink) {
       log.timeEnd("BAG", "Parse Link");
+      log.debug("BAG", "Parsed Link: " + parsedLink);
       log.time("BAG", "Download");
       return downloadFile(parsedLink, cfg.download.zip, renderProgress("BAG", "Download"));
     })
     .then(function () {
       log.timeEnd("BAG", "Download");
+      log.debug("BAG", "Unzip");
       log.time("BAG", "Unzip");
       return disk.unzip(cfg.download.zip, cfg.download.zipFiles, renderProgress("ATC", "Unzip"));
     })
     .then(function () {
       log.timeEnd("BAG", "Unzip");
-      log.time("BAG", "Parse");
+      log.debug("BAG", "Process Files");
+      log.time("BAG", "Process Files");
 
       return Promise.all([
         parseBAGXML(cfg.download.zipFiles[0].dest),
@@ -81,8 +86,9 @@ function bag(done) {
       var bag = parsedData[0];
       var it = parsedData[1];
 
-      log.timeEnd("BAG", "Parse");
-      log.time("BAG", "Write files");
+      log.timeEnd("BAG", "Process Files");
+      log.debug("BAG", "Write Processed Files");
+      log.time("BAG", "Write Processed Files");
 
       return Promise.all([
         disk.write.json(cfg.process.bag, bag),
@@ -92,7 +98,8 @@ function bag(done) {
       ]);
     })
     .then(function () {
-      log.timeEnd("BAG", "Write files");
+      log.timeEnd("BAG", "Write Processed Files");
+      log.debug("BAG", "Done");
       log.timeEnd("BAG", "Completed in");
       done(null);
     })

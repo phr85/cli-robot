@@ -67,25 +67,32 @@ function atc(done) {
       });
     })
     .then(function () {
-      log.time("ATC", "Get HTML");
+      log.debug("ATC", "Go to " + cfg.download.url);
+      log.time("ATC", "Go to");
       return fetchHTML(cfg.download.url);
     })
     .then(function (result) {
-      log.timeEnd("ATC", "Get HTML");
+      log.timeEnd("ATC", "Go to");
+      log.debug("ATC", "Parse Link");
       log.time("ATC", "Parse Link");
       return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
     })
     .then(function (parsedLink) {
       log.timeEnd("ATC", "Parse Link");
+      log.debug("ATC", "Start Download");
       log.time("ATC", "Download");
       return downloadFile(parsedLink, cfg.download.file, renderProgress("ATC", "Download"));
     })
     .then(function () {
+      log.timeEnd("ATC", "Download");
+      log.debug("ATC", "Unzip");
+      log.time("ATC", "Unzip");
       return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip"));
     })
     .then(function () {
-      log.timeEnd("ATC", "Download");
-      log.time("ATC", "Read Files");
+      log.timeEnd("ATC", "Unzip");
+      log.debug("ATC", "Process Files");
+      log.time("ATC", "Process Files");
       return readXLSX(cfg.download.zipFiles[0].dest);
     })
     .then(function (atcDE) {
@@ -115,7 +122,9 @@ function atc(done) {
       var atcDE = atc[0];
       var atcCH = atc[1];
 
-      log.debug("ATC", "Write files");
+      log.timeEnd("ATC", "Process Files");
+      log.debug("ATC", "Write Processed Files");
+      log.time("ATC", "Write Processed Files");
 
       return Promise.all([
         disk.write.json(cfg.process.atcDe, atcDE),
@@ -127,10 +136,14 @@ function atc(done) {
       });
     })
     .then(function (atcDE) {
-      log.debug("ATC", "Release csv");
+      log.time("ATC", "Write Processed Files");
+      log.debug("ATC", "Release CSV");
+      log.time("ATC", "Release CSV");
       return writeCSV(cfg.process.csv, atcDE);
     })
     .then(function () {
+      log.timeEnd("ATC", "Release CSV");
+      log.debug("ATC", "Done");
       log.time("ATC", "Completed in");
       done();
     })
