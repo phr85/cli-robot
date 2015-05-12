@@ -15,33 +15,34 @@ var startDownload = require("../lib/kompendium/startDownload");
 var renderProgress = require("../lib/renderProgress");
 var parseKompendium = require("../lib/kompendium/parseKompendium");
 
+var baseDir = process.cwd();
 var cfg = {
   "download": {
     "url": "http://download.swissmedicinfo.ch/",
-    "dir": path.resolve(__dirname, "../data/auto"),
-    "zip": path.resolve(__dirname, "../data/auto/kompendium.zip"),
-    "xml": path.resolve(__dirname, "../data/auto/kompendium.xml"),
+    "dir": path.resolve(baseDir, "../data/auto"),
+    "zip": path.resolve(baseDir, "../data/auto/kompendium.zip"),
+    "xml": path.resolve(baseDir, "../data/auto/kompendium.xml"),
     "zipFiles": [{
-      name: /.xml/, dest: path.resolve(__dirname, "../data/auto/kompendium.xml")
+      name: /.xml/, dest: path.resolve(baseDir, "../data/auto/kompendium.xml")
     }]
   },
   "process": {
-    "dir": path.resolve(__dirname, "../data/release/kompendium/"),
+    "dir": path.resolve(baseDir, "../data/release/kompendium/"),
     "de": {
-      "fi": path.resolve(__dirname, "../data/release/kompendium/de/fi"),
-      "pi": path.resolve(__dirname, "../data/release/kompendium/de/pi")
+      "fi": path.resolve(baseDir, "../data/release/kompendium/de/fi"),
+      "pi": path.resolve(baseDir, "../data/release/kompendium/de/pi")
     },
     "fr": {
-      "fi": path.resolve(__dirname, "../data/release/kompendium/fr/fi"),
-      "pi": path.resolve(__dirname, "../data/release/kompendium/fr/pi")
+      "fi": path.resolve(baseDir, "../data/release/kompendium/fr/fi"),
+      "pi": path.resolve(baseDir, "../data/release/kompendium/fr/pi")
     },
     "it": {
-      "fi": path.resolve(__dirname, "../data/release/kompendium/it/fi"),
-      "pi": path.resolve(__dirname, "../data/release/kompendium/it/pi")
+      "fi": path.resolve(baseDir, "../data/release/kompendium/it/fi"),
+      "pi": path.resolve(baseDir, "../data/release/kompendium/it/pi")
     },
-    "catalog": path.resolve(__dirname, "../data/release/kompendium/catalog.json"),
-    "json": path.resolve(__dirname, "../data/release/kompendium/kompendium.json"),
-    "jsonMin": path.resolve(__dirname, "../data/release/kompendium/kompendium.min.json")
+    "catalog": path.resolve(baseDir, "../data/release/kompendium/catalog.json"),
+    "json": path.resolve(baseDir, "../data/release/kompendium/kompendium.json"),
+    "jsonMin": path.resolve(baseDir, "../data/release/kompendium/kompendium.min.json")
   }
 };
 

@@ -6,26 +6,27 @@ var fs = require("fs");
 
 var path = require("path");
 
+var baseDir = process.cwd();
 var cfg = {
   "download": {
     "url": "http://www.spezialitaetenliste.ch/",
     "linkParser": /href="(.*)".*Publikation als XML-Dateien/g,
-    "dir": path.resolve(__dirname, "../data/auto"),
-    "zip": path.resolve(__dirname, "../data/auto/XMLPublications.zip"),
+    "dir": path.resolve(baseDir, "../data/auto"),
+    "zip": path.resolve(baseDir, "../data/auto/XMLPublications.zip"),
     "zipFiles": [{
-      name: /Preparations.xml/, dest: path.resolve(__dirname, "../data/auto/bag.xml")
+      name: /Preparations.xml/, dest: path.resolve(baseDir, "../data/auto/bag.xml")
     }, {
-      name: /Publications.xls/, dest: path.resolve(__dirname, "../data/auto/bag.xls")
+      name: /Publications.xls/, dest: path.resolve(baseDir, "../data/auto/bag.xls")
     }, {
-      name: /ItCodes.xml/, dest: path.resolve(__dirname, "../data/auto/it.xml")
+      name: /ItCodes.xml/, dest: path.resolve(baseDir, "../data/auto/it.xml")
     }]
   },
   "process": {
-    "dir": path.resolve(__dirname, "../data/release/bag"),
-    "bag": path.resolve(__dirname, "../data/release/bag/bag.json"),
-    "bagMin": path.resolve(__dirname, "../data/release/bag/bag.min.json"),
-    "it": path.resolve(__dirname, "../data/release/bag/it.json"),
-    "itMin": path.resolve(__dirname, "../data/release/bag/it.min.json")
+    "dir": path.resolve(baseDir, "../data/release/bag"),
+    "bag": path.resolve(baseDir, "../data/release/bag/bag.json"),
+    "bagMin": path.resolve(baseDir, "../data/release/bag/bag.min.json"),
+    "it": path.resolve(baseDir, "../data/release/bag/it.json"),
+    "itMin": path.resolve(baseDir, "../data/release/bag/it.min.json")
   }
 };
 

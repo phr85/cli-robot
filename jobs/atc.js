@@ -3,26 +3,27 @@
 var path = require("path");
 var swissmedicCfg = require("./swissmedic").cfg;
 
+var baseDir = process.cwd();
 var cfg = {
   "download": {
     "url": "http://wido.de/amtl_atc-code.html",
     "linkParser": /href="(.*atc.*\.zip)"/igm,
-    "dir": path.resolve(__dirname, "../data/auto/"),
-    "file": path.resolve(__dirname, "../data/auto/atc.zip"),
-    "zipFiles": [{name: /widode.xlsx/, dest: path.resolve(__dirname, "../data/auto/atc.xlsx")}]
+    "dir": path.resolve(baseDir, "../data/auto/"),
+    "file": path.resolve(baseDir, "../data/auto/atc.zip"),
+    "zipFiles": [{name: /widode.xlsx/, dest: path.resolve(baseDir, "../data/auto/atc.xlsx")}]
   },
   "manual": {
-    "addFile": path.resolve(__dirname, "../data/manual/atc", "add.csv"),
-    "capitalizeFile": path.resolve(__dirname, "../data/manual/atc", "capitalize.csv"),
-    "changeFile": path.resolve(__dirname, "../data/manual/atc", "change.csv")
+    "addFile": path.resolve(baseDir, "../data/manual/atc", "add.csv"),
+    "capitalizeFile": path.resolve(baseDir, "../data/manual/atc", "capitalize.csv"),
+    "changeFile": path.resolve(baseDir, "../data/manual/atc", "change.csv")
   },
   "process": {
-    "dir": path.resolve(__dirname, "../data/release/atc"),
-    "atcDe": path.resolve(__dirname, "../data/release/atc/atc.json"),
-    "atcDeMin": path.resolve(__dirname, "../data/release/atc/atc.min.json"),
-    "atcCh": path.resolve(__dirname, "../data/release/atc/atc_de-ch.json"),
-    "atcChMin": path.resolve(__dirname, "../data/release/atc/atc_de-ch.min.json"),
-    "csv": path.resolve(__dirname, "../data/release/atc/atc.csv")
+    "dir": path.resolve(baseDir, "../data/release/atc"),
+    "atcDe": path.resolve(baseDir, "../data/release/atc/atc.json"),
+    "atcDeMin": path.resolve(baseDir, "../data/release/atc/atc.min.json"),
+    "atcCh": path.resolve(baseDir, "../data/release/atc/atc_de-ch.json"),
+    "atcChMin": path.resolve(baseDir, "../data/release/atc/atc_de-ch.min.json"),
+    "csv": path.resolve(baseDir, "../data/release/atc/atc.csv")
   }
 };
 
