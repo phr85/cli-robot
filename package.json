@@ -29,6 +29,7 @@
     "mkdirp": "^0.5.0",
     "moment": "^2.9.0",
     "node-xlsx": "0.4.0",
+    "progress-stream": "^1.1.1",
     "sax": "*",
     "sha1": "^1.1.0",
     "streamifier": "^0.1.0",
