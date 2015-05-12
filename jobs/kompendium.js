@@ -61,7 +61,7 @@ function kompendium(done) {
   )
     .then(function () {
       log.debug("Kompendium", "Go to " + cfg.download.url);
-      log.time("Kompendium", "Fetch HTML 1");
+      log.time("Kompendium", "Go to");
       // set persistent agent which stores cookies
       return fetchHTML.setAgent(request.agent())(cfg.download.url);
     })
