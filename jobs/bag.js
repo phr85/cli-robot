@@ -3,7 +3,6 @@
 var download = require("../lib/download");
 
 var fs = require("fs");
-var async = require("async");
 
 var path = require("path");
 
