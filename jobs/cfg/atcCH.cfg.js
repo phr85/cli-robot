@@ -13,8 +13,8 @@ module.exports = {
     }
   },
   process: {
-    "dir": path.resolve(baseDir, "../data/release/atc"),
-    "atcCh": path.resolve(baseDir, "../data/release/atc/atc_de-ch.json"),
-    "atcChMin": path.resolve(baseDir, "../data/release/atc/atc_de-ch.min.json")
+    "dir": path.resolve(baseDir, "./data/release/atc"),
+    "atcCh": path.resolve(baseDir, "./data/release/atc/atc_de-ch.json"),
+    "atcChMin": path.resolve(baseDir, "./data/release/atc/atc_de-ch.min.json")
   }
 };
