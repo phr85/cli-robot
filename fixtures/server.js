@@ -6,10 +6,10 @@ var fs = require("fs");
 
 var express = require("express");
 
-var swissmedic = require("../jobs/swissmedic");
-var atc = require("../jobs/atc");
-var bag = require("../jobs/bag");
-var kompendium = require('../jobs/kompendium');
+var swissmedicCfg = require("../jobs/cfg/swissmedic.cfg");
+var atcCfg = require("../jobs/cfg/atc.cfg");
+var bagCfg = require("../jobs/cfg/bag.cfg");
+var kompendiumCfg = require('../jobs/cfg/kompendium.cfg');
 
 var app = express();
 var cookieParser = require("cookie-parser");
@@ -34,13 +34,13 @@ var cfg = {
   "swissmedic": {
     "xlsx": path.resolve(__dirname, "../fixtures/auto/swissmedic.xlsx"),
     "html": path.resolve(__dirname, "../fixtures/html/swissmedic.html"),
-    "path": url.parse(swissmedic.cfg.download.url).path,
+    "path": url.parse(swissmedicCfg.download.url).path,
     "qs": { download: "NHzLpZeg7t,lnp6I0NTU042l2Z6ln1acy4Zn4Z2qZpnO2Yuq2Z6gpJCDdHx7hGym162epYbg2c_JjKbNoKSn6A--" }
   },
   "atc": {
     "zip": path.resolve(__dirname, "../fixtures/auto/atc.zip"),
     "html": path.resolve(__dirname, "../fixtures/html/atc.html"),
-    "path": url.parse(atc.cfg.download.url).path,
+    "path": url.parse(atcCfg.download.url).path,
     "downloadPath": atcDownloadPath
   },
   "bag": {
@@ -49,7 +49,7 @@ var cfg = {
     "bagXML": path.resolve(__dirname, "../fixtures/auto/bag.xml"),
     "itXML": path.resolve(__dirname, "../fixtures/auto/it.xml"),
     "html": path.resolve(__dirname, "..fixtures/html/bag.html"),
-    "path": url.parse(bag.cfg.download.url),
+    "path": url.parse(bagCfg.download.url),
     "downloadPath": bagDownloadPath
   },
   "kompendium": {

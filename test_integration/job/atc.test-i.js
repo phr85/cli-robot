@@ -12,41 +12,33 @@ var expect = require("chai").expect;
 var server = require("../../fixtures/server");
 var disk = require("../../lib/disk");
 
-describe("job: ATC", function () {
-  var job, test;
+describe.only("job: ATC", function () {
+  var atc, atcCH, swissmedic, swissmedicCfg, test;
 
   before(function () {
-    test = {
-      cfg: {
-        "download": {
-          "url": "http://localhost:" + server.port + "/amtl_atc-code.html",
-          "dir": path.resolve(__dirname, "../tmp/data/auto"),
-          "file": path.resolve(__dirname, "../tmp/data/auto/atc.zip"),
-          "zipFiles": [{
-            name: /widode.xlsx/, dest: path.resolve(__dirname, "../tmp/data/auto/atc.xlsx")
-          }]
-        },
-        "manual": {
-          "addFile": path.resolve(__dirname, "../../fixtures/manual/atc/add.csv"),
-          "capitalizeFile": path.resolve(__dirname, "../../fixtures/manual/atc/capitalize.csv"),
-          "changeFile": path.resolve(__dirname, "../../fixtures/manual/atc/change.csv")
-        },
-        "process": {
-          "dir": path.resolve(__dirname, "../tmp/data/release/atc"),
-          "atcDe": path.resolve(__dirname, "../tmp/data/release/atc/atc.json"),
-          "atcDeMin": path.resolve(__dirname, "../tmp/data/release/atc/atc.min.json"),
-          "atcCh": path.resolve(__dirname, "../tmp/data/release/atc/atc_de-ch.json"),
-          "atcChMin": path.resolve(__dirname, "../tmp/data/release/atc/atc_de-ch.min.json"),
-          "csv": path.resolve(__dirname, "../tmp/data/release/atc/atc.csv")
-        }
-      }
-    };
+    test = { cfg: require("./cfg/atc.test-i.cfg") };
   });
 
   before(function (done) {
-    job = rewire("../../jobs/atc");
-    job.__set__("cfg", merge.recursive(require("../../jobs/atc").cfg, test.cfg));
-    job(done);
+    this.timeout("90000");
+
+    swissmedic = rewire("../../jobs/swissmedic");
+    swissmedicCfg = merge.recursive(require("../../jobs/cfg/swissmedic.cfg"), require("./cfg/swissmedic.test-i.cfg"));
+    swissmedic.__set__("cfg", swissmedicCfg);
+
+    atcCH = rewire("../../jobs/atcCH");
+    atcCH.__set__({
+      "swissmedicJob": swissmedic,
+      "swissmedicCfg": swissmedicCfg,
+      "cfg": require("./cfg/atcCH.test-i.cfg")
+    });
+
+    atc = rewire("../../jobs/atc");
+    atc.__set__({
+      "atcCHJob": atcCH,
+      "cfg": merge.recursive(require("../../jobs/cfg/atc.cfg"), test.cfg)
+    });
+    atc(done);
   });
 
   describe("Zip download and unzip XLSX", function () {

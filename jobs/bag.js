@@ -7,28 +7,7 @@ var fs = require("fs");
 var path = require("path");
 
 var baseDir = process.cwd();
-var cfg = {
-  "download": {
-    "url": "http://www.spezialitaetenliste.ch/",
-    "linkParser": /href="(.*)".*Publikation als XML-Dateien/g,
-    "dir": path.resolve(baseDir, "../data/auto"),
-    "zip": path.resolve(baseDir, "../data/auto/XMLPublications.zip"),
-    "zipFiles": [{
-      name: /Preparations.xml/, dest: path.resolve(baseDir, "../data/auto/bag.xml")
-    }, {
-      name: /Publications.xls/, dest: path.resolve(baseDir, "../data/auto/bag.xls")
-    }, {
-      name: /ItCodes.xml/, dest: path.resolve(baseDir, "../data/auto/it.xml")
-    }]
-  },
-  "process": {
-    "dir": path.resolve(baseDir, "../data/release/bag"),
-    "bag": path.resolve(baseDir, "../data/release/bag/bag.json"),
-    "bagMin": path.resolve(baseDir, "../data/release/bag/bag.min.json"),
-    "it": path.resolve(baseDir, "../data/release/bag/it.json"),
-    "itMin": path.resolve(baseDir, "../data/release/bag/it.min.json")
-  }
-};
+var cfg = require("./cfg/bag.cfg.js");
 
 var log = require("../lib").log;
 var disk = require("../lib/disk");
@@ -37,7 +16,7 @@ var parseLink = require("../lib/parseLink");
 var downloadFile = require("../lib/downloadFile");
 var renderProgress = require("../lib/renderProgress");
 var parseBAGXML = require("../lib/bag/parseBAGXML");
-var parseITCodes = require('../lib/bag/parseITCodes');
+var parseITCodes = require("../lib/bag/parseITCodes");
 
 /**
  *
@@ -108,7 +87,5 @@ function bag(done) {
       done(err);
     });
 }
-
-bag.cfg = cfg;
 
 module.exports = bag;

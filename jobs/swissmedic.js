@@ -13,20 +13,7 @@ var correctXLSX = require("../lib/swissmedic/correctXLSX");
 var readXLSX = require("../lib/swissmedic/readXLSX");
 
 var baseDir = process.cwd();
-var cfg = {
-  "download": {
-    "url": "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
-    "linkParser": /href="([\/a-zäöü0-9?;,=.\-_&]*)".*Excel-Version Zugelassene Verpackungen/ig,
-    "dir": path.resolve(baseDir, "../data/auto/"),
-    "file": path.resolve(baseDir, "../data/auto/swissmedic.xlsx")
-  },
-  "process": {
-    "dir": path.resolve(baseDir, "../data/release/swissmedic/"),
-    "atcFile": path.resolve(baseDir, "../data/manual/swissmedic/atc.csv"),
-    "file": path.resolve(baseDir, "../data/release/swissmedic/swissmedic.json"),
-    "minFile": path.resolve(baseDir, "../data/release/swissmedic/swissmedic.min.json")
-  }
-};
+var cfg = require("./cfg/swissmedic.cfg.js");
 
 /**
  *
@@ -46,6 +33,7 @@ function swissmedic(done) {
     .then(function (result) {
       log.timeEnd("Swissmedic", "Go to");
       log.time("Swissmedic", "Parse Link");
+      console.log("cfg.download.linkParser", cfg.download.linkParser);
       return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
     })
     .then(function (parsedLink) {
@@ -85,7 +73,5 @@ function swissmedic(done) {
       done(err);
     });
 }
-
-swissmedic.cfg = cfg;
 
 module.exports = swissmedic;

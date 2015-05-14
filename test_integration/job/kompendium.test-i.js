@@ -15,37 +15,7 @@ describe("job: Kompendium", function () {
   var job, test;
 
   before(function () {
-    test = {
-      cfg: {
-        "download": {
-          "url": "http://localhost:" + server.port + "/kompendium/",
-          "dir": path.resolve(__dirname, "../tmp/data/auto"),
-          "zip": path.resolve(__dirname, "../tmp/data/auto/kompendium.zip"),
-          "xml": path.resolve(__dirname, "../tmp/data/auto/kompendium.xml"),
-          "zipFiles": [{
-            name: /.xml/, dest: path.resolve(__dirname, "../tmp/data/auto/kompendium.xml")
-          }]
-        },
-        "process": {
-          "dir": path.resolve(__dirname, "../tmp/data/release/kompendium/"),
-          "de": {
-            "fi": path.resolve(__dirname, "../tmp/data/release/kompendium/de/fi"),
-            "pi": path.resolve(__dirname, "../tmp/data/release/kompendium/de/pi")
-          },
-          "fr": {
-            "fi": path.resolve(__dirname, "../tmp/data/release/kompendium/fr/fi"),
-            "pi": path.resolve(__dirname, "../tmp/data/release/kompendium/fr/pi")
-          },
-          "it": {
-            "fi": path.resolve(__dirname, "../tmp/data/release/kompendium/it/fi"),
-            "pi": path.resolve(__dirname, "../tmp/data/release/kompendium/it/pi")
-          },
-          "catalog": path.resolve(__dirname, "../tmp/data/release/kompendium/catalog.json"),
-          "json": path.resolve(__dirname, "../tmp/data/release/kompendium/kompendium.json"),
-          "jsonMin": path.resolve(__dirname, "../tmp/data/release/kompendium/kompendium.min.json")
-        }
-      }
-    };
+    test = { cfg: require("./cfg/kompendium.test-i.cfg") };
   });
 
   before(function (done) {
