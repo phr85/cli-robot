@@ -12,7 +12,7 @@ var expect = require("chai").expect;
 var server = require("../../fixtures/server");
 var disk = require("../../lib/disk");
 
-describe.only("job: ATC", function () {
+describe("job: ATC", function () {
   var atc, atcCH, swissmedic, swissmedicCfg, test;
 
   before(function () {

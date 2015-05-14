@@ -22,7 +22,7 @@ describe("job: Kompendium", function () {
     this.timeout(240000);
 
     job = rewire("../../jobs/kompendium");
-    job.__set__("cfg", merge.recursive(require("../../jobs/kompendium").cfg, test.cfg));
+    job.__set__("cfg", merge.recursive(require("../../jobs/cfg/kompendium.cfg"), test.cfg));
     job(done);
   });
 

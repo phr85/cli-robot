@@ -21,7 +21,7 @@ describe("job: BAG", function () {
     this.timeout(60000);
 
     job = rewire("../../jobs/bag");
-    job.__set__("cfg", merge.recursive(job.cfg, test.cfg));
+    job.__set__("cfg", merge.recursive(require("../../jobs/cfg/bag.cfg"), test.cfg));
     job(done);
   });
 

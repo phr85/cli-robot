@@ -20,7 +20,7 @@ describe("job: siwssmedic", function () {
   // run job
   before(function (done) {
     job = rewire("../../jobs/swissmedic");
-    job.__set__("cfg", merge.recursive(require("../../jobs/swissmedic").cfg, test.cfg));
+    job.__set__("cfg", merge.recursive(require("../../jobs/cfg/swissmedic.cfg"), test.cfg));
     job(done);
   });
 
