@@ -15,20 +15,19 @@ describe("job: siwssmedic", function () {
 
   // create test config
   before(function () {
-    test = { cfg: require("./cfg/swissmedic.test-i.cfg") };
+    test = { cfg: require("./cfg/swissmedic.test-i.cfg.js") };
   });
   // run job
   before(function (done) {
-    job = rewire("../../jobs/swissmedic");
-    job.__set__("cfg", merge.recursive(require("../../jobs/cfg/swissmedic.cfg"), test.cfg));
+    job = rewire("../../../jobs/swissmedic");
+    job.__set__("cfg", merge.recursive(require("../../../jobs/cfg/swissmedic.cfg"), test.cfg));
     job(done);
   });
 
   describe("XLSX-Download", function () {
     // @TODO use a smaller fixture
     it("should download whole xlsx-File from swissmedic", function () {
-      this.timeout(50000);
-      expect(shasum(xlsx.readFile(path.resolve(__dirname, "../../fixtures/auto/swissmedic.xlsx")))).to.equal(shasum(xlsx.readFile(test.cfg.download.file)));
+      expect(shasum(xlsx.readFile(path.resolve(__dirname, "../../fixtures/auto/swissmedic/swissmedic.xlsx")))).to.equal(shasum(xlsx.readFile(test.cfg.download.file)));
     });
   });
 

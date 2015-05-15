@@ -6,10 +6,10 @@ var fs = require("fs");
 
 var express = require("express");
 
-var swissmedicCfg = require("../jobs/cfg/swissmedic.cfg");
-var atcCfg = require("../jobs/cfg/atc.cfg");
-var bagCfg = require("../jobs/cfg/bag.cfg");
-var kompendiumCfg = require('../jobs/cfg/kompendium.cfg');
+var swissmedicCfg = require("../../jobs/cfg/swissmedic.cfg");
+var atcCfg = require("../../jobs/cfg/atc.cfg");
+var bagCfg = require("../../jobs/cfg/bag.cfg");
+var kompendiumCfg = require('../../jobs/cfg/kompendium.cfg');
 
 var app = express();
 var cookieParser = require("cookie-parser");
@@ -32,29 +32,25 @@ var bagDownloadPath =
 //@TODO: Prefix urls/path with job-name like already @kompendium done
 var cfg = {
   "swissmedic": {
-    "xlsx": path.resolve(__dirname, "../fixtures/auto/swissmedic.xlsx"),
+    "xlsx": path.resolve(__dirname, "../fixtures/auto/swissmedic/swissmedic.xlsx"),
     "html": path.resolve(__dirname, "../fixtures/html/swissmedic.html"),
     "path": url.parse(swissmedicCfg.download.url).path,
     "qs": { download: "NHzLpZeg7t,lnp6I0NTU042l2Z6ln1acy4Zn4Z2qZpnO2Yuq2Z6gpJCDdHx7hGym162epYbg2c_JjKbNoKSn6A--" }
   },
   "atc": {
-    "zip": path.resolve(__dirname, "../fixtures/auto/atc.zip"),
+    "zip": path.resolve(__dirname, "../fixtures/auto/atc/atc.zip"),
     "html": path.resolve(__dirname, "../fixtures/html/atc.html"),
     "path": url.parse(atcCfg.download.url).path,
     "downloadPath": atcDownloadPath
   },
   "bag": {
-    "zip": path.resolve(__dirname, "../fixtures/auto/XMLPublications.zip"),
-    "bagXLS": path.resolve(__dirname, "../fixtures/auto/bag.xls"),
-    "bagXML": path.resolve(__dirname, "../fixtures/auto/bag.xml"),
-    "itXML": path.resolve(__dirname, "../fixtures/auto/it.xml"),
-    "html": path.resolve(__dirname, "..fixtures/html/bag.html"),
+    "zip": path.resolve(__dirname, "../fixtures/auto/bag/XMLPublications.zip"),
+    "html": path.resolve(__dirname, "../fixtures/html/bag.html"),
     "path": url.parse(bagCfg.download.url),
     "downloadPath": bagDownloadPath
   },
   "kompendium": {
-    "zip": path.resolve(__dirname, "../fixtures/auto/kompendium.zip"),
-    "xml": path.resolve(__dirname, "../fixtures/auto/kompendium.xml"),
+    "zip": path.resolve(__dirname, "../fixtures/auto/kompendium/kompendium.zip"),
     "html": {
       "termsofuse": path.resolve(__dirname, "../fixtures/html/kompendium1.html"),
       "warning": path.resolve(__dirname, "../fixtures/html/kompendium2.html")

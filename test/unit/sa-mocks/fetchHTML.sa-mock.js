@@ -14,7 +14,7 @@ module.exports = [{
   callback: function (match, html) {
     return {
       text: html
-    }
+    };
   }
 
 }];

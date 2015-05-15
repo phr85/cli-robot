@@ -14,7 +14,7 @@ describe("fetchHTML", function () {
   var request, config, fetchHTML, url, ref;
 
   before(function () {
-    fetchHTML = require("../../lib/fetchHTML");
+    fetchHTML = require("../../../lib/fetchHTML");
     request = require("superagent");
     config = require("../sa-mocks/fetchHTML.sa-mock");
     url = "https://fetch.html.success.test";

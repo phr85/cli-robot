@@ -10,7 +10,7 @@ var xlsx = require("xlsx");
 var expect = require("chai").expect;
 
 var server = require("../../fixtures/server");
-var disk = require("../../lib/disk");
+var disk = require("../../../lib/disk");
 
 describe("job: ATC", function () {
   var atc, atcCH, swissmedic, swissmedicCfg, test;
@@ -20,30 +20,28 @@ describe("job: ATC", function () {
   });
 
   before(function (done) {
-    this.timeout("90000");
-
-    swissmedic = rewire("../../jobs/swissmedic");
-    swissmedicCfg = merge.recursive(require("../../jobs/cfg/swissmedic.cfg"), require("./cfg/swissmedic.test-i.cfg"));
+    swissmedic = rewire("../../../jobs/swissmedic");
+    swissmedicCfg = merge.recursive(require("../../../jobs/cfg/swissmedic.cfg"), require("./cfg/swissmedic.test-i.cfg"));
     swissmedic.__set__("cfg", swissmedicCfg);
 
-    atcCH = rewire("../../jobs/atcCH");
+    atcCH = rewire("../../../jobs/atcCH");
     atcCH.__set__({
       "swissmedicJob": swissmedic,
       "swissmedicCfg": swissmedicCfg,
       "cfg": require("./cfg/atcCH.test-i.cfg")
     });
 
-    atc = rewire("../../jobs/atc");
+    atc = rewire("../../../jobs/atc");
     atc.__set__({
       "atcCHJob": atcCH,
-      "cfg": merge.recursive(require("../../jobs/cfg/atc.cfg"), test.cfg)
+      "cfg": merge.recursive(require("../../../jobs/cfg/atc.cfg"), test.cfg)
     });
     atc(done);
   });
 
   describe("Zip download and unzip XLSX", function () {
     it("should download ZIP-File and unzip it to atc.xlsx", function () {
-      var fixture = shasum(xlsx.readFile(path.resolve(__dirname, "../../fixtures/auto/atc.xlsx")));
+      var fixture = shasum(xlsx.readFile(path.resolve(__dirname, "../../fixtures/auto/atc/atc.xlsx")));
       var download = shasum(xlsx.readFile(test.cfg.download.zipFiles[0].dest));
       expect(fixture).to.equal(download);
     });

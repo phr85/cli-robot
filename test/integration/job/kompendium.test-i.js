@@ -6,10 +6,10 @@ var fs = require("fs");
 var rewire = require("rewire");
 var shasum = require("shasum");
 var merge = require("merge");
-var expect = require("chai").expect
+var expect = require("chai").expect;
 
 var server = require("../../fixtures/server");
-var disk = require("../../lib/disk");
+var disk = require("../../../lib/disk");
 
 describe("job: Kompendium", function () {
   var job, test;
@@ -19,16 +19,14 @@ describe("job: Kompendium", function () {
   });
 
   before(function (done) {
-    this.timeout(240000);
-
-    job = rewire("../../jobs/kompendium");
-    job.__set__("cfg", merge.recursive(require("../../jobs/cfg/kompendium.cfg"), test.cfg));
+    job = rewire("../../../jobs/kompendium");
+    job.__set__("cfg", merge.recursive(require("../../../jobs/cfg/kompendium.cfg"), test.cfg));
     job(done);
   });
 
   describe("Download and unzip kompendium.xml", function () {
     it("should download ZIP-File and unzip it to kompendium.xml", function () {
-      var fixture = shasum(fs.readFileSync(server.cfg.kompendium.xml));
+      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/auto/kompendium/kompendium.xml")));
       var download = shasum(fs.readFileSync(test.cfg.download.xml));
       expect(fixture).to.equal(download);
     });

@@ -8,9 +8,9 @@ module.exports = {
   "download": {
     "url": "http://wido.de/amtl_atc-code.html",
     "linkParser": /href="(.*atc.*\.zip)"/igm,
-    "dir": path.resolve(baseDir, "./data/auto/"),
-    "file": path.resolve(baseDir, "./data/auto/atc.zip"),
-    "zipFiles": [{name: /widode.xlsx/, dest: path.resolve(baseDir, "./data/auto/atc.xlsx")}]
+    "dir": path.resolve(baseDir, "./data/auto/atc/"),
+    "file": path.resolve(baseDir, "./data/auto/atc/atc.zip"),
+    "zipFiles": [{name: /widode.xlsx/, dest: path.resolve(baseDir, "./data/auto/atc/atc.xlsx")}]
   },
   "manual": {
     "addFile": path.resolve(baseDir, "./data/manual/atc", "add.csv"),

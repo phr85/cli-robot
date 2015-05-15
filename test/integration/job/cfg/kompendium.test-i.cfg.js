@@ -7,18 +7,18 @@ var server = require("../../../fixtures/server");
 module.exports = {
   "download": {
     "url": "http://localhost:" + server.port + "/kompendium/",
-    "dir": path.resolve(__dirname, "../../tmp/data/auto"),
-    "zip": path.resolve(__dirname, "../../tmp/data/auto/kompendium.zip"),
-    "xml": path.resolve(__dirname, "../../tmp/data/auto/kompendium.xml"),
+    "dir": path.resolve(__dirname, "../../tmp/data/auto/kompendium"),
+    "zip": path.resolve(__dirname, "../../tmp/data/auto/kompendium/kompendium.zip"),
+    "xml": path.resolve(__dirname, "../../tmp/data/auto/kompendium/kompendium.xml"),
     "zipFiles": [{
-      name: /.xml/, dest: path.resolve(__dirname, "../tmp/data/auto/kompendium.xml")
+      name: /.xml/, dest: path.resolve(__dirname, "../../tmp/data/auto/kompendium/kompendium.xml")
     }]
   },
   "process": {
     "dir": path.resolve(__dirname, "../../tmp/data/release/kompendium/"),
     "de": {
       "fi": path.resolve(__dirname, "../../tmp/data/release/kompendium/de/fi"),
-      "pi": path.resolve(__dirname, "../tmp/data/release/kompendium/de/pi")
+      "pi": path.resolve(__dirname, "../../tmp/data/release/kompendium/de/pi")
     },
     "fr": {
       "fi": path.resolve(__dirname, "../../tmp/data/release/kompendium/fr/fi"),

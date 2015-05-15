@@ -8,14 +8,14 @@ module.exports = {
   "download": {
     "url": "http://www.spezialitaetenliste.ch/",
     "linkParser": /href="(.*)".*Publikation als XML-Dateien/g,
-    "dir": path.resolve(baseDir, "./data/auto"),
-    "zip": path.resolve(baseDir, "./data/auto/XMLPublications.zip"),
+    "dir": path.resolve(baseDir, "./data/auto/bag"),
+    "zip": path.resolve(baseDir, "./data/auto/bag/XMLPublications.zip"),
     "zipFiles": [{
-      name: /Preparations.xml/, dest: path.resolve(baseDir, "./data/auto/bag.xml")
+      name: /Preparations.xml/, dest: path.resolve(baseDir, "./data/auto/bag/bag.xml")
     }, {
-      name: /Publications.xls/, dest: path.resolve(baseDir, "./data/auto/bag.xls")
+      name: /Publications.xls/, dest: path.resolve(baseDir, "./data/auto/bag/bag.xls")
     }, {
-      name: /ItCodes.xml/, dest: path.resolve(baseDir, "./data/auto/it.xml")
+      name: /ItCodes.xml/, dest: path.resolve(baseDir, "./data/auto/bag/bag/it.xml")
     }]
   },
   "process": {

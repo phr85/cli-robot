@@ -14,35 +14,33 @@ describe("job: BAG", function () {
   var job, test;
 
   before(function () {
-    test = { cfg: require("./cfg/bag.test-i.cfg") };
+    test = { cfg: require("./cfg/bag.test-i.cfg.js") };
   });
 
   before(function (done) {
-    this.timeout(60000);
-
-    job = rewire("../../jobs/bag");
-    job.__set__("cfg", merge.recursive(require("../../jobs/cfg/bag.cfg"), test.cfg));
+    job = rewire("../../../jobs/bag");
+    job.__set__("cfg", merge.recursive(require("../../../jobs/cfg/bag.cfg"), test.cfg));
     job(done);
   });
 
   describe("download and unzip", function () {
 
     it("should have unzipped bag.xls", function () {
-      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/auto/bag.xml"), {encoding: "utf8"}));
+      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/auto/bag/bag.xml"), {encoding: "utf8"}));
       var download = shasum(fs.readFileSync(test.cfg.download.zipFiles[0].dest, {encoding: "utf8"}));
 
       expect(fixture).to.equal(download);
     });
 
     it("should have unzipped bag.xml", function () {
-      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/auto/bag.xls"), {encoding: "utf8"}));
+      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/auto/bag/bag.xls"), {encoding: "utf8"}));
       var download = shasum(fs.readFileSync(test.cfg.download.zipFiles[1].dest, {encoding: "utf8"}));
 
       expect(fixture).to.equal(download);
     });
 
     it("should have unzipped it.xml", function () {
-      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/auto/it.xml"), {encoding: "utf8"}));
+      var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/auto/bag/it.xml"), {encoding: "utf8"}));
       var download = shasum(fs.readFileSync(test.cfg.download.zipFiles[2].dest, {encoding: "utf8"}));
 
       expect(fixture).to.equal(download);

@@ -7,8 +7,8 @@ var server = require("../../../fixtures/server");
 module.exports = {
   download: {
     url: "http://localhost:" + server.port + "/arzneimittel/00156/00221/00222/00230/index.html",
-    dir: path.resolve(__dirname, "../../tmp/data/auto"),
-    file: path.resolve(__dirname, "../../tmp/data/auto/swissmedic.xlsx")
+    dir: path.resolve(__dirname, "../../tmp/data/auto/swissmedic"),
+    file: path.resolve(__dirname, "../../tmp/data/auto/swissmedic/swissmedic.xlsx")
   },
   process: {
     dir: path.resolve(__dirname, "../../tmp/data/release/swissmedic/"),

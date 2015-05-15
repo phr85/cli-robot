@@ -2,7 +2,7 @@
 
 var path = require("path");
 
-var swissmedicCfg = require("./swissmedic.test-i.cfg");
+var swissmedicCfg = require("./swissmedic.test-i.cfg.js");
 
 module.exports = {
   "dependencies": {

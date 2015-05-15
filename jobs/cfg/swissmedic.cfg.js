@@ -8,8 +8,8 @@ module.exports = {
   "download": {
     "url": "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
     "linkParser": /href="([\/a-zäöü0-9?;,=.\-_&]*)".*Excel-Version Zugelassene Verpackungen/ig,
-    "dir": path.resolve(baseDir, "./data/auto/"),
-    "file": path.resolve(baseDir, "./data/auto/swissmedic.xlsx")
+    "dir": path.resolve(baseDir, "./data/auto/swissmedic/"),
+    "file": path.resolve(baseDir, "./data/auto/swissmedic/swissmedic.xlsx")
   },
   "process": {
     "dir": path.resolve(baseDir, "./data/release/swissmedic/"),
