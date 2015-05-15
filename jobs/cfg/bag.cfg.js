@@ -20,9 +20,9 @@ module.exports = {
   },
   "process": {
     "dir": path.resolve(baseDir, "./data/release/bag"),
-    "bag": path.resolve(baseDir, "../data/release/bag/bag.json"),
-    "bagMin": path.resolve(baseDir, "../data/release/bag/bag.min.json"),
-    "it": path.resolve(baseDir, "../data/release/bag/it.json"),
-    "itMin": path.resolve(baseDir, "../data/release/bag/it.min.json")
+    "bag": path.resolve(baseDir, "./data/release/bag/bag.json"),
+    "bagMin": path.resolve(baseDir, "./data/release/bag/bag.min.json"),
+    "it": path.resolve(baseDir, "./data/release/bag/it.json"),
+    "itMin": path.resolve(baseDir, "./data/release/bag/it.min.json")
   }
 };
