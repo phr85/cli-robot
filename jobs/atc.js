@@ -88,7 +88,7 @@ function atc(done) {
       });
     })
     .then(function (atcDEwAllModifications) {
-      log.time("ATC", "Write Processed Files");
+      log.timeEnd("ATC", "Write Processed Files");
       log.debug("ATC", "Release CSV");
       log.time("ATC", "Release CSV");
       return writeATCCSV(cfg.process.csv, atcDEwAllModifications);
@@ -96,7 +96,7 @@ function atc(done) {
     .then(function (atcDEwAllModifications) {
       log.timeEnd("ATC", "Release CSV");
       log.debug("ATC", "Done");
-      log.time("ATC", "Completed in");
+      log.timeEnd("ATC", "Completed in");
       return atcDEwAllModifications;
     })
     .then(function (atcDEwAllModifications) {
