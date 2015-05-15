@@ -52,6 +52,10 @@ function kompendium(done) {
       return startDownload(result, cfg.download.zip, renderProgress("Kompendium", "Download"));
     })
     .then(function () {
+      // throw away agent as any other job should use a fresh one
+      fetchHTML.setAgent(null);
+    })
+    .then(function () {
       log.timeEnd("Kompendium", "Download");
       log.debug("Kompendium", "Unzip");
       log.time("Kompendium", "Unzip");

@@ -15,7 +15,7 @@ module.exports = {
     }, {
       name: /Publications.xls/, dest: path.resolve(baseDir, "./data/auto/bag/bag.xls")
     }, {
-      name: /ItCodes.xml/, dest: path.resolve(baseDir, "./data/auto/bag/bag/it.xml")
+      name: /ItCodes.xml/, dest: path.resolve(baseDir, "./data/auto/bag/it.xml")
     }]
   },
   "process": {
