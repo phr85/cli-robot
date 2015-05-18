@@ -1,7 +1,5 @@
 "use strict";
 
-var download = require("../lib/download");
-
 var fs = require("fs");
 
 var path = require("path");
@@ -10,11 +8,11 @@ var baseDir = process.cwd();
 var cfg = require("./cfg/bag.cfg.js");
 
 var log = require("../lib").log;
-var disk = require("../lib/disk");
-var fetchHTML  = require("../lib/fetchHTML");
-var parseLink = require("../lib/parseLink");
-var downloadFile = require("../lib/downloadFile");
-var renderProgress = require("../lib/renderProgress");
+var disk = require("../lib/common/disk");
+var fetchHTML  = require("../lib/common/fetchHTML");
+var parseLink = require("../lib/common/parseLink");
+var downloadFile = require("../lib/common/downloadFile");
+var renderProgress = require("../lib/common/renderProgress");
 var parseBAGXML = require("../lib/bag/parseBAGXML");
 var parseITCodes = require("../lib/bag/parseITCodes");
 

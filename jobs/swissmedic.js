@@ -3,11 +3,11 @@
 var path = require("path");
 
 var log = require("../lib").log;
-var disk = require("../lib/disk");
-var fetchHTML = require("../lib/fetchHTML");
-var parseLink = require("../lib/parseLink");
-var downloadFile = require("../lib/downloadFile");
-var renderProgress = require("../lib/renderProgress");
+var disk = require("../lib/common/disk");
+var fetchHTML = require("../lib/common/fetchHTML");
+var parseLink = require("../lib/common/parseLink");
+var downloadFile = require("../lib/common/downloadFile");
+var renderProgress = require("../lib/common/renderProgress");
 var createATCCorrection = require("../lib/swissmedic/createATCCorrection");
 var correctXLSX = require("../lib/swissmedic/correctXLSX");
 var readXLSX = require("../lib/swissmedic/readXLSX");

@@ -6,11 +6,11 @@ var request = require("superagent");
 
 var cfg = require("./cfg/kompendium.cfg.js")
 var log = require("../lib").log;
-var disk = require("../lib/disk");
-var fetchHTML = require("../lib/fetchHTML");
+var disk = require("../lib/common/disk");
+var fetchHTML = require("../lib/common/fetchHTML");
 var acceptTermsOfUse = require("../lib/kompendium/acceptTermsOfUse");
 var startDownload = require("../lib/kompendium/startDownload");
-var renderProgress = require("../lib/renderProgress");
+var renderProgress = require("../lib/common/renderProgress");
 var parseKompendium = require("../lib/kompendium/parseKompendium");
 
 /**

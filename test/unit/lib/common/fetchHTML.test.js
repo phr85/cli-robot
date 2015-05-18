@@ -8,17 +8,17 @@ var expect = chai.expect;
 
 chai.use(require("sinon-chai"));
 
-var fakeAgent = require("../mocks/agent");
+var fakeAgent = require("../../mocks/agent");
 
 describe("fetchHTML", function () {
   var request, config, fetchHTML, url, ref;
 
   before(function () {
-    fetchHTML = require("../../../lib/fetchHTML");
+    fetchHTML = require("../../../../lib/common/fetchHTML");
     request = require("superagent");
-    config = require("../sa-mocks/fetchHTML.sa-mock");
+    config = require("../../sa-mocks/fetchHTML.sa-mock.js");
     url = "https://fetch.html.success.test";
-    ref = fs.readFileSync(path.resolve(__dirname, "../../fixtures/html/swissmedic.html"), {encoding: "utf8"});
+    ref = fs.readFileSync(path.resolve(__dirname, "../../../fixtures/html/swissmedic.html"), {encoding: "utf8"});
 
     require("superagent-mock")(request, config);
   });

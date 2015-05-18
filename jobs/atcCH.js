@@ -4,7 +4,7 @@ var path = require("path");
 
 var cfg = require("./cfg/atcCH.cfg");
 var log = require("../lib").log;
-var disk = require("../lib/disk");
+var disk = require("../lib/common/disk");
 var swissmedicJob = require("./swissmedic");
 var swissmedicCfg = require("./cfg/swissmedic.cfg.js");
 var createATCCH = require("../lib/atc/createATCCH");

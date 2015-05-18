@@ -5,7 +5,7 @@ var EventEmitter = require('events').EventEmitter;
 var rewire = require("rewire");
 var expect = require("chai").expect;
 
-var fakeAgent = require("../mocks/agent");
+var fakeAgent = require("../../mocks/agent");
 
 describe.skip("downloadFile", function () {
   var downloadFile, link, dest, errRef, resRef;

@@ -17,7 +17,7 @@ describe("disk", function () {
       }
     };
 
-    disk = rewire("../../../lib/disk");
+    disk = rewire("../../../../lib/common/disk");
     data = [{"a": "A"}, {"b": "B"}, {"c": "C"}, {"d": "D"}];
   });
 

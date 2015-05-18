@@ -9,7 +9,7 @@ var merge = require("merge");
 var expect = require("chai").expect;
 
 var server = require("../../fixtures/server");
-var disk = require("../../../lib/disk");
+var disk = require("../../../lib/common/disk");
 
 describe("job: Kompendium", function () {
   var job, test;

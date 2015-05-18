@@ -10,7 +10,7 @@ var xlsx = require("xlsx");
 var expect = require("chai").expect;
 
 var server = require("../../fixtures/server");
-var disk = require("../../../lib/disk");
+var disk = require("../../../lib/common/disk");
 
 describe("job: ATC", function () {
   var atc, atcCH, swissmedic, swissmedicCfg, test;
