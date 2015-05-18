@@ -25,7 +25,6 @@ describe("job: siwssmedic", function () {
   });
 
   describe("XLSX-Download", function () {
-    // @TODO use a smaller fixture
     it("should download whole xlsx-File from swissmedic", function () {
       expect(shasum(xlsx.readFile(path.resolve(__dirname, "../../fixtures/auto/swissmedic/swissmedic.xlsx")))).to.equal(shasum(xlsx.readFile(test.cfg.download.file)));
     });

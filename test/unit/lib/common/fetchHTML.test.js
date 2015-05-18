@@ -41,11 +41,12 @@ describe("fetchHTML", function () {
   });
 
   describe("agent", function () {
-    var agent, errRef, resRef;
+    var agent, errRef, resRef, html;
 
     beforeEach(function () {
       errRef = null;
-      resRef = {text: "<html><head></head><body></body></html>"};
+      html = "<html><head></head><body></body></html>";
+      resRef = {text: html, res: {text: html}};
 
       agent = fakeAgent(errRef, resRef);
 
@@ -59,7 +60,7 @@ describe("fetchHTML", function () {
     it("should be possible to set an agent", function (done) {
       fetchHTML(url)
         .then(function (result) {
-          expect(resRef).to.equal(result.res);
+          expect(resRef.res).to.equal(result.res);
           done();
         })
         .catch(done);
@@ -68,8 +69,8 @@ describe("fetchHTML", function () {
     it("should resolve with html, res and used agent", function (done) {
       fetchHTML(url)
         .then(function (result) {
-          expect(result.html).to.equal(resRef.text);
-          expect(result.res).to.equal(resRef);
+          expect(result.html).to.equal(html);
+          expect(result.res).to.equal(resRef.res);
           expect(result.agent).to.equal(agent);
           done();
         })

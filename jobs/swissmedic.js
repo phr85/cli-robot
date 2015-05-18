@@ -33,7 +33,6 @@ function swissmedic(done) {
     .then(function (result) {
       log.timeEnd("Swissmedic", "Go to");
       log.time("Swissmedic", "Parse Link");
-      console.log("cfg.download.linkParser", cfg.download.linkParser);
       return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
     })
     .then(function (parsedLink) {

@@ -12,9 +12,14 @@ module.exports = [{
   },
 
   callback: function (match, html) {
-    return {
-      text: html
+    var res = {
+      text: html,
+      res: {
+        text: html
+      }
     };
+
+    return res;
   }
 
 }];
