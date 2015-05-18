@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node ./bin/cli.js",
     "test": "mocha --recursive ./test/unit",
+    "outdated": "node ./bin/outdated.js",
     "watch-test": "mocha --watch --recursive --growl",
     "test-integration": "mocha --recursive --timeout 240000 ./test/integration",
     "init-test-integration": "node ./bin/all.js && cp -r data/* test/fixtures/"

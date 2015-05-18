@@ -38,7 +38,6 @@ function atc(done) {
       log.timeEnd("ATC", "Go to");
       log.debug("ATC", "Parse Link");
       log.time("ATC", "Parse Link");
-      console.log("cfg.download.url", cfg.download.url);
       return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
     })
     .then(function (parsedLink) {
