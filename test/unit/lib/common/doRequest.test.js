@@ -9,7 +9,7 @@ describe("requestFile", function () {
   before(function () {
     request = require("superagent");
     requestCfg = require("../../sa-mocks/requestFile.sa-mock");
-    requestFile = rewire("../../../../lib/common/requestFile");
+    requestFile = rewire("../../../../lib/common/doRequest");
 
     require("superagent-mock")(request, requestCfg);
 
