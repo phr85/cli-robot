@@ -23,6 +23,7 @@ describe("fetchHTML", function () {
     require("superagent-mock")(request, config);
   });
 
+
   describe("Promise", function () {
     it("should return a Promise", function () {
       expect(fetchHTML(url)).to.be.an.instanceof(Promise);

@@ -3,36 +3,37 @@
 var expect = require("chai").expect;
 var rewire = require("rewire");
 
-describe("requestFile", function () {
-  var request, requestCfg, requestFile, successLink;
+describe("doRequest", function () {
+  var request, requestCfg, doRequest, successLink;
 
   before(function () {
     request = require("superagent");
-    requestCfg = require("../../sa-mocks/requestFile.sa-mock");
-    requestFile = rewire("../../../../lib/common/doRequest");
+    requestCfg = require("../../sa-mocks/doRequest.sa-mock.js");
+    doRequest = rewire("../../../../lib/common/doRequest");
 
     require("superagent-mock")(request, requestCfg);
 
-    successLink = "https://request.file.success";
+    successLink = requestCfg[0].pattern;
   });
 
   describe(".setAgent()", function () {
     var agent;
 
     beforeEach(function () {
-      requestFile.setAgent(agent);
+      agent = request.agent();
+      doRequest.setAgent(agent);
     });
 
     afterEach(function () {
-      requestFile.setAgent(null);
+      doRequest.setAgent(null);
     });
 
     it("should return a reference to itself", function () {
-      expect(requestFile.setAgent(agent)).to.equal(requestFile);
+      expect(doRequest.setAgent(agent)).to.equal(doRequest);
     });
 
     it("should be possible to set a custom request-agent", function () {
-      expect(requestFile.__get__("_agent")).to.equal(agent);
+      expect(doRequest.__get__("_agent")).to.equal(agent);
     });
   });
 
@@ -41,45 +42,33 @@ describe("requestFile", function () {
 
     beforeEach(function () {
       req = request.post(successLink).type("form").send({"ep": "ha"});
-      requestFile.setPreparedReq(req);
+      doRequest.setPreparedReq(req);
     });
 
-    afterEach(function () {
-      requestFile.setPreparedReq(null);
+    after(function () {
+      // clean up for other tests
+      doRequest.setPreparedReq(null);
     });
 
     it("should return a reference to itself", function () {
-      expect(requestFile.setPreparedReq(req)).to.equal(requestFile);
+      expect(doRequest.setPreparedReq(req)).to.equal(doRequest);
     });
 
     it("should be possible to set a custom request-agent", function () {
-      expect(requestFile.__get__("_req")).to.equal(req);
+      expect(doRequest.__get__("_req")).to.equal(req);
     });
   });
 
   describe("on success", function () {
     it("should resolve with an object containing Request, Response and used agent", function (done) {
-      requestFile(successLink, function (err, result) {
+      doRequest(successLink, function (err, result) {
         if (err) {
           return done(err);
         }
         expect(result.req.url).to.equal(successLink);
-        expect(result.res).to.be.an.instanceof(require("http").IncomingMessage);
+        expect(result.res).to.be.an("object");
         expect(result.agent).to.be.a("function");
         done();
-      });
-    });
-  });
-
-  describe("on error", function () {
-    it("should reject if anything goes wrong", function (done) {
-      requestFile("does not exist", function (err) {
-        if (err) {
-          expect(err).to.be.an.instanceof(Error);
-          return done();
-        }
-
-        done(new Error("It should not resolve, but reject."));
       });
     });
   });
