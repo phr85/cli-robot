@@ -8,7 +8,7 @@ module.exports = {
   "download": {
     "url": "http://localhost:" + server.port + "/kompendium/",
     "dir": path.resolve(__dirname, "../../tmp/data/auto/kompendium"),
-    "zip": path.resolve(__dirname, "../../tmp/data/auto/kompendium/kompendium.zip"),
+    "file": path.resolve(__dirname, "../../tmp/data/auto/kompendium/kompendium.zip"),
     "xml": path.resolve(__dirname, "../../tmp/data/auto/kompendium/kompendium.xml"),
     "zipFiles": [{
       name: /.xml/, dest: path.resolve(__dirname, "../../tmp/data/auto/kompendium/kompendium.xml")

@@ -8,7 +8,7 @@ module.exports = {
   "download": {
     "url": "http://download.swissmedicinfo.ch/",
     "dir": path.resolve(baseDir, "./data/auto/kompendium"),
-    "zip": path.resolve(baseDir, "./data/auto/kompendium/kompendium.zip"),
+    "file": path.resolve(baseDir, "./data/auto/kompendium/kompendium.zip"),
     "xml": path.resolve(baseDir, "./data/auto/kompendium/kompendium.xml"),
     "zipFiles": [{
       name: /.xml/, dest: path.resolve(baseDir, "./data/auto/kompendium/kompendium.xml")

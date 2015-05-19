@@ -49,7 +49,7 @@ function kompendium(done) {
       log.timeEnd("Kompendium", "Re-visit");
       log.debug("Kompendium", "Start Download");
       log.time("Kompendium", "Download");
-      return startDownload(result, cfg.download.zip, renderProgress("Kompendium", "Download"));
+      return startDownload(result, cfg.download.file, renderProgress("Kompendium", "Download"));
     })
     .then(function () {
       // throw away agent as any other job should use a fresh one
@@ -59,7 +59,7 @@ function kompendium(done) {
       log.timeEnd("Kompendium", "Download");
       log.debug("Kompendium", "Unzip");
       log.time("Kompendium", "Unzip");
-      return disk.unzip(cfg.download.zip, cfg.download.zipFiles, renderProgress("Kompendium", "Unzip"));
+      return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("Kompendium", "Unzip"));
     })
     .then(function () {
       log.timeEnd("Kompendium", "Unzip");
