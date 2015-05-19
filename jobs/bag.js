@@ -41,13 +41,13 @@ function bag(done) {
       log.timeEnd("BAG", "Parse Link");
       log.debug("BAG", "Parsed Link: " + parsedLink);
       log.time("BAG", "Download");
-      return downloadFile(parsedLink, cfg.download.zip, renderProgress("BAG", "Download"));
+      return downloadFile(parsedLink, cfg.download.file, renderProgress("BAG", "Download"));
     })
     .then(function () {
       log.timeEnd("BAG", "Download");
       log.debug("BAG", "Unzip");
       log.time("BAG", "Unzip");
-      return disk.unzip(cfg.download.zip, cfg.download.zipFiles, renderProgress("ATC", "Unzip"));
+      return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip"));
     })
     .then(function () {
       log.timeEnd("BAG", "Unzip");

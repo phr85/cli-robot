@@ -9,7 +9,7 @@ module.exports = {
     "url": "http://www.spezialitaetenliste.ch/",
     "linkParser": /href="(.*)".*Publikation als XML-Dateien/g,
     "dir": path.resolve(baseDir, "./data/auto/bag"),
-    "zip": path.resolve(baseDir, "./data/auto/bag/XMLPublications.zip"),
+    "file": path.resolve(baseDir, "./data/auto/bag/XMLPublications.zip"),
     "zipFiles": [{
       name: /Preparations.xml/, dest: path.resolve(baseDir, "./data/auto/bag/bag.xml")
     }, {

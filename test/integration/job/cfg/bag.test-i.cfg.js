@@ -5,7 +5,7 @@ var path = require("path");
 module.exports = {
   "download": {
     "dir": path.resolve(__dirname, "../../tmp/data/auto/bag"),
-    "zip": path.resolve(__dirname, "../../tmp/data/auto/bag/bag.zip"),
+    "file": path.resolve(__dirname, "../../tmp/data/auto/bag/bag.zip"),
     "zipFiles": [{
       name: /Preparations.xml/, dest: path.resolve(__dirname, "../../tmp/data/auto/bag/bag.xml")
     }, {
