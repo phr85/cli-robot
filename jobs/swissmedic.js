@@ -11,6 +11,7 @@ var renderProgress = require("../lib/common/renderProgress");
 var createATCCorrection = require("../lib/swissmedic/createATCCorrection");
 var correctXLSX = require("../lib/swissmedic/correctXLSX");
 var readXLSX = require("../lib/swissmedic/readXLSX");
+var swissmedicHistory = require("./swissmedicHistory");
 
 var baseDir = process.cwd();
 var cfg = require("./cfg/swissmedic.cfg.js");
@@ -42,7 +43,6 @@ function swissmedic(done) {
       log.time("Swissmedic", "Download");
       return downloadFile(parsedLink, cfg.download.file, renderProgress("Swissmedic", "Download"));
     })
-    //@TODO resolve dependencies, in this case atc.csv must be present
     .then(function () {
       log.timeEnd("Swissmedic", "Download");
       log.debug("Swissmedic", "Process Files");
@@ -61,6 +61,7 @@ function swissmedic(done) {
         disk.write.jsonMin(cfg.process.minFile, parsedXLSX)
       ]);
     })
+    .then(swissmedicHistory)
     .then(function () {
       log.time("Swissmedic", "Write Files");
       log.debug("Swissmedic", "Done");
