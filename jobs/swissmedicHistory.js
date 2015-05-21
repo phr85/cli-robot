@@ -1,7 +1,5 @@
 "use strict";
 
-var _ = require("lodash");
-
 var cfg = require("../jobs/cfg/swissmedic.cfg");
 
 var log = require("../lib").log;
@@ -13,49 +11,128 @@ var addNewEntriesToHistory = require("../lib/swissmedic/addNewEntriesToHistory")
 
 /**
  *
+ * @param {function(null|Error)?} done - optional
  * @returns {Promise}
  */
-function swissmedicHistory() {
+function swissmedicHistory(done) {
+
+  log.time("Swissmedic History", "Completed in");
+
   return disk.ensureDir(cfg.history.dir)
     .then(function () {
+      log.time("Swissmedic History", "Read Input Files");
+
       return Promise.all([
         disk.read.jsonFile(cfg.history.file),
         disk.read.jsonFile(cfg.process.file)
       ]);
     })
     .then(function (data) {
-      return Promise.all([
-        createDataStore(data[0]),
-        createDataStore(data[1])
-      ]);
+      var historyData = data[0];
+      var newData = data[1];
+
+      log.timeEnd("Swissmedic History", "Read Input Files");
+      log.time("Swissmedic History", "Create Data Stores");
+
+      return [
+        createDataStore(historyData),
+        createDataStore(newData)
+      ];
     })
+
     .then(function (dataStores) {
       var historyStore = dataStores[0];
-      var tmpStore = dataStores[1];
+      var newData = dataStores[1];
 
-      return Promise.all[(
-        historyStore,
-        updateHistory(historyStore, tmpStore)
-      )];
+      log.timeEnd("Swissmedic History", "Create Data Stores");
+      log.time("Swissmedic History", "Updated History");
+
+      return updateHistory(historyStore, newData);
     })
-    .then(function (historyStore, newEntries) {
-      return addNewEntriesToHistory(historyStore, newEntries);
+    .then(function (processedStores) {
+      var historyStore = processedStores[0];
+      var newEntryStore = processedStores[1];
+      var metrics = processedStores[2];
+
+      log.timeEnd("Swissmedic History", "Updated History");
+      log.warn("Swissmedic History", "Updated Entries: " + metrics.updated);
+      log.warn("Swissmedic History", "De-registered Entries:" +  metrics.deRegistered);
+      log.info("Swissmedic History", "Unchanged Entries:" + metrics.unChanged);
+      log.time("Swissmedic History", "Add New Entries");
+
+      return addNewEntriesToHistory(historyStore, newEntryStore);
     })
-    .then(function (history) {
-      return disk.write.json(cfg.history.file, history);
+    .then(function (historyData) {
+      var history = historyData[0];
+      var metrics = historyData[1];
+
+      log.timeEnd("Swissmedic History", "Add New Entries");
+      log.warn("Swissmedic History", "New Entries: " +  metrics.new);
+      log.time("Swissmedic History", "Create Entry Collection");
+
+      history = Object.keys(history).map(function (gtin) {
+        return history[gtin];
+      });
+
+      return history;
+    })
+    .then(function  (history) {
+      log.timeEnd("Swissmedic History", "Create Entry Collection");
+      log.time("Swissmedic History", "Write History File");
+
+      return Promise.all([
+        disk.write.json(cfg.history.file, history),
+        disk.write.jsonMin(cfg.history.minFile, history)
+      ]);
+    })
+    .then(function () {
+      log.timeEnd("Swissmedic History", "Write History File");
+      log.debug("Swissmedic History", "Done");
+      log.timeEnd("Swissmedic History", "Completed in");
+
+      if (typeof done === "function") {
+        done(null);
+      }
     })
     .catch(function (err) {
       return disk
         .fileExists(cfg.history.file)
         .then(function (historyFileExists) {
           if (!historyFileExists) {
-            return disk.read.jsonFile(cfg.process.file)
-              .then(function (newHistory) {
-                return disk.write.json(cfg.history.file, newHistory);
+            log.warn("Swissmedic History", "History-File Not Found");
+            log.warn("Swissmedic History", "Using " + cfg.process.file + " As Start Of History");
+
+            return disk.read
+              .jsonFile(cfg.process.file)
+              .then(function (newData) {
+                log.time("Swissmedic History", "Write History File");
+
+                return Promise.all([
+                  disk.write.json(cfg.history.file, newData),
+                  disk.write.jsonMin(cfg.history.minFile, newData)
+                ]);
+              })
+              .then(function () {
+                log.timeEnd("Swissmedic History", "Write History File");
+                log.debug("Swissmedic History", "Done");
+                log.timeEnd("Swissmedic History", "Completed in");
+
+                if (typeof done === "function") {
+                  done(null);
+                }
+              })
+              .catch(function (err) {
+                if (typeof done === "function") {
+                  done(err);
+                }
               });
           }
 
-          throw err;
+          if (typeof done === "function") {
+            done(err);
+          } else {
+            throw err;
+          }
         });
     });
 }

@@ -61,10 +61,15 @@ function swissmedic(done) {
         disk.write.jsonMin(cfg.process.minFile, parsedXLSX)
       ]);
     })
-    .then(swissmedicHistory)
     .then(function () {
-      log.time("Swissmedic", "Write Files");
+      log.timeEnd("Swissmedic", "Write Files");
+      log.debug("Swissmedic", "Update History");
+      log.time("Swissmedic", "Update History");
+      return swissmedicHistory();
+    })
+    .then(function () {
       log.debug("Swissmedic", "Done");
+      log.timeEnd("Swissmedic", "Update History");
       log.timeEnd("Swissmedic", "Completed in");
       done(null);
     })
