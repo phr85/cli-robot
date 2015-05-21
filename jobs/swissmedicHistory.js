@@ -10,6 +10,8 @@ var updateHistory = require("../lib/swissmedic/updateHistory");
 var addNewEntriesToHistory = require("../lib/swissmedic/addNewEntriesToHistory");
 
 /**
+ * This job is strongly coupled with basic swissmedic job as it makes only sesne to run it,
+ * after fresh data were fetched.
  *
  * @param {function(null|Error)?} done - optional
  * @returns {Promise}
