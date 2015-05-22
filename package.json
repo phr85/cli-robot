@@ -11,7 +11,7 @@
     "test": "mocha --recursive ./test/unit",
     "robot-service": "node ./bin/service.js",
     "outdated": "node ./bin/outdated.js",
-    "watch-test": "mocha --watch --recursive --growl",
+    "watch-test": "mocha --watch --recursive --growl ./test/unit",
     "test-integration": "mocha --recursive --timeout 240000 ./test/integration",
     "init-test-integration": "node ./bin/all.js && cp -r data/* test/fixtures/"
   },

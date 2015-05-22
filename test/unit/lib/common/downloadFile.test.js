@@ -1,7 +1,5 @@
 "use strict";
 
-
-var EventEmitter = require('events').EventEmitter;
 var rewire = require("rewire");
 var expect = require("chai").expect;
 
@@ -13,7 +11,7 @@ describe.skip("downloadFile", function () {
 
   before(function () {
     fsMock = { createWriteStream: function () { /* do nothing*/ }};
-    saMock = fakeAgent(errRef = null, resRef = {})
+    saMock = fakeAgent(errRef = null, resRef = {});
 
     downloadFile = rewire("../../lib/downloadFile");
     downloadFile.__set__({"fs": fsMock, "request": saMock});
