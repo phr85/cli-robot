@@ -16,13 +16,14 @@ var compareKompendiumFileSize = require("../lib/kompendium/compare/compareKompen
 /**
  *
  * @param {function (function(null|Error))} job
+ * @param {Log|console?} log - optional
  * @returns {Promise}
  */
-function enqueueJob(job) {
+function enqueueJob(job, log) {
   return new Promise(function (resolve, reject) {
     job(function (err) {
       err ? reject(err) : resolve();
-    });
+    }, log);
   });
 }
 
@@ -52,22 +53,22 @@ function outdated(log) {
 
       if (refreshSwissmedic) {
         log.debug("Swissmedic", "Starting BAG Update");
-        p = p.then(enqueueJob(swissmedic));
+        p = p.then(enqueueJob(swissmedic, log));
       }
 
       if (refreshATC) {
         log.debug("ATC", "Starting ATC Update");
-        p = p.then(enqueueJob(atc));
+        p = p.then(enqueueJob(atc, log));
       }
 
       if (refreshBAG) {
         log.debug("ABG", "Starting BAG Update");
-         p = p.then(enqueueJob(bag));
+         p = p.then(enqueueJob(bag, log));
       }
 
       if (refreshKompendium) {
         log.debug("Kompendium", "Starting Kompendium Update");
-        p = p.then(enqueueJob(kompendium));
+        p = p.then(enqueueJob(kompendium, log));
       }
 
       return p;
