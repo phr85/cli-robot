@@ -2,7 +2,7 @@
 
 var path = require("path");
 
-var log = require("../lib").log;
+var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML = require("../lib/common/fetchHTML");
 var parseLink = require("../lib/common/parseLink");
@@ -19,8 +19,11 @@ var cfg = require("./cfg/swissmedic.cfg.js");
 /**
  *
  * @param {function(Error|null)} done
+ * @param {Log|console?} log - optional
  */
-function swissmedic(done) {
+function swissmedic(done, log) {
+
+  log = log || defaultLog;
 
   log.info("Swissmedic", "Get, Load and Parse");
   log.time("Swissmedic", "Completed in");
@@ -66,7 +69,7 @@ function swissmedic(done) {
       log.debug("Swissmedic", "Update History");
       log.time("Swissmedic", "Update History");
       // A build of swissmedic history is strongly coupled with fresh run of this job.
-      return swissmedicHistory();
+      return swissmedicHistory(null, log);
     })
     .then(function () {
       log.debug("Swissmedic", "Done");

@@ -3,13 +3,21 @@
 var path = require("path");
 
 var cfg = require("./cfg/atcCH.cfg");
-var log = require("../lib").log;
+var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var swissmedicJob = require("./swissmedic");
 var swissmedicCfg = require("./cfg/swissmedic.cfg.js");
 var createATCCH = require("../lib/atc/createATCCH");
 
-function atcCH(atcDEwAllModifications, done) {
+/**
+ *
+ * @param {object} atcDEwAllModifications
+ * @param {function(null|Error)} done
+ * @param {Log|console?} log - optional
+ */
+function atcCH(atcDEwAllModifications, done, log) {
+
+  log = log || defaultLog;
 
   log.info("ATC-CH", "Get, Load and Parse");
   log.time("ATC-CH", "Completed in");

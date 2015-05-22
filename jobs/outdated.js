@@ -9,7 +9,7 @@ var kompenidumCfg = require("./cfg/kompendium.cfg.js");
 var swissmedic = require("./swissmedic");
 var swissmedicCfg = require("./cfg/swissmedic.cfg.js");
 
-var log = require("../lib/index").log;
+var defaultLog = require("../lib/index").log;
 var compareFileSize = require("../lib/compare/compareFileSize");
 var compareKompendiumFileSize = require("../lib/kompendium/compare/compareKompendiumFileSize");
 
@@ -28,9 +28,13 @@ function enqueueJob(job) {
 
 /**
  *
+ * @param {Log|console?} log - optional
  * @returns {Promise}
  */
-function outdated() {
+function outdated(log) {
+
+  log = log || defaultLog;
+
   return Promise.all([
     compareFileSize("ATC", atcCfg),
     compareFileSize("BAG", bagCfg),
@@ -42,11 +46,13 @@ function outdated() {
       var refreshBAG = result[1];
       var refreshSwissmedic = result[2];
       var refreshKompendium = result[3];
-      var p;
+      var p = new Promise(function (resolve) {
+        resolve();
+      });
 
       if (refreshSwissmedic) {
         log.debug("Swissmedic", "Starting BAG Update");
-        p = enqueueJob(swissmedic);
+        p = p.then(enqueueJob(swissmedic));
       }
 
       if (refreshATC) {
@@ -60,7 +66,7 @@ function outdated() {
       }
 
       if (refreshKompendium) {
-        log.debug("Kompendium", "Starting BAG Update");
+        log.debug("Kompendium", "Starting Kompendium Update");
         p = p.then(enqueueJob(kompendium));
       }
 

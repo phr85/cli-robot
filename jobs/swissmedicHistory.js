@@ -2,7 +2,7 @@
 
 var cfg = require("../jobs/cfg/swissmedic.cfg");
 
-var log = require("../lib").log;
+var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 
 var createDataStore = require("../lib/swissmedic/createDataStore");
@@ -14,9 +14,12 @@ var addNewEntriesToHistory = require("../lib/swissmedic/addNewEntriesToHistory")
  * after fresh data were fetched.
  *
  * @param {function(null|Error)?} done - optional
+ * @param {Log|console?} log - optional
  * @returns {Promise}
  */
-function swissmedicHistory(done) {
+function swissmedicHistory(done, log) {
+
+  log = log || defaultLog;
 
   log.time("Swissmedic History", "Completed in");
 

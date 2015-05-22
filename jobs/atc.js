@@ -3,7 +3,7 @@
 var path = require("path");
 
 var cfg = require("./cfg/atc.cfg.js");
-var log = require("../lib").log;
+var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML = require("../lib/common/fetchHTML");
 var parseLink = require("../lib/common/parseLink");
@@ -22,8 +22,11 @@ var atcCHJob = require("./atcCH");
 /**
  *
  * @param {function(Error|null)} done - will be called after job has finished
+ * @param {Log|console?} log - optional
  */
-function atc(done) {
+function atc(done, log) {
+
+  log = log || defaultLog;
 
   log.info("ATC", "Get, Load and Parse");
   log.time("ATC", "Completed in");
@@ -99,7 +102,7 @@ function atc(done) {
       return atcDEwAllModifications;
     })
     .then(function (atcDEwAllModifications) {
-      atcCHJob(atcDEwAllModifications, done);
+      atcCHJob(atcDEwAllModifications, done, log);
     })
     .catch(function (err) {
       log.error(err);
