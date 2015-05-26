@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>BAG</title>
+</head>
+<body>
+<form name="aspnetForm" method="post" action="default.aspx" id="aspnetForm">
+    <div id="header"></div>
+    <div id="body">
+        <div id="content">
+            <div id="ctl00_cphContent_pnlOverview">
+                <fieldset>
+
+                    <table width="100%">
+                        <tbody>
+                        <tr>
+                            <th><p>Publikationen</p></th>
+                        </tr>
+                        <tr>
+                            <td>Publikationen aktueller Monat</td>
+                            <td>Publikationen nächster Monat &nbsp; </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li><a id="ctl00_cphContent_lnkExportExcel" href="/File.axd?file=Publications.xls">Aktueller SL-Datenstamm (Excel)</a></li>
+                                    <li><a id="ctl00_cphContent_lnkDelExcel" href="/File.axd?file=Gestrichene_Packungen_Emballages_radies.xls">Liste der gestrichenen Packungen seit 01.01.2010</a></li>
+                                    <li><a id="ctl00_cphContent_lnkPublXML" href="/File.axd?file=XMLPublications.zip">Aktuelle Publikation als XML-Dateien</a></li>
+                                </ul>
+                                <p class="emphasize">
+                                    Die zip-Datei beinhaltet alle Register und Präparate in XML-Form
+                                </p>
+                            </td>
+                            <td>
+                                <ul>
+                                    <li><a id="ctl00_cphContent_lnkExportExcelNext" href="/File.axd?file=Publications_Next.xls">SL-Datenstamm (Excel) nächster Monat</a></li>
+                                    <li><a id="ctl00_cphContent_lnkDelExcelNext" href="/File.axd?file=Gestrichene_Packungen_Emballages_radies_Next.xls">Liste der gestrichenen Packungen (inkl. nächster Monat)</a></li>
+                                    <li><a id="ctl00_cphContent_lnkPublXMLNext" href="/File.axd?file=XMLPublications_Next.zip">XML-Publikation nächster Monat</a></li>
+                                </ul>
+                                <p class="emphasize">Bitte beachten Sie, dass die neuen Daten zwischen dem 27. des
+                                    laufenden Monats und dem 01. des Folgemonats noch ändern können</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <ul>
+                                    <li><a id="ctl00_cphContent_lnkSchema" href="/File.axd?file=XMLPublicationsSchemas.zip">XML-Schemata (XSD) der Publikationen im XML-Format</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </fieldset>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="footer"></div>
+
+</form>
+</body>
+</html>

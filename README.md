@@ -26,3 +26,19 @@ bot.swissmedic( function() {
   console.log("Downloaded, parsed and saved swissmedic file");
 });
 ```
+
+## Tests
+
+### Unit-Tests
+
+- `npm test`: Runs the unit-tests once
+- `npm run watch-test`: Watches project's files and re-runs unit-tests on change
+- both support growling. check [tj/node-growl](https://github.com/tj/node-growl) to enable it on your machine.
+
+### Integration-Tests
+
+#### `npm run test-integration`
+
+0. Run `npm run init-test-integration` which will download fresh data to `{ROOT}/data/auto` & `{ROOT}/data/release` and copies it to `{ROOT}/fixtures` to use it at fixtures
+1. Spins up a real node http-server that serves atc, swissmedic etc. dummy sites and downloads.
+2. It runs each job against the integration-testing-server and tests the whole flow from html parsing to creating release files.

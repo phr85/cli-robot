@@ -7,7 +7,12 @@
     "email": "marco.egbring@epha.ch"
   },
   "scripts": {
-    "start": "node ./bin/cli.js"
+    "start": "node ./bin/cli.js",
+    "test": "mocha --recursive ./test/unit",
+    "outdated": "node ./bin/outdated.js",
+    "watch-test": "mocha --watch --recursive --growl",
+    "test-integration": "mocha --recursive --timeout 240000 ./test/integration",
+    "init-test-integration": "node ./bin/all.js && cp -r data/* test/fixtures/"
   },
   "main": "./lib/index.js",
   "dependencies": {
@@ -16,22 +21,38 @@
     "bytes": "~1.0.0",
     "cheerio": "^0.18.0",
     "csv": "~0.3.7",
+    "csv-parse": "^0.1.1",
     "epha-files": "^0.2.4",
     "epha-log": "^0.3.23",
     "iconv-lite": "~0.2.11",
     "jquery": "~2.1.1",
+    "jsdom": "3.x",
+    "mkdirp": "^0.5.0",
     "moment": "^2.9.0",
     "node-xlsx": "0.4.0",
+    "progress-stream": "^1.1.1",
     "sax": "*",
     "sha1": "^1.1.0",
     "streamifier": "^0.1.0",
+    "superagent": "^1.2.0",
     "tedious": "~1.2.2",
     "xlsjs": "*",
     "xlsx": "^0.5.17",
     "xml-splitter": "^1.2.1"
   },
   "devDependencies": {
-    "mocha": ">=1.0.0"
+    "body-parser": "1.12.x",
+    "chai": "^2.2.0",
+    "cookie-parser": "1.3.x",
+    "express": "^4.12.3",
+    "merge": "^1.2.0",
+    "mocha": "^2.2.4",
+    "rewire": "^2.3.1",
+    "rmdir": "^1.1.0",
+    "shasum": "^1.0.1",
+    "sinon": "^1.14.1",
+    "sinon-chai": "^2.7.0",
+    "superagent-mock": "^1.0.0"
   },
   "keywords": [
     "swissmedic",
