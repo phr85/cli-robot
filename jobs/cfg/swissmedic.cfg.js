@@ -13,7 +13,7 @@ module.exports = {
   },
   "process": {
     "dir": path.resolve(baseDir, "./data/release/swissmedic/"),
-    "atcFile": path.resolve(baseDir, "./data/manual/swissmedic/atc.csv"),
+    "atcFile": path.resolve(__dirname, "../../data/manual/swissmedic/atc.csv"),
     "file": path.resolve(baseDir, "./data/release/swissmedic/swissmedic.json"),
     "minFile": path.resolve(baseDir, "./data/release/swissmedic/swissmedic.min.json")
   }
