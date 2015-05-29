@@ -3,6 +3,7 @@
 var path = require("path");
 
 var swissmedicCfg = require("./swissmedic.cfg");
+var atcCfg = require("./atc.cfg");
 
 var baseDir = process.cwd();
 
@@ -10,6 +11,11 @@ module.exports = {
   "dependencies": {
     "swissmedic": {
       "json": swissmedicCfg.process.file
+    },
+    "atc": {
+      "de": {
+        "json": atcCfg.process.atcDe
+      }
     }
   },
   process: {

@@ -20,6 +20,10 @@ module.exports = {
   "history": {
     "dir": path.resolve(baseDir, "./data/release/swissmedic/"),
     "file": path.resolve(baseDir, "./data/release/swissmedic/swissmedic.history.json"),
-    "minFile": path.resolve(baseDir, "./data/release/swissmedic/swissmedic.history.min.json")
+    "minFile": path.resolve(baseDir, "./data/release/swissmedic/swissmedic.history.min.json"),
+    "log": {
+      "changes": path.resolve(baseDir, "./logs/swissmedic/swissmedic.history.changes.json"),
+      "new": path.resolve(baseDir, "./logs/swissmedic/swissmedic.history.new.json")
+    }
   }
 };
