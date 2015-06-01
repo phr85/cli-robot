@@ -1,5 +1,7 @@
 "use strict";
 
+var jsondiffpatch = require("jsondiffpatch");
+
 var cfg = require("../jobs/cfg/swissmedic.cfg");
 
 var defaultLog = require("../lib").log;
@@ -47,12 +49,29 @@ function swissmedicHistory(done, log) {
 
     .then(function (dataStores) {
       var historyStore = dataStores[0];
-      var newData = dataStores[1];
+      var newStore = dataStores[1];
+
+      function onChanged(historyStoreData, newStoreData) {
+        var diff = jsondiffpatch.diff(historyStoreData, newStoreData);
+
+        // @TODO Remove workaround(if-statement) after TODO in updateHistory.js is solved.
+        if (diff) {
+          log.warn(
+            "Swissmedic History",
+            "Changes (GTIN: " + historyStoreData.gtin +")",
+            jsondiffpatch.diff(historyStoreData, newStoreData)
+          );
+        }
+      }
+
+      function onDeRegistered(historyStoreData) {
+        log.warn("Swissmedic History", "DE-Registered (GTIN: " + historyStoreData.gtin + ")", historyStoreData);
+      }
 
       log.timeEnd("Swissmedic History", "Create Data Stores");
       log.time("Swissmedic History", "Updated History");
 
-      return updateHistory(historyStore, newData);
+      return updateHistory(historyStore, newStore, onChanged, onDeRegistered);
     })
     .then(function (processedStores) {
       var historyStore = processedStores[0];
@@ -68,6 +87,7 @@ function swissmedicHistory(done, log) {
       return addNewEntriesToHistory(historyStore, newEntryStore);
     })
     .then(function (historyData) {
+      var historyCollection;
       var history = historyData[0];
       var metrics = historyData[1];
 
@@ -75,11 +95,11 @@ function swissmedicHistory(done, log) {
       log.warn("Swissmedic History", "New Entries: " +  metrics.new);
       log.time("Swissmedic History", "Create Entry Collection");
 
-      history = Object.keys(history).map(function (gtin) {
+      historyCollection = Object.keys(history).map(function (gtin) {
         return history[gtin];
       });
 
-      return history;
+      return historyCollection;
     })
     .then(function  (history) {
       log.timeEnd("Swissmedic History", "Create Entry Collection");
