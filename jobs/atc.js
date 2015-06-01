@@ -17,8 +17,6 @@ var removeEmptyStrings = require("../lib/atc/removeEmptyStrings");
 var createATCCH = require("../lib/atc/createATCCH");
 var writeATCCSV = require("../lib/atc/writeATCCSV");
 
-var atcCHJob = require("./atcCH");
-
 /**
  *
  * @param {function(Error|null)?} done - will be called after job has finished

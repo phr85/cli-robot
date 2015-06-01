@@ -1,6 +1,8 @@
 "use strict";
 
 var jsondiffpatch = require("jsondiffpatch");
+var streamifier = require("streamifier");
+var moment = require("moment");
 
 var cfg = require("../jobs/cfg/swissmedic.cfg");
 
@@ -20,12 +22,13 @@ var addNewEntriesToHistory = require("../lib/swissmedic/addNewEntriesToHistory")
  * @returns {Promise}
  */
 function swissmedicHistory(done, log) {
+  var historyDataBackup;
 
   log = log || defaultLog;
 
   log.time("Swissmedic History", "Completed in");
 
-  return disk.ensureDir(cfg.history.dir)
+  return disk.ensureDir(cfg.history.dir, cfg.history.log.dir)
     .then(function () {
       log.time("Swissmedic History", "Read Input Files");
 
@@ -37,6 +40,8 @@ function swissmedicHistory(done, log) {
     .then(function (data) {
       var historyData = data[0];
       var newData = data[1];
+
+      historyDataBackup = data[0];
 
       log.timeEnd("Swissmedic History", "Read Input Files");
       log.time("Swissmedic History", "Create Data Stores");
@@ -50,33 +55,45 @@ function swissmedicHistory(done, log) {
     .then(function (dataStores) {
       var historyStore = dataStores[0];
       var newStore = dataStores[1];
+      var changes = ["\n"];
+      var deRegistrations = ["\n"];
+      var processedStores, changesLog, deRegistrationsLog;
 
-      function onChanged(historyStoreData, newStoreData) {
-        var diff = jsondiffpatch.diff(historyStoreData, newStoreData);
-
-        // @TODO Remove workaround(if-statement) after TODO in updateHistory.js is solved.
-        if (diff) {
-          log.warn(
-            "Swissmedic History",
-            "Changes (GTIN: " + historyStoreData.gtin +")",
-            jsondiffpatch.diff(historyStoreData, newStoreData)
-          );
-        }
+      function onChanged(gtin, diff) {
+        log.warn("Swissmedic History", "Change detected: (GTIN: " + gtin + ")", diff);
+        changes.push(moment().format("DD.MM.YYYY") + "|gtin: " + gtin + "|" + JSON.stringify(diff));
       }
 
-      function onDeRegistered(historyStoreData) {
-        log.warn("Swissmedic History", "DE-Registered (GTIN: " + historyStoreData.gtin + ")", historyStoreData);
+      function onDeRegistered(gtin) {
+        log.warn("Swissmedic History", "DE-Registered: (GTIN)" + gtin);
+        deRegistrations.push(moment().format("DD.MM.YYYY") + "|gtin: " + gtin);
       }
 
       log.timeEnd("Swissmedic History", "Create Data Stores");
       log.time("Swissmedic History", "Updated History");
 
-      return updateHistory(historyStore, newStore, onChanged, onDeRegistered);
+      processedStores = updateHistory(historyStore, newStore, onChanged, onDeRegistered);
+      changesLog = streamifier.createReadStream(changes.join("\n"));
+      deRegistrationsLog = streamifier.createReadStream(deRegistrations.join("\n"));
+
+      return Promise.all([
+        processedStores,
+        disk.write.stream(cfg.history.log.changes, changesLog, { flags: "a" }),
+        disk.write.stream(cfg.history.log.deRegistered, deRegistrationsLog, { flags: "a" })
+      ]);
     })
-    .then(function (processedStores) {
+    .then(function (result) {
+      var processedStores = result[0];
       var historyStore = processedStores[0];
       var newEntryStore = processedStores[1];
       var metrics = processedStores[2];
+      var newEntries = ["\n"];
+      var newEntriesLog;
+
+      function onNew(gtin) {
+        log.warn("Swissmedic History", "New: (GTIN)" + gtin);
+        newEntries.push();
+      }
 
       log.timeEnd("Swissmedic History", "Updated History");
       log.warn("Swissmedic History", "Updated Entries: " + metrics.updated);
@@ -84,12 +101,19 @@ function swissmedicHistory(done, log) {
       log.info("Swissmedic History", "Unchanged Entries:" + metrics.unChanged);
       log.time("Swissmedic History", "Add New Entries");
 
-      return addNewEntriesToHistory(historyStore, newEntryStore);
+      processedStores = addNewEntriesToHistory(historyStore, newEntryStore, onNew);
+      newEntriesLog = streamifier.createReadStream(newEntries.join("\n"));
+
+      return Promise.all([
+        processedStores,
+        disk.write.stream(cfg.history.log.new, newEntriesLog, { flags: "a"})
+      ]);
     })
-    .then(function (historyData) {
-      var historyCollection;
+    .then(function (result) {
+      var historyData = result[0];
       var history = historyData[0];
       var metrics = historyData[1];
+      var historyCollection;
 
       log.timeEnd("Swissmedic History", "Add New Entries");
       log.warn("Swissmedic History", "New Entries: " +  metrics.new);

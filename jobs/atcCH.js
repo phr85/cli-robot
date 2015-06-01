@@ -2,9 +2,10 @@
 
 var path = require("path");
 
-var cfg = require("./cfg/atcCH.cfg");
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
+
+var cfg = require("./cfg/atcCH.cfg");
 var swissmedicJob = require("./swissmedic");
 var swissmedicCfg = require("./cfg/swissmedic.cfg.js");
 var atcJob = require("./atc");
