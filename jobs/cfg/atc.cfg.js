@@ -13,9 +13,9 @@ module.exports = {
     "zipFiles": [{name: /widode.xlsx/, dest: path.resolve(baseDir, "./data/auto/atc/atc.xlsx")}]
   },
   "manual": {
-    "addFile": path.resolve(baseDir, "./data/manual/atc", "add.csv"),
-    "capitalizeFile": path.resolve(baseDir, "./data/manual/atc", "capitalize.csv"),
-    "changeFile": path.resolve(baseDir, "./data/manual/atc", "change.csv")
+    "addFile": path.resolve(__dirname, "../../data/manual/atc", "add.csv"),
+    "capitalizeFile": path.resolve(__dirname, "../../data/manual/atc", "capitalize.csv"),
+    "changeFile": path.resolve(__dirname, "../../data/manual/atc", "change.csv")
   },
   "process": {
     "dir": path.resolve(baseDir, "./data/release/atc"),
