@@ -33,41 +33,41 @@ function swissmedic(done, log) {
 
   return new Promise(function (resolve, reject) {
     disk.ensureDir(cfg.download.dir, cfg.process.dir)
-      //.then(function () {
-      //  log.time("Swissmedic", "Go to");
-      //  log.debug("Swissmedic", "Go to " + cfg.download.url);
-      //  return fetchHTML(cfg.download.url);
-      //})
-      //.then(function (result) {
-      //  log.timeEnd("Swissmedic", "Go to");
-      //  log.time("Swissmedic", "Parse Link");
-      //  return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
-      //})
-      //.then(function (parsedLink) {
-      //  log.timeEnd("Swissmedic", "Parse Link");
-      //  log.debug("Swissmedic", "Parsed Link: " + parsedLink);
-      //  log.debug("Swissmdeic", "Start Download");
-      //  log.time("Swissmedic", "Download");
-      //  return downloadFile(parsedLink, cfg.download.file, renderProgress("Swissmedic", "Download"));
-      //})
-      //.then(function () {
-      //  log.timeEnd("Swissmedic", "Download");
-      //  log.debug("Swissmedic", "Process Files");
-      //  log.time("Swissmedic", "Process Files");
-      //  return createATCCorrection(cfg.process.atcFile);
-      //})
-      //.then(function (atcCorrection) {
-      //  return readXLSX(cfg.download.file, correctXLSX.setATCCorrection(atcCorrection));
-      //})
-      //.then(function (parsedXLSX) {
-      //  log.timeEnd("Swissmedic", "Process Files");
-      //  log.debug("Swissmedic", "Write Processed Files");
-      //  log.time("Swissmedic", "Write Files");
-      //  return Promise.all([
-      //    disk.write.json(cfg.process.file, parsedXLSX),
-      //    disk.write.jsonMin(cfg.process.minFile, parsedXLSX)
-      //  ]);
-      //})
+      .then(function () {
+        log.time("Swissmedic", "Go to");
+        log.debug("Swissmedic", "Go to " + cfg.download.url);
+        return fetchHTML(cfg.download.url);
+      })
+      .then(function (result) {
+        log.timeEnd("Swissmedic", "Go to");
+        log.time("Swissmedic", "Parse Link");
+        return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
+      })
+      .then(function (parsedLink) {
+        log.timeEnd("Swissmedic", "Parse Link");
+        log.debug("Swissmedic", "Parsed Link: " + parsedLink);
+        log.debug("Swissmdeic", "Start Download");
+        log.time("Swissmedic", "Download");
+        return downloadFile(parsedLink, cfg.download.file, renderProgress("Swissmedic", "Download"));
+      })
+      .then(function () {
+        log.timeEnd("Swissmedic", "Download");
+        log.debug("Swissmedic", "Process Files");
+        log.time("Swissmedic", "Process Files");
+        return createATCCorrection(cfg.process.atcFile);
+      })
+      .then(function (atcCorrection) {
+        return readXLSX(cfg.download.file, correctXLSX.setATCCorrection(atcCorrection));
+      })
+      .then(function (parsedXLSX) {
+        log.timeEnd("Swissmedic", "Process Files");
+        log.debug("Swissmedic", "Write Processed Files");
+        log.time("Swissmedic", "Write Files");
+        return Promise.all([
+          disk.write.json(cfg.process.file, parsedXLSX),
+          disk.write.jsonMin(cfg.process.minFile, parsedXLSX)
+        ]);
+      })
       .then(function () {
         log.timeEnd("Swissmedic", "Write Files");
         log.debug("Swissmedic", "Update History");

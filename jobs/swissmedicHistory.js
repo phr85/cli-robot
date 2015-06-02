@@ -92,7 +92,7 @@ function swissmedicHistory(done, log) {
 
       function onNew(gtin) {
         log.warn("Swissmedic History", "New: (GTIN)" + gtin);
-        newEntries.push();
+        newEntries.push(moment().format("DD.MM.YYYY") + "|New: (GTIN)" + gtin);
       }
 
       log.timeEnd("Swissmedic History", "Updated History");
