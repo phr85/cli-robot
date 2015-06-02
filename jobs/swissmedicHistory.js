@@ -61,12 +61,12 @@ function swissmedicHistory(done, log) {
 
       function onChanged(gtin, diff) {
         log.warn("Swissmedic History", "Change detected: (GTIN)" + gtin + ")", diff);
-        changes.push(moment().format("DD.MM.YYYY") + "|gtin:" + gtin + "|" + JSON.stringify(diff));
+        changes.push(moment().format("DD.MM.YYYY") + "|GTIN:" + gtin + "|" + JSON.stringify(diff));
       }
 
       function onDeRegistered(gtin) {
         log.warn("Swissmedic History", "DE-Registered: (GTIN)" + gtin);
-        deRegistrations.push(moment().format("DD.MM.YYYY") + "|gtin:" + gtin);
+        deRegistrations.push(moment().format("DD.MM.YYYY") + "|GTIN:" + gtin);
       }
 
       log.timeEnd("Swissmedic History", "Create Data Stores");
@@ -92,7 +92,7 @@ function swissmedicHistory(done, log) {
 
       function onNew(gtin) {
         log.warn("Swissmedic History", "New: (GTIN)" + gtin);
-        newEntries.push(moment().format("DD.MM.YYYY") + "|New: (GTIN)" + gtin);
+        newEntries.push(moment().format("DD.MM.YYYY") + "|GTIN:" + gtin);
       }
 
       log.timeEnd("Swissmedic History", "Updated History");
