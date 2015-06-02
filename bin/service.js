@@ -10,7 +10,7 @@ var log = require("epha-log")({
 var outdated = require("./../jobs/outdated");
 
 // DELAY={DELAY} node bin/cronJob
-var delay = parseInt(process.env.DELAY || (60 * 60 * 1000), 10);
+var delay = parseInt(process.env.DELAY || (60 * 30 * 1000), 10);
 var isRunning = false;
 
 function runOutdated() {

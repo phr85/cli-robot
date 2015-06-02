@@ -55,26 +55,26 @@ function swissmedicHistory(done, log) {
     .then(function (dataStores) {
       var historyStore = dataStores[0];
       var newStore = dataStores[1];
-      var changes = ["\n"];
-      var deRegistrations = ["\n"];
+      var changes = [];
+      var deRegistrations = [];
       var processedStores, changesLog, deRegistrationsLog;
 
       function onChanged(gtin, diff) {
-        log.warn("Swissmedic History", "Change detected: (GTIN: " + gtin + ")", diff);
-        changes.push(moment().format("DD.MM.YYYY") + "|gtin: " + gtin + "|" + JSON.stringify(diff));
+        log.warn("Swissmedic History", "Change detected: (GTIN)" + gtin + ")", diff);
+        changes.push(moment().format("DD.MM.YYYY") + "|gtin:" + gtin + "|" + JSON.stringify(diff));
       }
 
       function onDeRegistered(gtin) {
         log.warn("Swissmedic History", "DE-Registered: (GTIN)" + gtin);
-        deRegistrations.push(moment().format("DD.MM.YYYY") + "|gtin: " + gtin);
+        deRegistrations.push(moment().format("DD.MM.YYYY") + "|gtin:" + gtin);
       }
 
       log.timeEnd("Swissmedic History", "Create Data Stores");
       log.time("Swissmedic History", "Updated History");
 
       processedStores = updateHistory(historyStore, newStore, onChanged, onDeRegistered);
-      changesLog = streamifier.createReadStream(changes.join("\n"));
-      deRegistrationsLog = streamifier.createReadStream(deRegistrations.join("\n"));
+      changesLog = streamifier.createReadStream(changes.join("\n") + "\n");
+      deRegistrationsLog = streamifier.createReadStream(deRegistrations.join("\n") + "\n");
 
       return Promise.all([
         processedStores,
@@ -87,7 +87,7 @@ function swissmedicHistory(done, log) {
       var historyStore = processedStores[0];
       var newEntryStore = processedStores[1];
       var metrics = processedStores[2];
-      var newEntries = ["\n"];
+      var newEntries = [];
       var newEntriesLog;
 
       function onNew(gtin) {
@@ -102,7 +102,7 @@ function swissmedicHistory(done, log) {
       log.time("Swissmedic History", "Add New Entries");
 
       processedStores = addNewEntriesToHistory(historyStore, newEntryStore, onNew);
-      newEntriesLog = streamifier.createReadStream(newEntries.join("\n"));
+      newEntriesLog = streamifier.createReadStream(newEntries.join("\n") + "\n");
 
       return Promise.all([
         processedStores,
