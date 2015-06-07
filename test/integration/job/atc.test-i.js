@@ -20,22 +20,8 @@ describe("job: ATC", function () {
   });
 
   before(function (done) {
-    swissmedic = rewire("../../../jobs/swissmedic");
-    swissmedicCfg = merge.recursive(require("../../../jobs/cfg/swissmedic.cfg"), require("./cfg/swissmedic.test-i.cfg"));
-    swissmedic.__set__("cfg", swissmedicCfg);
-
-    atcCH = rewire("../../../jobs/atcCH");
-    atcCH.__set__({
-      "swissmedicJob": swissmedic,
-      "swissmedicCfg": swissmedicCfg,
-      "cfg": require("./cfg/atcCH.test-i.cfg")
-    });
-
     atc = rewire("../../../jobs/atc");
-    atc.__set__({
-      "atcCHJob": atcCH,
-      "cfg": merge.recursive(require("../../../jobs/cfg/atc.cfg"), test.cfg)
-    });
+    atc.__set__({"cfg": merge.recursive(require("../../../jobs/cfg/atc.cfg"), test.cfg)});
     atc(done);
   });
 

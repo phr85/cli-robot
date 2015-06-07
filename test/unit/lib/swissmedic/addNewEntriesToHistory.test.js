@@ -6,7 +6,7 @@ describe("swissmedic/addNewEntriesToHistory", function () {
   var addNewEntriesToHistory, historyStore, newEntriesStore, result;
 
   before(function () {
-    addNewEntriesToHistory = require("../../../../lib/swissmedic/addNewEntriesToHistory");
+    addNewEntriesToHistory = require("../../../../lib/history/addNewEntriesToHistory");
   });
 
   before(function () {
