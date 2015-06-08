@@ -16,6 +16,8 @@ var renderProgress = require("../lib/common/renderProgress");
 var parseBAGXML = require("../lib/bag/parseBAGXML");
 var parseITCodes = require("../lib/bag/parseITCodes");
 
+var bagHistory = require('./bagHistory');
+
 /**
  *
  * @param {function(Error|null)?} done
@@ -73,11 +75,14 @@ function bag(done, log) {
         log.time("BAG", "Write Processed Files");
 
         return Promise.all([
-          disk.write.json(cfg.process.bag, bag),
-          disk.write.jsonMin(cfg.process.bagMin, bag),
+          disk.write.json(cfg.process.file, bag),
+          disk.write.jsonMin(cfg.process.minFile, bag),
           disk.write.json(cfg.process.it, it),
           disk.write.jsonMin(cfg.process.itMin, it)
         ]);
+      })
+      .then(function () {
+        return bagHistory(log);
       })
       .then(function () {
         log.timeEnd("BAG", "Write Processed Files");
@@ -89,7 +94,7 @@ function bag(done, log) {
         }
       })
       .catch(function (err) {
-        log.error(err);
+        log.error(err, err.stack);
         reject(err);
         if (typeof done === "function") {
           done(err);

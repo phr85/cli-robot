@@ -1,6 +1,6 @@
 "use strict";
 
-before(function () {
+beforeEach(function () {
   var request = require("superagent");
   var cfg = require("./mocks/superagentMockCfg");
 

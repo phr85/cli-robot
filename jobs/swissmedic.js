@@ -73,7 +73,7 @@ function swissmedic(done, log) {
         log.debug("Swissmedic", "Update History");
         log.time("Swissmedic", "Update History");
         // A build of swissmedic history is strongly coupled with fresh run of this job.
-        return swissmedicHistory(null, log);
+        return swissmedicHistory(log);
       })
       .then(function () {
         return atcCHJob(null, log);

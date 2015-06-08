@@ -6,7 +6,7 @@ describe("createDataStore", function () {
   var createDataStore, data, collection;
 
   before(function () {
-    createDataStore = require("../../../../lib/common/createDataStore");
+    createDataStore = require("../../../../lib/history/createDataStore");
   });
 
   beforeEach(function () {

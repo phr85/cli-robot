@@ -11,29 +11,17 @@ var cfg = require("../jobs/cfg/swissmedic.cfg");
  * This job is strongly coupled with basic swissmedic job as it makes only sense to run it,
  * after fresh data were fetched.
  *
- * @param {function(null|Error)?} done - optional
  * @param {Log|console?} log - optional
  * @returns {Promise}
  */
-function swissmedicHistory(done, log) {
+function swissmedicHistory(log) {
   var jobName = "Swissmedic History";
 
-  function onChanged(gtin, diff, historyData, newData) {
-    log.warn(jobName, "Change detected: (GTIN)" + gtin + ")", diff);
-    return merge.recursive(historyData, newData);
+  function onChanged() {
+    // default behaviour will do
   }
 
-  function onDeRegistered(gtin, historyData) {
-    log.warn(jobName, "DE-Registered: (GTIN)" + gtin);
-    historyData.deregistered = moment().format("DD.M.YYYY");
-    return historyData;
-  }
-
-  function onNew(gtin) {
-    log.warn(jobName, "New: (GTIN)" + gtin);
-  }
-
-  return history(jobName, cfg, onChanged, onDeRegistered, onNew, done, log);
+  return history(jobName, cfg, onChanged, log);
 }
 
 module.exports = swissmedicHistory;
