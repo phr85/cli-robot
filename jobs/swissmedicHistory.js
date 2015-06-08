@@ -1,5 +1,8 @@
 "use strict";
 
+var merge = require("merge");
+var moment = require("moment");
+
 var history = require("../lib/history/history");
 
 var cfg = require("../jobs/cfg/swissmedic.cfg");
@@ -15,19 +18,22 @@ var cfg = require("../jobs/cfg/swissmedic.cfg");
 function swissmedicHistory(done, log) {
   var jobName = "Swissmedic History";
 
-  function onChanged(gtin, diff) {
+  function onChanged(gtin, diff, historyData, newData) {
     log.warn(jobName, "Change detected: (GTIN)" + gtin + ")", diff);
+    return merge.recursive(historyData, newData);
   }
 
-  function onDeRegistered(gtin) {
+  function onDeRegistered(gtin, historyData) {
     log.warn(jobName, "DE-Registered: (GTIN)" + gtin);
+    historyData.deregistered = moment().format("DD.M.YYYY");
+    return historyData;
   }
 
   function onNew(gtin) {
     log.warn(jobName, "New: (GTIN)" + gtin);
   }
 
-  return history(jobName, cfg, onChanged, onDeRegistered, onNew, done, log)
+  return history(jobName, cfg, onChanged, onDeRegistered, onNew, done, log);
 }
 
 module.exports = swissmedicHistory;

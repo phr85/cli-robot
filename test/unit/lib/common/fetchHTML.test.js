@@ -8,7 +8,7 @@ var expect = chai.expect;
 var request = require("superagent");
 var fakeAgent = require("../../mocks/agent");
 
-describe("fetchHTML", function () {
+describe.skip("fetchHTML", function () {
   var fetchHTML, url, refHTML;
 
   before(function () {

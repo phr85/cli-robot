@@ -4,9 +4,6 @@ var defaultLog = require("../lib").log;
 var history = require('../lib/history/history');
 
 var cfg = require("./cfg/bag.cfg");
-var updateHistory = require("../lib/bag/updateHistory");
-
-var disk = require('../lib/common/disk');
 
 /**
  * @param {function(null|Error)?} done - optional
@@ -28,7 +25,7 @@ function bagHistory(done, log) {
 
   }
 
-  history(jobName, cfg, updateHistory, done, log);
+  history(jobName, cfg, onChanged, onDeRegistered, onNew, done, log);
 }
 
 module.exports = bagHistory;
