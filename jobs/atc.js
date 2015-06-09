@@ -14,7 +14,6 @@ var addCodes = require("../lib/atc/addCodes");
 var modifyCodes = require("../lib/atc/modifyCodes");
 var modifyNames = require("../lib/atc/modifyNames");
 var removeEmptyStrings = require("../lib/atc/removeEmptyStrings");
-var createATCCH = require("../lib/atc/createATCCH");
 var writeATCCSV = require("../lib/atc/writeATCCSV");
 
 /**
@@ -84,7 +83,7 @@ function atc(done, log) {
 
         return Promise.all([
           disk.write.json(cfg.process.atcDe, atcDEwAllModifications),
-          disk.write.jsonMin(cfg.process.atcDeMin, atcDEwAllModifications),
+          disk.write.jsonMin(cfg.process.atcDeMin, atcDEwAllModifications)
         ]).then(function () {
           return atcDEwAllModifications;
         });

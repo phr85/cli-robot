@@ -20,9 +20,20 @@ module.exports = {
   },
   "process": {
     "dir": path.resolve(baseDir, "./data/release/bag"),
-    "bag": path.resolve(baseDir, "./data/release/bag/bag.json"),
-    "bagMin": path.resolve(baseDir, "./data/release/bag/bag.min.json"),
+    "file": path.resolve(baseDir, "./data/release/bag/bag.json"),
+    "minFile": path.resolve(baseDir, "./data/release/bag/bag.min.json"),
     "it": path.resolve(baseDir, "./data/release/bag/it.json"),
     "itMin": path.resolve(baseDir, "./data/release/bag/it.min.json")
+  },
+  "history": {
+    "dir": path.resolve(baseDir, "./data/release/bag"),
+    "file": path.resolve(baseDir, "./data/release/bag/bag.history.json"),
+    "minFile": path.resolve(baseDir, "./data/release/bag/bag.history.min.json"),
+    "log": {
+      "dir": path.resolve(baseDir, "./logs/bag"),
+      "deRegistered": path.resolve(baseDir, "./logs/bag/bag.history.deRegistered.log"),
+      "changes": path.resolve(baseDir, "./logs/bag/bag.history.changes.log"),
+      "new": path.resolve(baseDir, "./logs/bag/bag.history.new.log")
+    }
   }
 };
