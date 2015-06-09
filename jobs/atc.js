@@ -1,6 +1,11 @@
 "use strict";
 
-var path = require("path");
+/**
+ * Will be called - if provided - after job has finished
+ *
+ * @callback done
+ * @param {null|Error} err
+ */
 
 var cfg = require("./cfg/atc.cfg.js");
 var defaultLog = require("../lib").log;
@@ -17,9 +22,8 @@ var removeEmptyStrings = require("../lib/atc/removeEmptyStrings");
 var writeATCCSV = require("../lib/atc/writeATCCSV");
 
 /**
- *
- * @param {function(Error|null)?} done - will be called after job has finished
- * @param {Log|console?} log - optional
+ * @param {done?} done - optional
+ * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
 function atc(done, log) {

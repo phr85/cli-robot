@@ -1,5 +1,12 @@
 "use strict";
 
+/**
+ * Will be called - if provided - after job has finished
+ *
+ * @callback done
+ * @param {null|Error} err
+ */
+
 var cfg = require("./cfg/bag.cfg.js");
 
 var defaultLog = require("../lib").log;
@@ -14,9 +21,8 @@ var parseITCodes = require("../lib/bag/parseITCodes");
 var bagHistory = require('./bagHistory');
 
 /**
- *
- * @param {function(Error|null)?} done
- * @param {Log|console?} log - optional
+ * @param {done?} done - optional
+ * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
 function bag(done, log) {

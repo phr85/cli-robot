@@ -1,5 +1,12 @@
 "use strict";
 
+/**
+ * Will be called - if provided - after job has finished
+ *
+ * @callback done
+ * @param {null|Error} err
+ */
+
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML = require("../lib/common/fetchHTML");
@@ -15,11 +22,9 @@ var readXLSX = require("../lib/swissmedic/readXLSX");
 var atcCHJob = require("./atcCH.js");
 var swissmedicHistory = require("./swissmedicHistory");
 
-
 /**
- *
- * @param {function(Error|null)?} done
- * @param {Log|console?} log - optional
+ * @param {done?} done - optional
+ * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
 function swissmedic(done, log) {

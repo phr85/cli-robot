@@ -14,8 +14,7 @@ var compareFileSize = require("../lib/compare/compareFileSize");
 var compareKompendiumFileSize = require("../lib/kompendium/compare/compareKompendiumFileSize");
 
 /**
- *
- * @param {Log|console?} log - optional
+ * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
 function outdated(log) {

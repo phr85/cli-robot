@@ -8,7 +8,7 @@ var cfg = require("../jobs/cfg/swissmedic.cfg");
  * This job is strongly coupled with basic swissmedic job as it makes only sense to run it,
  * after fresh data were fetched.
  *
- * @param {Log|console?} log - optional
+ * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
 function swissmedicHistory(log) {
