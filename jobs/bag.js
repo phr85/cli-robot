@@ -48,13 +48,13 @@ function bag(done, log) {
         log.timeEnd("BAG", "Parse Link");
         log.debug("BAG", "Parsed Link: " + parsedLink);
         log.time("BAG", "Download");
-        return downloadFile(parsedLink, cfg.download.file, renderProgress("BAG", "Download"));
+        return downloadFile(parsedLink, cfg.download.file, renderProgress("BAG", "Download", log));
       })
       .then(function () {
         log.timeEnd("BAG", "Download");
         log.debug("BAG", "Unzip");
         log.time("BAG", "Unzip");
-        return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip"));
+        return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip", log));
       })
       .then(function () {
         log.timeEnd("BAG", "Unzip");
@@ -62,7 +62,7 @@ function bag(done, log) {
         log.time("BAG", "Process Files");
 
         return Promise.all([
-          parseBAGXML(cfg.download.zipFiles[0].dest),
+          parseBAGXML(cfg.download.zipFiles[0].dest, log),
           parseITCodes(cfg.download.zipFiles[2].dest)
         ]);
       })

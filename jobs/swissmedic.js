@@ -48,7 +48,7 @@ function swissmedic(done, log) {
         log.debug("Swissmedic", "Parsed Link: " + parsedLink);
         log.debug("Swissmdeic", "Start Download");
         log.time("Swissmedic", "Download");
-        return downloadFile(parsedLink, cfg.download.file, renderProgress("Swissmedic", "Download"));
+        return downloadFile(parsedLink, cfg.download.file, renderProgress("Swissmedic", "Download", log));
       })
       .then(function () {
         log.timeEnd("Swissmedic", "Download");

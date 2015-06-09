@@ -22,7 +22,7 @@ robot uses public resources like [swissmedic - Product information](http://downl
 
 ### atc
 
-This job generate a map of *Acute Toxic Class*-data.
+This job generates a map of *Acute Toxic Class*-data.
 
 **Downloads**
 
@@ -54,6 +54,8 @@ This job generate a map of *Acute Toxic Class*-data.
 ```
 
 ### bag
+
+Gets a collection of pharmaceutical products incl. prices.
 
 **Downloads**
 
@@ -103,7 +105,7 @@ This job generate a map of *Acute Toxic Class*-data.
 ```
 
 #### bagHistory(-job)
-In `bag.history.json` the job keeps automatically track of de-registered products and price changes. This file will be automatically created after the first run (contents will be equal to `bag.history.json`). Deleting this file is the same as restarting the history. Probably it is necessary for you to backup this file
+In `bag.history.json` the job keeps automatically track of de-registered products and price changes. This file will be automatically created after the first run (at this moment contents will be equal to `bag.history.json`). Deleting this file is the same as restarting the history. Probably it is necessary for you to backup this file
 
 **bag.history.json - Sample:**
 
@@ -126,6 +128,17 @@ In `bag.history.json` the job keeps automatically track of de-registered product
       ]
       //...
 ```
+
+#### bag-logs
+
+Additionally to the history-file, logs for *new*, *changed* and *de-registered* products will be written:
+
+- location: `{PROCESS_ROOT}/logs/bag/`
+- `bag.history.changes.log`
+- `bag.history.new.log`
+- `bag.history.deRegistered.log` 
+
+It could be handy to use `tail -f` on this logs.
 
 ### kompendium:
 The **kompendium**-job fetches a huge catalog of pharmaceutical product information and is also quite time and resource consuming. The downloaded file itself has around 190MB (>800MB unzipped). The job will also build a huge amount of .htm-files (~25000) containing product specific and patient related information in German, French and Italian (if available).
@@ -177,7 +190,18 @@ This job fetches data about human and veterinary medicines. It also creates a hi
 When there is no **atc**-Release available it auto-runs the **atc**-Job as it is a dependency for **atcCH**. *Please note* that if there is an **atc**-Release available it will use it. This release could be potentially *out-of-date*. So it is up to the user to run **atc**-Job if necessary.
 
 #### swissmedicHistory(-job)
-There will be also a `swissmedic.history.json` which keeps track of de-registered products. This file will be automatically created after the first run (contents will be equal to `swissmedic.json`). Deleting this file is the same as restarting the history. Probably it is necessary for you to backup this file.
+There will be also a `swissmedic.history.json` which keeps track of de-registered products. This file will be automatically created after the first run (at that moment contents will be equal to `swissmedic.json`). Deleting this file is the same as restarting the history. De-registered products will be flagged with `{ "deregistered": "DD.MM.YYYY" }`. Please note: Before re-installing robot it is advisible to backup this file.
+
+#### swissmedic-logs
+
+Like **bag** there will be logs for *new*, *changed* and *de-registered* products:
+
+- location: `{PROCESS_ROOT}/logs/swissmedic/`
+- `swissmedic.history.changes.log`
+- `swissmedic.history.new.log`
+- `swissmedic.history.deRegistered.log` 
+
+Think of `tail -f`, it might be useful.
 
 **Downloads**
 
@@ -206,6 +230,33 @@ There will be also a `swissmedic.history.json` which keeps track of de-registere
   - `swissmedic.min.json`
   - `swissmedic.history.json`
   - `swissmedic.history.min.json`
+
+**swissmedic.json - Sample**
+
+```javascript
+//..
+   {
+      "zulassung": "00277",
+      "sequenz": "1",
+      "name": "Coeur-Vaisseaux Sérocytol, suppositoire",
+      "hersteller": "Sérolab, société anonyme",
+      "itnummer": "08.07.",
+      "atc": "J06AA",
+      "heilmittelcode": "Blutprodukte",
+      "erstzulassung": "26.4.2010",
+      "zulassungsdatum": "26.4.2010",
+      "gueltigkeitsdatum": "25.4.2020",
+      "verpackung": "001",
+      "packungsgroesse": "3",
+      "einheit": "Suppositorien",
+      "abgabekategorie": "B",
+      "wirkstoffe": "globulina equina (immunisé avec coeur, endothélium vasculaire porcins)",
+      "zusammensetzung": "globulina equina (immunisé avec coeur, endothélium vasculaire porcins) 8 mg, propylenglycolum, conserv.: E 216, E 218, excipiens pro suppositorio.",
+      "anwendungsgebiet": "Traitement immunomodulant selon le Dr Thomas\r\n\r\nPossibilités d'emploi voir information professionnelle",
+      "gtin": "7680002770014"
+   },
+//..   
+```  
 
 ## Install robot
 
@@ -239,6 +290,33 @@ EMIL: I'm ready, if you are? Type help for help.
 > 
 ```
 
+### npm scripts
+
+```shell
+npm run all
+```
+
+Runs all jobs (atc, bag, kompendium, swissmedic) in parallel. Useful with a broadband internet connection and powerful cpu to get as fast as possible the current state. Exists when done or fails.
+
+```shell
+npm run outdated
+```
+Checks sources on changes by header-`content-length`. If content-length diffs to file-size it will trigger appropriate job. Runs jobs in sequence and exits when done or fails.
+
+
+```shell
+npm run robot-service
+```
+
+Probably the most common use-case for robot: runs **outdated** each 30 minutes (default). It is possible to adjust re-run-time by passing `DELAY={OTHER_VALUE}` (milliseconds). This should depend on your internet connection and cpu power.
+
+**Example:**
+
+`DELAY=60000 npm run robot-service` will run *outdated* **every hour**.
+ 
+Will only exit manually or when it crashes. 
+It could be quite useful running the underlying script (`bin/outdated`) with a daemon like [forever](https://www.npmjs.com/package/forever), [pm2](https://www.npmjs.com/package/pm2) so that it will automatically restart if it crashes (which should not happen).
+
 ### Programmatical
 
 #### callbacks
@@ -256,7 +334,7 @@ swissmedicJob(function(err) {
 #### Promises
 ```javascript
 var robot = require("epha-robot");
-var disk = require("epha-robot").disk;
+var disk = require("epha-robot").common.disk;
 var kompendiumJob = robot.kompendium;
 var kompendiumCfg = robot.kompendium.cfg;
 
@@ -270,15 +348,6 @@ kompendiumJob()
     .catch(function (err) {
       console.error("OH NO!", err.message, err.stack);
     });
-```
-
-### npm scripts
-
-```shell
-npm run all
-npm run outdated
-npm run robot-service
-
 ```
 
 ## Development

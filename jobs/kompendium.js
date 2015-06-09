@@ -4,7 +4,7 @@ var path = require("path");
 
 var request = require("superagent");
 
-var cfg = require("./cfg/kompendium.cfg.js")
+var cfg = require("./cfg/kompendium.cfg.js");
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML = require("../lib/common/fetchHTML");
@@ -52,7 +52,7 @@ function kompendium(done, log) {
       log.timeEnd("Kompendium", "Re-visit");
       log.debug("Kompendium", "Start Download");
       log.time("Kompendium", "Download");
-      return startDownload(result, cfg.download.file, renderProgress("Kompendium", "Download"));
+      return startDownload(result, cfg.download.file, renderProgress("Kompendium", "Download", log));
     })
     .then(function () {
       // throw away agent as any other job should use a fresh one
@@ -62,7 +62,7 @@ function kompendium(done, log) {
       log.timeEnd("Kompendium", "Download");
       log.debug("Kompendium", "Unzip");
       log.time("Kompendium", "Unzip");
-      return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("Kompendium", "Unzip"));
+      return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("Kompendium", "Unzip", log));
     })
     .then(function () {
       log.timeEnd("Kompendium", "Unzip");

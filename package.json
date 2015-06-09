@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node ./bin/cli.js",
     "test": "mocha --recursive ./test/unit",
+    "all": "node ./bin/all.js",
     "robot-service": "node ./bin/service.js",
     "outdated": "node ./bin/outdated.js",
     "watch-test": "mocha --watch --recursive --growl ./test/unit",

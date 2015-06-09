@@ -46,13 +46,13 @@ function atc(done, log) {
         log.timeEnd("ATC", "Parse Link");
         log.debug("ATC", "Start Download");
         log.time("ATC", "Download");
-        return downloadFile(parsedLink, cfg.download.file, renderProgress("ATC", "Download"));
+        return downloadFile(parsedLink, cfg.download.file, renderProgress("ATC", "Download", log));
       })
       .then(function () {
         log.timeEnd("ATC", "Download");
         log.debug("ATC", "Unzip");
         log.time("ATC", "Unzip");
-        return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip"));
+        return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip", log));
       })
       .then(function () {
         log.timeEnd("ATC", "Unzip");

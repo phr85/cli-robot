@@ -1,31 +1,17 @@
 "use strict";
 
+var log = require("../lib").log;
+
 var atc = require("../jobs/atc");
 var bag = require("../jobs/bag");
 var kompendium = require("../jobs/kompendium");
 var swissmedic = require("../jobs/swissmedic");
 
 Promise.all([
-  new Promise(function (resolve, reject) {
-    atc(function (err) {
-      !!err ? reject(err) : resolve();
-    });
-  }),
-  new Promise(function (resolve, reject) {
-    bag(function (err) {
-      !!err ? reject(err) : resolve();
-    });
-  }),
-  new Promise(function (resolve, reject) {
-    kompendium(function (err) {
-      !!err ? reject(err) : resolve();
-    });
-  }),
-  new Promise(function (resolve, reject) {
-    swissmedic(function (err) {
-      !!err ? reject(err) : resolve();
-    });
-  })
+  atc(null, log),
+  bag(null, log),
+  kompendium(null, log),
+  swissmedic(null, log)
 ]).then(function () {
   process.exit(0); //ok
 }).catch(function (err) {
