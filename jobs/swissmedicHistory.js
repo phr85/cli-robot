@@ -1,8 +1,5 @@
 "use strict";
 
-var merge = require("merge");
-var moment = require("moment");
-
 var history = require("../lib/history/history");
 
 var cfg = require("../jobs/cfg/swissmedic.cfg");

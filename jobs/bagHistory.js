@@ -1,6 +1,5 @@
 "use strict";
 
-var merge = require("merge");
 var moment = require("moment");
 
 var defaultLog = require("../lib").log;

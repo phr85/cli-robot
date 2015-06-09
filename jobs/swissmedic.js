@@ -1,7 +1,5 @@
 "use strict";
 
-var path = require("path");
-
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML = require("../lib/common/fetchHTML");

@@ -1,7 +1,5 @@
 "use strict";
 
-var path = require("path");
-
 var request = require("superagent");
 
 var cfg = require("./cfg/kompendium.cfg.js");

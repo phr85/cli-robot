@@ -1,10 +1,5 @@
 "use strict";
 
-var fs = require("fs");
-
-var path = require("path");
-
-var baseDir = process.cwd();
 var cfg = require("./cfg/bag.cfg.js");
 
 var defaultLog = require("../lib").log;
