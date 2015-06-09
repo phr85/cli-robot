@@ -6,7 +6,7 @@ robot uses public resources like [swissmedic - Product information](http://downl
 
 ## Table of contents
 
-[Benefits](#Benefits) - [Jobs](#Jobs) - [Install](#Install_robot) - [Usage](#Usage) - [Development](#development)
+[Benefits](#benefits) - [Jobs](#jobs) - [Install](#install-robot) - [Usage](#usage) - [Development](#development)
 
 ## Benefits
 
