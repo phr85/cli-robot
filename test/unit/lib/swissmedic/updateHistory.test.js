@@ -3,11 +3,19 @@
 var expect = require("chai").expect;
 var moment = require("moment");
 
-describe("swissmedic/updateHistory", function () {
+describe("updateHistory", function () {
   var updateHistory, historyStore, newStore, result;
 
+  // @TODO do something more useful with onChanged
+  function onChanged() {
+    return true;
+  }
+  function onDeRegistered() {
+    return true;
+  }
+
   before(function () {
-    updateHistory = require("../../../../lib/swissmedic/updateHistory");
+    updateHistory = require("../../../../lib/history/updateHistory");
   });
 
   before(function () {
@@ -22,7 +30,7 @@ describe("swissmedic/updateHistory", function () {
       "newGtin": {"zulassung": "00004"}
     };
 
-    result = updateHistory(historyStore, newStore);
+    result = updateHistory(historyStore, newStore, onChanged, onDeRegistered);
   });
 
   it("should return an array with a reference to given historyStore at Index 0", function () {

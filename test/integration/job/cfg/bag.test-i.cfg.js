@@ -16,9 +16,20 @@ module.exports = {
   },
   "process": {
     "dir": path.resolve(__dirname, "../../tmp/data/release/bag"),
-    "bag": path.resolve(__dirname, "../../tmp/data/release/bag/bag.json"),
-    "bagMin": path.resolve(__dirname, "../../tmp/data/release/bag/bag.min.json"),
+    "file": path.resolve(__dirname, "../../tmp/data/release/bag/bag.json"),
+    "minFile": path.resolve(__dirname, "../../tmp/data/release/bag/bag.min.json"),
     "it": path.resolve(__dirname, "../../tmp/data/release/bag/it.json"),
     "itMin": path.resolve(__dirname, "../../tmp/data/release/bag/it.min.json")
+  },
+  "history": {
+    "dir": path.resolve(__dirname, "../../tmp/data/release/bag"),
+    "file": path.resolve(__dirname, "../../tmp/data/release/bag/bag.history.json"),
+    "minFile": path.resolve(__dirname, "../../tmp/data/release/bag/bag.history.min.json"),
+    "log": {
+      "dir": path.resolve(__dirname, "../../tmp/logs/bag"),
+      "deRegistered": path.resolve(__dirname, "../../tmp/logs/bag/bag.history.deRegistered.log"),
+      "changes": path.resolve(__dirname, "../../tmp/logs/bag/bag.history.changes.log"),
+      "new": path.resolve(__dirname, "../../tmp/logs/bag/bag.history.new.log")
+    }
   }
 };

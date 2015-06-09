@@ -48,43 +48,41 @@ describe("job: BAG", function () {
   });
 
   describe("Release", function () {
-    describe("BAG", function () {
-      describe("JSON", function () {
-        it("should have build a proper JSON-file", function () {
-          var fixture = shasum(require("../../fixtures/release/bag/bag.json"));
-          var jsonBuild = shasum(require(test.cfg.process.bag));
+    describe("JSON", function () {
+      it("should have build a proper JSON-file", function () {
+        var fixture = shasum(require("../../fixtures/release/bag/bag.json"));
+        var jsonBuild = shasum(require(test.cfg.process.file));
 
-          expect(jsonBuild).to.equal(fixture);
-        });
-      });
-
-      describe("JSON-Min", function () {
-        it("should have build a proper minified JSON-file", function () {
-          var fixture = shasum(require("../../fixtures/release/bag/bag.min.json"));
-          var jsonMinBuild = shasum(require(test.cfg.process.bagMin));
-
-          expect(jsonMinBuild).to.equal(fixture);
-        });
+        expect(jsonBuild).to.equal(fixture);
       });
     });
 
-    describe("IT", function () {
-      describe("JSON", function () {
-        it("should have build a proper JSON-file", function () {
-          var fixture = shasum(require("../../fixtures/release/bag/it.json"));
-          var jsonBuild = shasum(require(test.cfg.process.it));
+    describe("JSON-Min", function () {
+      it("should have build a proper minified JSON-file", function () {
+        var fixture = shasum(require("../../fixtures/release/bag/bag.min.json"));
+        var jsonMinBuild = shasum(require(test.cfg.process.minFile));
 
-          expect(jsonBuild).to.equal(fixture);
-        });
+        expect(jsonMinBuild).to.equal(fixture);
       });
+    });
+  });
 
-      describe("JSON-Min", function () {
-        it("should have build a proper minified JSON-file", function () {
-          var fixture = shasum(require("../../fixtures/release/bag/it.min.json"));
-          var jsonMinBuild = shasum(require(test.cfg.process.itMin));
+  describe("IT", function () {
+    describe("JSON", function () {
+      it("should have build a proper JSON-file", function () {
+        var fixture = shasum(require("../../fixtures/release/bag/it.json"));
+        var jsonBuild = shasum(require(test.cfg.process.it));
 
-          expect(jsonMinBuild).to.equal(fixture);
-        });
+        expect(jsonBuild).to.equal(fixture);
+      });
+    });
+
+    describe("JSON-Min", function () {
+      it("should have build a proper minified JSON-file", function () {
+        var fixture = shasum(require("../../fixtures/release/bag/it.min.json"));
+        var jsonMinBuild = shasum(require(test.cfg.process.itMin));
+
+        expect(jsonMinBuild).to.equal(fixture);
       });
     });
   });
