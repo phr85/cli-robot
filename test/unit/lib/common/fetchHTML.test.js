@@ -5,22 +5,16 @@ var path = require("path");
 
 var chai = require("chai");
 var expect = chai.expect;
-
-chai.use(require("sinon-chai"));
-
+var request = require("superagent");
 var fakeAgent = require("../../mocks/agent");
 
 describe("fetchHTML", function () {
-  var request, config, fetchHTML, url, ref;
+  var fetchHTML, url, refHTML;
 
   before(function () {
     fetchHTML = require("../../../../lib/common/fetchHTML");
-    request = require("superagent");
-    config = require("../../sa-mocks/fetchHTML.sa-mock.js");
     url = "https://fetch.html.success.test";
-    ref = fs.readFileSync(path.resolve(__dirname, "../../../fixtures/html/swissmedic.html"), {encoding: "utf8"});
-
-    require("superagent-mock")(request, config);
+    refHTML = fs.readFileSync(path.resolve(__dirname, "../../../fixtures/html/swissmedic.html"), {encoding: "utf8"});
   });
 
 
@@ -33,7 +27,7 @@ describe("fetchHTML", function () {
       it("should resolve with fetched html", function (done) {
         fetchHTML(url)
           .then(function (result) {
-            expect(result.html).to.equal(ref);
+            expect(result.html).to.equal(refHTML);
             done();
           })
           .catch(done);
@@ -42,14 +36,12 @@ describe("fetchHTML", function () {
   });
 
   describe("agent", function () {
-    var agent, errRef, resRef, html;
+    var agent, resRef;
 
     beforeEach(function () {
-      errRef = null;
-      html = "<html><head></head><body></body></html>";
-      resRef = {text: html, res: {text: html}};
+      resRef = {text: refHTML, res: {text: refHTML}};
 
-      agent = fakeAgent(errRef, resRef);
+      agent = request.agent();
 
       fetchHTML.setAgent(agent);
     });
@@ -61,7 +53,7 @@ describe("fetchHTML", function () {
     it("should be possible to set an agent", function (done) {
       fetchHTML(url)
         .then(function (result) {
-          expect(resRef.res).to.equal(result.res);
+          expect(resRef.res).to.deep.equal(result.res);
           done();
         })
         .catch(done);
@@ -70,8 +62,8 @@ describe("fetchHTML", function () {
     it("should resolve with html, res and used agent", function (done) {
       fetchHTML(url)
         .then(function (result) {
-          expect(result.html).to.equal(html);
-          expect(result.res).to.equal(resRef.res);
+          expect(result.html).to.equal(refHTML);
+          expect(result.res).to.deep.equal(resRef.res);
           expect(result.agent).to.equal(agent);
           done();
         })

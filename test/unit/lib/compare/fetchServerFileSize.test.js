@@ -1,22 +1,17 @@
 "use strict";
 
-var request = require("superagent");
 var expect = require("chai").expect;
 
 describe("fetchServerFileSize", function () {
-  var fetchServerFileSize, fetchServerFileSizeCfg, successUrl, linkParser;
+  var fetchServerFileSize, successUrl, linkParser;
 
   before(function () {
     fetchServerFileSize = require("../../../../lib/compare/fetchServerFileSize");
-    fetchServerFileSizeCfg = require("../../sa-mocks/fetchServerFileSize.sa-mock");
-
-    require("superagent-mock")(request, fetchServerFileSizeCfg);
-
-    successUrl = fetchServerFileSizeCfg[0].pattern;
+    successUrl = "https://fetch-server-file-size.success";
   });
 
   beforeEach(function () {
-    linkParser = /href="(.*file\.ext)"/igm;
+    linkParser = /(html)/igm;
   });
 
   describe("Promise", function () {

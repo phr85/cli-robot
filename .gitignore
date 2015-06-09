@@ -1,7 +1,10 @@
 data/auto/*
 data/release/*
+test/fixtures/*
 test/integration/tmp/*
+logs/*
 
 node_modules/
 npm-debug.log
+.idea/*
 .DS_STORE

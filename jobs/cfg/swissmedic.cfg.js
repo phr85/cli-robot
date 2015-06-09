@@ -16,5 +16,16 @@ module.exports = {
     "atcFile": path.resolve(__dirname, "../../data/manual/swissmedic/atc.csv"),
     "file": path.resolve(baseDir, "./data/release/swissmedic/swissmedic.json"),
     "minFile": path.resolve(baseDir, "./data/release/swissmedic/swissmedic.min.json")
+  },
+  "history": {
+    "dir": path.resolve(baseDir, "./data/release/swissmedic/"),
+    "file": path.resolve(baseDir, "./data/release/swissmedic/swissmedic.history.json"),
+    "minFile": path.resolve(baseDir, "./data/release/swissmedic/swissmedic.history.min.json"),
+    "log": {
+      "dir": path.resolve(baseDir, "./logs/swissmedic"),
+      "deRegistered": path.resolve(baseDir, "./logs/swissmedic/swissmedic.history.deRegistered.log"),
+      "changes": path.resolve(baseDir, "./logs/swissmedic/swissmedic.history.changes.log"),
+      "new": path.resolve(baseDir, "./logs/swissmedic/swissmedic.history.new.log")
+    }
   }
 };

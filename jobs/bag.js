@@ -7,7 +7,7 @@ var path = require("path");
 var baseDir = process.cwd();
 var cfg = require("./cfg/bag.cfg.js");
 
-var log = require("../lib").log;
+var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML  = require("../lib/common/fetchHTML");
 var parseLink = require("../lib/common/parseLink");
@@ -19,8 +19,11 @@ var parseITCodes = require("../lib/bag/parseITCodes");
 /**
  *
  * @param {function(Error|null)} done
+ * @param {Log|console?} log - optional
  */
-function bag(done) {
+function bag(done, log) {
+
+  log = log || defaultLog;
 
   log.info("BAG", "Get, Load and Parse");
   log.time("BAG", "Completed in");

@@ -5,7 +5,7 @@ var path = require("path");
 var request = require("superagent");
 
 var cfg = require("./cfg/kompendium.cfg.js")
-var log = require("../lib").log;
+var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML = require("../lib/common/fetchHTML");
 var acceptTermsOfUse = require("../lib/kompendium/acceptTermsOfUse");
@@ -15,8 +15,11 @@ var parseKompendium = require("../lib/kompendium/parseKompendium");
 
 /**
  * @param {function (null|Error)} done
+ * @param {Log|console?} log - optional
  */
-function kompendium(done) {
+function kompendium(done, log) {
+
+  log = log || defaultLog;
 
   log.info("Kompendium","Get, Load and Parse");
   log.time("Kompendium","Completed in");

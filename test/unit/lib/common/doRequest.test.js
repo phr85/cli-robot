@@ -4,16 +4,12 @@ var expect = require("chai").expect;
 var rewire = require("rewire");
 
 describe("doRequest", function () {
-  var request, requestCfg, doRequest, successLink;
+  var request, doRequest, successLink;
 
   before(function () {
     request = require("superagent");
-    requestCfg = require("../../sa-mocks/doRequest.sa-mock.js");
     doRequest = rewire("../../../../lib/common/doRequest");
-
-    require("superagent-mock")(request, requestCfg);
-
-    successLink = requestCfg[0].pattern;
+    successLink = "https://do-request.success";
   });
 
   describe(".setAgent()", function () {

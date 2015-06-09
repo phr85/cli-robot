@@ -84,25 +84,5 @@ describe("job: ATC", function () {
         });
       });
     });
-
-    describe("DE-CH", function () {
-      describe("JSON", function () {
-        it("should have build a proper JSON-file", function () {
-          var fixture = require("../../fixtures/release/atc/atc_de-ch.json");
-          var jsonBuild = require(test.cfg.process.atcCh);
-
-          expect(shasum(jsonBuild)).to.equal(shasum(fixture));
-        });
-      });
-
-      describe("JSON-Min", function () {
-        it("should have build a proper minified JSON-file", function () {
-          var fixture = require("../../fixtures/release/atc/atc_de-ch.min.json");
-          var jsonMinBuild = require(test.cfg.process.atcChMin);
-
-          expect(shasum(jsonMinBuild)).to.equal(shasum(fixture));
-        });
-      });
-    });
   });
 });
