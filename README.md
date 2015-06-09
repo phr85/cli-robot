@@ -314,7 +314,7 @@ Probably the most common use-case for robot: runs **outdated** each 30 minutes (
 
 `DELAY=60000 npm run robot-service` will run *outdated* **every hour**.
  
-Will only exit manually or when it crashes. 
+Will only exit manually or when it crashes. Log level is reduced to *warnings* and *errors*. 
 It could be quite useful running the underlying script (`bin/outdated`) with a daemon like [forever](https://www.npmjs.com/package/forever), [pm2](https://www.npmjs.com/package/pm2) so that it will automatically restart if it crashes (which should not happen).
 
 ### Programmatical

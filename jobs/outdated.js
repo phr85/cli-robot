@@ -23,10 +23,10 @@ function outdated(log) {
   log = log || defaultLog;
 
   return Promise.all([
-    compareFileSize("ATC", atcCfg),
-    compareFileSize("BAG", bagCfg),
-    compareFileSize("Swissmedic", swissmedicCfg),
-    compareKompendiumFileSize(kompenidumCfg)
+    compareFileSize("ATC", atcCfg, log),
+    compareFileSize("BAG", bagCfg, log),
+    compareFileSize("Swissmedic", swissmedicCfg, log),
+    compareKompendiumFileSize(kompenidumCfg, log)
   ])
     .then(function (result) {
       var refreshATC = result[0];
@@ -38,22 +38,22 @@ function outdated(log) {
       });
 
       if (refreshSwissmedic) {
-        log.debug("Swissmedic", "Starting BAG Update");
+        log.warn("Swissmedic", "Starting BAG Update");
         p = p.then(swissmedic(null, log));
       }
 
       if (refreshATC) {
-        log.debug("ATC", "Starting ATC Update");
+        log.warn("ATC", "Starting ATC Update");
         p = p.then(atc(null, log));
       }
 
       if (refreshBAG) {
-        log.debug("ABG", "Starting BAG Update");
+        log.warn("ABG", "Starting BAG Update");
          p = p.then(bag(null, log));
       }
 
       if (refreshKompendium) {
-        log.debug("Kompendium", "Starting Kompendium Update");
+        log.warn("Kompendium", "Starting Kompendium Update");
         p = p.then(kompendium(null, log));
       }
 

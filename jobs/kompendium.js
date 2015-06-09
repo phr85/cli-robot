@@ -86,7 +86,7 @@ function kompendium(done, log) {
       done(null);
     })
     .catch(function (err) {
-      log.error(err);
+      log.error(err.name, err.message, err.stack);
       done(err);
     });
 }

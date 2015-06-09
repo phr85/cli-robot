@@ -104,7 +104,7 @@ function atc(done, log) {
         }
       })
       .catch(function (err) {
-        log.error(err);
+        log.error(err.name, err.message, err.stack);
         reject(err);
         if (typeof done === "function") {
           done(err);
