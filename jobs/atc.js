@@ -1,6 +1,11 @@
 "use strict";
 
-var path = require("path");
+/**
+ * Will be called - if provided - after job has finished
+ *
+ * @callback done
+ * @param {null|Error} err
+ */
 
 var cfg = require("./cfg/atc.cfg.js");
 var defaultLog = require("../lib").log;
@@ -17,9 +22,8 @@ var removeEmptyStrings = require("../lib/atc/removeEmptyStrings");
 var writeATCCSV = require("../lib/atc/writeATCCSV");
 
 /**
- *
- * @param {function(Error|null)?} done - will be called after job has finished
- * @param {Log|console?} log - optional
+ * @param {done?} done - optional
+ * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
 function atc(done, log) {
@@ -30,7 +34,7 @@ function atc(done, log) {
   log.time("ATC", "Completed in");
 
   return new Promise(function (resolve, reject) {
-    disk.ensureDir(cfg.download.dir, cfg.process.dir)
+    disk.ensureDir(cfg.download.dir, cfg.release.dir)
       .then(function () {
         log.debug("ATC", "Go to " + cfg.download.url);
         log.time("ATC", "Go to");
@@ -46,13 +50,13 @@ function atc(done, log) {
         log.timeEnd("ATC", "Parse Link");
         log.debug("ATC", "Start Download");
         log.time("ATC", "Download");
-        return downloadFile(parsedLink, cfg.download.file, renderProgress("ATC", "Download"));
+        return downloadFile(parsedLink, cfg.download.file, renderProgress("ATC", "Download", log));
       })
       .then(function () {
         log.timeEnd("ATC", "Download");
         log.debug("ATC", "Unzip");
         log.time("ATC", "Unzip");
-        return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip"));
+        return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip", log));
       })
       .then(function () {
         log.timeEnd("ATC", "Unzip");
@@ -82,8 +86,8 @@ function atc(done, log) {
         log.time("ATC", "Write Processed Files");
 
         return Promise.all([
-          disk.write.json(cfg.process.atcDe, atcDEwAllModifications),
-          disk.write.jsonMin(cfg.process.atcDeMin, atcDEwAllModifications)
+          disk.write.json(cfg.release.file, atcDEwAllModifications),
+          disk.write.jsonMin(cfg.release.minFile, atcDEwAllModifications)
         ]).then(function () {
           return atcDEwAllModifications;
         });
@@ -92,7 +96,7 @@ function atc(done, log) {
         log.timeEnd("ATC", "Write Processed Files");
         log.debug("ATC", "Release CSV");
         log.time("ATC", "Release CSV");
-        return writeATCCSV(cfg.process.csv, atcDEwAllModifications);
+        return writeATCCSV(cfg.release.csv, atcDEwAllModifications);
       })
       .then(function () {
         log.timeEnd("ATC", "Release CSV");
@@ -104,7 +108,7 @@ function atc(done, log) {
         }
       })
       .catch(function (err) {
-        log.error(err);
+        log.error(err.name, err.message, err.stack);
         reject(err);
         if (typeof done === "function") {
           done(err);

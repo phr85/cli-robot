@@ -1,6 +1,11 @@
 "use strict";
 
-var path = require("path");
+/**
+ * Will be called - if provided - after job has finished
+ *
+ * @callback done
+ * @param {null|Error} err
+ */
 
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
@@ -17,11 +22,9 @@ var readXLSX = require("../lib/swissmedic/readXLSX");
 var atcCHJob = require("./atcCH.js");
 var swissmedicHistory = require("./swissmedicHistory");
 
-
 /**
- *
- * @param {function(Error|null)?} done
- * @param {Log|console?} log - optional
+ * @param {done?} done - optional
+ * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
 function swissmedic(done, log) {
@@ -32,7 +35,7 @@ function swissmedic(done, log) {
   log.time("Swissmedic", "Completed in");
 
   return new Promise(function (resolve, reject) {
-    disk.ensureDir(cfg.download.dir, cfg.process.dir)
+    disk.ensureDir(cfg.download.dir, cfg.release.dir)
       .then(function () {
         log.time("Swissmedic", "Go to");
         log.debug("Swissmedic", "Go to " + cfg.download.url);
@@ -48,13 +51,13 @@ function swissmedic(done, log) {
         log.debug("Swissmedic", "Parsed Link: " + parsedLink);
         log.debug("Swissmdeic", "Start Download");
         log.time("Swissmedic", "Download");
-        return downloadFile(parsedLink, cfg.download.file, renderProgress("Swissmedic", "Download"));
+        return downloadFile(parsedLink, cfg.download.file, renderProgress("Swissmedic", "Download", log));
       })
       .then(function () {
         log.timeEnd("Swissmedic", "Download");
         log.debug("Swissmedic", "Process Files");
         log.time("Swissmedic", "Process Files");
-        return createATCCorrection(cfg.process.atcFile);
+        return createATCCorrection(cfg.manual.atcCorrections);
       })
       .then(function (atcCorrection) {
         return readXLSX(cfg.download.file, correctXLSX.setATCCorrection(atcCorrection));
@@ -64,8 +67,8 @@ function swissmedic(done, log) {
         log.debug("Swissmedic", "Write Processed Files");
         log.time("Swissmedic", "Write Files");
         return Promise.all([
-          disk.write.json(cfg.process.file, parsedXLSX),
-          disk.write.jsonMin(cfg.process.minFile, parsedXLSX)
+          disk.write.json(cfg.release.file, parsedXLSX),
+          disk.write.jsonMin(cfg.release.minFile, parsedXLSX)
         ]);
       })
       .then(function () {

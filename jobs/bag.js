@@ -1,10 +1,12 @@
 "use strict";
 
-var fs = require("fs");
+/**
+ * Will be called - if provided - after job has finished
+ *
+ * @callback done
+ * @param {null|Error} err
+ */
 
-var path = require("path");
-
-var baseDir = process.cwd();
 var cfg = require("./cfg/bag.cfg.js");
 
 var defaultLog = require("../lib").log;
@@ -19,9 +21,8 @@ var parseITCodes = require("../lib/bag/parseITCodes");
 var bagHistory = require('./bagHistory');
 
 /**
- *
- * @param {function(Error|null)?} done
- * @param {Log|console?} log - optional
+ * @param {done?} done - optional
+ * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
 function bag(done, log) {
@@ -32,7 +33,7 @@ function bag(done, log) {
   log.time("BAG", "Completed in");
 
   return new Promise(function (resolve, reject) {
-    disk.ensureDir(cfg.download.dir, cfg.process.dir)
+    disk.ensureDir(cfg.download.dir, cfg.release.dir)
       .then(function () {
         log.debug("BAG", "Go to " + cfg.download.url);
         log.time("BAG", "Go to");
@@ -48,13 +49,13 @@ function bag(done, log) {
         log.timeEnd("BAG", "Parse Link");
         log.debug("BAG", "Parsed Link: " + parsedLink);
         log.time("BAG", "Download");
-        return downloadFile(parsedLink, cfg.download.file, renderProgress("BAG", "Download"));
+        return downloadFile(parsedLink, cfg.download.file, renderProgress("BAG", "Download", log));
       })
       .then(function () {
         log.timeEnd("BAG", "Download");
         log.debug("BAG", "Unzip");
         log.time("BAG", "Unzip");
-        return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip"));
+        return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip", log));
       })
       .then(function () {
         log.timeEnd("BAG", "Unzip");
@@ -62,7 +63,7 @@ function bag(done, log) {
         log.time("BAG", "Process Files");
 
         return Promise.all([
-          parseBAGXML(cfg.download.zipFiles[0].dest),
+          parseBAGXML(cfg.download.zipFiles[0].dest, log),
           parseITCodes(cfg.download.zipFiles[2].dest)
         ]);
       })
@@ -75,10 +76,10 @@ function bag(done, log) {
         log.time("BAG", "Write Processed Files");
 
         return Promise.all([
-          disk.write.json(cfg.process.file, bag),
-          disk.write.jsonMin(cfg.process.minFile, bag),
-          disk.write.json(cfg.process.it, it),
-          disk.write.jsonMin(cfg.process.itMin, it)
+          disk.write.json(cfg.release.file, bag),
+          disk.write.jsonMin(cfg.release.minFile, bag),
+          disk.write.json(cfg.release.it, it),
+          disk.write.jsonMin(cfg.release.itMin, it)
         ]);
       })
       .then(function () {
@@ -94,7 +95,7 @@ function bag(done, log) {
         }
       })
       .catch(function (err) {
-        log.error(err, err.stack);
+        log.error(err.name, err.message, err.stack);
         reject(err);
         if (typeof done === "function") {
           done(err);

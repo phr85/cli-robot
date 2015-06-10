@@ -1,6 +1,12 @@
 "use strict";
 
-var merge = require("merge");
+/**
+ * Will be called - if provided - after job has finished
+ *
+ * @callback done
+ * @param {null|Error} err
+ */
+
 var moment = require("moment");
 
 var defaultLog = require("../lib").log;
@@ -9,7 +15,8 @@ var history = require('../lib/history/history');
 var cfg = require("./cfg/bag.cfg");
 
 /**
- * @param {Log|console?} log - optional
+ * @param {done?} done - optional
+ * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
 function bagHistory(log) {

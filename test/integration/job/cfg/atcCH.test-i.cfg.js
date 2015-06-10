@@ -4,15 +4,17 @@ var path = require("path");
 
 var swissmedicCfg = require("./swissmedic.test-i.cfg.js");
 
+console.log("swissmedicCfg.release.file", swissmedicCfg.release.file);
+
 module.exports = {
   "dependencies": {
     "swissmedic": {
-      "json": swissmedicCfg.process.file
+      "json": swissmedicCfg.release.file
     }
   },
-  process: {
+  release: {
     "dir": path.resolve(__dirname, "../../tmp/data/release/atc"),
-    "atcCh": path.resolve(__dirname, "../../tmp/data/release/atc/atc_de-ch.json"),
-    "atcChMin": path.resolve(__dirname, "../../tmp/data/release/atc/atc_de-ch.min.json")
+    "file": path.resolve(__dirname, "../../tmp/data/release/atc/atc_de-ch.json"),
+    "minFile": path.resolve(__dirname, "../../tmp/data/release/atc/atc_de-ch.min.json")
   }
 };

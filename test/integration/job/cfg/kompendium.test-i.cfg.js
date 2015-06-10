@@ -3,33 +3,29 @@
 var path = require("path");
 
 var server = require("../../../fixtures/server");
+var config = require("../../../../lib/common/config");
 
-module.exports = {
+module.exports = config("kompendium", {
   "download": {
     "url": "http://localhost:" + server.port + "/kompendium/",
-    "dir": path.resolve(__dirname, "../../tmp/data/auto/kompendium"),
-    "file": path.resolve(__dirname, "../../tmp/data/auto/kompendium/kompendium.zip"),
-    "xml": path.resolve(__dirname, "../../tmp/data/auto/kompendium/kompendium.xml"),
-    "zipFiles": [{
-      name: /.xml/, dest: path.resolve(__dirname, "../../tmp/data/auto/kompendium/kompendium.xml")
-    }]
+    "file": "kompendium.zip",
+    "zipFiles": [{ name: /.xml/, dest: "kompendium.xml" }]
   },
-  "process": {
-    "dir": path.resolve(__dirname, "../../tmp/data/release/kompendium/"),
+  "release": {
     "de": {
-      "fi": path.resolve(__dirname, "../../tmp/data/release/kompendium/de/fi"),
-      "pi": path.resolve(__dirname, "../../tmp/data/release/kompendium/de/pi")
+      "fi": "./de/fi",
+      "pi": "./de/pi"
     },
     "fr": {
-      "fi": path.resolve(__dirname, "../../tmp/data/release/kompendium/fr/fi"),
-      "pi": path.resolve(__dirname, "../../tmp/data/release/kompendium/fr/pi")
+      "fi": "./fr/fi",
+      "pi": "./fr/pi"
     },
     "it": {
-      "fi": path.resolve(__dirname, "../../tmp/data/release/kompendium/it/fi"),
-      "pi": path.resolve(__dirname, "../../tmp/data/release/kompendium/it/pi")
+      "fi": "./it/fi",
+      "pi": "./it/pi"
     },
-    "catalog": path.resolve(__dirname, "../../tmp/data/release/kompendium/catalog.json"),
-    "json": path.resolve(__dirname, "../../tmp/data/release/kompendium/kompendium.json"),
-    "jsonMin": path.resolve(__dirname, "../../tmp/data/release/kompendium/kompendium.min.json")
+    "catalog": "catalog.json",
+    "file": "kompendium.json",
+    "minFile": "kompendium.min.json"
   }
-};
+}, path.resolve(__dirname, "../../tmp/"));
