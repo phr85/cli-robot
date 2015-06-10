@@ -1,6 +1,7 @@
 data/auto/*
 data/release/*
-test/fixtures/*
+test/fixtures/auto/*
+test/fixtures/release/*
 test/integration/tmp/*
 logs/*
 
