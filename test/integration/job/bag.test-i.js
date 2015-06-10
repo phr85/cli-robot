@@ -8,8 +8,6 @@ var shasum = require("shasum");
 var merge = require("merge");
 var expect = require("chai").expect;
 
-var server = require("../../fixtures/server");
-
 describe("job: BAG", function () {
   var job, test;
 
@@ -51,7 +49,7 @@ describe("job: BAG", function () {
     describe("JSON", function () {
       it("should have build a proper JSON-file", function () {
         var fixture = shasum(require("../../fixtures/release/bag/bag.json"));
-        var jsonBuild = shasum(require(test.cfg.process.file));
+        var jsonBuild = shasum(require(test.cfg.release.file));
 
         expect(jsonBuild).to.equal(fixture);
       });
@@ -60,7 +58,7 @@ describe("job: BAG", function () {
     describe("JSON-Min", function () {
       it("should have build a proper minified JSON-file", function () {
         var fixture = shasum(require("../../fixtures/release/bag/bag.min.json"));
-        var jsonMinBuild = shasum(require(test.cfg.process.minFile));
+        var jsonMinBuild = shasum(require(test.cfg.release.minFile));
 
         expect(jsonMinBuild).to.equal(fixture);
       });
@@ -71,7 +69,7 @@ describe("job: BAG", function () {
     describe("JSON", function () {
       it("should have build a proper JSON-file", function () {
         var fixture = shasum(require("../../fixtures/release/bag/it.json"));
-        var jsonBuild = shasum(require(test.cfg.process.it));
+        var jsonBuild = shasum(require(test.cfg.release.it));
 
         expect(jsonBuild).to.equal(fixture);
       });
@@ -80,7 +78,7 @@ describe("job: BAG", function () {
     describe("JSON-Min", function () {
       it("should have build a proper minified JSON-file", function () {
         var fixture = shasum(require("../../fixtures/release/bag/it.min.json"));
-        var jsonMinBuild = shasum(require(test.cfg.process.itMin));
+        var jsonMinBuild = shasum(require(test.cfg.release.itMin));
 
         expect(jsonMinBuild).to.equal(fixture);
       });

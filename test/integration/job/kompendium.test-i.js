@@ -8,9 +8,6 @@ var shasum = require("shasum");
 var merge = require("merge");
 var expect = require("chai").expect;
 
-var server = require("../../fixtures/server");
-var disk = require("../../../lib/common/disk");
-
 describe("job: Kompendium", function () {
   var job, test;
 
@@ -27,7 +24,7 @@ describe("job: Kompendium", function () {
   describe("Download and unzip kompendium.xml", function () {
     it("should download ZIP-File and unzip it to kompendium.xml", function () {
       var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/auto/kompendium/kompendium.xml")));
-      var download = shasum(fs.readFileSync(test.cfg.download.xml));
+      var download = shasum(fs.readFileSync(test.cfg.download.zipFiles[0].dest));
       expect(fixture).to.equal(download);
     });
   });
@@ -36,7 +33,7 @@ describe("job: Kompendium", function () {
     describe("catalog.json", function () {
       it("should build a proper catalog.json-file", function () {
         var fixture = shasum(fs.readFileSync(path.resolve(__dirname, "../../fixtures/release/kompendium/catalog.json")));
-        var build = shasum(fs.readFileSync(test.cfg.process.catalog));
+        var build = shasum(fs.readFileSync(test.cfg.release.catalog));
         expect(fixture).to.equal(build);
       });
     });
@@ -44,7 +41,7 @@ describe("job: Kompendium", function () {
     describe("JSON", function () {
       it("should have build a proper JSON-file", function () {
         var fixture = require("../../fixtures/release/kompendium/kompendium.json");
-        var build = require(test.cfg.process.json);
+        var build = require(test.cfg.release.file);
 
         delete fixture.version;
         delete build.version;
@@ -56,7 +53,7 @@ describe("job: Kompendium", function () {
     describe("JSON-Min", function () {
       it("should have build a proper minified JSON-file", function () {
         var fixture = require("../../fixtures/release/kompendium/kompendium.min.json");
-        var minBuild = require(test.cfg.process.jsonMin);
+        var minBuild = require(test.cfg.release.minFile);
 
         delete fixture.version;
         delete minBuild.version;

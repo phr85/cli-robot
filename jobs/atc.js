@@ -34,7 +34,7 @@ function atc(done, log) {
   log.time("ATC", "Completed in");
 
   return new Promise(function (resolve, reject) {
-    disk.ensureDir(cfg.download.dir, cfg.process.dir)
+    disk.ensureDir(cfg.download.dir, cfg.release.dir)
       .then(function () {
         log.debug("ATC", "Go to " + cfg.download.url);
         log.time("ATC", "Go to");
@@ -86,8 +86,8 @@ function atc(done, log) {
         log.time("ATC", "Write Processed Files");
 
         return Promise.all([
-          disk.write.json(cfg.process.atcDe, atcDEwAllModifications),
-          disk.write.jsonMin(cfg.process.atcDeMin, atcDEwAllModifications)
+          disk.write.json(cfg.release.file, atcDEwAllModifications),
+          disk.write.jsonMin(cfg.release.minFile, atcDEwAllModifications)
         ]).then(function () {
           return atcDEwAllModifications;
         });
@@ -96,7 +96,7 @@ function atc(done, log) {
         log.timeEnd("ATC", "Write Processed Files");
         log.debug("ATC", "Release CSV");
         log.time("ATC", "Release CSV");
-        return writeATCCSV(cfg.process.csv, atcDEwAllModifications);
+        return writeATCCSV(cfg.release.csv, atcDEwAllModifications);
       })
       .then(function () {
         log.timeEnd("ATC", "Release CSV");

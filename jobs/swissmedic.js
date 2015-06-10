@@ -35,7 +35,7 @@ function swissmedic(done, log) {
   log.time("Swissmedic", "Completed in");
 
   return new Promise(function (resolve, reject) {
-    disk.ensureDir(cfg.download.dir, cfg.process.dir)
+    disk.ensureDir(cfg.download.dir, cfg.release.dir)
       .then(function () {
         log.time("Swissmedic", "Go to");
         log.debug("Swissmedic", "Go to " + cfg.download.url);
@@ -57,7 +57,7 @@ function swissmedic(done, log) {
         log.timeEnd("Swissmedic", "Download");
         log.debug("Swissmedic", "Process Files");
         log.time("Swissmedic", "Process Files");
-        return createATCCorrection(cfg.process.atcFile);
+        return createATCCorrection(cfg.manual.atcCorrections);
       })
       .then(function (atcCorrection) {
         return readXLSX(cfg.download.file, correctXLSX.setATCCorrection(atcCorrection));
@@ -67,8 +67,8 @@ function swissmedic(done, log) {
         log.debug("Swissmedic", "Write Processed Files");
         log.time("Swissmedic", "Write Files");
         return Promise.all([
-          disk.write.json(cfg.process.file, parsedXLSX),
-          disk.write.jsonMin(cfg.process.minFile, parsedXLSX)
+          disk.write.json(cfg.release.file, parsedXLSX),
+          disk.write.jsonMin(cfg.release.minFile, parsedXLSX)
         ]);
       })
       .then(function () {

@@ -18,12 +18,10 @@ module.exports = {
     "capitalizeFile": path.resolve(__dirname, "../../../fixtures/manual/atc/capitalize.csv"),
     "changeFile": path.resolve(__dirname, "../../../fixtures/manual/atc/change.csv")
   },
-  "process": {
+  "release": {
     "dir": path.resolve(__dirname, "../../tmp/data/release/atc"),
-    "atcDe": path.resolve(__dirname, "../../tmp/data/release/atc/atc.json"),
-    "atcDeMin": path.resolve(__dirname, "../../tmp/data/release/atc/atc.min.json"),
-    "atcCh": path.resolve(__dirname, "../../tmp/data/release/atc/atc_de-ch.json"),
-    "atcChMin": path.resolve(__dirname, "../../tmp/data/release/atc/atc_de-ch.min.json"),
+    "file": path.resolve(__dirname, "../../tmp/data/release/atc/atc.json"),
+    "minFile": path.resolve(__dirname, "../../tmp/data/release/atc/atc.min.json"),
     "csv": path.resolve(__dirname, "../../tmp/data/release/atc/atc.csv")
   }
 };

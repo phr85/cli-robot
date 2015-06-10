@@ -33,10 +33,10 @@ function kompendium(done, log) {
 
   return new Promise(function (resolve, reject) {
     disk.ensureDir(
-      cfg.download.dir, cfg.process.dir,
-      cfg.process.de.fi, cfg.process.de.pi,
-      cfg.process.fr.fi, cfg.process.fr.pi,
-      cfg.process.it.fi, cfg.process.it.pi
+      cfg.download.dir, cfg.release.dir,
+      cfg.release.de.fi, cfg.release.de.pi,
+      cfg.release.fr.fi, cfg.release.fr.pi,
+      cfg.release.it.fi, cfg.release.it.pi
     )
       .then(function () {
         log.debug("Kompendium", "Go to " + cfg.download.url);
@@ -83,8 +83,8 @@ function kompendium(done, log) {
         log.debug("Kompendium", "Write Processed Files");
         log.time("Kompendium", "Write Files");
         return Promise.all([
-          disk.write.json(cfg.process.json, parsedData),
-          disk.write.jsonMin(cfg.process.jsonMin, parsedData)
+          disk.write.json(cfg.release.file, parsedData),
+          disk.write.jsonMin(cfg.release.minFile, parsedData)
         ]);
       })
       .then(function () {

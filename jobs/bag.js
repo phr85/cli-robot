@@ -33,7 +33,7 @@ function bag(done, log) {
   log.time("BAG", "Completed in");
 
   return new Promise(function (resolve, reject) {
-    disk.ensureDir(cfg.download.dir, cfg.process.dir)
+    disk.ensureDir(cfg.download.dir, cfg.release.dir)
       .then(function () {
         log.debug("BAG", "Go to " + cfg.download.url);
         log.time("BAG", "Go to");
@@ -76,10 +76,10 @@ function bag(done, log) {
         log.time("BAG", "Write Processed Files");
 
         return Promise.all([
-          disk.write.json(cfg.process.file, bag),
-          disk.write.jsonMin(cfg.process.minFile, bag),
-          disk.write.json(cfg.process.it, it),
-          disk.write.jsonMin(cfg.process.itMin, it)
+          disk.write.json(cfg.release.file, bag),
+          disk.write.jsonMin(cfg.release.minFile, bag),
+          disk.write.json(cfg.release.it, it),
+          disk.write.jsonMin(cfg.release.itMin, it)
         ]);
       })
       .then(function () {

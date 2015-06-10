@@ -8,8 +8,6 @@ var merge = require("merge");
 var xlsx = require("xlsx");
 var expect = require("chai").expect;
 
-var server = require("../../fixtures/server");
-
 describe("job: siwssmedic", function () {
   var swissmedicJob, atcCHJob, atcCHCfg, test;
 
@@ -45,7 +43,7 @@ describe("job: siwssmedic", function () {
       describe("JSON Release", function () {
         it("should have build a proper JSON-file", function () {
           var fixture = require("../../fixtures/release/swissmedic/swissmedic.json");
-          var jsonBuild = require(test.cfg.process.file);
+          var jsonBuild = require(test.cfg.release.file);
 
           expect(jsonBuild).to.have.length(fixture.length);
           expect(jsonBuild).to.deep.equal(fixture);
@@ -55,7 +53,7 @@ describe("job: siwssmedic", function () {
       describe("JSON-Min Release", function () {
         it("should have build a proper minified JSON-file", function () {
           var fixture = require("../../fixtures/release/swissmedic/swissmedic.min.json");
-          var jsonMinBuild = require(path.resolve(__dirname, "../../", test.cfg.process.minFile));
+          var jsonMinBuild = require(path.resolve(__dirname, "../../", test.cfg.release.minFile));
 
           expect(jsonMinBuild).to.have.length(fixture.length);
           expect(jsonMinBuild).to.deep.equal(fixture);
@@ -67,7 +65,7 @@ describe("job: siwssmedic", function () {
       describe("JSON", function () {
         it("should have build a proper JSON-file", function () {
           var fixture = require("../../fixtures/release/atc/atc_de-ch.json");
-          var jsonBuild = require(atcCHCfg.process.atcCh);
+          var jsonBuild = require(atcCHCfg.release.file);
 
           expect(shasum(jsonBuild)).to.equal(shasum(fixture));
         });
@@ -76,7 +74,7 @@ describe("job: siwssmedic", function () {
       describe("JSON-Min", function () {
         it("should have build a proper minified JSON-file", function () {
           var fixture = require("../../fixtures/release/atc/atc_de-ch.min.json");
-          var jsonMinBuild = require(atcCHCfg.process.atcChMin);
+          var jsonMinBuild = require(atcCHCfg.release.minFile);
 
           expect(shasum(jsonMinBuild)).to.equal(shasum(fixture));
         });

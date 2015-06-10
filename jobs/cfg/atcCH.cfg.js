@@ -2,25 +2,24 @@
 
 var path = require("path");
 
+var config = require("../../lib/common/config");
+
 var swissmedicCfg = require("./swissmedic.cfg");
 var atcCfg = require("./atc.cfg");
 
-var baseDir = process.cwd();
-
-module.exports = {
+module.exports = config("atc", {
   "dependencies": {
     "swissmedic": {
-      "json": swissmedicCfg.process.file
+      "json": swissmedicCfg.release.file
     },
     "atc": {
       "de": {
-        "json": atcCfg.process.atcDe
+        "json": atcCfg.release.file
       }
     }
   },
-  process: {
-    "dir": path.resolve(baseDir, "./data/release/atc"),
-    "atcCh": path.resolve(baseDir, "./data/release/atc/atc_de-ch.json"),
-    "atcChMin": path.resolve(baseDir, "./data/release/atc/atc_de-ch.min.json")
+  "release": {
+    "file": "atc_de-ch.json",
+    "minFile": "atc_de-ch.min.json"
   }
-};
+});

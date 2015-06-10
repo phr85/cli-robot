@@ -17,7 +17,7 @@ var createATCCH = require("../lib/atc/createATCCH");
 
 /**
  * @param {done?} done - optional
- * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
+ * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function, warn: Function}} log - optional
  * @returns {Promise}
  */
 function atcCH(done, log) {
@@ -28,7 +28,7 @@ function atcCH(done, log) {
   log.time("ATC-CH", "Completed in");
 
   return new Promise(function (resolve, reject) {
-    disk.ensureDir(cfg.process.dir)
+    disk.ensureDir(cfg.release.dir)
       .then(function () {
         return Promise.all([
           disk.fileExists(cfg.dependencies.swissmedic.json),
@@ -68,15 +68,17 @@ function atcCH(done, log) {
 
         log.debug("ATC-CH", "Process Files");
         log.time("ATC-CH", "Process Files");
+
         return createATCCH(atcDEwAllModifications, swissmedicData);
       })
       .then(function (atcCH) {
         log.timeEnd("ATC-CH", "Process Files");
         log.debug("ATC-CH", "Write Processed Files");
         log.time("ATC-CH", "Write Processed Files");
+
         return Promise.all([
-          disk.write.json(cfg.process.atcCh, atcCH),
-          disk.write.jsonMin(cfg.process.atcChMin, atcCH)
+          disk.write.json(cfg.release.file, atcCH),
+          disk.write.jsonMin(cfg.release.minFile, atcCH)
         ]);
       })
       .then(function () {

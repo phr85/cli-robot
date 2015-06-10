@@ -9,11 +9,10 @@ var merge = require("merge");
 var xlsx = require("xlsx");
 var expect = require("chai").expect;
 
-var server = require("../../fixtures/server");
 var disk = require("../../../lib/common/disk");
 
 describe("job: ATC", function () {
-  var atc, atcCH, swissmedic, swissmedicCfg, test;
+  var atc, test;
 
   before(function () {
     test = { cfg: require("./cfg/atc.test-i.cfg") };
@@ -38,7 +37,7 @@ describe("job: ATC", function () {
       describe("JSON", function () {
         it("should have build a proper JSON-file", function () {
           var fixture = require("../../fixtures/release/atc/atc.json");
-          var jsonBuild = require(test.cfg.process.atcDe);
+          var jsonBuild = require(test.cfg.release.file);
 
           expect(shasum(jsonBuild)).to.equal(shasum(fixture));
         });
@@ -47,7 +46,7 @@ describe("job: ATC", function () {
       describe("JSON-Min", function () {
         it("should have build a proper minified JSON-file", function () {
           var fixture = require("../../fixtures/release/atc/atc.min.json");
-          var jsonMinBuild = require(test.cfg.process.atcDeMin);
+          var jsonMinBuild = require(test.cfg.release.minFile);
 
           expect(shasum(jsonMinBuild)).to.equal(shasum(fixture));
         });
@@ -57,7 +56,7 @@ describe("job: ATC", function () {
           Promise
             .all([
               disk.read.csv(path.resolve(__dirname, "../../fixtures/release/atc/atc.csv")),
-              disk.read.csv(test.cfg.process.csv)
+              disk.read.csv(test.cfg.release.csv)
             ])
             .then(function (csvs) {
               var fixture = csvs[0];
