@@ -22,7 +22,7 @@ module.exports = config("kompendium", {
       "pi": "./it/pi"
     },
     "catalog": "catalog.json",
-    "json": "kompendium.json",
-    "jsonMin": "kompendium.min.json"
+    "file": "kompendium.json",
+    "minFile": "kompendium.min.json"
   }
 });
