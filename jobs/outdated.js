@@ -38,22 +38,22 @@ function outdated(log) {
 
       if (refreshSwissmedic) {
         log.warn("Swissmedic", "Starting BAG Update");
-        p = p.then(swissmedic(null, log));
+        p = p.then(swissmedic(log));
       }
 
       if (refreshATC) {
         log.warn("ATC", "Starting ATC Update");
-        p = p.then(atc(null, log));
+        p = p.then(atc(log));
       }
 
       if (refreshBAG) {
         log.warn("ABG", "Starting BAG Update");
-         p = p.then(bag(null, log));
+         p = p.then(bag(log));
       }
 
       if (refreshKompendium) {
         log.warn("Kompendium", "Starting Kompendium Update");
-        p = p.then(kompendium(null, log));
+        p = p.then(kompendium(log));
       }
 
       return p;

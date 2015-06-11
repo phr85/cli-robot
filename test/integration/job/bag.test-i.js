@@ -18,7 +18,7 @@ describe("job: BAG", function () {
   before(function (done) {
     job = rewire("../../../jobs/bag");
     job.__set__("cfg", merge.recursive(require("../../../jobs/cfg/bag.cfg"), test.cfg));
-    job(done);
+    job().then(done).catch(done);
   });
 
   describe("download and unzip", function () {

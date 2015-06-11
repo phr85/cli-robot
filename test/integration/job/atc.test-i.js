@@ -1,7 +1,6 @@
 "use strict";
 
 var path = require("path");
-var fs = require("fs");
 
 var rewire = require("rewire");
 var shasum = require("shasum");
@@ -21,7 +20,7 @@ describe("job: ATC", function () {
   before(function (done) {
     atc = rewire("../../../jobs/atc");
     atc.__set__({"cfg": merge.recursive(require("../../../jobs/cfg/atc.cfg"), test.cfg)});
-    atc(done);
+    atc().then(done).catch(done);
   });
 
   describe("Zip download and unzip XLSX", function () {

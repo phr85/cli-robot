@@ -26,7 +26,7 @@ describe("job: siwssmedic", function () {
       "cfg": merge.recursive(require("../../../jobs/cfg/swissmedic.cfg"), test.cfg),
       "atcCHJob": atcCHJob
     });
-    swissmedicJob(done);
+    swissmedicJob().then(done).catch(done);
   });
 
   describe("XLSX-Download", function () {

@@ -1,18 +1,12 @@
 "use strict";
 
-/**
- * Will be called - if provided - after job has finished
- *
- * @callback done
- * @param {null|Error} err
- */
-
 var request = require("superagent");
 
-var cfg = require("./cfg/kompendium.cfg.js");
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML = require("../lib/common/fetchHTML");
+
+var cfg = require("./cfg/kompendium.cfg.js");
 var acceptTermsOfUse = require("../lib/kompendium/acceptTermsOfUse");
 var startDownload = require("../lib/kompendium/startDownload");
 var renderProgress = require("../lib/common/renderProgress");
@@ -20,11 +14,10 @@ var parseKompendium = require("../lib/kompendium/parseKompendium");
 
 
 /**
- * @param {done?} done - optional
  * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
-function kompendium(done, log) {
+function kompendium(log) {
 
   log = log || defaultLog;
 
@@ -92,16 +85,10 @@ function kompendium(done, log) {
         log.debug("Kompendium", "Done");
         log.timeEnd("Kompendium", "Completed in");
         resolve();
-        if (typeof done === "function") {
-          done(null);
-        }
       })
       .catch(function (err) {
         log.error(err.name, err.message, err.stack);
         reject(err);
-        if (typeof done === "function") {
-          done(err);
-        }
       });
   });
 }

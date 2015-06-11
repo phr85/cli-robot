@@ -1,31 +1,23 @@
 "use strict";
 
-/**
- * Will be called - if provided - after job has finished
- *
- * @callback done
- * @param {null|Error} err
- */
-
-var cfg = require("./cfg/bag.cfg.js");
-
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML  = require("../lib/common/fetchHTML");
 var parseLink = require("../lib/common/parseLink");
 var downloadFile = require("../lib/common/downloadFile");
 var renderProgress = require("../lib/common/renderProgress");
+
+var cfg = require("./cfg/bag.cfg.js");
 var parseBAGXML = require("../lib/bag/parseBAGXML");
 var parseITCodes = require("../lib/bag/parseITCodes");
 
 var bagHistory = require('./bagHistory');
 
 /**
- * @param {done?} done - optional
  * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
-function bag(done, log) {
+function bag(log) {
 
   log = log || defaultLog;
 
@@ -90,16 +82,10 @@ function bag(done, log) {
         log.debug("BAG", "Done");
         log.timeEnd("BAG", "Completed in");
         resolve();
-        if (typeof done === "function") {
-          done(null);
-        }
       })
       .catch(function (err) {
         log.error(err.name, err.message, err.stack);
         reject(err);
-        if (typeof done === "function") {
-          done(err);
-        }
       });
   });
 }

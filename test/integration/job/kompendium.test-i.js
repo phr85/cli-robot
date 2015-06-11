@@ -18,7 +18,7 @@ describe("job: Kompendium", function () {
   before(function (done) {
     job = rewire("../../../jobs/kompendium");
     job.__set__("cfg", merge.recursive(require("../../../jobs/cfg/kompendium.cfg"), test.cfg));
-    job(done);
+    job().then(done).catch(done);
   });
 
   describe("Download and unzip kompendium.xml", function () {

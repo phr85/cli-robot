@@ -1,12 +1,5 @@
 "use strict";
 
-/**
- * Will be called - if provided - after job has finished
- *
- * @callback done
- * @param {null|Error} err
- */
-
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 
@@ -16,11 +9,10 @@ var atcJob = require("./atc");
 var createATCCH = require("../lib/atc/createATCCH");
 
 /**
- * @param {done?} done - optional
  * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function, warn: Function}} log - optional
  * @returns {Promise}
  */
-function atcCH(done, log) {
+function atcCH(log) {
 
   log = log || defaultLog;
 
@@ -85,16 +77,10 @@ function atcCH(done, log) {
         log.timeEnd("ATC-CH", "Write Proccssed Files");
         log.timeEnd("ATC-CH", "Completed in");
         resolve();
-        if (typeof done === "function") {
-          done(null);
-        }
       })
       .catch(function (err) {
         log.error(err);
         reject(err);
-        if (typeof done === "function") {
-          done(err);
-        }
       });
   });
 }

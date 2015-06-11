@@ -343,18 +343,6 @@ Checks sources on changes by header-`content-length`. If `content-length` diffs 
 
 ### Programmatical
 
-#### callbacks
-```javascript
-var swissmedicJob = require('epha-robot').swissmedic;
-
-swissmedicJob(function(err) {
-  if (err) {
-    throw err;
-  }
-  console.log("Downloaded, parsed and saved swissmedic file");
-});
-```
-
 #### Promises
 ```javascript
 var robot = require("epha-robot");

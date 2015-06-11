@@ -8,10 +8,10 @@ var kompendium = require("../jobs/kompendium");
 var swissmedic = require("../jobs/swissmedic");
 
 Promise.all([
-  atc(null, log),
-  bag(null, log),
-  kompendium(null, log),
-  swissmedic(null, log)
+  atc(log),
+  bag(log),
+  kompendium(log),
+  swissmedic(log)
 ]).then(function () {
   process.exit(0); //ok
 }).catch(function (err) {

@@ -1,19 +1,13 @@
 "use strict";
 
-/**
- * Will be called - if provided - after job has finished
- *
- * @callback done
- * @param {null|Error} err
- */
-
-var cfg = require("./cfg/atc.cfg.js");
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML = require("../lib/common/fetchHTML");
 var parseLink = require("../lib/common/parseLink");
 var downloadFile = require("../lib/common/downloadFile");
 var renderProgress = require("../lib/common/renderProgress");
+
+var cfg = require("./cfg/atc.cfg.js");
 var readXLSX = require("../lib/atc/readXLSX");
 var addCodes = require("../lib/atc/addCodes");
 var modifyCodes = require("../lib/atc/modifyCodes");
@@ -22,11 +16,10 @@ var removeEmptyStrings = require("../lib/atc/removeEmptyStrings");
 var writeATCCSV = require("../lib/atc/writeATCCSV");
 
 /**
- * @param {done?} done - optional
  * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
-function atc(done, log) {
+function atc(log) {
 
   log = log || defaultLog;
 
@@ -103,16 +96,10 @@ function atc(done, log) {
         log.debug("ATC", "Done");
         log.timeEnd("ATC", "Completed in");
         resolve();
-        if (typeof done === "function") {
-          done(null);
-        }
       })
       .catch(function (err) {
         log.error(err.name, err.message, err.stack);
         reject(err);
-        if (typeof done === "function") {
-          done(err);
-        }
       });
   });
 }
