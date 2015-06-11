@@ -318,6 +318,18 @@ Probably the most common use-case for robot: runs **outdated** each 30 minutes (
 Will only exit manually or when it crashes. Log level is reduced to *warnings* and *errors*. 
 It could be quite useful running the underlying script (`bin/outdated`) with a daemon like [forever](https://www.npmjs.com/package/forever), [pm2](https://www.npmjs.com/package/pm2) so that it will automatically restart if it crashes (which shouldn't happen).
 
+**stdout - sample:**
+
+```shell
+epha-robot@0.2.40 |  WARN |  robot-service 11.06.2015 17:56 - Start Outdated Check
+epha-robot@0.2.40 |  WARN |  Kompendium There is a newer file on the server
+epha-robot@0.2.40 |  WARN |  Swissmedic File on disk is up-to-date
+epha-robot@0.2.40 |  WARN |  ATC File on disk is up-to-date
+epha-robot@0.2.40 |  WARN |  BAG File on disk is up-to-date
+epha-robot@0.2.40 |  WARN |  Kompendium 11.06.2015 18:02 - Update Done
+epha-robot@0.2.40 |  WARN |  robot-service 11.06.2015 18:02 - Finished Outdated Check
+```
+
 #### start
 
 ```shell

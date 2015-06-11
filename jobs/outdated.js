@@ -1,5 +1,7 @@
 "use strict";
 
+var moment = require("moment");
+
 var atc = require("./atc");
 var atcCfg = require("./cfg/atc.cfg.js");
 var bag = require("./bag");
@@ -12,6 +14,10 @@ var swissmedicCfg = require("./cfg/swissmedic.cfg.js");
 var defaultLog = require("../lib/index").log;
 var compareFileSize = require("../lib/compare/compareFileSize");
 var compareKompendiumFileSize = require("../lib/kompendium/compare/compareKompendiumFileSize");
+
+function getDateTime() {
+  return moment().format("DD.MM.YYYY HH:mm");
+}
 
 /**
  * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
@@ -37,23 +43,39 @@ function outdated(log) {
       });
 
       if (refreshSwissmedic) {
-        log.warn("Swissmedic", "Starting BAG Update");
-        p = p.then(swissmedic(log));
+        log.warn("Swissmedic", getDateTime() + " - Starting Update");
+        p = p.then(function () {
+          return swissmedic(log).then(function () {
+            log.warn("Swissmedic", getDateTime() + " - Update Done");
+          });
+        });
       }
 
       if (refreshATC) {
-        log.warn("ATC", "Starting ATC Update");
-        p = p.then(atc(log));
+        log.warn("ATC", getDateTime() + " - Starting Update");
+        p = p.then(function () {
+          return atc(log).then(function () {
+            log.warn("ATC", getDateTime() + " - Update Done");
+          });
+        });
       }
 
       if (refreshBAG) {
-        log.warn("ABG", "Starting BAG Update");
-         p = p.then(bag(log));
+        log.warn("ABG", getDateTime() + " - Starting Update");
+         p = p.then(function () {
+           return bag(log).then(function () {
+             log.warn("BAG", getDateTime() + "- Update Done");
+           });
+         });
       }
 
       if (refreshKompendium) {
-        log.warn("Kompendium", "Starting Kompendium Update");
-        p = p.then(kompendium(log));
+        log.warn("Kompendium", getDateTime() + " - Starting Update");
+        p = p.then(function () {
+          return kompendium(log).then(function () {
+            log.warn("Kompendium", getDateTime() + " - Update Done");
+          });
+        });
       }
 
       return p;
