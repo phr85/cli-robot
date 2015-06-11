@@ -65,7 +65,7 @@ function kompendium(log) {
         log.timeEnd("Kompendium", "Unzip");
         log.debug("Kompendium", "Process Files");
         log.time("Kompendium", "Process Files");
-        return parseKompendium(cfg);
+        return parseKompendium(cfg, log);
       })
       .then(function (parsedData) {
         log.timeEnd("Kompendium", "Process Files");
