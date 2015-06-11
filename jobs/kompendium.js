@@ -1,6 +1,6 @@
 "use strict";
 
-var request = require("superagent");
+var request = require("request");
 
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
@@ -35,29 +35,25 @@ function kompendium(log) {
         log.debug("Kompendium", "Go to " + cfg.download.url);
         log.time("Kompendium", "Go to");
         // set persistent agent which stores cookies
-        return fetchHTML.setAgent(request.agent())(cfg.download.url);
+        return fetchHTML.setAgent(request.defaults({jar: request.jar()}))(cfg.download.url);
       })
       .then(function (result) {
         log.timeEnd("Kompendium", "Go to");
         log.debug("Kompendium", "Accept Terms Of Use");
         log.time("Kompendium", "Accept Terms Of Use");
-        return acceptTermsOfUse(result);
+        return acceptTermsOfUse(cfg.download.url, result);
       })
-      .then(function () {
+      .then(function (result) {
         log.timeEnd("Kompendium", "Accept Terms Of Use");
         log.debug("Kompendium", "Re-visit " + cfg.download.url);
         log.time("Kompendium", "Re-visit");
-        return fetchHTML(cfg.download.url);
+        return fetchHTML.setAgent(result.agent)(cfg.download.url);
       })
       .then(function (result) {
         log.timeEnd("Kompendium", "Re-visit");
         log.debug("Kompendium", "Start Download");
         log.time("Kompendium", "Download");
-        return startDownload(result, cfg.download.file, renderProgress("Kompendium", "Download", log));
-      })
-      .then(function () {
-        // throw away agent as any other job should use a fresh one
-        fetchHTML.setAgent(null);
+        return startDownload(cfg.download.url, cfg.download.file, result, renderProgress("Kompendium", "Download", log));
       })
       .then(function () {
         log.timeEnd("Kompendium", "Download");

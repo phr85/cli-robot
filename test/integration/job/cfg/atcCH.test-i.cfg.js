@@ -4,8 +4,6 @@ var path = require("path");
 
 var swissmedicCfg = require("./swissmedic.test-i.cfg.js");
 
-console.log("swissmedicCfg.release.file", swissmedicCfg.release.file);
-
 module.exports = {
   "dependencies": {
     "swissmedic": {
