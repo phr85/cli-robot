@@ -3,7 +3,7 @@
 var expect = require("chai").expect;
 var rewire = require("rewire");
 
-describe("doRequest", function () {
+describe.skip("doRequest", function () {
   var request, doRequest, successLink;
 
   before(function () {

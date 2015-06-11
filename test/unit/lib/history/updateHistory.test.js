@@ -1,7 +1,6 @@
 "use strict";
 
 var expect = require("chai").expect;
-var moment = require("moment");
 
 describe("updateHistory", function () {
   var updateHistory, historyStore, newStore, result;
