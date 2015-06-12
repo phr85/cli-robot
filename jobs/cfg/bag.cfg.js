@@ -2,10 +2,6 @@
 
 var config = require("../../lib/common/config");
 
-var path = require("path");
-
-var baseDir = process.cwd();
-
 module.exports = config("bag", {
   "download": {
     "url": "http://www.spezialitaetenliste.ch/",

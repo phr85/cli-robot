@@ -1,7 +1,5 @@
 "use strict";
 
-var path = require("path");
-
 var config = require("../../lib/common/config");
 
 var swissmedicCfg = require("./swissmedic.cfg");
