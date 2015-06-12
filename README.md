@@ -623,19 +623,21 @@ function workWithFiles() {
       .then(function (fileExists) {
         if (fileExists && path.extname(cfg.download.file) === ".zip") {
           // zipFiles is an array with information about files which should be unzipped
-          return disk.unzip(cfg.download.zipFiles);    
+          return disk
+            .unzip(cfg.download.zipFiles)
+            .then(function () {
+              return disk.read.file(cfg.download.zipFiles[0].name)
+            })
+            .then(function (unzippedFileData) {
+              return processBAGData(unzippedFileData);
+            })
+            .then(function (processedData) {
+              return Promise.all([disk.write.json("myFile.json"), disk.write.jsonMin("myFile.min.json")]);
+            })
+            .catch(reject);
         }
         // else run bag-job first   
         bagJob().then(workWithFiles);
-      })
-      .then(function () {
-        return disk.read.file(cfg.download.zipFiles[0].name)
-      })
-      .then(function (unzippedFileData) {
-        return processBAGData(unzippedFileData);
-      })
-      .then(function (processedData) {
-        return Promise.all([disk.write.json("myFile.json"), disk.write.jsonMin("myFile.min.json")]);
       })
       .catch(reject);    
   });
