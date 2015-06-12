@@ -9,7 +9,6 @@ var express = require("express");
 var swissmedicCfg = require("../../jobs/cfg/swissmedic.cfg");
 var atcCfg = require("../../jobs/cfg/atc.cfg");
 var bagCfg = require("../../jobs/cfg/bag.cfg");
-var kompendiumCfg = require('../../jobs/cfg/kompendium.cfg');
 
 var app = express();
 var cookieParser = require("cookie-parser");

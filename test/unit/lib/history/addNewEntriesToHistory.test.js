@@ -5,8 +5,6 @@ var expect = require("chai").expect;
 describe("swissmedic/addNewEntriesToHistory", function () {
   var addNewEntriesToHistory, historyStore, newEntriesStore, result;
 
-  function noop() {}
-
   before(function () {
     addNewEntriesToHistory = require("../../../../lib/history/addNewEntriesToHistory");
   });

@@ -120,7 +120,7 @@ describe("disk", function () {
           });
 
           writeFileCB(jsonMinFileErr);
-        })
+        });
       });
     });
   });

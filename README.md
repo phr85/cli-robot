@@ -6,7 +6,11 @@ robot uses public resources like [swissmedic - Product information](http://downl
 
 ## Table of contents
 
-[Benefits](#benefits) - [Jobs](#jobs) - [Install](#install-robot) - [Usage](#usage) - [Development](#development)
+- [Jobs](#jobs) - [Benefits](#benefits) - [Install](#install-robot) - [Usage](#usage) - [Development](#development)
+  - [atc](#atc)
+  - [bag](#bag)
+  - [kompendium](#kompendium)
+  - [swissmedic](#swissmedic) 
 
 ## Benefits
 
@@ -22,16 +26,50 @@ robot uses public resources like [swissmedic - Product information](http://downl
 
 ### atc
 
-This job generates a map of *Acute Toxic Class*-data.
+This job generates a map of *Anatomical Therapeutic Chemical Classification System*-data.
 
-**Downloads**
+**Start:**
 
-  - location: `{PROCESS_ROOT}/data/auto/atc`
-  - `atc.zip` (> 4.5MB) containing atc.xlsx
+1) go to robot location and type `npm start`
 
-**Releases**
+```shell
+npm start 
 
-  - location: `{PROCESS_ROOT}/data/release/atc`
+> epha-robot@0.2.40 start /Your/robot/location/
+> node ./bin/cli.js
+
+EMIL: I'm ready, if you are? Type help for help.
+```
+2) after prompt is ready type **atc**
+
+```shell
+> atc
+
+EMIL: Added 'atc' to the queue (1 jobs)!
+EMIL: You can run queue with 'go'
+```
+3) then type **go** to start queued job
+
+```shell
+> go
+```
+
+4) ... some logging ...
+
+```shell
+epha-robot@0.2.40 |  TIME |  ATC Completed in { duration: '15306ms' }
+```
+
+5) ... done!
+
+**Downloads:**
+
+  - **source:** [WIdO](http://wido.de/amtl_atc-code.html) - Wissenschaftliches Institut der AOK
+  - `{PROCESS_ROOT}/data/auto/atcatc.zip` (> 4.5MB) containing atc.xlsx
+
+**Releases:**
+
+  - drive: `{PROCESS_ROOT}/data/release/atc`
   - `atc.csv` 
   - `atc.json`
   - `atc.min.json`  
@@ -57,21 +95,54 @@ This job generates a map of *Acute Toxic Class*-data.
 
 Gets a collection of pharmaceutical products incl. prices.
 
-**Downloads**
+**Start:**
 
-- location: `{PROCESS_ROOT}/data/auto/bag/`
--  `XMLPublications.zip` (~ 5MB)
--  containing: `bag.xls`, `bag.xml`, `it.xml`
+1) go to robot location and type `npm start`
 
-**Releases**
+```shell
+npm start 
 
-- location: `{PROCESS_ROOT}/data/release/bag/`
-- `bag.json`
-- `bag.min.json`
-- `bag.history.json`
-- `bag.history.min.json`
-- `it.json`
-- `it.min.json`
+> epha-robot@0.2.40 start /Your/robot/location/
+> node ./bin/cli.js
+
+EMIL: I'm ready, if you are? Type help for help.
+```
+2) after prompt is ready type **bag**
+
+```shell
+> bag
+
+EMIL: Added 'bag' to the queue (1 jobs)!
+EMIL: You can run queue with 'go'
+```
+3) then type **go** to start queued job
+
+```shell
+> go
+```
+
+4) ... some logging ...
+
+```shell
+epha-robot@0.2.40 |  TIME |  BAG Completed in { duration: '28844ms' }
+```
+
+5) ... done!
+
+**Downloads:**
+
+- **source:** [BAG](http://www.spezialitaetenliste.ch/) - Bundesamt für Gesundheit (CH)
+- drive: `{PROCESS_ROOT}/data/auto/bag/XMLPublications.zip` (~ 5MB) contains: `bag.xls`, `bag.xml`, `it.xml`
+
+**Releases:**
+
+- drive: `{PROCESS_ROOT}/data/release/bag/`
+  - `bag.json`
+  - `bag.min.json`
+  - `bag.history.json`
+  - `bag.history.min.json`
+  - `it.json`
+  - `it.min.json`
 
 **bag.json - Sample:**
 
@@ -133,24 +204,59 @@ In `bag.history.json` the job keeps automatically track of de-registered product
 
 Additionally to the history-file, logs for *new*, *changed* and *de-registered* products will be written:
 
-- location: `{PROCESS_ROOT}/logs/bag/`
-- `bag.changes.log`
-- `bag.new.log`
-- `bag.de-registered.log` 
+- drive: `{PROCESS_ROOT}/logs/bag/`
+  - `bag.changes.log`
+  - `bag.new.log`
+  - `bag.de-registered.log` 
 
 It could be very handy to use `tail -f` on this logs.
 
 ### kompendium:
 The **kompendium**-job fetches a huge catalog of pharmaceutical product information and is also quite time and resource consuming. The downloaded file itself has around 190MB (> 800MB unzipped). The job will also build a huge amount of .htm-files (~25000) containing product specific and patient related information in German, French and Italian (if available).
 
+**Start:**
+
+1) go to robot location and type `npm start`
+
+```shell
+npm start 
+
+> epha-robot@0.2.40 start /Your/robot/location/
+> node ./bin/cli.js
+
+EMIL: I'm ready, if you are? Type help for help.
+```
+2) after prompt is ready type **kompendium**
+
+```shell
+> kompendium
+
+EMIL: Added 'kompendium' to the queue (1 jobs)!
+EMIL: You can run queue with 'go'
+```
+3) then type **go** to start queued job
+
+```shell
+> go
+```
+
+4) ... some logging ...
+
+```shell
+epha-robot@0.2.40 |  TIME |  Kompendium Completed in { duration: '299261ms' }
+```
+
+5) ... done!
+
 **Downloads**
 
-- `{PROCESS_ROOT}/data/auto/kompendium/kompendium.zip` (190MB)
-- containing `{PROCESS_ROOT}/data/auto/kompendium/kompendium.xml` (~850MB) 
+- **source:** [Swissmedic](http://download.swissmedicinfo.ch/Accept.aspx?ReturnUrl=%2f) - Swiss Agency for Therapeutic Products
+- drive: `{PROCESS_ROOT}/data/auto/kompendium/kompendium.zip` (190MB)
+- containing `kompendium.xml` (~850MB) 
 
 **Releases**
 
-- locations: 
+- drive: 
   - `{PROCESS_ROOT}/data/release/kompendium`
      - `kompendium.json`
      - `kompendium.min.json`
@@ -203,27 +309,62 @@ When there is no **atc**-Release available it auto-runs the **atc**-Job as it is
 There will be also a `swissmedic.history.json` which keeps track of de-registered products. This file will be automatically created after the first run (at that moment contents will be equal to `swissmedic.json`). Deleting this file is the same as restarting the history. De-registered products will be flagged with `{ "deregistered": "DD.MM.YYYY" }`. Please note: Before re-installing robot it is advisible to backup this file.
 
 #### swissmedic-logs
-
 Like **bag** there will be logs for *new*, *changed* and *de-registered* products:
 
-- location: `{PROCESS_ROOT}/logs/swissmedic/`
-- `swissmedic.changes.log`
-- `swissmedic.new.log`
-- `swissmedic.de-registered.log` 
+- drive: `{PROCESS_ROOT}/logs/swissmedic/`
+  - `swissmedic.changes.log`
+  - `swissmedic.new.log`
+  - `swissmedic.de-registered.log` 
 
 Think of `tail -f`, it might be useful.
 
-**Downloads**
+**Start:**
 
-- atc (as a side effect)
-  - location: `{PROCESS_ROOT}/data/release/atc`
-  - `atc.zip` (> 4.5MB), containing `atc.xlsx`
+1) go to robot location and type `npm start`
+
+```shell
+npm start 
+
+> epha-robot@0.2.40 start /Your/robot/location/
+> node ./bin/cli.js
+
+EMIL: I'm ready, if you are? Type help for help.
+```
+2) after prompt is ready type **swissmedic**
+
+```shell
+> swissmedic
+
+EMIL: Added 'swissmedic' to the queue (1 jobs)!
+EMIL: You can run queue with 'go'
+```
+3) then type **go** to start queued job
+
+```shell
+> go
+```
+
+4) ... some logging ...
+
+```shell
+epha-robot@0.2.40 |  TIME |  Swissmedic Completed in { duration: '13369ms' }
+```
+
+5) ... done!
+
+**Downloads:**
+
+- **source:** [Swissmedic](https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html?lang=en) - Swiss Agency for Therapeutic Products
 
 - swissmedic:
   - location: `{PROCESS_ROOT}/data/auto/swissmedic/`
   - `swissmedic.xlsx` (> 2.5MB)
 
-**Releases**
+- atc (as a side effect)
+  - location: `{PROCESS_ROOT}/data/release/atc`
+  - `atc.zip` (> 4.5MB), containing `atc.xlsx`  
+
+**Releases:**
 
 - atc
   - location: `{PROCESS_ROOT}/data/release/atc`
@@ -236,10 +377,10 @@ Think of `tail -f`, it might be useful.
 
 - swissmedic:
   - location: `{PROCESS_ROOT}/data/release/swissmedic/`
-  - `swissmedic.json`
-  - `swissmedic.min.json`
-  - `swissmedic.history.json`
-  - `swissmedic.history.min.json`
+     - `swissmedic.json`
+     - `swissmedic.min.json`
+     - `swissmedic.history.json`
+     - `swissmedic.history.min.json`
 
 **swissmedic.json - Sample**
 
@@ -276,11 +417,18 @@ Think of `tail -f`, it might be useful.
 - npm > 2.7.x (usually shipped with node.js)
 
 ### Installation
+#### npm
 
 ```shell
 npm install epha-robot
 ```
-
+#### github
+```
+cd path/to/your/WORKSPACE
+git clone https://github.com/epha/robot.git
+cd robot
+npm install
+```
 ## Usage
 
 ### CLI
@@ -321,13 +469,18 @@ It could be quite useful running the underlying script (`bin/outdated`) with a d
 **stdout - sample:**
 
 ```shell
-epha-robot@0.2.40 |  WARN |  robot-service 11.06.2015 17:56 - Start Outdated Check
-epha-robot@0.2.40 |  WARN |  Kompendium There is a newer file on the server
-epha-robot@0.2.40 |  WARN |  Swissmedic File on disk is up-to-date
-epha-robot@0.2.40 |  WARN |  ATC File on disk is up-to-date
+epha-robot@0.2.40 |  WARN |  robot-service 12.06.2015 08:36 - Start Outdated Check
 epha-robot@0.2.40 |  WARN |  BAG File on disk is up-to-date
-epha-robot@0.2.40 |  WARN |  Kompendium 11.06.2015 18:02 - Update Done
-epha-robot@0.2.40 |  WARN |  robot-service 11.06.2015 18:02 - Finished Outdated Check
+epha-robot@0.2.40 |  WARN |  ATC File on disk is up-to-date
+epha-robot@0.2.40 |  WARN |  Swissmedic File on disk is up-to-date
+epha-robot@0.2.40 |  WARN |  Kompendium File on disk is up-to-date
+epha-robot@0.2.40 |  WARN |  robot-service 12.06.2015 08:36 - Finished Outdated Check
+epha-robot@0.2.40 |  WARN |  robot-service 12.06.2015 09:06 - Start Outdated Check
+epha-robot@0.2.40 |  WARN |  BAG File on disk is up-to-date
+epha-robot@0.2.40 |  WARN |  ATC File on disk is up-to-date
+epha-robot@0.2.40 |  WARN |  Swissmedic File on disk is up-to-date
+epha-robot@0.2.40 |  WARN |  Kompendium File on disk is up-to-date
+epha-robot@0.2.40 |  WARN |  robot-service 12.06.2015 09:06 - Finished Outdated Check
 ```
 
 #### start
@@ -355,7 +508,6 @@ Checks sources on changes by header-`content-length`. If `content-length` diffs 
 
 ### Programmatical
 
-#### Promises
 ```javascript
 var robot = require("epha-robot");
 var disk = require("epha-robot").common.disk;
@@ -392,18 +544,27 @@ module.exports = config("anyJobName", {
     "linkParser": /RegExp/i
     "zipFiles": [{name: /RegExpForFileInZip/, dest: }]
   },
+  //optional
   "manual": {
-    //optional
+  
   },
   "release": {
     "file": "anyJobName.json" // will resolve to {PROCESS_ROOT}/data/anyJobName/release/anyJobName.json
     "minFile": "anyJobName.min.json",
+    "nested": {
+      "file": nested.json //will also resolve to full path
+    } 
   },
+  //optional
   "history": {
-    //optional
+    "file": "anyJobName.history.json",
+    "minFile": "anyJobName.history.min.json"    
   },
+  //optional
   "log": {
-    //optional
+    "deRegistered": "anyJobName.de-registered.log",
+    "changes": "anyJobName",
+    "new": "anyJobName"
   }
 });
 ```
@@ -435,12 +596,53 @@ function anyJobHistory(log) {
   } 
 
   // cfg must contain information about where to put history- and log-files
+  // @see job.configs
   return history("anyJob", cfg, onChanged, log);
 }
 
 module.exports = anyJobHistory;
 
 ```
+
+### working with files
+
+robot ships with `lib/common/disk.js` which allows comfortable working with files through a Promise-based-API. This example should give an idea of what it can do:
+
+```javascript
+
+var path = require("path");
+var disk = require("lib/common/disk");
+var bagJob = require("jobs/bag");
+var bagCfg = require("jobs/cfg/bag.cfg)";
+var processBAGData = require("lib/processBAGData");
+
+function workWithFiles() {
+  return new Promise(function (resolve, reject) {
+    disk
+      .fileExists(cfg.download.file)
+      .then(function (fileExists) {
+        if (fileExists && path.extname(cfg.download.file) === ".zip") {
+          // zipFiles is an array with information about files which should be unzipped
+          return disk.unzip(cfg.download.zipFiles);    
+        }
+        // else run bag-job first   
+        bagJob().then(workWithFiles);
+      })
+      .then(function () {
+        return disk.read.file(cfg.download.zipFiles[0].name)
+      })
+      .then(function (unzippedFileData) {
+        return processBAGData(unzippedFileData);
+      })
+      .then(function (processedData) {
+        return Promise.all([disk.write.json("myFile.json"), disk.write.jsonMin("myFile.min.json")]);
+      })
+      .catch(reject);    
+  });
+}
+
+```
+
 ### Tests
 
 #### Unit-Tests
