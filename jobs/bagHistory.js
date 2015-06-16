@@ -8,7 +8,7 @@ var createDataCollection = require("../lib/history/createDataCollection");
 
 var cfg = require("./cfg/bag.cfg");
 var initBagPriceHistory = require("../lib/bag/initBagPriceHistory");
-var updateBagHistoryData = require("../lib/bag/updateBagHistoryData");
+var updateBagHistoryData = require("../lib/bag/updateBagPriceHistoryData");
 
 /**
  * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
@@ -22,11 +22,7 @@ function bagHistory(log) {
   return disk.fileExists(cfg.history.price)
     .then(function (fileExists) {
       if (fileExists) {
-        return disk.read
-          .jsonFile(cfg.history.price)
-          .then(function (priceHistoryData) {
-            return createDataStore(priceHistoryData);
-          });
+        return disk.read.jsonFile(cfg.history.price);
       } else {
         return initBagPriceHistory(cfg);
       }
@@ -45,12 +41,9 @@ function bagHistory(log) {
         });
     })
     .then(function (priceHistoryStore) {
-      return createDataCollection(priceHistoryStore);
-    })
-    .then(function (priceHistoryCollection) {
       return Promise.all([
-        disk.write.json(cfg.history.price, priceHistoryCollection),
-        disk.write.json(cfg.history.priceMin, priceHistoryCollection)
+        disk.write.json(cfg.history.price, priceHistoryStore),
+        disk.write.json(cfg.history.priceMin, priceHistoryStore)
       ]);
     });
 }

@@ -26,54 +26,54 @@ function bag(log) {
 
   return new Promise(function (resolve, reject) {
     disk.ensureDir(cfg.download.dir, cfg.release.dir)
-    //  .then(function () {
-    //    log.debug("BAG", "Go to " + cfg.download.url);
-    //    log.time("BAG", "Go to");
-    //    return fetchHTML(cfg.download.url);
-    //  })
-    //  .then(function (result) {
-    //    log.timeEnd("BAG", "Go to");
-    //    log.debug("BAG", "Parse Link");
-    //    log.time("BAG", "Parse Link");
-    //    return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
-    //  })
-    //  .then(function (parsedLink) {
-    //    log.timeEnd("BAG", "Parse Link");
-    //    log.debug("BAG", "Parsed Link: " + parsedLink);
-    //    log.time("BAG", "Download");
-    //    return downloadFile(parsedLink, cfg.download.file, renderProgress("BAG", "Download", log));
-    //  })
-    //  .then(function () {
-    //    log.timeEnd("BAG", "Download");
-    //    log.debug("BAG", "Unzip");
-    //    log.time("BAG", "Unzip");
-    //    return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip", log));
-    //  })
-    //  .then(function () {
-    //    log.timeEnd("BAG", "Unzip");
-    //    log.debug("BAG", "Process Files");
-    //    log.time("BAG", "Process Files");
-    //
-    //    return Promise.all([
-    //      parseBAGXML(cfg.download.zipFiles[0].dest, log),
-    //      parseITCodes(cfg.download.zipFiles[2].dest)
-    //    ]);
-    //  })
-    //  .then(function (parsedData) {
-    //    var bag = parsedData[0];
-    //    var it = parsedData[1];
-    //
-    //    log.timeEnd("BAG", "Process Files");
-    //    log.debug("BAG", "Write Processed Files");
-    //    log.time("BAG", "Write Processed Files");
-    //
-    //    return Promise.all([
-    //      disk.write.json(cfg.release.file, bag),
-    //      disk.write.jsonMin(cfg.release.minFile, bag),
-    //      disk.write.json(cfg.release.it, it),
-    //      disk.write.jsonMin(cfg.release.itMin, it)
-    //    ]);
-    //  })
+      .then(function () {
+        log.debug("BAG", "Go to " + cfg.download.url);
+        log.time("BAG", "Go to");
+        return fetchHTML(cfg.download.url);
+      })
+      .then(function (result) {
+        log.timeEnd("BAG", "Go to");
+        log.debug("BAG", "Parse Link");
+        log.time("BAG", "Parse Link");
+        return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
+      })
+      .then(function (parsedLink) {
+        log.timeEnd("BAG", "Parse Link");
+        log.debug("BAG", "Parsed Link: " + parsedLink);
+        log.time("BAG", "Download");
+        return downloadFile(parsedLink, cfg.download.file, renderProgress("BAG", "Download", log));
+      })
+      .then(function () {
+        log.timeEnd("BAG", "Download");
+        log.debug("BAG", "Unzip");
+        log.time("BAG", "Unzip");
+        return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip", log));
+      })
+      .then(function () {
+        log.timeEnd("BAG", "Unzip");
+        log.debug("BAG", "Process Files");
+        log.time("BAG", "Process Files");
+
+        return Promise.all([
+          parseBAGXML(cfg.download.zipFiles[0].dest, log),
+          parseITCodes(cfg.download.zipFiles[2].dest)
+        ]);
+      })
+      .then(function (parsedData) {
+        var bag = parsedData[0];
+        var it = parsedData[1];
+
+        log.timeEnd("BAG", "Process Files");
+        log.debug("BAG", "Write Processed Files");
+        log.time("BAG", "Write Processed Files");
+
+        return Promise.all([
+          disk.write.json(cfg.release.file, bag),
+          disk.write.jsonMin(cfg.release.minFile, bag),
+          disk.write.json(cfg.release.it, it),
+          disk.write.jsonMin(cfg.release.itMin, it)
+        ]);
+      })
       .then(function () {
         return bagHistory(log);
       })

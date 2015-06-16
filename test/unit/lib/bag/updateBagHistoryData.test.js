@@ -4,7 +4,7 @@ var expect = require("chai").expect;
 var moment = require("moment");
 var jsondiffpatch = require("jsondiffpatch");
 
-describe("updateBagHistory", function () {
+describe("updateBagPriceHistoryData", function () {
   var testData, testDataGTIN;
   var dateFormat, releaseData, currentValidFromDate, historyValidToDate, newValidFromDate, today;
   var createBagPriceHistoryData;
@@ -73,7 +73,7 @@ describe("updateBagHistory", function () {
       }
     };
 
-    createBagPriceHistoryData = require("../../../../lib/bag/updateBagHistoryData");
+    createBagPriceHistoryData = require("../../../../lib/bag/updateBagPriceHistoryData");
   });
 
   describe("adding new entry to price history", function () {
