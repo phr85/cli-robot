@@ -1,21 +1,16 @@
 "use strict";
 
-/**
- * Will be called - if provided - after job has finished
- *
- * @callback done
- * @param {null|Error} err
- */
-
-var moment = require("moment");
-
 var defaultLog = require("../lib").log;
-var history = require('../lib/history/history');
+var disk = require("../lib/common/disk");
+var history = require("../lib/history/history");
+var createDataStore = require("../lib/history/createDataStore");
+var createDataCollection = require("../lib/history/createDataCollection");
 
 var cfg = require("./cfg/bag.cfg");
+var initBagPriceHistory = require("../lib/bag/initBagPriceHistory");
+var updateBagHistoryData = require("../lib/bag/updateBagHistoryData");
 
 /**
- * @param {done?} done - optional
  * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
@@ -24,49 +19,40 @@ function bagHistory(log) {
 
   log = log || defaultLog;
 
-  function onChanged(diff, historyData) {
-    var changeDateTime = moment().format("DD.MM.YYYY HH:mm");
-    var exFactoryRecord = { dateTime: changeDateTime };
-    var publikumsPreisRecord = { dateTime: changeDateTime };
+  return disk.fileExists(cfg.history.price)
+    .then(function (fileExists) {
+      if (fileExists) {
+        return disk.read
+          .jsonFile(cfg.history.price)
+          .then(function (priceHistoryData) {
+            return createDataStore(priceHistoryData);
+          });
+      } else {
+        return initBagPriceHistory(cfg);
+      }
+    })
+    .then(function (priceHistoryStore) {
+      function onChanged(diff, historyData, newData) {
 
-    if (!historyData.exFactoryHistory) {
-      historyData.exFactoryHistory = [];
-    }
+        if (diff.exFactoryPreis || diff.publikumsPreis) {
+          updateBagHistoryData(newData, priceHistoryStore[historyData.gtin]);
+        }
+      }
 
-    if (!historyData.publikumsPreisHistory) {
-      historyData.publikumsPreisHistory = [];
-    }
-
-
-
-    if (diff.exFactoryPreis) {
-      exFactoryRecord.exFactoryPreis = diff.exFactoryPreis;
-    }
-
-    if (diff.exFactoryPreisValid) {
-      exFactoryRecord.exFactoryPreisValid = diff.exFactoryPreisValid;
-    }
-
-    if (diff.exFactoryPreis || diff.exFactoryPreisValid) {
-      historyData.exFactoryHistory.push(exFactoryRecord);
-    }
-
-
-
-    if (diff.publikumsPreis) {
-      publikumsPreisRecord.publikumsPreis = diff.publikumsPreis;
-    }
-
-    if (diff.publikumsPreisValid) {
-      publikumsPreisRecord.publikumsPreisValid = diff.publikumsPreisValid;
-    }
-
-    if (diff.publikumsPreis || diff.publikumsPreisValid) {
-      historyData.publikumsPreisHistory.push(publikumsPreisRecord);
-    }
-  }
-
-  return history(jobName, cfg, onChanged, log);
+      return history(jobName, cfg, onChanged, log)
+        .then(function () {
+          return priceHistoryStore;
+        });
+    })
+    .then(function (priceHistoryStore) {
+      return createDataCollection(priceHistoryStore);
+    })
+    .then(function (priceHistoryCollection) {
+      return Promise.all([
+        disk.write.json(cfg.history.price, priceHistoryCollection),
+        disk.write.json(cfg.history.priceMin, priceHistoryCollection)
+      ]);
+    });
 }
 
 module.exports = bagHistory;

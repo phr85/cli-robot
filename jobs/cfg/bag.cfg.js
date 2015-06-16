@@ -23,7 +23,9 @@ module.exports = config("bag", {
   },
   "history": {
     "file": "bag.history.json",
-    "minFile": "bag.history.min.json"
+    "minFile": "bag.history.min.json",
+    "price": "bag.price-history.json",
+    "priceMin": "bag.price-history.min.json"
   },
   "log": {
     "deRegistered": "bag.de-registered.log",
