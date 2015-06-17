@@ -16,6 +16,7 @@ var updateBagHistoryData = require("../lib/bag/updateBagPriceHistoryData");
  */
 function bagHistory(log) {
   var jobName = "BAG History";
+  var priceChangeDetected = false;
 
   log = log || defaultLog;
 
@@ -29,22 +30,34 @@ function bagHistory(log) {
     })
     .then(function (priceHistoryStore) {
       function onChanged(diff, historyData, newData) {
-
         if (diff.exFactoryPreis || diff.publikumsPreis) {
+          priceChangeDetected = true;
           updateBagHistoryData(newData, priceHistoryStore[historyData.gtin]);
         }
       }
 
+      log.time(jobName, "Updating Price History");
+      log.debug(jobName, "Updating Price History");
+
       return history(jobName, cfg, onChanged, log)
         .then(function () {
+          log.timeEnd(jobName, "Updating Price History");
+          log.debug(jobName, "Updating Price History Done");
           return priceHistoryStore;
         });
     })
     .then(function (priceHistoryStore) {
-      return Promise.all([
-        disk.write.json(cfg.history.price, priceHistoryStore),
-        disk.write.json(cfg.history.priceMin, priceHistoryStore)
-      ]);
+      if (priceChangeDetected) {
+        log.time(jobName, "Writing Price History Files");
+        log.debug(jobName, "Writing Price History Files");
+
+        return Promise.all([
+          disk.write.json(cfg.history.price, priceHistoryStore),
+          disk.write.json(cfg.history.priceMin, priceHistoryStore)
+        ]).then(function () {
+          log.timeEnd(jobName, "Writing Price History Files");
+        });
+      }
     });
 }
 
