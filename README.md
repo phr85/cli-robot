@@ -93,7 +93,7 @@ epha-robot@0.2.40 |  TIME |  ATC Completed in { duration: '15306ms' }
 
 ### bag
 
-Gets a collection of pharmaceutical products incl. prices.
+Gets a collection of pharmaceutical products containing purchase and selling price. There is also a history keeping track of all products (incl. de-registered products). Besides that the job also provides bi-temporal data for purchase and selling prices.
 
 **Start:**
 
@@ -141,6 +141,8 @@ epha-robot@0.2.40 |  TIME |  BAG Completed in { duration: '28844ms' }
   - `bag.min.json`
   - `bag.history.json`
   - `bag.history.min.json`
+  - `bag.price-history.json`
+  - `bag.price-history.min.json`
   - `it.json`
   - `it.min.json`
 
@@ -175,7 +177,7 @@ epha-robot@0.2.40 |  TIME |  BAG Completed in { duration: '28844ms' }
 //...   
 ```
 
-#### bagHistory(-job)
+#### bag-history(-job)
 In `bag.history.json` the job keeps automatically track of de-registered products and price changes. This file will be automatically created after the first run (at this moment contents will be equal to `bag.history.json`). Deleting this file is the same as restarting the history. Probably it is necessary - especially bevor un-installing/removing robot - to backup this file from time to time.
 
 **bag.history.json - Sample:**
@@ -198,6 +200,84 @@ In `bag.history.json` the job keeps automatically track of de-registered product
          // ..
       ]
       //...
+```
+
+#### bag-price-history
+**robot** records in `bag.price-history.json` product price changes (purchase and selling price). Each run of the job will update this file if a change was detected. 
+Products are identified by their GTIN.
+
+Usually prices rarely change. So dates at `validFrom` and `validTo` are on day basis. Date is formatted like in `bag.json`: `DD.MM.YYYY`. Please note: `validFrom` is including while `validTo` is excluding. 
+
+There are two types of prices:
+
+- `exFactory`: purchase price
+- `publikum`: selling price
+
+and two sub-types:
+
+- `valid`: time for a price valid in the real world 
+- `transaction`: time for a price detected by robot
+
+`valid` and `transaction` are collections and latest price may be found at `index 0`. `validTo` is `null` or rather `Infinite` for most recent price as this information is not available.
+
+**bag.price-history.json - Sample:**
+
+```javascript
+{
+   "7680536620137": { //indexed by products GTIN
+      "exFactory": { // purchase price
+         "valid": [ // changes in real world
+            {
+               "price": "200.00",
+               "validFrom": "16.06.2015",
+               "validTo": null
+            },
+            {
+               "price": "164.55",
+               "validFrom": "01.10.2011",
+               "validTo": "15.06.2015"
+            }
+         ],
+         "transaction": [ // changes detected by robot
+            {
+               "price": "200.00",
+               "validFrom": "16.06.2015",
+               "validTo": null
+            },
+            {
+               "price": "164.55",
+               "validFrom": "14.06.2015",
+               "validTo": "15.06.2015"
+            }
+         ]
+      },
+      "publikum": { // selling price
+         "valid": [ // changes in real world
+            {
+               "price": "300.00",
+               "validFrom": "16.06.2015",
+               "validTo": null
+            },
+            {
+               "price": "205.30",
+               "validFrom": "01.10.2011",
+               "validTo": "15.06.2015"
+            }
+         ],
+         "transaction": [ // changes detected by robot
+            {
+               "price": "300.00",
+               "validFrom": "16.06.2015",
+               "validTo": null
+            },
+            {
+               "price": "205.30",
+               "validFrom": "14.06.2015",
+               "validTo": "15.06.2015"
+            }
+         ]
+      }
+   },
 ```
 
 #### bag-logs
