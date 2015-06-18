@@ -224,60 +224,25 @@ and two sub-types:
 
 ```javascript
 {
-   "7680536620137": { //indexed by products GTIN
-      "exFactory": { // purchase price
-         "valid": [ // changes in real world
-            {
-               "price": "200.00",
-               "validFrom": "16.06.2015",
-               "validTo": null
-            },
-            {
-               "price": "164.55",
-               "validFrom": "01.10.2011",
-               "validTo": "15.06.2015"
-            }
-         ],
-         "transaction": [ // changes detected by robot
-            {
-               "price": "200.00",
-               "validFrom": "16.06.2015",
-               "validTo": null
-            },
-            {
-               "price": "164.55",
-               "validFrom": "14.06.2015",
-               "validTo": "15.06.2015"
-            }
-         ]
+   "7680536620137": [
+      {
+         "exFactoryPreis": "196.35",
+         "publikumsPreis": "214.99",
+         "validFrom": "18.06.2015",
+         "validTo": null,
+         "transactionFrom": "18.06.2015", // recorded by robot
+         "transactionTo": null
       },
-      "publikum": { // selling price
-         "valid": [ // changes in real world
-            {
-               "price": "300.00",
-               "validFrom": "16.06.2015",
-               "validTo": null
-            },
-            {
-               "price": "205.30",
-               "validFrom": "01.10.2011",
-               "validTo": "15.06.2015"
-            }
-         ],
-         "transaction": [ // changes detected by robot
-            {
-               "price": "300.00",
-               "validFrom": "16.06.2015",
-               "validTo": null
-            },
-            {
-               "price": "205.30",
-               "validFrom": "14.06.2015",
-               "validTo": "15.06.2015"
-            }
-         ]
+      {
+         "exFactoryPreis": "176.45",
+         "publikumsPreis": "209.99",
+         "validFrom": "11.01.2011", // parsed from data
+         "validTo": "17.06.2015",
+         "transactionFrom": "01.01.2015", // recorded by robot
+         "transactionTo": "17.06.2015"
       }
-   },
+   ],
+}
 ```
 
 #### bag-logs

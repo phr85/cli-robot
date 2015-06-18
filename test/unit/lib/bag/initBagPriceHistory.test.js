@@ -65,27 +65,23 @@ describe("initBagPriceHistory", function () {
   it("should create a proper priceHistory", function (done) {
     var expected = {};
 
-    expected[gtin1] = {
-      exFactory: {
-        valid: [{price: "100", validFrom: bagDataStore[gtin1].exFactoryPreisValid, validTo: Infinity}],
-        transaction: [{price: "100", validFrom: moment().format(df), validTo: Infinity}]
-      },
-      publikum: {
-        valid: [{price: "200", validFrom: bagDataStore[gtin1].publikumsPreisValid, validTo: Infinity}],
-        transaction: [{price: "200", validFrom: moment().format(df), validTo: Infinity}]
-      }
-    };
+    expected[gtin1] = [{
+      exFactoryPreis: bagDataStore[gtin1].exFactoryPreis,
+      publikumsPreis: bagDataStore[gtin1].publikumsPreis,
+      validFrom: bagDataStore[gtin1].publikumsPreisValid,
+      validTo: null,
+      transactionFrom: moment().format(df),
+      transactionTo: null
+    }];
 
-    expected[gtin2] = {
-      exFactory: {
-        valid: [{price: "200", validFrom: bagDataStore[gtin2].exFactoryPreisValid, validTo: Infinity}],
-        transaction: [{price: "200", validFrom: moment().format(df), validTo: Infinity}]
-      },
-      publikum: {
-        valid: [{price: "400", validFrom: bagDataStore[gtin2].publikumsPreisValid, validTo: Infinity}],
-        transaction: [{price: "400", validFrom: moment().format(df), validTo: Infinity}]
-      }
-    };
+    expected[gtin2] = [{
+      exFactoryPreis: bagDataStore[gtin2].exFactoryPreis,
+      publikumsPreis: bagDataStore[gtin2].publikumsPreis,
+      validFrom: bagDataStore[gtin2].publikumsPreisValid,
+      validTo: null,
+      transactionFrom: moment().format(df),
+      transactionTo: null
+    }];
 
     initBagPriceHistory(cfgMock)
       .then(function (priceHistory) {
