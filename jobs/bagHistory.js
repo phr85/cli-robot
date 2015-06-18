@@ -3,8 +3,6 @@
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var history = require("../lib/history/history");
-var createDataStore = require("../lib/history/createDataStore");
-var createDataCollection = require("../lib/history/createDataCollection");
 
 var cfg = require("./cfg/bag.cfg");
 var initBagPriceHistory = require("../lib/bag/initBagPriceHistory");
