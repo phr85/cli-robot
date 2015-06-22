@@ -12,11 +12,9 @@ var updateBagHistoryData = require("../lib/bag/updateBagPriceHistoryData");
  * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
-function bagHistory(log) {
+function bagHistory() {
   var jobName = "BAG History";
   var priceChangeDetected = false;
-
-  log = log || defaultLog;
 
   return disk.fileExists(cfg.history.price)
     .then(function (fileExists) {

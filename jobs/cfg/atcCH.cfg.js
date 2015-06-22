@@ -2,17 +2,14 @@
 
 var config = require("../../lib/common/config");
 
-var swissmedicCfg = require("./swissmedic.cfg");
-var atcCfg = require("./atc.cfg");
-
 module.exports = config("atc", {
   "dependencies": {
     "swissmedic": {
-      "json": swissmedicCfg.release.file
+      "json": "../data/release/swissmedic/swissmedic.json"
     },
     "atc": {
       "de": {
-        "json": atcCfg.release.file
+        "json": "../data/release/atc/atc.json"
       }
     }
   },

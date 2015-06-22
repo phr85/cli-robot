@@ -19,7 +19,7 @@ var writeATCCSV = require("../lib/atc/writeATCCSV");
  * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
-function atc(done) {
+function atc() {
 
   log.info("ATC", "Get, Load and Parse");
   log.time("ATC", "Completed in");
