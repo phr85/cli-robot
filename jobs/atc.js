@@ -1,13 +1,13 @@
 "use strict";
 
-var defaultLog = require("../lib").log;
+var log = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML = require("../lib/common/fetchHTML");
 var parseLink = require("../lib/common/parseLink");
 var downloadFile = require("../lib/common/downloadFile");
 var renderProgress = require("../lib/common/renderProgress");
 
-var cfg = require("./cfg/atc.cfg.js");
+var path = require("path");
 var readXLSX = require("../lib/atc/readXLSX");
 var addCodes = require("../lib/atc/addCodes");
 var modifyCodes = require("../lib/atc/modifyCodes");
@@ -19,55 +19,60 @@ var writeATCCSV = require("../lib/atc/writeATCCSV");
  * @param {{debug: Function, error: Function, info: Function, time: Function, timeEnd: Function}} log - optional
  * @returns {Promise}
  */
-function atc(log) {
-
-  log = log || defaultLog;
+function atc(done) {
 
   log.info("ATC", "Get, Load and Parse");
   log.time("ATC", "Completed in");
+  
+  var url = "http://wido.de/amtl_atc-code.html";
+  var file = "atc.zip";
+  var zipFiles = [{name: /widode.xlsx/, dest: "atc.xlsx"}];
 
   return new Promise(function (resolve, reject) {
-    disk.ensureDir(cfg.download.dir, cfg.release.dir)
+    disk.ensureDir(path.resolve("./data/auto"), path.resolve("./data/release"))
       .then(function () {
-        log.debug("ATC", "Go to " + cfg.download.url);
+        log.debug("ATC", "Go to " + url);
         log.time("ATC", "Go to");
-        return fetchHTML(cfg.download.url);
+        return fetchHTML(url);
       })
       .then(function (result) {
         log.timeEnd("ATC", "Go to");
         log.debug("ATC", "Parse Link");
         log.time("ATC", "Parse Link");
-        return parseLink(cfg.download.url, result.html, cfg.download.linkParser);
+        return parseLink(url, result.html, /href="(.*atc.*\.zip)"/igm);
       })
       .then(function (parsedLink) {
         log.timeEnd("ATC", "Parse Link");
         log.debug("ATC", "Start Download");
         log.time("ATC", "Download");
-        return downloadFile(parsedLink, cfg.download.file, renderProgress("ATC", "Download", log));
+        return downloadFile(parsedLink, file, renderProgress("ATC", "Download", log));
       })
       .then(function () {
         log.timeEnd("ATC", "Download");
         log.debug("ATC", "Unzip");
         log.time("ATC", "Unzip");
-        return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("ATC", "Unzip", log));
+        return disk.unzip(file, zipFiles, renderProgress("ATC", "Unzip", log));
       })
       .then(function () {
         log.timeEnd("ATC", "Unzip");
         log.debug("ATC", "Process Files");
         log.time("ATC", "Process Files");
-        return readXLSX(cfg.download.zipFiles[0].dest);
+        return readXLSX(zipFiles[0].dest);
       })
       .then(function (atcDE) {
         log.debug("ATC", "Add Codes");
-        return addCodes("./data/manual/atc/add.csv", atcDE);
+        var fs = require("fs");
+        var path = require("path");
+
+        return addCodes(path.resolve(__dirname,"../data/manual/atc/add.csv"), atcDE);
       })
       .then(function (atcDEwAdditions) {
         log.debug("ATC", "Modify Codes");
-        return modifyCodes(cfg.manual.changeFile, atcDEwAdditions);
+        return modifyCodes(path.resolve(__dirname,"../data/manual/atc/change.csv"), atcDEwAdditions);
       })
       .then(function (atcDEwModifiedCodes) {
         log.debug("ATC", "Modify Names");
-        return modifyNames(cfg.manual.capitalizeFile, atcDEwModifiedCodes);
+        return modifyNames(path.resolve(__dirname,"../data/manual/atc/capitalize.csv"), atcDEwModifiedCodes);
       })
       .then(function (atcDEwModifiedNames) {
         log.debug("ATC", "Remove empty strings");
@@ -79,8 +84,8 @@ function atc(log) {
         log.time("ATC", "Write Processed Files");
 
         return Promise.all([
-          disk.write.json(cfg.release.file, atcDEwAllModifications),
-          disk.write.jsonMin(cfg.release.minFile, atcDEwAllModifications)
+          disk.write.json(path.resolve("./data/release/atc/atc.json"), atcDEwAllModifications),
+          disk.write.jsonMin(path.resolve("./data/release/atc/atc.min.json"), atcDEwAllModifications)
         ]).then(function () {
           return atcDEwAllModifications;
         });
@@ -89,7 +94,7 @@ function atc(log) {
         log.timeEnd("ATC", "Write Processed Files");
         log.debug("ATC", "Release CSV");
         log.time("ATC", "Release CSV");
-        return writeATCCSV(cfg.release.csv, atcDEwAllModifications);
+        return writeATCCSV(path.resolve("./data/release/atc/atc.csv"), atcDEwAllModifications);
       })
       .then(function () {
         log.timeEnd("ATC", "Release CSV");
