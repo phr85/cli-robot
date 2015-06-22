@@ -59,7 +59,7 @@ function atc(log) {
       })
       .then(function (atcDE) {
         log.debug("ATC", "Add Codes");
-        return addCodes(cfg.manual.addFile, atcDE);
+        return addCodes("./data/manual/atc/add.csv", atcDE);
       })
       .then(function (atcDEwAdditions) {
         log.debug("ATC", "Modify Codes");
