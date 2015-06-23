@@ -37,23 +37,6 @@ describe("parseLinks", function () {
     });
   });
 
-  describe("atc", function () {
-    before(function () {
-      jobCfg = require("../../../../jobs/cfg/atc.cfg.js");
-      url = "http://www.wido.de/amtl_atc-code.html";
-      html = fs.readFileSync(path.resolve(__dirname, "../../../fixtures/html/atc.html"), {encoding: "utf8"});
-      ref = "http://www.wido.de/fileadmin/wido/downloads/pdf_arzneimittel/atc/wido_arz_amtl_atc-index_1214.zip";
-    });
-
-    beforeEach(function () {
-      regex = jobCfg.download.linkParser;
-      regex.index = 0;
-    });
-
-    it("should parse link out of given html correctly", function () {
-      expect(parseLink(url, html, regex)).to.equal(ref);
-    });
-  });
 
   describe("bag", function () {
     before(function () {
