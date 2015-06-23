@@ -1,6 +1,6 @@
 "use strict";
 
-var defaultLog = require("../lib").log;
+var log = require("../lib").log;
 var disk = require("../lib/common/disk");
 var history = require("../lib/history/history");
 
