@@ -5,9 +5,12 @@ var path = require("path");
 var fs = require("fs");
 
 var express = require("express");
+var rewire = require("rewire");
+
+var atc = rewire('../../jobs/atc');
 
 var swissmedicCfg = require("../../jobs/cfg/swissmedic.cfg");
-var atcCfg = require("../../jobs/cfg/atc.cfg");
+var atcCfg = atc.__get__("cfg");
 var bagCfg = require("../../jobs/cfg/bag.cfg");
 
 var app = express();

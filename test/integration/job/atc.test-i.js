@@ -10,7 +10,7 @@ var expect = require("chai").expect;
 
 var disk = require("../../../lib/common/disk");
 
-describe("job: ATC", function () {
+describe.only("job: ATC", function () {
   var atc, test;
 
   before(function () {
@@ -19,14 +19,14 @@ describe("job: ATC", function () {
 
   before(function (done) {
     atc = rewire("../../../jobs/atc");
-    atc.__set__({"cfg": merge.recursive(require("../../../jobs/cfg/atc.cfg"), test.cfg)});
+    atc.__set__({"cfg": merge.recursive(atc.__get__("cfg"), test.cfg)});
     atc().then(done).catch(done);
   });
 
   describe("Zip download and unzip XLSX", function () {
     it("should download ZIP-File and unzip it to atc.xlsx", function () {
       var fixture = shasum(xlsx.readFile(path.resolve(__dirname, "../../fixtures/auto/atc/atc.xlsx")));
-      var download = shasum(xlsx.readFile(test.cfg.download.zipFiles[0].dest));
+      var download = shasum(xlsx.readFile(test.cfg.download.unzip[0].dest));
       expect(fixture).to.equal(download);
     });
   });
