@@ -22,7 +22,7 @@ var cfg = {
     "dir": path.resolve(cwd, "data/auto/swissmedic"),
     "url": "https://www.swissmedic.ch/arzneimittel/00156/00221/00222/00230/index.html",
     "linkRegex": /href="([\/a-zäöü0-9?;,=.\-_&]*)".*Excel-Version Zugelassene Verpackungen/ig,
-    "name": path.resolve(cwd, "../data/auto/swissmedic/swissmedic.xlsx")
+    "name": path.resolve(cwd, "data/auto/swissmedic/swissmedic.xlsx")
   },
   "manual": {
     "atcCorrections": path.resolve(__dirname, "../data/manual/swissmedic/atc.csv")
