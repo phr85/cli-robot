@@ -8,10 +8,12 @@ var express = require("express");
 var rewire = require("rewire");
 
 var atc = rewire('../../jobs/atc');
+var swissmedic = rewire("../../jobs/swissmedic");
+var bag = rewire("../../jobs/bag");
 
-var swissmedicCfg = require("../../jobs/cfg/swissmedic.cfg");
+var swissmedicCfg = swissmedic.__get__("cfg");
 var atcCfg = atc.__get__("cfg");
-var bagCfg = require("../../jobs/cfg/bag.cfg");
+var bagCfg = bag.__get__("cfg");
 
 var app = express();
 var cookieParser = require("cookie-parser");

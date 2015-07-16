@@ -1,10 +1,12 @@
 "use strict";
 
+var rewire = require("rewire");
+
 var log = require("../lib").log;
 var disk = require("../lib/common/disk");
 var history = require("../lib/history/history");
 
-var cfg = require("./cfg/bag.cfg");
+var cfg = rewire("./bag").__get__("cfg");
 var initBagPriceHistory = require("../lib/bag/initBagPriceHistory");
 var updateBagHistoryData = require("../lib/bag/updateBagPriceHistoryData");
 

@@ -1,33 +1,33 @@
 "use strict";
 
-var config = require("../../../../lib/common/config");
-
 var path = require("path");
 
-module.exports = config("bag", {
+module.exports = {
   "download": {
-    "file": "bag.zip",
-    "zipFiles": [{
-      name: /Preparations.xml/, dest: "bag.xml"
+    "dir": path.resolve(__dirname, "../../tmp/data/auto/bag"),
+    "name": path.resolve(__dirname, "../../tmp/data/auto/bag/bag.zip"),
+    "unzip": [{
+      name: /Preparations.xml/, dest: path.resolve(__dirname, "../../tmp/data/auto/bag/bag.xml"),
     }, {
-      name: /Publications.xls/, dest: "bag.xls"
+      name: /Publications.xls/, dest: path.resolve(__dirname, "../../tmp/data/auto/bag/bag.xls"),
     }, {
-      name: /ItCodes.xml/, dest: "it.xml"
+      name: /ItCodes.xml/, dest: path.resolve(__dirname, "../../tmp/data/auto/bag/it.xml")
     }]
   },
   "release": {
-    "file": "bag.json",
-    "minFile": "bag.min.json",
-    "it": "it.json",
-    "itMin": "it.min.json"
+    "dir": path.resolve(__dirname, "../../tmp/data/release/bag"),
+    "file": path.resolve(__dirname, "../../tmp/data/release/bag/bag.json"),
+    "minFile": path.resolve(__dirname, "../../tmp/data/release/bag/bag.min.json"),
+    "it": path.resolve(__dirname, "../../tmp/data/release/bag/it.json"),
+    "itMin": path.resolve(__dirname, "../../tmp/data/release/bag/it.min.json")
   },
   "history": {
-    "file": "bag.history.json",
-    "minFile": "bag.history.min.json",
+    "file": path.resolve(__dirname, "../../tmp/data/release/bag/bag.history.json"),
+    "minFile": path.resolve(__dirname, "../../tmp/data/release/bag/bag.history.min.json")
   },
   "log": {
-    "deRegistered": "bag.history.de-registered.log",
-    "changes": "bag.history.changes.log",
-    "new": "bag.history.new.log"
+    "deRegistered": path.resolve(__dirname, "../../tmp/data/log/bag/bag.history.de-registered.log"),
+    "changes": path.resolve(__dirname, "../../tmp/data/log/bag/bag.history.de-registered.log"),
+    "new": path.resolve(__dirname, "../../tmp/data/log/bag/bag.history.new.log")
   }
-}, path.resolve(__dirname, "../../tmp/"));
+};

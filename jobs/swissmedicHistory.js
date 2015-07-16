@@ -1,8 +1,11 @@
 "use strict";
 
+var rewire = require('rewire');
+
 var history = require("../lib/history/history");
 
-var cfg = require("../jobs/cfg/swissmedic.cfg");
+var swissmedicJob = rewire("../jobs/swissmedic");
+var cfg = swissmedicJob.__get__("cfg");
 
 /**
  * This job is strongly coupled with basic swissmedic job as it makes only sense to run it,

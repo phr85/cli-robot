@@ -8,7 +8,7 @@ var merge = require("merge");
 var xlsx = require("xlsx");
 var expect = require("chai").expect;
 
-describe.only("job: siwssmedic", function () {
+describe("job: siwssmedic", function () {
   var swissmedicJob, atcCHJob, atcCHCfg, test;
 
   // create test config
