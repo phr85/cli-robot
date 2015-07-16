@@ -3,11 +3,17 @@
 var path = require("path");
 
 var swissmedicCfg = require("./swissmedic.test-i.cfg.js");
+var atcCfg = require("./atc.test-i.cfg");
 
 module.exports = {
   "dependencies": {
     "swissmedic": {
       "json": swissmedicCfg.release.file
+    },
+    "atc": {
+      "de": {
+        "json": atcCfg.release.file
+      }
     }
   },
   release: {

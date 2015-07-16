@@ -10,7 +10,7 @@ var expect = require("chai").expect;
 
 var disk = require("../../../lib/common/disk");
 
-describe.only("job: ATC", function () {
+describe("job: ATC", function () {
   var atc, test;
 
   before(function () {

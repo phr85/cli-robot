@@ -8,7 +8,7 @@ var merge = require("merge");
 var xlsx = require("xlsx");
 var expect = require("chai").expect;
 
-describe("job: siwssmedic", function () {
+describe.only("job: siwssmedic", function () {
   var swissmedicJob, atcCHJob, atcCHCfg, test;
 
   // create test config
@@ -17,13 +17,20 @@ describe("job: siwssmedic", function () {
   });
   // run job
   before(function (done) {
+    var atcCfg = require("./cfg/atc.test-i.cfg");
+    var atcJob = rewire("../../../jobs/atc");
+    atcJob.__set__("cfg", merge.recursive(atcJob.__get__("cfg"), atcCfg));
+
     atcCHCfg = require("./cfg/atcCH.test-i.cfg");
     atcCHJob = rewire("../../../jobs/atcCH");
-    atcCHJob.__set__("cfg", merge.recursive(require("../../../jobs/cfg/atcCH.cfg"), atcCHCfg));
+    atcCHJob.__set__({
+      "cfg": merge.recursive(atcCHJob.__get__("cfg"), atcCHCfg),
+      "atcJob": atcJob
+    });
 
     swissmedicJob = rewire("../../../jobs/swissmedic");
     swissmedicJob.__set__({
-      "cfg": merge.recursive(require("../../../jobs/cfg/swissmedic.cfg"), test.cfg),
+      "cfg": merge.recursive(swissmedicJob.__get__("cfg"), test.cfg),
       "atcCHJob": atcCHJob
     });
     swissmedicJob().then(done).catch(done);
@@ -32,7 +39,7 @@ describe("job: siwssmedic", function () {
   describe("XLSX-Download", function () {
     it("should download whole xlsx-File from swissmedic", function () {
       var fixture = shasum(xlsx.readFile(path.resolve(__dirname, "../../fixtures/auto/swissmedic/swissmedic.xlsx")));
-      var build = shasum(xlsx.readFile(test.cfg.download.file));
+      var build = shasum(xlsx.readFile(test.cfg.download.name));
 
       expect(fixture).to.equal(build);
     });
@@ -53,7 +60,7 @@ describe("job: siwssmedic", function () {
       describe("JSON-Min Release", function () {
         it("should have build a proper minified JSON-file", function () {
           var fixture = require("../../fixtures/release/swissmedic/swissmedic.min.json");
-          var jsonMinBuild = require(path.resolve(__dirname, "../../", test.cfg.release.minFile));
+          var jsonMinBuild = require(test.cfg.release.minFile);
 
           expect(jsonMinBuild).to.have.length(fixture.length);
           expect(jsonMinBuild).to.deep.equal(fixture);

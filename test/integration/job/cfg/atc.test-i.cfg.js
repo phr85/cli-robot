@@ -8,7 +8,7 @@ module.exports = {
   "download": {
     "url": "http://localhost:" + server.port + "/amtl_atc-code.html",
     "dir": path.resolve(__dirname, "../../tmp/data/auto"),
-    "file": path.resolve(__dirname, "../../tmp/data/auto/atc.zip"),
+    "name": path.resolve(__dirname, "../../tmp/data/auto/atc.zip"),
     "unzip": [{
       name: /widode.xlsx/, dest: path.resolve(__dirname, "../../tmp/data/auto/atc.xlsx")
     }]
