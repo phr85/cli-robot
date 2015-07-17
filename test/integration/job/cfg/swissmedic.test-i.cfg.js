@@ -22,10 +22,10 @@ var cfg = {
     minFile: path.resolve(__dirname, "../../tmp/data/release/swissmedic/swissmedic.history.min.json")
   },
   log: {
-    dir: path.resolve(__dirname, "../../tmp/log/swissmedic/"),
-    deRegistered: path.resolve(__dirname, "../../tmp/log/swissmedic/swissmedic.de-registered.log"),
-    changes: path.resolve(__dirname, "../../tmp/log/swissmedic/swissmedic.changes.log"),
-    new: path.resolve(__dirname, "../../tmp/log/swissmedic/swissmedic.new.log")
+    dir: path.resolve(__dirname, "../../tmp/logs/swissmedic/"),
+    deRegistered: path.resolve(__dirname, "../../tmp/logs/swissmedic/swissmedic.de-registered.log"),
+    changes: path.resolve(__dirname, "../../tmp/logs/swissmedic/swissmedic.changes.log"),
+    new: path.resolve(__dirname, "../../tmp/logs/swissmedic/swissmedic.new.log")
   }
 };
 

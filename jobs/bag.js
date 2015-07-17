@@ -44,10 +44,10 @@ var cfg = {
     "priceMin": path.resolve(cwd, "data/release/bag/bag.price-history.min.json")
   },
   "log": {
-    "dir": path.resolve(cwd, "log/bag"),
-    "deRegistered": path.resolve(cwd, "log/bag/bag.de-registered.log"),
-    "changes": path.resolve(cwd, "log/bag/bag.changes.log"),
-    "new": path.resolve(cwd, "data/release/bag/bag.new.log")
+    "dir": path.resolve(cwd, "logs/bag"),
+    "deRegistered": path.resolve(cwd, "logs/bag/bag.de-registered.log"),
+    "changes": path.resolve(cwd, "logs/bag/bag.changes.log"),
+    "new": path.resolve(cwd, "logs/bag/bag.new.log")
   }
 };
 
