@@ -22,7 +22,7 @@ var cfg = {
   "download": {
     "url": "http://wido.de/amtl_atc-code.html",
     "dir": path.resolve(cwd, "data/auto/atc"),
-    "lingRegex": /href="(.*atc.*\.zip)"/igm,
+    "linkRegex": /href="(.*atc.*\.zip)"/igm,
     "name": path.resolve(cwd, "data/auto/atc/atc.zip"),
     "unzip": [{name: /widode.xlsx/, dest: path.resolve(cwd, "data/auto/atc/atc.xlsx")}]
   },
@@ -59,7 +59,7 @@ function atc() {
         log.timeEnd("ATC", "Go to");
         log.debug("ATC", "Parse Link");
         log.time("ATC", "Parse Link");
-        return parseLink(cfg.download.url, result.html, cfg.download.lingRegex);
+        return parseLink(cfg.download.url, result.html, cfg.download.linkRegex);
       })
       .then(function (parsedLink) {
         log.timeEnd("ATC", "Parse Link");
