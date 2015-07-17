@@ -84,13 +84,13 @@ function kompendium(log) {
         log.timeEnd("Kompendium", "Re-visit");
         log.debug("Kompendium", "Start Download");
         log.time("Kompendium", "Download");
-        return startDownload(cfg.download.url, cfg.download.file, result, renderProgress("Kompendium", "Download", log));
+        return startDownload(cfg.download.url, cfg.download.name, result, renderProgress("Kompendium", "Download", log));
       })
       .then(function () {
         log.timeEnd("Kompendium", "Download");
         log.debug("Kompendium", "Unzip");
         log.time("Kompendium", "Unzip");
-        return disk.unzip(cfg.download.file, cfg.download.zipFiles, renderProgress("Kompendium", "Unzip", log));
+        return disk.unzip(cfg.download.name, cfg.download.zipFiles, renderProgress("Kompendium", "Unzip", log));
       })
       .then(function () {
         log.timeEnd("Kompendium", "Unzip");
