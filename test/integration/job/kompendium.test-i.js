@@ -8,7 +8,7 @@ var shasum = require("shasum");
 var merge = require("merge");
 var expect = require("chai").expect;
 
-describe("job: Kompendium", function () {
+describe.only("job: Kompendium", function () {
   var job, test;
 
   before(function () {
@@ -17,7 +17,7 @@ describe("job: Kompendium", function () {
 
   before(function (done) {
     job = rewire("../../../jobs/kompendium");
-    job.__set__("cfg", merge.recursive(require("../../../jobs/cfg/kompendium.cfg"), test.cfg));
+    job.__set__("cfg", merge.recursive(job.__get__("cfg"), test.cfg));
     job().then(done).catch(done);
   });
 

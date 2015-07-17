@@ -1,16 +1,47 @@
 "use strict";
 
+var path = require("path");
+var cwd = process.cwd();
+
 var request = require("request");
 
 var defaultLog = require("../lib").log;
 var disk = require("../lib/common/disk");
 var fetchHTML = require("../lib/common/fetchHTML");
 
-var cfg = require("./cfg/kompendium.cfg.js");
 var acceptTermsOfUse = require("../lib/kompendium/acceptTermsOfUse");
 var startDownload = require("../lib/kompendium/startDownload");
 var renderProgress = require("../lib/common/renderProgress");
 var parseKompendium = require("../lib/kompendium/parseKompendium");
+
+var cfg = {
+  "download": {
+    "dir": path.resolve(cwd, "data/auto/kompendium"),
+    "url": "http://download.swissmedicinfo.ch/",
+    "name": path.resolve(cwd, "data/auto/kompendium/kompendium.zip"),
+    "unzip": [{
+      name: /.xml/, dest: path.resolve(cwd, "data/auto/kompendium/kompendium.xml")
+    }]
+  },
+  "release": {
+    "dir": path.resolve(cwd, "data/auto/release/kompendium"),
+    "de": {
+      "fi": path.resolve(cwd, "data/auto/release/kompendium/de/fi"),
+      "pi": path.resolve(cwd, "data/auto/release/kompendium/de/pi")
+    },
+    "fr": {
+      "fi": path.resolve(cwd, "data/auto/release/kompendium/fr/fi"),
+      "pi": path.resolve(cwd, "data/auto/release/kompendium/de/pi")
+    },
+    "it": {
+      "fi": path.resolve(cwd, "data/auto/release/kompendium/it/fi"),
+      "pi": path.resolve(cwd, "data/auto/release/kompendium/it/pi")
+    },
+    "catalog": path.resolve(cwd, "data/auto/release/kompendium/catalog.json"),
+    "file": path.resolve(cwd, "data/auto/release/kompendium/kompendium.json"),
+    "minFile": path.resolve(cwd, "data/auto/release/kompendium/kompendium.min.json")
+  }
+};
 
 
 /**
