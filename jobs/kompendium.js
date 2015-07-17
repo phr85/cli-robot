@@ -90,7 +90,7 @@ function kompendium(log) {
         log.timeEnd("Kompendium", "Download");
         log.debug("Kompendium", "Unzip");
         log.time("Kompendium", "Unzip");
-        return disk.unzip(cfg.download.name, cfg.download.zipFiles, renderProgress("Kompendium", "Unzip", log));
+        return disk.unzip(cfg.download.name, cfg.download.unzip, renderProgress("Kompendium", "Unzip", log));
       })
       .then(function () {
         log.timeEnd("Kompendium", "Unzip");
