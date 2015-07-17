@@ -2,14 +2,17 @@
 
 var path = require("path");
 
+var server = require('../../../fixtures/server');
+
 module.exports = {
   "download": {
+    "url": "http://localhost:" + server.port + "/bag/",
     "dir": path.resolve(__dirname, "../../tmp/data/auto/bag"),
-    "name": path.resolve(__dirname, "../../tmp/data/auto/bag/bag.zip"),
+    "name": path.resolve(__dirname, "../../tmp/data/auto/bag/XMLPublications.zip"),
     "unzip": [{
-      name: /Preparations.xml/, dest: path.resolve(__dirname, "../../tmp/data/auto/bag/bag.xml"),
+      name: /Preparations.xml/, dest: path.resolve(__dirname, "../../tmp/data/auto/bag/bag.xml")
     }, {
-      name: /Publications.xls/, dest: path.resolve(__dirname, "../../tmp/data/auto/bag/bag.xls"),
+      name: /Publications.xls/, dest: path.resolve(__dirname, "../../tmp/data/auto/bag/bag.xls")
     }, {
       name: /ItCodes.xml/, dest: path.resolve(__dirname, "../../tmp/data/auto/bag/it.xml")
     }]

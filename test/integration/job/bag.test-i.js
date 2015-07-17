@@ -8,7 +8,7 @@ var shasum = require("shasum");
 var merge = require("merge");
 var expect = require("chai").expect;
 
-describe("job: BAG", function () {
+describe.only("job: BAG", function () {
   var job, test;
 
   before(function () {

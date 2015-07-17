@@ -9,11 +9,9 @@ var rewire = require("rewire");
 
 var atc = rewire('../../jobs/atc');
 var swissmedic = rewire("../../jobs/swissmedic");
-var bag = rewire("../../jobs/bag");
 
 var swissmedicCfg = swissmedic.__get__("cfg");
 var atcCfg = atc.__get__("cfg");
-var bagCfg = bag.__get__("cfg");
 
 var app = express();
 var cookieParser = require("cookie-parser");
@@ -30,8 +28,6 @@ app.use("*", function (req, res, next) {
 
 var atcDownloadPath =
   url.parse("http://www.wido.de/fileadmin/wido/downloads/pdf_arzneimittel/atc/wido_arz_amtl_atc-index_1214.zip").path;
-var bagDownloadPath =
-  url.parse("http://www.spezialitaetenliste.ch/File.axd?file=XMLPublications.zip").path;
 
 //@TODO: Prefix urls/path with job-name like already @kompendium done
 var cfg = {
@@ -50,8 +46,13 @@ var cfg = {
   "bag": {
     "zip": path.resolve(__dirname, "../fixtures/auto/bag/XMLPublications.zip"),
     "html": path.resolve(__dirname, "../fixtures/html/bag.html"),
-    "path": url.parse(bagCfg.download.url),
-    "downloadPath": bagDownloadPath
+    "path": "/bag/",
+    "download": {
+      "path": "/bag/File.axd",
+      "qs": {
+        "file": "XMLPublications.zip"
+      }
+    }
   },
   "kompendium": {
     "zip": path.resolve(__dirname, "../fixtures/auto/kompendium/kompendium.zip"),
@@ -102,8 +103,12 @@ app.get(cfg.bag.path, function (req, res) {
   // serve page
   fs.createReadStream(cfg.bag.html).pipe(res);
 });
-app.get(cfg.bag.downloadPath, function (req, res) {
-  res.sendFile(cfg.bag.zip);
+app.get(cfg.bag.download.path, function (req, res, next) {
+  if (req.query.file === cfg.bag.download.qs.file) {
+    return res.sendFile(cfg.bag.zip);
+  }
+
+  next();
 });
 
 /**
