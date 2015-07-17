@@ -89,7 +89,7 @@ function bag(log) {
       })
       .then(function () {
         var reparationsXmlFile = cfg.download.unzip[0].dest;
-        var itCodesXmlFile = cfg.download.unzip[0].dest;
+        var itCodesXmlFile = cfg.download.unzip[2].dest;
 
         log.timeEnd("BAG", "Unzip");
         log.debug("BAG", "Process Files");
