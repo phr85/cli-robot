@@ -33,10 +33,12 @@ var cfg = {
     "minFile": path.resolve(cwd, "data/release/swissmedic/swissmedic.min.json")
   },
   "history": {
+    "dir": path.resolve(cwd, "data/release/swissmedic"),
     "file": path.resolve(cwd, "logs/swissmedic/swissmedic.history.json"),
     "minFile": path.resolve(cwd, "logs/swissmedic/swissmedic.history.min.json")
   },
   "log": {
+    "dir": path.resolve(cwd, "logs/swissmedic"),
     "deRegistered": path.resolve(cwd, "logs/swissmedic/swissmedic.de-registered.log"),
     "changes": path.resolve(cwd, "logs/swissmedic/swissmedic.changes.log"),
     "new": path.resolve(cwd, "logs/swissmedic/swissmedic.new.log")

@@ -17,6 +17,8 @@ describe("job: siwssmedic", function () {
   });
   // run job
   before(function (done) {
+    var swissmedicHistory, swissmedicCfg;
+
     var atcCfg = require("./cfg/atc.test-i.cfg");
     var atcJob = rewire("../../../jobs/atc");
     atcJob.__set__("cfg", merge.recursive(atcJob.__get__("cfg"), atcCfg));
@@ -29,9 +31,15 @@ describe("job: siwssmedic", function () {
     });
 
     swissmedicJob = rewire("../../../jobs/swissmedic");
+    swissmedicCfg = merge.recursive(swissmedicJob.__get__("cfg"), test.cfg);
+
+    swissmedicHistory = rewire("../../../jobs/swissmedicHistory");
+    swissmedicHistory.__set__("cfg", swissmedicCfg);
+
     swissmedicJob.__set__({
-      "cfg": merge.recursive(swissmedicJob.__get__("cfg"), test.cfg),
-      "atcCHJob": atcCHJob
+      "cfg": swissmedicCfg,
+      "atcCHJob": atcCHJob,
+      "swissmedicHistory": swissmedicHistory
     });
     swissmedicJob().then(done).catch(done);
   });
