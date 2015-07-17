@@ -1,15 +1,16 @@
 "use strict";
 
 var moment = require("moment");
+var rewire = require("rewire");
 
-var atc = require("./atc");
-var atcCfg = require("./cfg/atc.cfg.js");
-var bag = require("./bag");
-var bagCfg = require("./cfg/bag.cfg.js");
-var kompendium = require("./kompendium");
-var kompenidumCfg = require("./cfg/kompendium.cfg.js");
-var swissmedic = require("./swissmedic");
-var swissmedicCfg = require("./cfg/swissmedic.cfg.js");
+var atc = rewire("./atc");
+var atcCfg = atc.__get__("cfg");
+var bag = rewire("./bag");
+var bagCfg = bag.__get__("cfg");
+var kompendium = rewire("./kompendium");
+var kompenidumCfg = kompendium.__get__("cfg");
+var swissmedic = rewire("./swissmedic");
+var swissmedicCfg = swissmedic.__get__("cfg");
 
 var defaultLog = require("../lib/index").log;
 var compareFileSize = require("../lib/compare/compareFileSize");
