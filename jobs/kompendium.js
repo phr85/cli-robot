@@ -24,22 +24,22 @@ var cfg = {
     }]
   },
   "release": {
-    "dir": path.resolve(cwd, "data/auto/release/kompendium"),
+    "dir": path.resolve(cwd, "data/release/kompendium"),
     "de": {
-      "fi": path.resolve(cwd, "data/auto/release/kompendium/de/fi"),
-      "pi": path.resolve(cwd, "data/auto/release/kompendium/de/pi")
+      "fi": path.resolve(cwd, "data/release/kompendium/de/fi"),
+      "pi": path.resolve(cwd, "data/release/kompendium/de/pi")
     },
     "fr": {
-      "fi": path.resolve(cwd, "data/auto/release/kompendium/fr/fi"),
-      "pi": path.resolve(cwd, "data/auto/release/kompendium/de/pi")
+      "fi": path.resolve(cwd, "data/release/kompendium/fr/fi"),
+      "pi": path.resolve(cwd, "data/release/kompendium/fr/pi")
     },
     "it": {
-      "fi": path.resolve(cwd, "data/auto/release/kompendium/it/fi"),
-      "pi": path.resolve(cwd, "data/auto/release/kompendium/it/pi")
+      "fi": path.resolve(cwd, "data/release/kompendium/it/fi"),
+      "pi": path.resolve(cwd, "data/release/kompendium/it/pi")
     },
-    "catalog": path.resolve(cwd, "data/auto/release/kompendium/catalog.json"),
-    "file": path.resolve(cwd, "data/auto/release/kompendium/kompendium.json"),
-    "minFile": path.resolve(cwd, "data/auto/release/kompendium/kompendium.min.json")
+    "catalog": path.resolve(cwd, "data/release/kompendium/catalog.json"),
+    "file": path.resolve(cwd, "data/release/kompendium/kompendium.json"),
+    "minFile": path.resolve(cwd, "data/release/kompendium/kompendium.min.json")
   }
 };
 
